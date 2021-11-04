@@ -4,4 +4,5 @@ unidecode
 nltk
 blingfire
 awscli
+flask
 lightgbm==2.3.1
