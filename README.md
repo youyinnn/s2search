@@ -1,7 +1,7 @@
 # Run Flask Demo
 # python server_search.py
 
-Make sure query_from_API(debug=True), if you don't want cann s2search module which requires a larger complex env. 
+Make sure query_from_API(debug=True), if you don't want call s2search module which requires a larger complex env. 
 And you can Annotated from s2search.rank import S2Ranker in query_module.py.
 
 
