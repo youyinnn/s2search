@@ -22,11 +22,10 @@ def query_result_req(keyword,number):
     '''when debug = True, will not call s2search module, which includes the whole machine learning predict model and 
     complex env requirements, only feed an example of paper dict that for debug web funtion.'''
     paper_list,score = query_from_API(keyword,number,keyword,debug=True)
-    print(paper_list)
 
     return jsonify(paper_list)
 
 
 if __name__ == '__main__':
-    app.run(host='192.168.1.28', port=8080, debug=True)
+    app.run(debug=True)
 
