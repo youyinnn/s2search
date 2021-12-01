@@ -3,7 +3,9 @@ import urllib.request
 from s2search.rank import S2Ranker
 
 # point to the artifacts downloaded from s3
-data_dir = '/Users/ayuee/Documents/GitHub/COEN6313/s2search/s2search_data'
+# data_dir = '/com.docker.devenvironments.code/s2search_data'
+# data_dir = 'gs://coen-6313.appspot.com/s2search_data'
+data_dir = './s2search_data'
 
 papers_example = [
     {
@@ -40,9 +42,15 @@ papers_example = [
     }
 ]
 
-def query_from_API(keywords,numbers,related_keywords,debug=False):
 
-    query_url='https://api.semanticscholar.org/graph/v1/paper/search?query='+keywords+'&fields=title,abstract,venue,authors,year,citationCount&limit='+numbers
+def S2_Rank(related_keywords, paper_dict_list, file=data_dir):
+    s2ranker = S2Ranker(file)
+    score = s2ranker.score(related_keywords, paper_dict_list)
+    return score
+
+
+def query_from_API(keywords, numbers, related_keywords, file=data_dir):
+    query_url = 'https://api.semanticscholar.org/graph/v1/paper/search?query=' + keywords + '&fields=title,abstract,venue,authors,year,url,citationCount&limit=' + numbers
 
     with urllib.request.urlopen(query_url) as url:
         s = url.read()
@@ -57,17 +65,17 @@ def query_from_API(keywords,numbers,related_keywords,debug=False):
         for author in range(len(s['data'][i]['authors'])):
             author_list.append(s['data'][i]['authors'][author]['name'])
 
-        new_paper = {'title': s['data'][i]['title'],'abstract': s['data'][i]['abstract'],
-                     'venue': s['data'][i]['venue'], 'authors': author_list,'year': s['data'][i]['year'],
-                     'n_citations': s['data'][i]['citationCount']}
+        new_paper = {'title': s['data'][i]['title'], 'abstract': s['data'][i]['abstract'],
+                     'venue': s['data'][i]['venue'], 'authors': author_list, 'year': s['data'][i]['year'],
+                     'n_citations': s['data'][i]['citationCount'], 'url': s['data'][i]['url']}
         paper_dict_list.append(new_paper)
 
-    s2ranker = S2Ranker(data_dir)
-    score = s2ranker.score(related_keywords, paper_dict_list)
+    score = S2_Rank(related_keywords, paper_dict_list, file)
 
-    while debug:
-        return papers_example, [10, 9, 8, 7]
+    for i in range(len(paper_dict_list)):
+        paper_dict_list[i]['Relevance Score by S2Search'] = score[i]
+        paper_dict_list[i]['key works'] = related_keywords
+    score_order = sorted(range(len(score)), key=lambda k: score[k], reverse=True)
+    paper_list = [paper_dict_list[i] for i in score_order]
 
-    return paper_dict_list, score
-
-
+    return paper_list, score
