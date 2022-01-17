@@ -1,0 +1,14 @@
+numpy
+pandas
+scikit-learn
+scipy
+unidecode
+nltk
+blingfire
+awscli
+flask
+lightgbm
+functions-framework
+gunicorn
+twilio==6.8.4
+regex==2021.11.1
