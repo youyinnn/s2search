@@ -51,7 +51,7 @@ papers_example = [
         'venue': 'IEEE Computational intelligence ',
         'authors': ['E Cambria', 'B White'],
         'year': 2014,
-        'n_citations': 900,
+        'n_citations': 0,
     }
 ]
 
