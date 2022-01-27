@@ -6,7 +6,7 @@ from pathlib import Path
 
 # data_dir = './s2search_data'
 s2_dir = './s2search_data'
-root_dir = '/Users/ayuee/Documents/GitHub/XAI_PROJECT/data_process/masking'
+root_dir = '/Users/yinnnyou/workspace/XAI_PROJECT/data_process/masking'
 features = ['title', 'abstract', 'venue', 'authors', 'year', 'n_citations', 'full']
 papers_example = [
     {
@@ -65,6 +65,7 @@ def S2_get_score(root_dir):
                         print(full_path)
                         score = S2_open_json(full_path)
                         score = np.array(score)
+                        print(score)
                         S2_save_score_as_np(score, feature)
 
 
