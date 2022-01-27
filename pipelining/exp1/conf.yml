@@ -1,2 +1,3 @@
-query: machine learning
-description: test one
+query: "machine learning"
+description: "test one"
+masking_option_keys: ["t", "abs", "v", "au", "y", "c"]

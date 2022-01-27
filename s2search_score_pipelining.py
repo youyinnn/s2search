@@ -23,7 +23,7 @@ def get_scores(query, paper, mask_option='origin'):
     scores = ranker.score(query, paper)
     # et = round(time.time() - st, 6)
     # print(paper)
-    # print(f'Scores\n{scores}')
+    # print(f'Scores\n{scores} on option: {mask_option}')
     # print(f'Compute {len(scores)} scores by masking option {mask_option} within {et} sec')
     return scores
 
@@ -31,7 +31,7 @@ def read_conf(exp_dir_path_str):
     conf_path = path.join(exp_dir_path_str, 'conf.yml')
     with open(str(conf_path), 'r') as f:
         conf = yaml.safe_load(f)
-        return conf['query'], conf.get('description')
+        return conf['query'], conf.get('description'), conf.get('masking_option_keys')
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
@@ -39,7 +39,7 @@ if __name__ == '__main__':
         exp_dir_path = path.join(data_dir, exp_name)
         exp_dir_path_str = str(exp_dir_path)
         if path.isdir(exp_dir_path):
-            query, description = read_conf(exp_dir_path_str)
+            query, description, masking_option_keys = read_conf(exp_dir_path_str)
             print(f'Running s2search ranker on {exp_name} experiment data.')
             print(f'Description of this experiment: {description}')
 
@@ -62,7 +62,7 @@ if __name__ == '__main__':
                         np.save(original_score_npy_file_name, scores)
 
                         # masking
-                        rs = fm.masking(paper_data)
+                        rs = fm.masking(paper_data, masking_option_keys)
                         for key in fm.masking_options.keys():
                             masking_score = get_scores(query, rs[key], key)
                             masking_score_npy_file_name = path.join(exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_{key}')
