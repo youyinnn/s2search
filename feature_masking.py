@@ -56,7 +56,7 @@ def masking_with_option(original_paper_data, options):
             #     del paper['year']
 
             else:
-                paper[masking_feature] = ""
+                paper[masking_feature] = " "
     return cp
 
 

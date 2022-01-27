@@ -1,0 +1,7 @@
+query: "machine learning"
+description: "
+\nExperiment No.3, using the same data of exp2. But the masking function is different.
+\nIt mask features with a space, not empty string."
+masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+
+sample_name: ["sample"]
