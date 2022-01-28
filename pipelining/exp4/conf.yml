@@ -1,0 +1,17 @@
+description: "
+\nExperiment No.4, Plot all data"
+samples:
+    cslg: 
+      - query: "Machine Learning"
+        masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+      - query: "convolutional neural network"
+        masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+    cscv: 
+      - query: "Computer Vision and Pattern Recognition"
+        masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+    csai: 
+      - query: "Artificial Intelligence"
+        masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+    csms: 
+      - query: "Mathematical Software"
+        masking_option_keys: ["t", "abs", "v", "au", "y", "c"]

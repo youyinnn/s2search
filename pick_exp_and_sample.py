@@ -19,36 +19,50 @@ def ask(in_colab):
         conf = yaml.safe_load(f)
         # query = conf['query']; 
         description = conf.get('description')
-        masking_option_keys = conf['masking_option_keys']
-        sample_name = conf['sample_name']
+        samples_config = conf.get('samples')
 
     print(f'Experiment {exp}\'s description: {description}')
 
     # listing exp samples
-    print(f'Got sample data: {sample_name}')
-
-    # select sample
-    sample = input("Typing the sample name: ")
-
+    sample_file_list = [f for f in listdir(exp_dir) if path.isfile(path.join(exp_dir, f)) and f.endswith('.data')]
+    print(f'Got sample data: {sample_file_list}')
+    
     # preparing data
     score_dir = path.join(exp_dir, 'scores')
-    sample_origin_npy = np.load(path.join(score_dir, f'{exp}_{sample}_origin.npy'))
 
-    sample_feature_masking_npy = []
+    sample_and_data = []
+    for file_name in sample_file_list:
+        sample_name = file_name.replace('.data', '')
 
-    for key in masking_option_keys:
-        sample_feature_masking_npy.append(np.load(path.join(score_dir, f'{exp}_{sample}_{key}.npy')))
+        sample_task_list = samples_config[sample_name]
 
-    feature_stack = np.stack((sample_feature_masking_npy))
+        t_count = 0
+        for task in sample_task_list:
+            t_count += 1
+            sample_query = task['query']
+            sample_masking_option_keys = task['masking_option_keys']
 
-    d_features = []
-    for array in feature_stack:
-        d_features.append(np.absolute((sample_origin_npy-array)))
+            sample_origin_npy = np.load(path.join(score_dir, f'{exp}_{sample_name}_t{t_count}_origin.npy'))
 
-    d_features = np.array(d_features)
+            sample_feature_masking_npy = []
+            for key in sample_masking_option_keys:
+                sample_feature_masking_npy.append(np.load(path.join(score_dir, f'{exp}_{sample_name}_t{t_count}_{key}.npy')))
+            feature_stack = np.stack((sample_feature_masking_npy))
+
+            d_features = []
+            for array in feature_stack:
+                d_features.append(np.absolute((sample_origin_npy - array)))
+            d_features = np.array(d_features)
+
+            sample_and_data.append({
+                'sample_and_task_name': f'{sample_name}-task{t_count}',
+                'origin': sample_origin_npy,
+                'd_features': d_features,
+                'query': sample_query,
+                'masking_option_keys': sample_masking_option_keys
+            })
 
     return [
-        masking_option_keys, 
-        sample_name, sample_origin_npy, d_features,
-        exp, description
+        exp, exp_dir, description,
+        sample_and_data,
     ]

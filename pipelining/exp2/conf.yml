@@ -1,7 +1,7 @@
-query: "machine learning"
 description: "
 \nExperiment No.2, search in 30000 randomly papers from cs.LG.
 \nMaksing all features solely."
-masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
-
-sample_name: ["sample"]
+samples: 
+    sample:
+      - query: "machine learning"
+        masking_option_keys: ["t", "abs", "v", "au", "y", "c"]

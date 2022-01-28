@@ -1,5 +1,5 @@
 from s2search.rank import S2Ranker
-import time, os, os.path as path, sys, yaml, json, multiprocessing
+import time, os, os.path as path, sys, yaml, json
 from multiprocessing import Pool
 import numpy as np
 import feature_masking as fm
@@ -32,7 +32,7 @@ def read_conf(exp_dir_path_str):
     conf_path = path.join(exp_dir_path_str, 'conf.yml')
     with open(str(conf_path), 'r') as f:
         conf = yaml.safe_load(f)
-        return conf['query'], conf.get('description'), conf.get('masking_option_keys'), conf.get('sample_name')
+        return conf.get('description'), conf.get('samples'), 
 
 def get_scores_and_save(arg):
     query = arg[0]
@@ -52,10 +52,11 @@ if __name__ == '__main__':
             exp_dir_path = path.join(data_dir, exp_name)
             exp_dir_path_str = str(exp_dir_path)
             if path.isdir(exp_dir_path):
-                query, description, masking_option_keys, sample_name = read_conf(exp_dir_path_str)
+                description, samples_config = read_conf(exp_dir_path_str)
                 print(f'\nRunning s2search ranker on {exp_name} experiment data')
                 print(f'Description of this experiment: {description}')
 
+                # scores dir
                 scores_dir = path.join(exp_dir_path_str, 'scores')
                 if not path.exists(str(scores_dir)):
                     os.mkdir(str(scores_dir))
@@ -64,39 +65,37 @@ if __name__ == '__main__':
                         for file_name in files:
                             os.remove(path.join(exp_dir_path_str, 'scores', file_name))
                 
-                paper_data = []
-                for sn in sample_name:
-                    file_name = f'{sn}.data'
-                    sample_file_name = path.join(exp_dir_path_str, file_name)
-                    if path.isfile(sample_file_name):
-                        print(f'Start computing {exp_name} {file_name}')
-                    else:
-                        print(f'No sample data {file_name} under {exp_name}')
-                        continue
-                
-                    # read sample data
+                sample_file_list = [f for f in os.listdir(exp_dir_path_str) if path.isfile(path.join(exp_dir_path_str, f)) and f.endswith('.data')]
+
+                for file_name in sample_file_list:   
+                    paper_data = []
+                    sample_name = file_name.replace('.data', '')
+                    # # read sample data
                     with open(str(path.join(data_dir, exp_name, file_name))) as f:
                         lines = f.readlines()
                         for line in lines:
                             paper_data.append(json.loads(line.strip(), strict=False))
 
-                    sample_name = file_name.replace('.data', '')
+                    sample_task_list = samples_config[sample_name]
 
-                    get_scores_and_save([query, paper_data, exp_dir_path_str, f'{exp_name}_{sample_name}_origin', 'origin'])
+                    t_count = 0
+                    for task in sample_task_list:
+                        t_count += 1
+                        sample_query = task['query']
+                        sample_masking_option_keys = task['masking_option_keys']
+                        get_scores_and_save([sample_query, paper_data, exp_dir_path_str, f'{exp_name}_{sample_name}_t{t_count}_origin', 'origin'])
 
-                    # masking
-                    rs = fm.masking(paper_data, masking_option_keys)
-                    for key in masking_option_keys:
-                        get_scores_and_save([
-                            query,
-                            rs[key],
-                            exp_dir_path_str,
-                            f'{exp_name}_{sample_name}_{key}',
-                            key
-                        ])
+                        # masking
+                        rs = fm.masking(paper_data, sample_masking_option_keys)
+                        for key in sample_masking_option_keys:
+                            get_scores_and_save([
+                                sample_query,
+                                rs[key],
+                                exp_dir_path_str,
+                                f'{exp_name}_{sample_name}_t{t_count}_{key}',
+                                key
+                            ])
 
-                    # clear the data for next sample file
-                    paper_data = []
                     print(f'Done with {exp_name} {file_name}')
                 print(f'Done with {exp_name}')
                 

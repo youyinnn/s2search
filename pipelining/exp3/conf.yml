@@ -1,6 +1,6 @@
-query: "machine learning"
 description: "
 \nExperiment No.3, using the same data of exp2. Replacing all 'machine learning' with '' on the title using rt2."
-masking_option_keys: ["t", "abs", "v", "au", "y", "c","rt2"]
-
-sample_name: ["sample"]
+samples:
+    sample:
+      - query: "machine learning"
+        masking_option_keys: ["t", "abs", "v", "au", "y", "c","rt2"]
