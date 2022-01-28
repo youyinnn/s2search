@@ -90,23 +90,36 @@ Note that `n_key_citations` is a Semantic Scholar feature. If you don't have it,
 
 ## Config a experiment
 
-1. Create a folder under `pipelining`, folder name would be the experiment name. Say `pipelining/exp1`.
-2. Put you paper data under the experiment folder. Say `pipelining/exp1/sample1.data`.
-3. Create an experiment config file `conf.yml` under the experiment folder. Say `pipelining/exp1/conf.yml`.
+1. Create a folder under `pipelining`, folder name would be the experiment name. Say `pipelining/exp4`.
+2. Put all of your paper data under the experiment folder. Say `pipelining/exp4/cslg.data` and so on.
+3. Create an experiment config file `conf.yml` under the experiment folder. Say `pipelining/exp4/conf.yml`.
 
-    ```yaml
-    query: "machine learning"
-    description: "test one"
-    masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
-    sample_name: ["sample1"]
-    ```
+   ```yaml
+   description: "
+   \nExperiment No.4, Plot all data"
+   samples:
+       cslg:
+         - query: "Machine Learning"
+           masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+         - query: "convolutional neural network"
+           masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+       cscv:
+         - query: "Computer Vision and Pattern Recognition"
+           masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+       csai:
+         - query: "Artificial Intelligence"
+           masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+       csms:
+         - query: "Mathematical Software"
+           masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+   ```
 
 The configuration should contains those key-values.
 
-- query: the query which input to the s2search;
-- description: describe what this experiment is up to;
-- masking_option_keys: a list of keys for masking option, this can be refer to [here](https://github.com/youyinnn/s2search/blob/85b3ac3e854b8903f92134d32515ae8313e3725e/feature_masking.py#L4);
-- sample_name: a list of the sample data name;
+- **description:** describe what this experiment is up to;
+- **samples:** a **key-value map** of sample data: the key is the sample data file name, the value should contains **a list of task**, every task should have the following configs:
+  - **query:** the query which input to the s2search;
+  - **masking_option_keys:** a list of keys for masking option, this can be refer to [here](https://github.com/youyinnn/s2search/blob/85b3ac3e854b8903f92134d32515ae8313e3725e/feature_masking.py#L4);
 
 ## Run s2search and get the npy files
 
@@ -117,10 +130,12 @@ python s2search_score_pipelining.py [experiment1_name] [experiment2_name] [exper
 E.g
 
 ```bash
-python s2search_score_pipelining.py exp1
+python s2search_score_pipelining.py exp4
 ```
 
 Then all npy data files will be created at `pipelining/exp1/scores` representing all the `masking_option_keys` that you config.
+
+For instance, as for exp4 there should be four `.data` files under this experiment folder named as `cslg.data`, `cscv.daat` and so on. For `cslg.data`, the program will perform two tasks with different input queries then outputs the score files under `exp4/scores`.
 
 You can also run multiple experiments:
 
@@ -130,4 +145,4 @@ python s2search_score_pipelining.py exp1 exp2 exp3
 
 ## Plot the npy by ipynb
 
-You can either run [it](https://github.com/youyinnn/s2search/blob/85b3ac3e854b8903f92134d32515ae8313e3725e/s2search_score_ploting.ipynb) lcoally, or remotely at colab.
+You can either run [it](https://github.com/youyinnn/s2search/blob/85b3ac3e854b8903f92134d32515ae8313e3725e/s2search_score_ploting.ipynb) lcoally, or remotely at colab. The image will be saved under the experiment folder.
