@@ -51,8 +51,11 @@ def ask(in_colab):
 
             d_features = []
             for array in feature_stack:
-                d_features.append(np.absolute((sample_origin_npy - array)))
-            d_features = np.array(d_features)
+                # d_features.append(np.absolute((sample_origin_npy - array)))
+                # d = np.absolute((sample_origin_npy - array))
+                d = sample_origin_npy - array
+                d_features.append(d)
+            d_features = np.array(d_features, dtype=object)
 
             sample_and_data.append({
                 'sample_and_task_name': f'{sample_name}-task{t_count}',
