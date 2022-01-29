@@ -86,9 +86,15 @@ Note that `n_key_citations` is a Semantic Scholar feature. If you don't have it,
 
 </details>
 
-# Score computing and plot work flow
+# Score computing and plotting work flow
 
-## Config a experiment
+1. Create exp folder;
+2. Put data into exp folder;
+3. Create a config file for this experiment;
+4. Run a command to use s2search to get the npy data;
+5. Run a command to generate the jupyter notebook for data plotting of this experiment;
+
+## Step 1-3. Setup experiment
 
 1. Create a folder under `pipelining`, folder name would be the experiment name. Say `pipelining/exp4`.
 2. Put all of your paper data under the experiment folder. Say `pipelining/exp4/cslg.data` and so on.
@@ -121,10 +127,10 @@ The configuration should contains those key-values.
   - **query:** the query which input to the s2search;
   - **masking_option_keys:** a list of keys for masking option, this can be refer to [here](https://github.com/youyinnn/s2search/blob/85b3ac3e854b8903f92134d32515ae8313e3725e/feature_masking.py#L4);
 
-## Run s2search and get the npy files
+## Step 4. Run s2search and get the npy files
 
 ```bash
-python s2search_score_pipelining.py [experiment1_name] [experiment2_name] [experiment3_name] ...
+python s2search_score_pipelining.py [experiment1_name] [experiment2_name] ...
 ```
 
 E.g
@@ -143,6 +149,20 @@ You can also run multiple experiments:
 python s2search_score_pipelining.py exp1 exp2 exp3
 ```
 
-## Plot the npy by ipynb
+## Step 5. Generate plot notebook
 
-You can either run [it](https://github.com/youyinnn/s2search/blob/85b3ac3e854b8903f92134d32515ae8313e3725e/s2search_score_ploting.ipynb) lcoally, or remotely at colab. The image will be saved under the experiment folder.
+Install nbformat frist:
+
+```bash
+pip install nbformat
+```
+
+For instance, when you do not have the `pipelining/exp4/exp4_plotting.ipynb` for exp4, run the command:
+
+```bash
+python plotting_nb_gen.py
+```
+
+And the notebook will be generated will default setting.
+
+Then you can check your plot with the notebook.

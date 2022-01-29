@@ -20,6 +20,7 @@ for exp_name in exp_dir_list:
     # generate the plotting.ipynb if not exist
     if True:
     # if not path.exists(p_nb_file):
+        print(f'Generating plotting notebook for {exp_name} at {p_nb_file}')
         nb = nbf.v4.new_notebook()
         nb.metadata.kernelspec = {
             "display_name": "Python 3",
@@ -38,9 +39,9 @@ for exp_name in exp_dir_list:
             "version": "3.10.0"
         }
         open_in_colab_href = f'<a href="https://colab.research.google.com/github/{user_repo}/s2search/blob/{branch}/pipelining/{exp_name}/{exp_name}_plotting.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>'
-        exp_des = f'#### Experiment Description\n\n{description}'
+        exp_des = f'### Experiment Description\n\n{description}'
 
-        init_md = '#### Initialization'
+        init_md = '### Initialization'
         init_code = f'''%load_ext autoreload
 %autoreload 2
 import numpy as np, sys, os
@@ -53,7 +54,7 @@ if in_colab:
     %cd s2search/pipelining/{exp_name}/
 '''
 
-        loading_data_md = '#### Loading data'
+        loading_data_md = '### Loading data'
         loading_data_code = f'''sys.path.insert(1, '../../')
 import numpy as np, sys, os
 from getting_data import get
@@ -65,14 +66,17 @@ for sample_data_and_config in sample_data_and_config_arr:
     y_values = []
     sample_origin_npy = sample_data_and_config['origin']
     for array in sample_data_and_config['feature_stack']:
+
+        # define your y axis value here
         y_value = np.absolute((sample_origin_npy - array)) / sample_origin_npy
         # y_value = sample_origin_npy - array
         y_values.append(y_value)
+
     y_values = np.array(y_values)
     sample_data_and_config['y_values'] = y_values
 '''
 
-        plot_data_md = "#### Plot the data"
+        plot_data_md = "### Plot the data"
         plot_data_code = '''import matplotlib.pyplot as plt
 def plot_scores_d(sample_name, y_values, sample_origin_npy, query, sample_masking_option_keys): 
   plt.figure(figsize=(20, 15), dpi=80)
