@@ -157,12 +157,36 @@ Install nbformat frist:
 pip install nbformat
 ```
 
-For instance, when you do not have the `pipelining/exp4/exp4_plotting.ipynb` for exp4, run the command:
+You can:
+
+```bash
+python plotting_nb_gen.py [experiment_name(optional)] [sample_name(optional)]
+```
+
+For instance, when you do not have the `pipelining/exp4/exp4_csai_plotting.ipynb` for sample `csai` of `exp4`, run the command:
 
 ```bash
 python plotting_nb_gen.py
 ```
 
+This command will generate notebook files for those have not been created.
+
 And the notebook will be generated will default setting.
 
 Then you can check your plot with the notebook.
+
+If you specify the exp name like:
+
+```bash
+python plotting_nb_gen.py exp1
+```
+
+It will force to generate all notebooks for all of the data samples of `exp1`.
+
+If you specify the exp name like:
+
+```bash
+python plotting_nb_gen.py exp4 csai
+```
+
+It will force to generate the notebook for the data sample `csai` of `exp4`.
