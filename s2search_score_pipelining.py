@@ -41,9 +41,27 @@ def get_scores_and_save(arg):
     npy_file_name = arg[3]
     mask_option = arg[4]
 
-    scores = get_scores(query, paper_data, mask_option)
     original_score_npy_file_name = path.join(exp_dir_path_str, 'scores', npy_file_name)
-    np.save(original_score_npy_file_name, scores)
+    if not os.path.exists(str(original_score_npy_file_name) + '.npy'):
+        scores = get_scores(query, paper_data, mask_option)
+        np.save(original_score_npy_file_name, scores)
+    else:
+        print(f'Scores of {original_score_npy_file_name} exist, should pass')
+
+def score_file_is_configured(sample_configs, score_file_name):
+    score_file_name = score_file_name.replace('.npy', '')
+    exp_name, sample_data_name, task_name, one_masking_options = score_file_name.split('_')
+
+    sample_tasks = sample_configs.get(sample_data_name)
+    if sample_tasks != None:
+        task_number = int(task_name[1:])
+        if len(task_name) >= task_number:
+            task = sample_tasks[task_number - 1]
+            masking_option_keys = task['masking_option_keys']
+            if one_masking_options == 'origin' or one_masking_options in masking_option_keys:
+                return True
+
+    return False
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
@@ -52,7 +70,7 @@ if __name__ == '__main__':
             exp_dir_path = path.join(data_dir, exp_name)
             exp_dir_path_str = str(exp_dir_path)
             if path.isdir(exp_dir_path):
-                description, samples_config = read_conf(exp_dir_path_str)
+                description, sample_configs = read_conf(exp_dir_path_str)
                 print(f'\nRunning s2search ranker on {exp_name} experiment data')
                 print(f'Description of this experiment: {description}')
 
@@ -63,7 +81,9 @@ if __name__ == '__main__':
                 else:
                     for root, dirs, files in os.walk(scores_dir):
                         for file_name in files:
-                            os.remove(path.join(exp_dir_path_str, 'scores', file_name))
+                            # remove score file if it is not configured
+                            if not score_file_is_configured(sample_configs, file_name):
+                                os.remove(path.join(exp_dir_path_str, 'scores', file_name))
                 
                 sample_file_list = [f for f in os.listdir(exp_dir_path_str) if path.isfile(path.join(exp_dir_path_str, f)) and f.endswith('.data')]
 
@@ -76,7 +96,7 @@ if __name__ == '__main__':
                         for line in lines:
                             paper_data.append(json.loads(line.strip(), strict=False))
 
-                    sample_task_list = samples_config[sample_name]
+                    sample_task_list = sample_configs[sample_name]
 
                     t_count = 0
                     for task in sample_task_list:
