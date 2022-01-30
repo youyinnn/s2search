@@ -1,0 +1,5 @@
+description: "Quering machine learning in s2 cs data from partition 000 to 1000(1.12 million data) with no feature masking."
+samples:
+  cs-p0-p1000:
+    - query: "machine learning"
+      masking_option_keys: ["t", "abs", "v", "au", "y", "c"]

@@ -143,6 +143,11 @@ def get_comb_masking_options():
     
     return comb_map
 
+comb_map = get_comb_masking_options()
+for key in comb_map:
+    if masking_options.get(key) == None:
+        masking_options[key] = comb_map[key]
+
 def masking_with_option(original_paper_data, options):
     cp = copy.deepcopy(original_paper_data)
     for paper in cp:
@@ -166,11 +171,6 @@ def masking_with_option(original_paper_data, options):
                 paper[replace_feature] = options['replace_func'](paper[replace_feature])
     return cp
 
-
-comb_map = get_comb_masking_options()
-for key in comb_map:
-    if masking_options.get(key) == None:
-        masking_options[key] = comb_map[key]
 
 def masking(original_paper_data, masking_option_keys = ["t", "abs", "v", "au", "y", "c", 'rt1']):
     all_result = {}

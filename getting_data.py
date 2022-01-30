@@ -28,7 +28,10 @@ def get(exp_name, sample_name):
         sample_feature_masking_npy = []
         for key in sample_masking_option_keys:
             sample_feature_masking_npy.append(np.load(path.join(score_dir, f'{exp_name}_{sample_name}_t{t_count}_{key}.npy')))
-        feature_stack = np.stack((sample_feature_masking_npy))
+        if len(sample_feature_masking_npy) > 0:
+            feature_stack = np.stack((sample_feature_masking_npy))
+        else:
+            feature_stack = None
 
         sample_data_and_config.append({
             'sample_and_task_name': f'{sample_name}-task{t_count}',
