@@ -1,61 +1,147 @@
 import copy, json
 import add_on
 
+t = 'title'
+abs = 'abstract'
+v = 'venue'
+y = 'year'
+au = 'authors'
+c = 'n_citations'
+
+mp = {
+    't': t,
+    'abs': abs,
+    'v': v,
+    'y': y,
+    'au': au,
+    'c': c,
+}
+
 masking_options = {
     't': {
-        'plot_legend': 'title',
-        'should_mask': ['title'],
+        'plot_legend': t,
+        'should_mask': [t],
         'marker': '.',
         'color': 'r'
     }, 
     'abs': {
-        'plot_legend': 'abstract',
-        'should_mask':['abstract'],
+        'plot_legend': abs,
+        'should_mask':[abs],
         'marker': ',',
         'color': 'g'
     }, 
     'v': {
-        'plot_legend': 'venue',
-        'should_mask':['venue'],
+        'plot_legend': v,
+        'should_mask':[v],
         'marker': 'v',
         'color': 'y'
     }, 
     'au': {
-        'plot_legend': 'authors',
-        'should_mask':['authors'],
+        'plot_legend': au,
+        'should_mask':[au],
         'marker': 'o',
         'color': 'b'
     }, 
     'y': {
-        'plot_legend': 'year',
-        'should_mask':['year'],
+        'plot_legend': y,
+        'should_mask':[y],
         'marker': 'x',
         'color': 'm'
     }, 
     'c': {
-        'plot_legend': 'n_citations',
-        'should_mask':['n_citations'],
+        'plot_legend': c,
+        'should_mask':[c],
         'marker': '*',
         'color': 'c'
     },
     'rt1': {
         'plot_legend': 'replaceing title1',
-        # 'should_mask': ['title'],
-        'should_replace': ['title'],
+        # 'should_mask': [t],
+        'should_replace': [t],
         'marker': '<',
         'color': 'black',
         'replace_func': add_on.replace_title_1
     },
     'rt2': {
         'plot_legend': 'replaceing title2',
-        # 'should_mask': ['title'],
-        'should_replace': ['title'],
+        # 'should_mask': [t],
+        'should_replace': [t],
         'marker': '>',
         'color': 'gold',
         'replace_func': add_on.replace_title_2
-    }
-    # 'all': ['title', 'abstract', 'venue', 'authors', 'year','n_citations'],
+    },
 }
+
+def combination():
+    def backtracing(_set, tmp, comb, start):
+        if len(tmp) > 0:
+            comb.append(copy.deepcopy(tmp))
+        i = start
+        while i < len(_set):
+            tmp.append(_set[i])
+            backtracing(_set, tmp, comb, i + 1)
+            tmp.pop(len(tmp) - 1)
+            i += 1
+
+    _set = ['t', 'abs', 'v', 'au', 'y', 'c']
+    comb = []
+    backtracing(_set, [], comb, 0)
+    return comb
+
+def get_comb_masking_options():
+    comb = combination()
+    comb_map = {}
+    color_range = [
+        'dimgray', 
+        'saddlebrown', 
+        'deeppink', 
+
+        'red', 
+        'gold',
+        'olivedrab', 
+
+        'darkgreen', 
+        'darkorange', 
+        'cyan', 
+
+        'navy',
+        'purple', 
+        'teal', 
+    ]
+    marker_range = [
+        '1', '2', '3', '4',
+        'x', '*', '+'
+    ]
+    ci = 0
+    mi = 0
+    for cb in comb:
+        key = ''.join(cb)
+        plot_legend = ''
+        should_mask = []
+        for k in cb:
+            plot_legend += k + ' & '
+            should_mask.append(mp[k])
+
+        if ci == len(color_range):
+            ci = 0
+
+        color = color_range[ci]
+        ci += 1
+
+        if mi == len(marker_range):
+            mi = 0
+
+        marker = marker_range[mi]
+        mi += 1
+
+        comb_map[key] = {
+            'plot_legend': plot_legend[:len(plot_legend) - 3],
+            'should_mask': should_mask,
+            'marker': marker,
+            'color': color
+        }
+    
+    return comb_map
 
 def masking_with_option(original_paper_data, options):
     cp = copy.deepcopy(original_paper_data)
@@ -80,6 +166,11 @@ def masking_with_option(original_paper_data, options):
                 paper[replace_feature] = options['replace_func'](paper[replace_feature])
     return cp
 
+
+comb_map = get_comb_masking_options()
+for key in comb_map:
+    if masking_options.get(key) == None:
+        masking_options[key] = comb_map[key]
 
 def masking(original_paper_data, masking_option_keys = ["t", "abs", "v", "au", "y", "c", 'rt1']):
     all_result = {}
@@ -108,8 +199,11 @@ if __name__ == '__main__':
             'n_citations': 5000
         }
     ]
-    ars = masking(papers)
-    for key in ars.keys():
-        print(f'masking {masking_options[key]}')
-        print(json.dumps(ars[key]))
-        print()
+    # ars = masking(papers)
+    # for key in ars.keys():
+    #     print(f'masking {masking_options[key]}')
+    #     print(json.dumps(ars[key]))
+    #     print()
+
+    for k in masking_options:
+        print(k, masking_options[k].get('should_mask'), masking_options[k]['color'], masking_options[k]['plot_legend'] )

@@ -1,0 +1,31 @@
+description: "
+\nExperiment No.5, Masking 6 features will all combinations for fixed query and cslg data sample."
+samples:
+    cslg: 
+      - query: "Machine Learning"
+        masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+      - query: "Machine Learning"
+        masking_option_keys: ["tabs", "tabsv", "tabsvau", "tabsvauy", "tabsvauyc"]
+      - query: "Machine Learning"
+        masking_option_keys: ["tabsvauc", "tabsvy", "tabsvyc", "tabsvc", "tabsau"]      
+      - query: "Machine Learning"
+        masking_option_keys: ["tabsauy", "tabsauyc", "tabsauc", "tabsy", "tabsyc", "tabsc",]
+      - query: "Machine Learning"
+        masking_option_keys: ["tv", "tvau", "tvauy", "tvauyc", "tvauc"]
+      - query: "Machine Learning"
+        masking_option_keys: ["tvy", "tvyc", "tvc", "tau", "tauy"]
+      - query: "Machine Learning"
+        masking_option_keys: ["tauyc", "tauc", "ty", "tyc", 'tc']
+      - query: "Machine Learning"
+        masking_option_keys: ["absv", "absvau", "absvauy", "absvauyc", "absvauc", 'absvy']
+      - query: "Machine Learning"
+        masking_option_keys: ["absvyc", "absvc", "absau", "absauy", "absauyc", 'absauc']
+      - query: "Machine Learning"
+        masking_option_keys: ["absy", "absyc", "absc"]
+      - query: "Machine Learning"
+        masking_option_keys: ["vau", "vauy", "vauyc", "vauc", "vy", 'vyc']      
+      - query: "Machine Learning"
+        masking_option_keys: ["vc", "auy", "auyc", "auc", "yc"]
+    # cscv: 
+    #   - query: "Computer Vision and Pattern Recognition"
+    #     masking_option_keys: ["t", "abs", "v", "au", "y", "c"]

@@ -1,0 +1,83 @@
+
+Running s2search ranker on exp5 experiment data
+Description of this experiment:  
+Experiment No.4, Plot all data
+Loading ranker model...
+Load the s2 ranker within 14.96 sec
+Compute 92938 scores within 67.777199 sec by masking option origin
+Compute 92938 scores within 62.318453 sec by masking option t
+Compute 92938 scores within 33.323978 sec by masking option abs
+Compute 92938 scores within 65.448968 sec by masking option v
+Compute 92938 scores within 53.361099 sec by masking option au
+Compute 92938 scores within 67.757548 sec by masking option y
+Compute 92938 scores within 67.348505 sec by masking option c
+Compute 92938 scores within 66.665413 sec by masking option origin
+Compute 92938 scores within 28.078337 sec by masking option tabs
+Compute 92938 scores within 26.422141 sec by masking option tabsv
+Compute 92938 scores within 13.022123 sec by masking option tabsvau
+Compute 92938 scores within 12.81521 sec by masking option tabsvauy
+Compute 92938 scores within 12.807788 sec by masking option tabsvauyc
+Compute 92938 scores within 66.905444 sec by masking option origin
+Compute 92938 scores within 12.979225 sec by masking option tabsvauc
+Compute 92938 scores within 25.915527 sec by masking option tabsvy
+Compute 92938 scores within 25.950429 sec by masking option tabsvyc
+Compute 92938 scores within 26.32248 sec by masking option tabsvc
+Compute 92938 scores within 15.315648 sec by masking option tabsau
+Compute 92938 scores within 67.737056 sec by masking option origin
+Compute 92938 scores within 15.072594 sec by masking option tabsauy
+Compute 92938 scores within 15.406751 sec by masking option tabsauyc
+Compute 92938 scores within 15.444269 sec by masking option tabsauc
+Compute 92938 scores within 28.058219 sec by masking option tabsy
+Compute 92938 scores within 27.971807 sec by masking option tabsyc
+Compute 92938 scores within 29.167415 sec by masking option tabsc
+Compute 92938 scores within 66.764848 sec by masking option origin
+Compute 92938 scores within 59.818305 sec by masking option tv
+Compute 92938 scores within 46.336202 sec by masking option tvau
+Compute 92938 scores within 46.583934 sec by masking option tvauy
+Compute 92938 scores within 46.220983 sec by masking option tvauyc
+Compute 92938 scores within 47.445791 sec by masking option tvauc
+Compute 92938 scores within 67.781869 sec by masking option origin
+Compute 92938 scores within 59.979573 sec by masking option tvy
+Compute 92938 scores within 59.792243 sec by masking option tvyc
+Compute 92938 scores within 61.134437 sec by masking option tvc
+Compute 92938 scores within 49.172802 sec by masking option tau
+Compute 92938 scores within 49.016375 sec by masking option tauy
+Compute 92938 scores within 66.674815 sec by masking option origin
+Compute 92938 scores within 48.001151 sec by masking option tauyc
+Compute 92938 scores within 48.333432 sec by masking option tauc
+Compute 92938 scores within 62.081553 sec by masking option ty
+Compute 92938 scores within 61.857746 sec by masking option tyc
+Compute 92938 scores within 63.706621 sec by masking option tc
+Compute 92938 scores within 66.716621 sec by masking option origin
+Compute 92938 scores within 31.603553 sec by masking option absv
+Compute 92938 scores within 18.743695 sec by masking option absvau
+Compute 92938 scores within 18.469331 sec by masking option absvauy
+Compute 92938 scores within 18.481025 sec by masking option absvauyc
+Compute 92938 scores within 19.352659 sec by masking option absvauc
+Compute 92938 scores within 31.417357 sec by masking option absvy
+Compute 92938 scores within 67.275731 sec by masking option origin
+Compute 92938 scores within 31.161865 sec by masking option absvyc
+Compute 92938 scores within 31.462461 sec by masking option absvc
+Compute 92938 scores within 20.737138 sec by masking option absau
+Compute 92938 scores within 20.780449 sec by masking option absauy
+Compute 92938 scores within 20.419196 sec by masking option absauyc
+Compute 92938 scores within 20.855376 sec by masking option absauc
+Compute 92938 scores within 67.515024 sec by masking option origin
+Compute 92938 scores within 33.024587 sec by masking option absy
+Compute 92938 scores within 33.254292 sec by masking option absyc
+Compute 92938 scores within 33.265624 sec by masking option absc
+Compute 92938 scores within 66.981816 sec by masking option origin
+Compute 92938 scores within 51.816614 sec by masking option vau
+Compute 92938 scores within 53.74273 sec by masking option vauy
+Compute 92938 scores within 51.682882 sec by masking option vauyc
+Compute 92938 scores within 52.929729 sec by masking option vauc
+Compute 92938 scores within 64.799564 sec by masking option vy
+Compute 92938 scores within 64.422983 sec by masking option vyc
+Compute 92938 scores within 67.029887 sec by masking option origin
+Compute 92938 scores within 64.459976 sec by masking option vc
+Compute 92938 scores within 53.061907 sec by masking option auy
+Compute 92938 scores within 53.409333 sec by masking option auyc
+Compute 92938 scores within 53.291248 sec by masking option auc
+Compute 92938 scores within 66.232383 sec by masking option yc
+Done with exp5 cslg.data
+Done with exp
