@@ -130,6 +130,15 @@ for sample_data_and_config in sample_data_and_config_arr:
   sample_and_task_name = sample_data_and_config['sample_and_task_name']
   sample_origin_npy = sample_data_and_config['origin']
   y_values = sample_data_and_config['y_values']
+
+  valid_data_count = 0
+  total_data_count = 0
+  for d in sample_origin_npy:
+    total_data_count += 1
+    if d > -10:
+      valid_data_count += 1
+  print(f'({valid_data_count}/{total_data_count}) ({round((valid_data_count / total_data_count) * 100, 2)}%) valid data for {sample_and_task_name} (original score is greater than -10)')
+
   sample_query = sample_data_and_config['query']
   sample_masking_option_keys = sample_data_and_config['masking_option_keys']
   plot_scores_d(sample_and_task_name, y_values, sample_origin_npy, sample_query, sample_masking_option_keys)
