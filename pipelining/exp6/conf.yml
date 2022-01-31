@@ -3,3 +3,9 @@ samples:
   cs-p0-p1000:
     - query: "machine learning"
       masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+  cs-p1001-p2000:
+    - query: "machine learning"
+      masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+  cs-p2001-p5999:
+    - query: "machine learning"
+      masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
