@@ -18,6 +18,12 @@ mp = {
 }
 
 masking_options = {
+    '_origin': {
+        'plot_legend': "origin",
+        'should_mask': [],
+        'marker': '.',
+        'color': 'black'
+    }, 
     't': {
         'plot_legend': t,
         'should_mask': [t],

@@ -1,0 +1,36 @@
+description: "
+
+"
+samples:
+  cs-p0-p1000:
+    - query: "recommendation system"
+      masking_option_keys: ["t"]
+    - query: "natural language processing"
+      masking_option_keys: ["t"]    
+    - query: "knowledge representation"
+      masking_option_keys: ["t"]    
+    - query: "reinforcement learning"
+      masking_option_keys: ["t"]
+  cs-p1001-p2000:
+    - query: "recommendation system"
+      masking_option_keys: ["t"]
+    - query: "natural language processing"
+      masking_option_keys: ["t"]    
+    - query: "knowledge representation"
+      masking_option_keys: ["t"]    
+    - query: "reinforcement learning"
+      masking_option_keys: ["t"]  
+  cs-p2001-p5999:
+    - query: "recommendation system"
+      masking_option_keys: []
+    - query: "natural language processing"
+      masking_option_keys: []    
+    - query: "knowledge representation"
+      masking_option_keys: []    
+    - query: "reinforcement learning"
+      masking_option_keys: []
+
+sample_from_other_exp:
+  cs-p0-p1000: ["exp6", "cs-p0-p1000.data"]
+  cs-p1001-p2000: ["exp6", "cs-p1001-p2000.data"]
+  cs-p2001-p5999: ["exp6", "cs-p2001-p5999.data"]

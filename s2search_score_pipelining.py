@@ -33,7 +33,7 @@ def read_conf(exp_dir_path_str):
     conf_path = path.join(exp_dir_path_str, 'conf.yml')
     with open(str(conf_path), 'r') as f:
         conf = yaml.safe_load(f)
-        return conf.get('description'), conf.get('samples'), 
+        return conf.get('description'), conf.get('samples'), conf.get('sample_from_other_exp'),  
 
 def get_scores_and_save(arg):
     query = arg[0]
@@ -81,7 +81,7 @@ if __name__ == '__main__':
             exp_dir_path = path.join(data_dir, exp_name)
             exp_dir_path_str = str(exp_dir_path)
             if path.isdir(exp_dir_path):
-                description, sample_configs = read_conf(exp_dir_path_str)
+                description, sample_configs, sample_from_other_exp = read_conf(exp_dir_path_str)
                 print(f'\nRunning s2search ranker on {exp_name} experiment data')
                 print(f'Description of this experiment: {description}')
 
@@ -96,7 +96,8 @@ if __name__ == '__main__':
                             if not score_file_is_configured(sample_configs, file_name):
                                 os.remove(path.join(exp_dir_path_str, 'scores', file_name))
                 
-                sample_file_list = [f for f in os.listdir(exp_dir_path_str) if path.isfile(path.join(exp_dir_path_str, f)) and f.endswith('.data')]
+                # sample_file_list = [f for f in os.listdir(exp_dir_path_str) if path.isfile(path.join(exp_dir_path_str, f)) and f.endswith('.data')]
+                sample_file_list = sample_configs.keys()
 
                 for file_name in sample_file_list:   
                     sample_name = file_name.replace('.data', '')
@@ -107,6 +108,11 @@ if __name__ == '__main__':
                         t_count += 1
                         sample_query = task['query']
                         sample_masking_option_keys = task['masking_option_keys']
+                        data_file_path = path.join(data_dir, exp_name, f'{file_name}.data')
+                        if not path.exists(data_file_path):
+                            ole_data_file_path = data_file_path
+                            data_file_path = path.join(data_dir, *sample_from_other_exp.get(file_name))
+                            print(f'Using {data_file_path} for {exp_name} {file_name}')
                         paper_data = []
 
                         # computing for original
@@ -125,7 +131,7 @@ if __name__ == '__main__':
                                 else:
                                     previous_progress = 0
 
-                                with open(str(path.join(data_dir, exp_name, file_name))) as f:
+                                with open(str(data_file_path)) as f:
                                     line_count = 0
                                     idx = 0
                                     for line in f:
@@ -164,7 +170,7 @@ if __name__ == '__main__':
                                         previous_progress = len(f.readlines())
                                 else:
                                     previous_progress = 0
-                                with open(str(path.join(data_dir, exp_name, file_name))) as f:
+                                with open(str(data_file_path)) as f:
                                     line_count = 0
                                     idx = 0
                                     for line in f:
