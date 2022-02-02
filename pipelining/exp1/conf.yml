@@ -5,3 +5,6 @@ samples:
       masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
     - query: "deep learning"
       masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+    - query: "machine learning"
+      masking_option_keys: ["tabs", "absv", "vy"]
+      using_origin_from: "t1"

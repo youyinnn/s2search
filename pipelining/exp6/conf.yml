@@ -13,3 +13,36 @@ samples:
   cs-valid-id-for-ml:
     - query: "machine learning"
       masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+    - query: "Machine Learning"
+      masking_option_keys: ["tabs", "tabsv", "tabsvau", "tabsvauy", "tabsvauyc"]
+      using_origin_from: "t1"
+    - query: "Machine Learning"
+      masking_option_keys: ["tabsvauc", "tabsvy", "tabsvyc", "tabsvc", "tabsau"]      
+      using_origin_from: "t1"
+    - query: "Machine Learning"
+      masking_option_keys: ["tabsauy", "tabsauyc", "tabsauc", "tabsy", "tabsyc", "tabsc",]
+      using_origin_from: "t1"
+    - query: "Machine Learning"
+      masking_option_keys: ["tv", "tvau", "tvauy", "tvauyc", "tvauc"]
+      using_origin_from: "t1"
+    - query: "Machine Learning"
+      masking_option_keys: ["tvy", "tvyc", "tvc", "tau", "tauy"]
+      using_origin_from: "t1"
+    - query: "Machine Learning"
+      masking_option_keys: ["tauyc", "tauc", "ty", "tyc", 'tc']
+      using_origin_from: "t1"
+    - query: "Machine Learning"
+      masking_option_keys: ["absv", "absvau", "absvauy", "absvauyc", "absvauc", 'absvy']
+      using_origin_from: "t1"
+    - query: "Machine Learning"
+      masking_option_keys: ["absvyc", "absvc", "absau", "absauy", "absauyc", 'absauc']
+      using_origin_from: "t1"
+    - query: "Machine Learning"
+      masking_option_keys: ["absy", "absyc", "absc"]
+      using_origin_from: "t1"
+    - query: "Machine Learning"
+      masking_option_keys: ["vau", "vauy", "vauyc", "vauc", "vy", 'vyc']      
+      using_origin_from: "t1"
+    - query: "Machine Learning"
+      masking_option_keys: ["vc", "auy", "auyc", "auc", "yc"]
+      using_origin_from: "t1"

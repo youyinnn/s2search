@@ -23,11 +23,11 @@ def get(exp_name, sample_name):
         sample_query = task['query']
         sample_masking_option_keys = task['masking_option_keys']
 
-        sample_origin_npy = np.load(path.join(score_dir, f'{exp_name}_{sample_name}_t{t_count}_origin.npy'))
+        sample_origin_npy = np.load(path.join(score_dir, f'{exp_name}_{sample_name}_t{t_count}_origin.npz'))['arr_0']
 
         sample_feature_masking_npy = []
         for key in sample_masking_option_keys:
-            sample_feature_masking_npy.append(np.load(path.join(score_dir, f'{exp_name}_{sample_name}_t{t_count}_{key}.npy')))
+            sample_feature_masking_npy.append(np.load(path.join(score_dir, f'{exp_name}_{sample_name}_t{t_count}_{key}.npz'))['arr_0'])
         if len(sample_feature_masking_npy) > 0:
             feature_stack = np.stack((sample_feature_masking_npy))
         else:

@@ -70,6 +70,10 @@ if in_colab:
     !git clone --branch pipelining https://github.com/youyinnn/s2search.git
     sys.path.insert(1, './s2search')
     %cd s2search/pipelining/{exp_name}/
+
+pic_dir = os.path.join('.', 'plot')
+if not os.path.exists(pic_dir):
+    os.mkdir(pic_dir)
 '''
 
                 loading_data_md = '### Loading data'
@@ -123,7 +127,7 @@ def plot_scores_d(sample_name, y_values, sample_origin_npy, query, sample_maskin
   plt.ylim(y_min, y_max)
   plt.xlim(x_min, x_max)
   plt.legend(prop={'size': 10})
-  plt.savefig(os.path.join('.', f'{sample_name}.png'), facecolor='white', transparent=False)
+  plt.savefig(os.path.join('.', 'plot', f'{sample_name}.png'), facecolor='white', transparent=False)
   plt.show()
 
 for sample_data_and_config in sample_data_and_config_arr:

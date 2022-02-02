@@ -1,5 +1,5 @@
 from s2search.rank import S2Ranker
-import time, os, os.path as path, sys, yaml, json
+import time, os, os.path as path, sys, yaml, json, shutil
 from multiprocessing import Pool
 import numpy as np
 import feature_masking as fm
@@ -51,7 +51,7 @@ def get_scores_and_save(arg):
         f.write('\n'.join(scores) + '\n') 
 
 def score_file_is_configured(sample_configs, score_file_name):
-    score_file_name = score_file_name.replace('.npy', '')
+    score_file_name = score_file_name.replace('.npz', '')
     score_file_name = score_file_name.replace('#incomplete.txt', '')
     exp_name, sample_data_name, task_name, one_masking_options = score_file_name.split('_')
 
@@ -70,7 +70,7 @@ def txt_to_npy(exp_dir, exp_name, sample_name, task_name, masking_option_key):
     incomplete_file = path.join(exp_dir, 'scores', f'{exp_name}_{sample_name}_{task_name}_{masking_option_key}#incomplete.txt')
     arr = np.loadtxt(incomplete_file)
     complete_file = path.join(exp_dir, 'scores', f'{exp_name}_{sample_name}_{task_name}_{masking_option_key}')
-    np.save(complete_file, arr)
+    np.savez_compressed(complete_file, arr)
     os.remove(incomplete_file)
     print(f'Score computing for {exp_name}_{sample_name}_{task_name}_{masking_option_key} is done.')
 
@@ -110,47 +110,53 @@ if __name__ == '__main__':
                         paper_data = []
 
                         # computing for original
-                        original_npy_file = path.join(exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_origin.npy')
-                        if not os.path.exists(original_npy_file):
-                            incomplete_original_npy_file = path.join(exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_origin#incomplete.txt')
-                            if path.exists(incomplete_original_npy_file):
-                                with open(incomplete_original_npy_file) as f:
-                                    previous_progress = len(f.readlines())
-                            else:
-                                previous_progress = 0
+                        using_origin_from = task.get('using_origin_from')
+                        target_origin_exist = path.join(exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_{using_origin_from}_origin.npz')
+                        original_npy_file = path.join(exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_origin.npz')
+                        if using_origin_from != None and target_origin_exist:
+                            print(f'Using origin result of {using_origin_from} for {exp_name}_{sample_name}_t{t_count}_origin.npz')
+                            shutil.copyfile(target_origin_exist, original_npy_file)
+                        else:
+                            if not os.path.exists(original_npy_file):
+                                incomplete_original_npy_file = path.join(exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_origin#incomplete.txt')
+                                if path.exists(incomplete_original_npy_file):
+                                    with open(incomplete_original_npy_file) as f:
+                                        previous_progress = len(f.readlines())
+                                else:
+                                    previous_progress = 0
 
-                            with open(str(path.join(data_dir, exp_name, file_name))) as f:
-                                line_count = 0
-                                idx = 0
-                                for line in f:
-                                    idx += 1
-                                    if (idx <= previous_progress):
-                                        continue
-                                    paper_data.append(json.loads(line.strip(), strict=False))
-                                    line_count += 1
-                                    if (line_count == data_loading_line_limit):
+                                with open(str(path.join(data_dir, exp_name, file_name))) as f:
+                                    line_count = 0
+                                    idx = 0
+                                    for line in f:
+                                        idx += 1
+                                        if (idx <= previous_progress):
+                                            continue
+                                        paper_data.append(json.loads(line.strip(), strict=False))
+                                        line_count += 1
+                                        if (line_count == data_loading_line_limit):
+                                            get_scores_and_save([
+                                                sample_query, paper_data, exp_dir_path_str, 
+                                                f'{exp_name}_{sample_name}_t{t_count}_origin', 
+                                                'origin',
+                                            ])
+                                            paper_data = []
+                                            line_count = 0
+                                    if len(paper_data) > 0:
                                         get_scores_and_save([
                                             sample_query, paper_data, exp_dir_path_str, 
                                             f'{exp_name}_{sample_name}_t{t_count}_origin', 
                                             'origin',
                                         ])
-                                        paper_data = []
-                                        line_count = 0
-                                if len(paper_data) > 0:
-                                    get_scores_and_save([
-                                        sample_query, paper_data, exp_dir_path_str, 
-                                        f'{exp_name}_{sample_name}_t{t_count}_origin', 
-                                        'origin',
-                                    ])
-                                txt_to_npy(exp_dir_path_str, exp_name, sample_name, f't{t_count}', 'origin')
-                        else:
-                            print(f'Scores of {exp_name}_{sample_name}_t{t_count}_origin.npy exist, should pass')
+                                    txt_to_npy(exp_dir_path_str, exp_name, sample_name, f't{t_count}', 'origin')
+                            else:
+                                print(f'Scores of {exp_name}_{sample_name}_t{t_count}_origin.npz exist, should pass')
 
 
                         # computing for masking
                         for key in sample_masking_option_keys:
                             paper_data = []
-                            feature_masked_npy_file = path.join(exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_{key}.npy')
+                            feature_masked_npy_file = path.join(exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_{key}.npz')
                             if not os.path.exists(feature_masked_npy_file):
                                 incomplete_original_npy_file = path.join(exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_{key}#incomplete.txt')
                                 if path.exists(incomplete_original_npy_file):
@@ -189,7 +195,7 @@ if __name__ == '__main__':
                                         ])
                                     txt_to_npy(exp_dir_path_str, exp_name, sample_name, f't{t_count}', key)
                             else:
-                                print(f'Scores of {exp_name}_{sample_name}_t{t_count}_{key}.npy exist, should pass')
+                                print(f'Scores of {exp_name}_{sample_name}_t{t_count}_{key}.npz exist, should pass')
 
                     print(f'Done with {exp_name} {file_name}')
                 print(f'Done with {exp_name}')
