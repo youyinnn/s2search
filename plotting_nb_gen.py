@@ -100,7 +100,7 @@ for sample_data_and_config in sample_data_and_config_arr:
 
                 plot_data_md = "### Plot the data"
                 plot_data_code = '''import matplotlib.pyplot as plt
-def plot_scores_d(sample_name, y_values, sample_origin_npy, query, sample_masking_option_keys): 
+def plot_scores_d(sample_name, y_values, sample_origin_npy, query, sample_masking_option_keys, sample_task_number): 
   plt.figure(figsize=(20, 15), dpi=80)
   i = 0
   for key in sample_masking_option_keys:
@@ -122,12 +122,12 @@ def plot_scores_d(sample_name, y_values, sample_origin_npy, query, sample_maskin
   y_max = 10
   y_min = 0
   y_pace = 1
-  plt.xticks(np.arange(x_min, x_max, x_pace), size = 9) 
-  plt.yticks(np.arange(y_min, y_max, y_pace), size = 9)
-  plt.ylim(y_min, y_max)
-  plt.xlim(x_min, x_max)
+#   plt.xticks(np.arange(x_min, x_max, x_pace), size = 9) 
+#   plt.yticks(np.arange(y_min, y_max, y_pace), size = 9)
+#   plt.ylim(y_min, y_max)
+#   plt.xlim(x_min, x_max)
   plt.legend(prop={'size': 16})
-  plt.savefig(os.path.join('.', 'plot', f'{sample_name}.png'), facecolor='white', transparent=False)
+  plt.savefig(os.path.join('.', 'plot', f'{sample_name}-t{sample_task_number}.png'), facecolor='white', transparent=False)
   plt.show()
 
 for sample_data_and_config in sample_data_and_config_arr:
@@ -145,7 +145,9 @@ for sample_data_and_config in sample_data_and_config_arr:
 
   sample_query = sample_data_and_config['query']
   sample_masking_option_keys = sample_data_and_config['masking_option_keys']
-  plot_scores_d(sample_and_task_name, y_values, sample_origin_npy, sample_query, sample_masking_option_keys)
+  sample_task_number = sample_data_and_config['task_number']
+  plot_scores_d(sample_and_task_name, y_values, sample_origin_npy, sample_query, sample_masking_option_keys, sample_task_number)
+
 '''
 
                 nb['cells'] = [

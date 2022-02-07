@@ -1,7 +1,0 @@
-description: "
-\nExperiment No.2, search in 30000 randomly papers from cs.LG.
-\nMaksing all features solely."
-samples: 
-    sample:
-      - query: "machine learning"
-        masking_option_keys: ["t", "abs", "v", "au", "y", "c"]

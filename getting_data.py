@@ -36,6 +36,7 @@ def get(exp_name, sample_name):
 
         sample_data_and_config.append({
             'sample_and_task_name': f'{sample_name}',
+            'task_number': t_count,
             'query': sample_query,
             'origin': sample_origin_npy,
             'feature_stack': feature_stack,
