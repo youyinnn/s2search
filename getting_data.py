@@ -35,7 +35,7 @@ def get(exp_name, sample_name):
             sample_masking_option_keys.append('_origin')
 
         sample_data_and_config.append({
-            'sample_and_task_name': f'{sample_name}-task{t_count}',
+            'sample_and_task_name': f'{sample_name}',
             'query': sample_query,
             'origin': sample_origin_npy,
             'feature_stack': feature_stack,

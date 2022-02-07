@@ -1,0 +1,10 @@
+description: "
+Focusing the distance of the feature masking clusters.
+"
+samples:
+    cslg: 
+      - query: "Machine Learning"
+        masking_option_keys: ["absvauyc"]
+
+sample_from_other_exp:
+  cslg: ["exp5", "cslg.data"]

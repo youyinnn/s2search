@@ -58,7 +58,7 @@ def score_file_is_configured(sample_configs, score_file_name):
     sample_tasks = sample_configs.get(sample_data_name)
     if sample_tasks != None:
         task_number = int(task_name[1:])
-        if len(task_name) >= task_number:
+        if len(sample_tasks) >= task_number:
             task = sample_tasks[task_number - 1]
             masking_option_keys = task['masking_option_keys']
             if one_masking_options == 'origin' or one_masking_options in masking_option_keys:

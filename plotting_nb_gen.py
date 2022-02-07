@@ -126,7 +126,7 @@ def plot_scores_d(sample_name, y_values, sample_origin_npy, query, sample_maskin
   plt.yticks(np.arange(y_min, y_max, y_pace), size = 9)
   plt.ylim(y_min, y_max)
   plt.xlim(x_min, x_max)
-  plt.legend(prop={'size': 10})
+  plt.legend(prop={'size': 16})
   plt.savefig(os.path.join('.', 'plot', f'{sample_name}.png'), facecolor='white', transparent=False)
   plt.show()
 
