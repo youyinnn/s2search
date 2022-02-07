@@ -4,7 +4,24 @@ Focusing the distance of the feature masking clusters.
 samples:
     cslg: 
       - query: "Machine Learning"
-        masking_option_keys: ["absvauyc"]
+        # copy from exp5
+        masking_option_keys: ["t"]
+      - query: "Machine Learning"
+        masking_option_keys: ["abs"]
+        using_origin_from: "t1"      
+      - query: "Machine Learning"
+        masking_option_keys: ["v"]
+        using_origin_from: "t1"
+      - query: "Machine Learning"
+        masking_option_keys: ["au"]
+        using_origin_from: "t1"
+      - query: "Machine Learning"
+        masking_option_keys: ["y"]
+        using_origin_from: "t1"
+      - query: "Machine Learning"
+        masking_option_keys: ["c"]
+        using_origin_from: "t1"
+        
 
 sample_from_other_exp:
   cslg: ["exp5", "cslg.data"]
