@@ -5,23 +5,84 @@ samples:
     cslg: 
       - query: "Machine Learning"
         # copy from exp5
-        masking_option_keys: ["absvauyc"]
-      # - query: "Machine Learning"
-      #   masking_option_keys: ["abs"]
-      #   using_origin_from: "t1"      
-      # - query: "Machine Learning"
-      #   masking_option_keys: ["v"]
-      #   using_origin_from: "t1"
-      # - query: "Machine Learning"
-      #   masking_option_keys: ["au"]
-      #   using_origin_from: "t1"
-      # - query: "Machine Learning"
-      #   masking_option_keys: ["y"]
-      #   using_origin_from: "t1"
-      # - query: "Machine Learning"
-      #   masking_option_keys: ["c"]
-      #   using_origin_from: "t1"
-        
+        masking_option_keys: []
+
+    6695804-cslg-variant-in-title:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695804-cslg-variant-in-abstract:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695804-cslg-variant-in-venue:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695804-cslg-variant-in-authors:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695804-cslg-variant-in-year:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695804-cslg-variant-in-citation:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+
+
+    6695988-cslg-variant-in-title:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695988-cslg-variant-in-abstract:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695988-cslg-variant-in-venue:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695988-cslg-variant-in-authors:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695988-cslg-variant-in-year:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695988-cslg-variant-in-citation:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+
+
+    6695995-cslg-variant-in-title:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695995-cslg-variant-in-abstract:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695995-cslg-variant-in-venue:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695995-cslg-variant-in-authors:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695995-cslg-variant-in-year:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
+    6695995-cslg-variant-in-citation:
+      - query: "Machine Learning"
+        # copy from exp5
+        masking_option_keys: []
 
 sample_from_other_exp:
   cslg: ["exp5", "cslg.data"]

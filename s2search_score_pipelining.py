@@ -5,7 +5,7 @@ import numpy as np
 import feature_masking as fm
 
 model_dir = './s2search_data'
-data_dir = './pipelining'
+data_dir = str(path.join(os.getcwd(), 'pipelining'))
 ranker = None
 data_loading_line_limit = 100000
 
@@ -23,6 +23,18 @@ def get_scores(query, paper, mask_option='origin'):
     init_ranker()
     st = time.time()
     scores = ranker.score(query, paper)
+
+    # papers = []
+    # for i in range(len(paper)):
+    #     if mask_option == 'tabsauyc':
+    #         papers.append(json.dumps(paper[i]))
+
+    # if len(paper) > 0:
+    #     output_data_file_name = os.path.join("tabsauyc.txt")
+    #     with open(output_data_file_name, "w") as leaned_raw_data:
+    #         leaned_raw_data.write("\n".join(papers))
+    #         print(output_data_file_name + " saved")
+
     et = round(time.time() - st, 6)
     # print(paper)
     # print(f'Scores\n{scores} on option: {mask_option}')
