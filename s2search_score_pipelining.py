@@ -1,5 +1,12 @@
 from s2search.rank import S2Ranker
-import time, os, os.path as path, sys, yaml, json, shutil
+import time
+import os
+import os.path as path
+import sys
+import yaml
+import json
+import shutil
+import zlib
 from multiprocessing import Pool
 import numpy as np
 import feature_masking as fm
@@ -7,10 +14,11 @@ import feature_masking as fm
 model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
 ranker = None
-data_loading_line_limit = 100000
+data_loading_line_limit = 1000
+
 
 def init_ranker():
-    global ranker 
+    global ranker
     if ranker == None:
         print(f'Loading ranker model...')
         st = time.time()
@@ -19,33 +27,46 @@ def init_ranker():
         print(f'Load the s2 ranker within {et} sec')
 
 
-def get_scores(query, paper, mask_option='origin'):
+def get_scores(query, paper, mask_option='origin', data_file_name=''):
     init_ranker()
     st = time.time()
     scores = ranker.score(query, paper)
 
-    # papers = []
-    # for i in range(len(paper)):
-    #     if mask_option == 'tabsauyc':
-    #         papers.append(json.dumps(paper[i]))
+    # weird_papers = []
+    # weird = False
+    # for i in range(len(scores)):
+    #     if scores[i] > 100:
+    #         weird = True
+    #     paper[i]['score'] = scores[i]
+    #     weird_papers.append(json.dumps(paper[i]))
 
-    # if len(paper) > 0:
-    #     output_data_file_name = os.path.join("tabsauyc.txt")
+    # rand_sequence = hex(zlib.crc32(str(time.time()).encode('utf-8')))
+
+    # if weird:
+    #     pic_dir = os.path.join('.', 'weird_data')
+    #     if not os.path.exists(pic_dir):
+    #         os.mkdir(pic_dir)
+    #     output_data_file_name = os.path.join('weird_data',
+    #                                          f"{data_file_name}_{rand_sequence}.weird.txt")
     #     with open(output_data_file_name, "w") as leaned_raw_data:
-    #         leaned_raw_data.write("\n".join(papers))
+    #         leaned_raw_data.write(
+    #             f"with query {query}\n" + ",\n".join(weird_papers))
     #         print(output_data_file_name + " saved")
 
     et = round(time.time() - st, 6)
     # print(paper)
     # print(f'Scores\n{scores} on option: {mask_option}')
-    print(f'Compute {len(scores)} scores within {et} sec by masking option {mask_option}')
+    # print(
+    #     f'Compute {len(scores)} scores within {et} sec by masking option {mask_option}')
     return scores
+
 
 def read_conf(exp_dir_path_str):
     conf_path = path.join(exp_dir_path_str, 'conf.yml')
     with open(str(conf_path), 'r') as f:
         conf = yaml.safe_load(f)
-        return conf.get('description'), conf.get('samples'), conf.get('sample_from_other_exp'),  
+        return conf.get('description'), conf.get('samples'), conf.get('sample_from_other_exp'),
+
 
 def get_scores_and_save(arg):
     query = arg[0]
@@ -54,18 +75,21 @@ def get_scores_and_save(arg):
     npy_file_name = arg[3]
     mask_option = arg[4]
 
-    original_score_npy_file_name = path.join(exp_dir_path_str, 'scores', npy_file_name)
-    scores = get_scores(query, paper_data, mask_option)
+    original_score_npy_file_name = path.join(
+        exp_dir_path_str, 'scores', npy_file_name)
+    scores = get_scores(query, paper_data, mask_option, npy_file_name)
     incomplete_file = str(original_score_npy_file_name) + '#incomplete.txt'
 
     scores = [str(score) for score in scores]
     with open(incomplete_file, "a+") as f:
-        f.write('\n'.join(scores) + '\n') 
+        f.write('\n'.join(scores) + '\n')
+
 
 def score_file_is_configured(sample_configs, score_file_name):
     score_file_name = score_file_name.replace('.npz', '')
     score_file_name = score_file_name.replace('#incomplete.txt', '')
-    exp_name, sample_data_name, task_name, one_masking_options = score_file_name.split('_')
+    exp_name, sample_data_name, task_name, one_masking_options = score_file_name.split(
+        '_')
 
     sample_tasks = sample_configs.get(sample_data_name)
     if sample_tasks != None:
@@ -78,13 +102,18 @@ def score_file_is_configured(sample_configs, score_file_name):
 
     return False
 
+
 def txt_to_npy(exp_dir, exp_name, sample_name, task_name, masking_option_key):
-    incomplete_file = path.join(exp_dir, 'scores', f'{exp_name}_{sample_name}_{task_name}_{masking_option_key}#incomplete.txt')
+    incomplete_file = path.join(
+        exp_dir, 'scores', f'{exp_name}_{sample_name}_{task_name}_{masking_option_key}#incomplete.txt')
     arr = np.loadtxt(incomplete_file)
-    complete_file = path.join(exp_dir, 'scores', f'{exp_name}_{sample_name}_{task_name}_{masking_option_key}')
+    complete_file = path.join(
+        exp_dir, 'scores', f'{exp_name}_{sample_name}_{task_name}_{masking_option_key}')
     np.savez_compressed(complete_file, arr)
     os.remove(incomplete_file)
-    print(f'Score computing for {exp_name}_{sample_name}_{task_name}_{masking_option_key} is done.')
+    print(
+        f'Score computing for {exp_name}_{sample_name}_{task_name}_{masking_option_key} is done.')
+
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
@@ -93,8 +122,10 @@ if __name__ == '__main__':
             exp_dir_path = path.join(data_dir, exp_name)
             exp_dir_path_str = str(exp_dir_path)
             if path.isdir(exp_dir_path):
-                description, sample_configs, sample_from_other_exp = read_conf(exp_dir_path_str)
-                print(f'\nRunning s2search ranker on {exp_name} experiment data')
+                description, sample_configs, sample_from_other_exp = read_conf(
+                    exp_dir_path_str)
+                print(
+                    f'\nRunning s2search ranker on {exp_name} experiment data')
                 print(f'Description of this experiment: {description}')
 
                 # scores dir
@@ -106,12 +137,13 @@ if __name__ == '__main__':
                         for file_name in files:
                             # remove score file if it is not configured
                             if not score_file_is_configured(sample_configs, file_name):
-                                os.remove(path.join(exp_dir_path_str, 'scores', file_name))
-                
+                                os.remove(
+                                    path.join(exp_dir_path_str, 'scores', file_name))
+
                 # sample_file_list = [f for f in os.listdir(exp_dir_path_str) if path.isfile(path.join(exp_dir_path_str, f)) and f.endswith('.data')]
                 sample_file_list = sample_configs.keys()
 
-                for file_name in sample_file_list:   
+                for file_name in sample_file_list:
                     sample_name = file_name.replace('.data', '')
                     sample_task_list = sample_configs[sample_name]
 
@@ -120,28 +152,40 @@ if __name__ == '__main__':
                         t_count += 1
                         sample_query = task['query']
                         sample_masking_option_keys = task['masking_option_keys']
-                        data_file_path = path.join(data_dir, exp_name, f'{file_name}.data')
+                        data_file_path = path.join(
+                            data_dir, exp_name, f'{file_name}.data')
                         if not path.exists(data_file_path):
                             ole_data_file_path = data_file_path
-                            data_file_path = path.join(data_dir, *sample_from_other_exp.get(file_name))
-                            print(f'Using {data_file_path} for {exp_name} {file_name}')
+                            data_file_path = path.join(
+                                data_dir, *sample_from_other_exp.get(file_name))
+                            print(
+                                f'Using {data_file_path} for {exp_name} {file_name}')
                         paper_data = []
 
                         # computing for original
                         using_origin_from = task.get('using_origin_from')
-                        target_origin_exist = path.join(exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_{using_origin_from}_origin.npz')
-                        original_npy_file = path.join(exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_origin.npz')
+                        target_origin_exist = path.join(
+                            exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_{using_origin_from}_origin.npz')
+                        original_npy_file = path.join(
+                            exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_origin.npz')
                         if using_origin_from != None and target_origin_exist:
-                            print(f'Using origin result of {using_origin_from} for {exp_name}_{sample_name}_t{t_count}_origin.npz')
-                            shutil.copyfile(target_origin_exist, original_npy_file)
+                            print(
+                                f'Using origin result of {using_origin_from} for {exp_name}_{sample_name}_t{t_count}_origin.npz')
+                            shutil.copyfile(target_origin_exist,
+                                            original_npy_file)
                         else:
                             if not os.path.exists(original_npy_file):
-                                incomplete_original_npy_file = path.join(exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_origin#incomplete.txt')
+                                incomplete_original_npy_file = path.join(
+                                    exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_origin#incomplete.txt')
                                 if path.exists(incomplete_original_npy_file):
                                     with open(incomplete_original_npy_file) as f:
                                         previous_progress = len(f.readlines())
+                                    print(
+                                        f'continue computing: {original_npy_file}')
                                 else:
                                     previous_progress = 0
+                                    print(
+                                        f'start computing: {original_npy_file}')
 
                                 with open(str(data_file_path)) as f:
                                     line_count = 0
@@ -150,38 +194,47 @@ if __name__ == '__main__':
                                         idx += 1
                                         if (idx <= previous_progress):
                                             continue
-                                        paper_data.append(json.loads(line.strip(), strict=False))
+                                        paper_data.append(json.loads(
+                                            line.strip(), strict=False))
                                         line_count += 1
                                         if (line_count == data_loading_line_limit):
                                             get_scores_and_save([
-                                                sample_query, paper_data, exp_dir_path_str, 
-                                                f'{exp_name}_{sample_name}_t{t_count}_origin', 
+                                                sample_query, paper_data, exp_dir_path_str,
+                                                f'{exp_name}_{sample_name}_t{t_count}_origin',
                                                 'origin',
                                             ])
                                             paper_data = []
                                             line_count = 0
                                     if len(paper_data) > 0:
                                         get_scores_and_save([
-                                            sample_query, paper_data, exp_dir_path_str, 
-                                            f'{exp_name}_{sample_name}_t{t_count}_origin', 
+                                            sample_query, paper_data, exp_dir_path_str,
+                                            f'{exp_name}_{sample_name}_t{t_count}_origin',
                                             'origin',
                                         ])
-                                    txt_to_npy(exp_dir_path_str, exp_name, sample_name, f't{t_count}', 'origin')
+                                    txt_to_npy(exp_dir_path_str, exp_name,
+                                               sample_name, f't{t_count}', 'origin')
                             else:
-                                print(f'Scores of {exp_name}_{sample_name}_t{t_count}_origin.npz exist, should pass')
-
+                                print(
+                                    f'Scores of {exp_name}_{sample_name}_t{t_count}_origin.npz exist, should pass')
 
                         # computing for masking
                         for key in sample_masking_option_keys:
                             paper_data = []
-                            feature_masked_npy_file = path.join(exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_{key}.npz')
+                            feature_masked_npy_file = path.join(
+                                exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_{key}.npz')
                             if not os.path.exists(feature_masked_npy_file):
-                                incomplete_original_npy_file = path.join(exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_{key}#incomplete.txt')
+                                incomplete_original_npy_file = path.join(
+                                    exp_dir_path_str, 'scores', f'{exp_name}_{sample_name}_t{t_count}_{key}#incomplete.txt')
                                 if path.exists(incomplete_original_npy_file):
                                     with open(incomplete_original_npy_file) as f:
                                         previous_progress = len(f.readlines())
+                                        print(
+                                            f'continue computing: {feature_masked_npy_file}')
                                 else:
                                     previous_progress = 0
+                                    print(
+                                        f'start computing: {feature_masked_npy_file}')
+
                                 with open(str(data_file_path)) as f:
                                     line_count = 0
                                     idx = 0
@@ -189,10 +242,12 @@ if __name__ == '__main__':
                                         idx += 1
                                         if (idx <= previous_progress):
                                             continue
-                                        paper_data.append(json.loads(line.strip(), strict=False))
+                                        paper_data.append(json.loads(
+                                            line.strip(), strict=False))
                                         line_count += 1
                                         if (line_count == data_loading_line_limit):
-                                            paper_data = fm.masking_with_option(paper_data, fm.masking_options[key])
+                                            paper_data = fm.masking_with_option(
+                                                paper_data, fm.masking_options[key])
                                             get_scores_and_save([
                                                 sample_query,
                                                 paper_data,
@@ -203,7 +258,8 @@ if __name__ == '__main__':
                                             paper_data = []
                                             line_count = 0
                                     if len(paper_data) > 0:
-                                        paper_data = fm.masking_with_option(paper_data, fm.masking_options[key])
+                                        paper_data = fm.masking_with_option(
+                                            paper_data, fm.masking_options[key])
                                         get_scores_and_save([
                                             sample_query,
                                             paper_data,
@@ -211,15 +267,16 @@ if __name__ == '__main__':
                                             f'{exp_name}_{sample_name}_t{t_count}_{key}',
                                             key,
                                         ])
-                                    txt_to_npy(exp_dir_path_str, exp_name, sample_name, f't{t_count}', key)
+                                    txt_to_npy(exp_dir_path_str, exp_name,
+                                               sample_name, f't{t_count}', key)
                             else:
-                                print(f'Scores of {exp_name}_{sample_name}_t{t_count}_{key}.npz exist, should pass')
+                                print(
+                                    f'Scores of {exp_name}_{sample_name}_t{t_count}_{key}.npz exist, should pass')
 
                     print(f'Done with {exp_name} {file_name}')
                 print(f'Done with {exp_name}')
-                
+
             else:
                 print(f'\nNo such dir: {str(exp_dir_path)}')
     else:
         print(f'Please provide the name of the experiment data folder.')
-
