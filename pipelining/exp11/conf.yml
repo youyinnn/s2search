@@ -1,0 +1,76 @@
+description: "
+Focusing the distance of the feature masking clusters.
+"
+samples:
+    cslg: 
+      - query: "Arxiv"
+        # copy from exp5
+        masking_option_keys: []
+
+    6695988-cslg-variant-in-title:
+      - query: "Arxiv"
+        # copy from exp5
+        masking_option_keys: []
+    6695988-cslg-variant-in-abstract:
+      - query: "Arxiv"
+        # copy from exp5
+        masking_option_keys: []
+    6695988-cslg-variant-in-venue:
+      - query: "Arxiv"
+        # copy from exp5
+        masking_option_keys: []
+    6695988-cslg-variant-in-authors:
+      - query: "Arxiv"
+        # copy from exp5
+        masking_option_keys: []
+    6695988-cslg-variant-in-year:
+      - query: "Arxiv"
+        # copy from exp5
+        masking_option_keys: []
+    6695988-cslg-variant-in-citation:
+      - query: "Arxiv"
+        # copy from exp5
+        masking_option_keys: []
+
+
+    6695995-cslg-variant-in-title:
+      - query: "Arxiv"
+        # copy from exp5
+        masking_option_keys: []
+    6695995-cslg-variant-in-abstract:
+      - query: "Arxiv"
+        # copy from exp5
+        masking_option_keys: []
+    6695995-cslg-variant-in-venue:
+      - query: "Arxiv"
+        # copy from exp5
+        masking_option_keys: []
+    6695995-cslg-variant-in-authors:
+      - query: "Arxiv"
+        # copy from exp5
+        masking_option_keys: []
+    6695995-cslg-variant-in-year:
+      - query: "Arxiv"
+        # copy from exp5
+        masking_option_keys: []
+    6695995-cslg-variant-in-citation:
+      - query: "Arxiv"
+        # copy from exp5
+        masking_option_keys: []
+
+sample_from_other_exp:
+  cslg: ["exp5", "cslg.data"]
+
+  6695988-cslg-variant-in-title: ["exp9", "6695988-cslg-variant-in-title.data"]
+  6695988-cslg-variant-in-abstract: ["exp9", "6695988-cslg-variant-in-abstract.data"]
+  6695988-cslg-variant-in-venue: ["exp9", "6695988-cslg-variant-in-venue.data"]
+  6695988-cslg-variant-in-authors: ["exp9", "6695988-cslg-variant-in-authors.data"]
+  6695988-cslg-variant-in-year: ["exp9", "6695988-cslg-variant-in-year.data"]
+  6695988-cslg-variant-in-citation: ["exp9", "6695988-cslg-variant-in-citation.data"]
+
+  6695995-cslg-variant-in-title: ["exp9", "6695995-cslg-variant-in-title.data"]
+  6695995-cslg-variant-in-abstract: ["exp9", "6695995-cslg-variant-in-abstract.data"]
+  6695995-cslg-variant-in-venue: ["exp9", "6695995-cslg-variant-in-venue.data"]
+  6695995-cslg-variant-in-authors: ["exp9", "6695995-cslg-variant-in-authors.data"]
+  6695995-cslg-variant-in-year: ["exp9", "6695995-cslg-variant-in-year.data"]
+  6695995-cslg-variant-in-citation: ["exp9", "6695995-cslg-variant-in-citation.data"]
