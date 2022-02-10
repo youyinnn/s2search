@@ -276,7 +276,10 @@ def pdp_plot(confs):
             plt.xticks([], fontsize=14)
             
         if weird_score.get(key) == None:
-            plt.yticks(list(range(-14, 10, 1)), fontsize=14)
+            if conf.get('yticks') != None:
+                plt.yticks(conf.get('yticks'), fontsize=14)
+            else:
+                plt.yticks(list(range(-14, 10, 1)), fontsize=14)
         else:
             plt.yticks(fontsize=14)
             
