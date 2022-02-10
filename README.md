@@ -96,8 +96,10 @@ Note that `n_key_citations` is a Semantic Scholar feature. If you don't have it,
 
 ## Step 1-3. Setup experiment
 
-1. Create a folder under `pipelining`, folder name would be the experiment name. Say `pipelining/exp4`.
+1. Create a folder under `pipelining`, folder name would be the experiment name . Say `pipelining/pdp-exp1`.
+
 2. Put all of your paper data under the experiment folder. Say `pipelining/exp4/cslg.data` and so on.
+
 3. Create an experiment config file `conf.yml` under the experiment folder. Say `pipelining/exp4/conf.yml`.
 
    ```yaml
@@ -109,6 +111,9 @@ Note that `n_key_citations` is a Semantic Scholar feature. If you don't have it,
            masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
          - query: "convolutional neural network"
            masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+         - query: "Machine Learning"
+           masking_option_keys: ["tabsv"]
+           using_origin_from: "t1"
        cscv:
          - query: "Computer Vision and Pattern Recognition"
            masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
@@ -118,6 +123,9 @@ Note that `n_key_citations` is a Semantic Scholar feature. If you don't have it,
        csms:
          - query: "Mathematical Software"
            masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+
+   sample_from_other_exp:
+     cslg: ["exp1", "cslg.data"]
    ```
 
 The configuration should contains those key-values.
@@ -126,6 +134,8 @@ The configuration should contains those key-values.
 - **samples:** a **key-value map** of sample data: the key is the sample data file name, the value should contains **a list of task**, every task should have the following configs:
   - **query:** the query which input to the s2search;
   - **masking_option_keys:** a list of keys for masking option, this can be refer to [here](https://github.com/youyinnn/s2search/blob/85b3ac3e854b8903f92134d32515ae8313e3725e/feature_masking.py#L4);
+  - **using_origin_from：**if you are defining a second task of a sample data, and the query of this new task are the same as some other task before, say `t3` is using `Machine Learning` query as `t1` does, you can use this config to clarify that `t3` can use the same origin files of `t1`. This will save you the time for duplicated computation.
+- **sample_from_other_exp: **this will let you reuse the data files that already exist in other folders. No need to copy a big data file again for the new experiments.
 
 ## Step 4. Run s2search and get the npy files
 
@@ -157,36 +167,77 @@ Install nbformat frist:
 pip install nbformat
 ```
 
-You can:
+Then you can:
 
 ```bash
-python plotting_nb_gen.py [experiment_name(optional)] [sample_name(optional)]
+python plotting_nb_gen.py pdp-exp1
 ```
 
-For instance, when you do not have the `pipelining/exp4/exp4_csai_plotting.ipynb` for sample `csai` of `exp4`, run the command:
+You should always specify the experiment name. The command will generate all the uncreated notebook for every configured data sample under the experiment folder.
+
+# Score computing for PDP
+
+Same as we do at normal score computation task:
+
+1. Create exp folder;
+2. Put data into exp folder;
+3. Create a config file for this experiment;
+4. Run a command to use s2search to get the npy data **for PDP**;
+5. Run a command to generate the jupyter notebook for data plotting of this experiment;
+
+## Step 1-3. Setup experiment
+
+1. Create a folder under `pipelining`, folder name would be the experiment name . **The folder name should starts with `pdp-`. Say `pipelining/pdp-exp1`.**
+
+2. Put all of your paper data under the experiment folder. Say `pipelining/pdp-exp1/cslg.data` and so on.
+
+3. Create an experiment config file `conf.yml` under the experiment folder. Say `pipelining/pdp-exp1/conf.yml`.
+
+   ```yaml
+   description: "
+   Produce PDP for a randomly picked data from cslg.
+   "
+   samples:
+       cslg-rand-100:
+         - query: "Machine Learning"
+       cslg-rand-200:
+         - query: "Machine Learning"
+       cslg-rand-500:
+         - query: "Machine Learning"
+
+   ```
+
+The configuration is same as we do in the normal tasks except there is no `masking_option_keys` and use `using_origin_from`.
+
+- **description:** ;
+- **samples:**
+  - **query:** ;
+- **sample_from_other_exp: **;
+
+## Step 4. Run s2search and get the npy files for pdp
 
 ```bash
-python plotting_nb_gen.py
+python s2search_score_pdp.py [pdp_experiment_name]
 ```
 
-This command will generate notebook files for those have not been created.
-
-And the notebook will be generated will default setting.
-
-Then you can check your plot with the notebook.
-
-If you specify the exp name like:
+E.g
 
 ```bash
-python plotting_nb_gen.py exp1
+python s2search_score_pdp.py pdp-exp1
 ```
 
-It will force to generate all notebooks for all of the data samples of `exp1`.
+## Step 5. Generate plot notebook for pdp
 
-If you specify the exp name like:
+Install nbformat frist:
 
 ```bash
-python plotting_nb_gen.py exp4 csai
+pip install nbformat
 ```
 
-It will force to generate the notebook for the data sample `csai` of `exp4`.
+Then you can:
+
+```bash
+python plotting_nb_gen.py pdp-exp1
+```
+
+It will know when to generate the notebook for normal task and when is for pdp task.
