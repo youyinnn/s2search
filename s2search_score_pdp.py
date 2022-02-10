@@ -138,7 +138,8 @@ def get_pdp_and_save_score(exp_dir_path):
                 query = t['query']
                 compute_and_save(
                     exp_dir_path, data_sample_name, query, paper_data)
-    pass
+        else:
+            print(f'**no config for data file {data_sample_file_name}')
 
 
 if __name__ == '__main__':
@@ -148,3 +149,5 @@ if __name__ == '__main__':
             exp_dir_path = path.join(data_dir, exp_name)
             if path.isdir(exp_dir_path):
                 get_pdp_and_save_score(exp_dir_path)
+            else:
+                print(f'**no exp dir {exp_dir_path}')

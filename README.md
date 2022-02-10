@@ -99,6 +99,7 @@ Note that `n_key_citations` is a Semantic Scholar feature. If you don't have it,
 1. Create a folder under `pipelining`, folder name would be the experiment name . Say `pipelining/pdp-exp1`.
 
 2. Put all of your paper data under the experiment folder. Say `pipelining/exp4/cslg.data` and so on.
+   _**Caution: the name of the data file should not contain any underscore.**_
 
 3. Create an experiment config file `conf.yml` under the experiment folder. Say `pipelining/exp4/conf.yml`.
 
@@ -190,6 +191,7 @@ Same as we do at normal score computation task:
 1. Create a folder under `pipelining`, folder name would be the experiment name . **The folder name should starts with `pdp-`. Say `pipelining/pdp-exp1`.**
 
 2. Put all of your paper data under the experiment folder. Say `pipelining/pdp-exp1/cslg.data` and so on.
+   _**Caution: the name of the data file should not contain any underscore.**_
 
 3. Create an experiment config file `conf.yml` under the experiment folder. Say `pipelining/pdp-exp1/conf.yml`.
 
