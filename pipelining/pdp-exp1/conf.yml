@@ -1,0 +1,8 @@
+description: "
+Produce PDP for a randomly picked data from cslg.
+"
+samples:
+    cslg-rand-100: 
+      - query: "Machine Learning"    
+    cslg-rand-200: 
+      - query: "Machine Learning"
