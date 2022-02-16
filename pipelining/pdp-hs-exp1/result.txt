@@ -1,0 +1,14 @@
+computing pdp for cslg-rand-500-2.data
+Loading ranker model...
+Load the s2 ranker within 10.49 sec
+get h statistic 1.4566828865223669       : 1569.7504638561088 of title and abstract in 530.214814 sec with 500 papers
+get h statistic 0.010358791971277008     : 387.112066498058 of title and venue in 528.97896 sec with 500 papers
+get h statistic 0.38877173156414013      : 1599.3858730486404 of abstract and venue in 523.061975 sec with 500 papers
+computing pdp for cslg-rand-500-3.data
+get h statistic 1.9390171640113079       : 927.2636311878664 of title and abstract in 520.438801 sec with 500 papers
+get h statistic 0.991100606216931        : 150.651142824441 of title and venue in 530.552331 sec with 500 papers
+get h statistic 0.6902853349497902       : 151.98660436528576 of abstract and venue in 527.400941 sec with 500 papers
+computing pdp for cslg-rand-500-1.data
+get h statistic 1.2405667545945582       : 2500.6249268439788 of title and abstract in 517.266585 sec with 500 papers
+get h statistic 0.011472443207802647     : 521.3535335753736 of title and venue in 524.670245 sec with 500 papers
+get h statistic 2.560513277662282        : 4008.4483594557328 of abstract and venue in 520.048472 sec with 500 papers

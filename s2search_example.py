@@ -56,10 +56,18 @@ papers_example = [
 ]
 
 
-def S2_Rank(related_keywords, paper_dict_list, file=data_dir):
-    s2ranker = S2Ranker(file)
+s2ranker = S2Ranker(data_dir)
+
+def S2_Rank(related_keywords, paper_dict_list):
     score = s2ranker.score(related_keywords, paper_dict_list)
     return score
 
+import time
 
-print(S2_Rank('NLP', papers_example, data_dir))
+st = time.time()
+
+S2_Rank('NLP', papers_example)
+
+et = round(time.time() - st, 6)
+
+print(f'{et} {len(papers_example)}')

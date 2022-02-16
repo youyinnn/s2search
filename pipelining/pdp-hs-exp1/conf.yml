@@ -1,0 +1,12 @@
+description: "
+Produce 2-way PDP for a randomly picked data from cslg.
+"
+samples:
+    # cslg-rand-500-1: 
+    #   - query: "Machine Learning"
+    # cslg-rand-500-2: 
+    #   - query: "Machine Learning"
+    # cslg-rand-500-3: 
+    #   - query: "Machine Learning"    
+    cslg-simple: 
+      - query: "Machine Learning"

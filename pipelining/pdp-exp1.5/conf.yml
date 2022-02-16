@@ -1,5 +1,5 @@
 description: "
-Produce PDP for a randomly picked data from cslg.
+Produce 2-way PDP for a randomly picked data from cslg.
 "
 samples:
     cslg-rand-5: 
