@@ -10,8 +10,6 @@ import numpy as np
 model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
 ranker = None
-data_loading_line_limit = 1000
-
 
 def init_ranker():
     global ranker

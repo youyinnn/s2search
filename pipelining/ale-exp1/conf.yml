@@ -1,0 +1,17 @@
+description: "
+1-way ALE.
+"
+samples:
+    cslg: 
+      - query: "Machine Learning"
+        quantiles:
+          title: 10
+          abstract: 10
+          venue: 1
+          authors: 0.01
+          year: 5
+          n_citations: 0.01
+
+sample_from_other_exp:
+  cslg: ["exp5", "cslg.data"]
+  # cslg: ["pdp-exp1", "cslg-rand-100.data"]

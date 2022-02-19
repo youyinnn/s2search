@@ -139,7 +139,7 @@ def get_hstatistic_and_save_score(exp_dir_path):
             '.data', '').replace('.data', '')
         task = sample_configs.get(data_sample_name)
         if task != None:
-            print(f'computing pdp for {data_sample_file_name}')
+            print(f'computing h-statistic for {data_sample_file_name}')
             for t in task:
                 query = t['query']
                 compute_and_save(
