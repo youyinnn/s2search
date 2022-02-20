@@ -103,3 +103,9 @@ def load_sample(exp_name, sample_name, sort = None, del_f = ['id', 's2_id'], ran
             return pd.concat([df, scores_df], axis=1).sort_values(by=['score'])           
             
     return pd.read_json(f"[{','.join(list(map(lambda x: json.dumps(x), data)))}]")
+
+def read_conf(exp_dir_path):
+    conf_path = os.path.join(exp_dir_path, 'conf.yml')
+    with open(str(conf_path), 'r') as f:
+        conf = yaml.safe_load(f)
+        return conf.get('description'), conf.get('samples'), conf.get('sample_from_other_exp'),

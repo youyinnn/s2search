@@ -8,3 +8,8 @@ samples:
       - query: "Machine Learning"    
     cslg-rand-500: 
       - query: "Machine Learning"
+    # cslg: 
+    #   - query: "Machine Learning"
+
+sample_from_other_exp:
+  cslg: ["exp5", "cslg.data"]

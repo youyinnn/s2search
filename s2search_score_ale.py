@@ -6,7 +6,7 @@ import sys
 import yaml
 import math
 import numpy as np
-from getting_data import load_sample
+from getting_data import load_sample, read_conf
 
 model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
@@ -28,25 +28,23 @@ def get_scores(query, paper):
     scores = ranker.score(query, paper)
     return scores
 
-
-def read_conf(exp_dir_path):
-    conf_path = path.join(exp_dir_path, 'conf.yml')
-    with open(str(conf_path), 'r') as f:
-        conf = yaml.safe_load(f)
-        return conf.get('description'), conf.get('samples'), conf.get('sample_from_other_exp'),
-
-
-def save_pdp_to_npz(exp_dir_path, npz_file_path, quantile, ale_result):
+def save_pdp_to_npz(exp_dir_path, npz_file_path, quantile, ale_result, values_for_rug):
     scores_dir = path.join(exp_dir_path, 'scores')
     if not path.exists(str(scores_dir)):
         os.mkdir(str(scores_dir))
     print(f'\tsave ale data to {npz_file_path}')
-    np.savez_compressed(npz_file_path, quantile=quantile, ale_result=ale_result)
+    if values_for_rug == None:
+        np.savez_compressed(npz_file_path, quantile=quantile, ale_result=ale_result)
+    else:
+        np.savez_compressed(npz_file_path, quantile=quantile, ale_result=ale_result, values_for_rug=values_for_rug)
+        
 
-def divide_by_percentile(df, sorted_column_name, percentile_interval):
+def divide_by_percentile(df, sorted_column_name, use_interval_not_quantile, quantile_interval, just_interval):
     data_len = len(df.index)
-    actual_interval = math.ceil(data_len * (percentile_interval * 0.01))
-    # print(actual_interval)
+    if use_interval_not_quantile:
+        actual_interval = just_interval
+    else:
+        actual_interval = math.ceil(data_len * (quantile_interval * 0.01))
     grids = []
     quantiles = []
     curr_idx = 0
@@ -59,7 +57,7 @@ def divide_by_percentile(df, sorted_column_name, percentile_interval):
         })
         quantiles.append(df[sorted_column_name].iloc[upper_idx])
         curr_idx += actual_interval
-    # print(len(quantiles))
+    # print(use_interval_not_quantile, actual_interval, len(quantiles))
 
     return grids, quantiles
 
@@ -81,7 +79,7 @@ def get_ale(grids, feature_key, query, centered = False):
             points_ul_pairs.append([upper_variant, lower_variant])
         
         all_diff_in_this = fn_over_grid_2(query, points_ul_pairs)
-        curr_accumulated += np.sum(all_diff_in_this) / len(all_diff_in_this)
+        curr_accumulated += np.mean(all_diff_in_this)
         ale_result_list.append(curr_accumulated)
     
     if centered: 
@@ -106,12 +104,21 @@ def fn_over_grid_2(query, points_ul_pairs):
     while idx < len(scores):
         upper_score = scores[idx]
         lower_score = scores[idx + 1]
-        diff_list.append(upper_score - lower_score)
+        diff = upper_score - lower_score
+        if diff > 100:
+            # print(diff, idx, int(idx / 2))
+            # print(points_ul_pairs[int(idx / 2)])
+            diff_in_two = get_scores(query, points_ul_pairs[int(idx / 2)])
+            # print(diff_in_two)
+            diff_list.append(diff_in_two[1] - diff_in_two[0])
+            print(f'abnormal scores occur {diff}, adjust to {diff_in_two[1] - diff_in_two[0]}')
+        else:
+            diff_list.append(diff)
         idx += 2
     
     return diff_list
 
-def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_config, data_exp_name, data_sample_name):
+def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_config, interval_config, data_exp_name, data_sample_name):
     print(output_exp_dir, output_data_sample_name, query, data_exp_name, data_sample_name)
     categorical_features = [
         'title', 
@@ -126,16 +133,26 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                                   f"{output_data_sample_name}_1w_ale_{feature_name}.npz")
         if not os.path.exists(npz_file_path):
             df = load_sample(data_exp_name, data_sample_name, sort=feature_name, rank_f=get_scores, query=query)
+            values_for_rug = df[feature_name].to_list() if feature_name == 'year' or feature_name == 'n_citations' else None
+                
             st = time.time()
-            quantile_interval = quantile_config.get(feature_name) if quantile_config != None and quantile_config.get(feature_name) != None else def_quantile_config.get(feature_name) 
-            grids, quantiles = divide_by_percentile(df, feature_name, quantile_interval)
+            just_interval = None
+            quantile_interval = None
+            if interval_config == None or interval_config.get(feature_name) == None:
+                use_interval_not_quantile = False
+                quantile_interval = quantile_config.get(feature_name) if quantile_config != None and quantile_config.get(feature_name) != None else def_quantile_config.get(feature_name) 
+            else:
+                use_interval_not_quantile = True
+                just_interval = interval_config.get(feature_name)
+
+            grids, quantiles = divide_by_percentile(df, feature_name, use_interval_not_quantile, quantile_interval, just_interval)
             ale_result = get_ale(grids, feature_name, query)
             
             et = round(time.time() - st, 6)
             print(f'\tcompute ale data for {output_data_sample_name}_1w_ale_{feature_name} within {et} sec')
             if (feature_name == 'authors'):
                 quantiles = [str(x) for x in quantiles]
-            save_pdp_to_npz(output_exp_dir, npz_file_path, quantiles, ale_result)
+            save_pdp_to_npz(output_exp_dir, npz_file_path, quantiles, ale_result, values_for_rug)
         else:
             print(f'\t{npz_file_path} exist, should skip')
          
@@ -163,8 +180,9 @@ def get_ale_and_save_score(exp_dir_path, exp_name):
             for t in task:
                 query = t['query']
                 quantile_config = t.get('quantiles')
+                interval_config = t.get('intervals')
                 compute_and_save(
-                    exp_dir_path, tested_sample_name, query, quantile_config,
+                    exp_dir_path, tested_sample_name, query, quantile_config, interval_config,
                     tested_sample_from_exp, tested_sample_data_source_name)
         else:
             print(f'**no config for tested sample {tested_sample_name}')

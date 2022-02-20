@@ -6,6 +6,7 @@ import sys
 import yaml
 import json
 import numpy as np
+from getting_data import load_sample
 
 model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
@@ -62,10 +63,6 @@ def compute_2d_and_save(exp_dir_path, data_sample_name, query, paper_data):
                             value_that_feature_2_is_used = paper_data[i][f2_key]
                             new_data = {**p}
                             new_data[f2_key] = value_that_feature_2_is_used
-                            if new_data.get('id') != None:
-                                del new_data['id']
-                            if new_data.get('s2_id') != None:
-                                del new_data['s2_id']
                             value_that_feature_1_is_used = paper_data[j][f1_key]
                             new_data[f1_key] = value_that_feature_1_is_used
                             variant_data.append(new_data)
@@ -89,12 +86,14 @@ def compute_2d_and_save(exp_dir_path, data_sample_name, query, paper_data):
     # TODO: numerical features 2-way pdp
 
 
-def compute_and_save(exp_dir_path, data_sample_name, query, paper_data):
+def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_name, data_sample_name):
+    df = load_sample(data_exp_name, data_sample_name)
+    paper_data = json.loads(df.to_json(orient='records'))
     data_len = len(paper_data)
     categorical_features = ['title', 'abstract', 'venue', 'authors']
     for feature_name in categorical_features:
-        npz_file_path = path.join(exp_dir_path, 'scores',
-                                  f"{data_sample_name}_pdp_{feature_name}.npz")
+        npz_file_path = path.join(output_exp_dir, 'scores',
+                                  f"{output_data_sample_name}_pdp_{feature_name}.npz")
         if not os.path.exists(npz_file_path):
             pdp_value = []
             print(f'\tgetting score for {feature_name}')
@@ -106,8 +105,6 @@ def compute_and_save(exp_dir_path, data_sample_name, query, paper_data):
                 # replace it to all papers
                 for p in paper_data:
                     new_data = {**p}
-                    del new_data['id']
-                    del new_data['s2_id']
                     new_data[feature_name] = value_that_is_used
                     variant_data.append(new_data)
 
@@ -116,7 +113,7 @@ def compute_and_save(exp_dir_path, data_sample_name, query, paper_data):
                 pdp_value.append(np.mean(scores))
 
             et = round(time.time() - st, 6)
-            save_pdp_to_npz(exp_dir_path, npz_file_path, pdp_value)
+            save_pdp_to_npz(output_exp_dir, npz_file_path, pdp_value)
             print(
                 f'\tcompute {len(scores)} scores within {et} sec')
         else:
@@ -130,8 +127,8 @@ def compute_and_save(exp_dir_path, data_sample_name, query, paper_data):
     for feature_and_range in numerical_features_and_range:
         pdp_value = []
         feature_name, rg = feature_and_range
-        npz_file_path = path.join(exp_dir_path, 'scores',
-                                  f"{data_sample_name}_pdp_{feature_name}.npz")
+        npz_file_path = path.join(output_exp_dir, 'scores',
+                                  f"{output_data_sample_name}_pdp_{feature_name}.npz")
         if not os.path.exists(npz_file_path):
             print(f'\tgetting score for {feature_name}')
             st = time.time()
@@ -140,8 +137,6 @@ def compute_and_save(exp_dir_path, data_sample_name, query, paper_data):
                 variant_data = []
                 for p in paper_data:
                     new_data = {**p}
-                    del new_data['id']
-                    del new_data['s2_id']
                     new_data[feature_name] = value_that_is_used
                     variant_data.append(new_data)
 
@@ -149,40 +144,41 @@ def compute_and_save(exp_dir_path, data_sample_name, query, paper_data):
                 pdp_value.append(np.mean(scores))
 
             et = round(time.time() - st, 6)
-            save_pdp_to_npz(exp_dir_path, npz_file_path, pdp_value)
+            save_pdp_to_npz(output_exp_dir, npz_file_path, pdp_value)
             print(
                 f'\tcompute {len(scores)} scores within {et} sec')
         else:
             print(f'\t{npz_file_path} exist, should skip')
 
 
-def get_pdp_and_save_score(exp_dir_path, is2d):
+def get_pdp_and_save_score(exp_dir_path, exp_name, is2d):
     des, sample_configs, sample_from_other_exp = read_conf(exp_dir_path)
+    
+    tested_sample_list = []
+    
+    for sample_name in sample_configs:
+        if sample_name in sample_from_other_exp.keys():
+            other_exp_name, data_file_name = sample_from_other_exp.get(sample_name)
+            tested_sample_list.append({'exp_name': other_exp_name, 'data_sample_name': sample_name, 'data_source_name': data_file_name.replace('.data', '')})
+        else:
+            tested_sample_list.append({'exp_name': exp_name, 'data_sample_name': sample_name, 'data_source_name': sample_name})
 
-    sample_file_list = [f for f in os.listdir(exp_dir_path) if path.isfile(
-        path.join(exp_dir_path, f)) and f.endswith('.data')]
-
-    for data_sample_file_name in sample_file_list:
-        paper_data = []
-        with open(path.join(exp_dir_path, data_sample_file_name)) as f:
-            lines = f.readlines()
-            for line in lines:
-                paper_data.append(json.loads(line.strip()))
-        data_sample_name = data_sample_file_name.replace(
-            '.data', '').replace('.data', '')
-        task = sample_configs.get(data_sample_name)
+    for tested_sample_config in tested_sample_list:
+        
+        tested_sample_name = tested_sample_config['data_sample_name']
+        tested_sample_data_source_name = tested_sample_config['data_source_name']
+        tested_sample_from_exp = tested_sample_config['exp_name']
+        
+        task = sample_configs.get(tested_sample_name)
         if task != None:
-            print(f'computing pdp for {data_sample_file_name}')
+            print(f'computing ale for {tested_sample_name}')
             for t in task:
                 query = t['query']
-                if is2d:
-                    compute_2d_and_save(
-                        exp_dir_path, data_sample_name, query, paper_data)
-                else:
-                    compute_and_save(
-                        exp_dir_path, data_sample_name, query, paper_data)
+                compute_and_save(
+                    exp_dir_path, tested_sample_name, query,
+                    tested_sample_from_exp, tested_sample_data_source_name)
         else:
-            print(f'**no config for data file {data_sample_file_name}')
+            print(f'**no config for tested sample {tested_sample_name}')
 
 
 if __name__ == '__main__':
@@ -196,6 +192,6 @@ if __name__ == '__main__':
         for exp_name in exp_list:
             exp_dir_path = path.join(data_dir, exp_name)
             if path.isdir(exp_dir_path):
-                get_pdp_and_save_score(exp_dir_path, is2d)
+                get_pdp_and_save_score(exp_dir_path, exp_name, is2d)
             else:
                 print(f'**no exp dir {exp_dir_path}')
