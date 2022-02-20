@@ -198,103 +198,119 @@ sample_name = '{sample_name}'
 
 f_list = ['title', 'abstract', 'venue', 'authors', 'year', 'n_citations']
 
-pdp_data_map = {{}}
-weird_score = {{}}
+ale_xy = {{}}
 
 for f in f_list:
-    feature_pdp_data = np.load(os.path.join('.', 'scores', f'{{sample_name}}_pdp_{{f}}.npz'))['arr_0']
-    # print(len(feature_pdp_data))
-    pdp_data_map[f] = feature_pdp_data
-    for score in feature_pdp_data:
-        if score > 20:
-            weird_score[f] = ''
+    file = os.path.join('.', 'scores', f'{{sample_name}}_pdp_{{f}}.npz')
+    if os.path.exists(file):
+        feature_pdp_data = np.load(file)['arr_0']
+        
+        ale_xy[f] = {{
+            'y': feature_pdp_data,
+            'numerical': True
+        }}
+        if f == 'year':
+            ale_xy[f]['x'] = list(range(1900, 2030))
+        elif f == 'n_citations':
+            ale_xy[f]['x'] = list(range(0, 11000, 100))
+        else:
+            ale_xy[f]['y'] = np.sort(feature_pdp_data)
+            ale_xy[f]['x'] = list(range(len(feature_pdp_data)))
+            ale_xy[f]['numerical'] = False
+            
+        ale_xy[f]['weird'] = feature_pdp_data[len(feature_pdp_data) - 1] > 30
 '''
 
             plot_data_md = "### PDP"
             plot_data_code = '''import matplotlib.pyplot as plt
 
-categorical_plot_conf = {
-    'title': {
+categorical_plot_conf = [
+    {
         'xlabel': 'Title',
         'ylabel': 'Scores',
-        'x': list(range(len(pdp_data_map['title']))),
-        'y': np.sort(pdp_data_map['title']),
-        'yticks': list(range(-14, 10, 1)),
+        'ale_xy': ale_xy['title']
     },
-    'abstract': {
+    {
         'xlabel': 'Abstract',
-        'x': list(range(len(pdp_data_map['abstract']))),
-        'y': np.sort(pdp_data_map['abstract']),
-        'yticks': list(range(-14, 10, 1)),
+        'ale_xy': ale_xy['abstract']
     },    
-    'authors': {
+    {
         'xlabel': 'Authors',
-        'x': list(range(len(pdp_data_map['authors']))),
-        'y': np.sort(pdp_data_map['authors']),
-        'yticks': list(range(-14, 10, 1)),
+        'ale_xy': ale_xy['authors']
     },
-    'venue': {
+    {
         'xlabel': 'Venue',
-        'x': list(range(len(pdp_data_map['venue']))),
-        'y': np.sort(pdp_data_map['venue']),
-        'yticks': list(range(-14, 10, 1)),
+        'ale_xy': ale_xy['venue'],
+        # 'zoom': {
+        #     'inset_axes': [0.15, 0.45, 0.47, 0.47],
+        #     'x_limit': [950, 1010],
+        #     'y_limit': [-9, 7],
+        #     'connects': [True, True, False, False]
+        # }
     },
-}
+]
 
-numerical_plot_conf = {
-    'year': {
+numerical_plot_conf = [
+    {
         'xlabel': 'Year',
         'ylabel': 'Scores',
-        'x': list(range(1800, 2050)),
-        'y': pdp_data_map['year'],
-        'xticks': list(range(1800, 2050, 50)),
-        'yticks': list(range(-14, 10, 1)),
+        'ale_xy': ale_xy['year']
     },
-    'n_citations': {
+    {
         'xlabel': 'Citation Count',
-        'x': list(range(0, 11000, 50)),
-        'y': pdp_data_map['n_citations'],
-        'xticks': list(range(0, 11000, 2000)),
-        'yticks': list(range(-14, 10, 1)),
+        'ale_xy': ale_xy['n_citations'],
+        # 'zoom': {
+        #     'inset_axes': [0.5, 0.2, 0.47, 0.47],
+        #     'x_limit': [-100, 1000],
+        #     'y_limit': [-7.3, -6.2],
+        #     'connects': [False, False, True, True]
+        # }
     }
-}
+]
 
-def pdp_plot(confs):
-    idx = 1
-    for key in confs.keys():
-        conf = confs[key]
-        plt.subplot(1, len(confs), idx)
-        plt.plot(conf['x'], conf['y'])
+def pdp_plot(confs, title):
+    fig, axes = plt.subplots(nrows=1, ncols=len(confs), figsize=(20, 5), dpi=100)
+    subplot_idx = 0
+    plt.suptitle(title, fontsize=20, fontweight='bold')
+    # plt.autoscale(False)
+    for conf in confs:
+        axess = axes if len(confs) == 1 else axes[subplot_idx]
 
-        plt.xlabel(conf['xlabel'], fontsize=20, labelpad=20)
-        if (conf.get('ylabel') != None):
-            plt.ylabel(conf.get('ylabel'), fontsize=20, labelpad=20)
+        axess.plot(conf['ale_xy']['x'], conf['ale_xy']['y'])
+        axess.grid(alpha = 0.4)
 
-        if conf.get('xticks') != None:
-            plt.xticks(conf.get('xticks'), fontsize=14)
-        else:
-            plt.xticks([], fontsize=14)
-            
-        if weird_score.get(key) == None:
-            if conf.get('yticks') != None:
-                plt.yticks(conf.get('yticks'), fontsize=14)
+        if ('ylabel' in conf):
+            axess.set_ylabel(conf.get('ylabel'), fontsize=20, labelpad=10)
+        
+        axess.set_xlabel(conf['xlabel'], fontsize=16, labelpad=10)
+        
+        if not (conf['ale_xy']['weird']):
+            if (conf['ale_xy']['numerical']):
+                # axess.set_ylim([-1, 3])
+                pass
             else:
-                plt.yticks(list(range(-14, 10, 1)), fontsize=14)
-        else:
-            plt.yticks(fontsize=14)
+                axess.set_ylim([-15, 10])
+                pass
+                
+        if 'zoom' in conf:
+            axins = axess.inset_axes(conf['zoom']['inset_axes']) 
+            axins.plot(conf['ale_xy']['x'], conf['ale_xy']['y'])
+            axins.set_xlim(conf['zoom']['x_limit'])
+            axins.set_ylim(conf['zoom']['y_limit'])
+            axins.grid(alpha=0.3)
+            rectpatch, connects = axess.indicate_inset_zoom(axins)
+            connects[0].set_visible(conf['zoom']['connects'][0])
+            connects[1].set_visible(conf['zoom']['connects'][1])
+            connects[2].set_visible(conf['zoom']['connects'][2])
+            connects[3].set_visible(conf['zoom']['connects'][3])
             
-        plt.grid()
-        idx += 1
+        subplot_idx += 1
 
-plt.figure(figsize=(20, 10), dpi=100)
-plt.suptitle("PDPs for four categorical features", y=0.94, fontsize=20, fontweight='bold')
-pdp_plot(categorical_plot_conf)
+pdp_plot(categorical_plot_conf, "PDPs for four categorical features")
 plt.savefig(os.path.join('.', 'plot', f'{sample_name}-categorical.png'), facecolor='white', transparent=False, bbox_inches='tight')
 
 # second fig
-plt.figure(figsize=(20, 10), dpi=100)
-plt.suptitle("PDPs for two numerical features", y=0.94, fontsize=20, fontweight='bold')
-pdp_plot(numerical_plot_conf)
+pdp_plot(numerical_plot_conf, "PDPs for two numerical features")
 plt.savefig(os.path.join('.', 'plot', f'{sample_name}-numerical.png'), facecolor='white', transparent=False, bbox_inches='tight')
 
 plt.show()

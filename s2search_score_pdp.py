@@ -109,7 +109,40 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_na
                     variant_data.append(new_data)
 
                 # get the scores
-                scores = get_scores(query, variant_data)
+                # scores = get_scores(query, variant_data)
+                scores = []
+                if len(variant_data) > 1000:
+                    curr_idx = 0
+                    while curr_idx < len(variant_data):
+                        end_idx = curr_idx + 1000 if curr_idx + 1000 < len(variant_data) else len(variant_data)
+                        curr_list = variant_data[curr_idx: end_idx]
+                        scores.extend(get_scores(query, curr_list))
+                        curr_idx += 1000
+                else:
+                    scores = get_scores(query, variant_data)
+                
+                i = 0
+                abnormal_score = []
+                abnormal_score_idx = []
+                abnormal_score_paper = []
+                for i in range(len(scores)):
+                    score = scores[i]
+                    if score > 20:
+                        abnormal_score.append(score)
+                        abnormal_score_idx.append(i)
+                        abnormal_score_paper.append(variant_data[i])
+                    i += 1
+                
+                if len(abnormal_score_idx) > 0:
+                    normal_score = get_scores(query, abnormal_score_paper)
+                    # print(abnormal_score)
+                    print(f'abnormal scores occur {npz_file_path}, adjust with normal score')
+                    
+                    i = 0
+                    for idx in abnormal_score_idx:
+                        scores[idx] = normal_score[i]
+                        i += 1
+                
                 pdp_value.append(np.mean(scores))
 
             et = round(time.time() - st, 6)
@@ -120,8 +153,8 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_na
             print(f'\t{npz_file_path} exist, should skip')
 
     numerical_features_and_range = [
-        ['year', range(1800, 2050)],
-        ['n_citations', range(0, 11000, 50)]
+        ['year', range(1900, 2030)],
+        ['n_citations', range(0, 11000, 100)]
     ]
 
     for feature_and_range in numerical_features_and_range:

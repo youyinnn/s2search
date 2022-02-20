@@ -13,7 +13,6 @@ samples:
           authors: 1000
           venue: 1000
           
-
 sample_from_other_exp:
   cslg: ["exp5", "cslg.data"]
   # cslg: ["pdp-exp1", "cslg-rand-100.data"]

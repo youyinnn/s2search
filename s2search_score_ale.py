@@ -96,9 +96,17 @@ def fn_over_grid_2(query, points_ul_pairs):
         paper_list.append(upper)
         paper_list.append(lower)
     
-    scores = get_scores(query, paper_list)
-
-    # print(paper_list[0])
+    scores = []
+    if len(paper_list) > 1000:
+        curr_idx = 0
+        while curr_idx < len(paper_list):
+            end_idx = curr_idx + 1000 if curr_idx + 1000 < len(paper_list) else len(paper_list)
+            curr_list = paper_list[curr_idx: end_idx]
+            scores.extend(get_scores(query, curr_list))
+            curr_idx += 1000
+    else:
+        scores = get_scores(query, paper_list)
+        # scores = list(map(lambda x: get_scores(query, [x]), paper_list))
 
     idx = 0
     while idx < len(scores):
