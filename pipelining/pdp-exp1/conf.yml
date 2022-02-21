@@ -10,8 +10,8 @@ samples:
       - query: "Machine Learning"
     cslg-rand-1000: 
       - query: "Machine Learning"
-    # cslg-rand-5000: 
-    #   - query: "Machine Learning"
+    cslg-rand-5000: 
+      - query: "Machine Learning"
     # cslg: 
     #   - query: "Machine Learning"
 
