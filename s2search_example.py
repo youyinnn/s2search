@@ -5,54 +5,43 @@ from s2search.rank import S2Ranker
 data_dir = './s2search_data'
 
 papers_example = [
+    # lower t
     {
-        'title': 'Jumping NLP Curves: A Review of Natural Language Processing Research',
-        'abstract': 'Natural language processing (NLP) is a theory-motivated range of computational techniques for the automatic analysis and representation of human language. NLP research has evolved from the era of punch cards and batch processing (in which the analysis of a sentence could take up to 7 minutes) to the era of Google and the likes of it (in which millions of webpages can be processed in less than a second). This review paper draws on recent developments in NLP research to look at the past, present, and future of NLP technology in a new light. Borrowing the paradigm of jumping curves from the field of business management and marketing prediction, this survey article reinterprets the evolution of NLP research as the intersection of three overlapping curves-namely Syntactics, Semantics, and Pragmatics Curveswhich will eventually lead NLP research to evolve into natural language understanding.',
-        'venue': 'IEEE Computational intelligence ',
-        'authors': ['E Cambria', 'B White'],
-        'year': 2014,
-        'n_citations': 900,
+        'title': 'A Panel Quantile Approach to Attrition Bias in Big Data: Evidence from a Randomized Experiment',
     },
+    # upper t
     {
-        'title': ' ',
-        'abstract': 'Natural language processing (NLP) is a theory-motivated range of computational techniques for the automatic analysis and representation of human language. NLP research has evolved from the era of punch cards and batch processing (in which the analysis of a sentence could take up to 7 minutes) to the era of Google and the likes of it (in which millions of webpages can be processed in less than a second). This review paper draws on recent developments in NLP research to look at the past, present, and future of NLP technology in a new light. Borrowing the paradigm of jumping curves from the field of business management and marketing prediction, this survey article reinterprets the evolution of NLP research as the intersection of three overlapping curves-namely Syntactics, Semantics, and Pragmatics Curveswhich will eventually lead NLP research to evolve into natural language understanding.',
-        'venue': 'IEEE Computational intelligence ',
-        'authors': ['E Cambria', 'B White'],
-        'year': 2014,
-        'n_citations': 900,
+        'title': 'A Machine Learning guided Rewriting Approach for ASP Logic Programs',
+    },    
+    # lower abs
+    {
+        'abstract': 'This paper introduces a quantile regression estimator for panel data models with individual heterogeneity and attrition. The method is motivated by the fact that attrition bias is often encountered in Big Data applications. For example, many users sign-up for the latest program but few remain active users several months later, making the evaluation of such interventions inherently very challenging. Building on earlier work by Hausman and Wise (1979), we provide a simple identification strategy that leads to a two-step estimation procedure. In the first step, the coefficients of interest in the selection equation are consistently estimated using parametric or nonparametric methods. In the second step, standard panel quantile methods are employed on a subset of weighted observations. The estimator is computationally easy to implement in Big Data applications with a large number of subjects. We investigate the conditions under which the parameter estimator is asymptotically Gaussian and we carry out a series of Monte Carlo simulations to investigate the finite sample properties of the estimator. Lastly, using a simulation exercise, we apply the method to the evaluation of a recent Time-of-Day electricity pricing experiment inspired by the work of Aigner and Hausman (1980).',
+    },    
+    # upper abs
+    {
+        'abstract': 'Recently enacted legislation grants individuals certain rights to decide in what fashion their personal data may be used, and in particular a "right to be forgotten". This poses a challenge to machine learning: how to proceed when an individual retracts permission to use data which has been part of the training process of a model? From this question emerges the field of machine unlearning, which could be broadly described as the investigation of how to "delete training data from models". Our work complements this direction of research for the specific setting of class-wide deletion requests for classification models (e.g. deep neural networks). As a first step, we propose linear filtration as a intuitive, computationally efficient sanitization method. Our experiments demonstrate benefits in an adversarial setting over naive deletion schemes.',
     },
+    
+    # a
     {
-        'title': 'Jumping NLP Curves: A Review of Natural Language Processing Research',
-        'abstract': ' ',
-        'venue': 'IEEE Computational intelligence ',
-        'authors': ['E Cambria', 'B White'],
-        'year': 2014,
-        'n_citations': 900,
+        'title': 'A Panel Quantile Approach to Attrition Bias in Big Data: Evidence from a Randomized Experiment',
+        'abstract': 'This paper introduces a quantile regression estimator for panel data models with individual heterogeneity and attrition. The method is motivated by the fact that attrition bias is often encountered in Big Data applications. For example, many users sign-up for the latest program but few remain active users several months later, making the evaluation of such interventions inherently very challenging. Building on earlier work by Hausman and Wise (1979), we provide a simple identification strategy that leads to a two-step estimation procedure. In the first step, the coefficients of interest in the selection equation are consistently estimated using parametric or nonparametric methods. In the second step, standard panel quantile methods are employed on a subset of weighted observations. The estimator is computationally easy to implement in Big Data applications with a large number of subjects. We investigate the conditions under which the parameter estimator is asymptotically Gaussian and we carry out a series of Monte Carlo simulations to investigate the finite sample properties of the estimator. Lastly, using a simulation exercise, we apply the method to the evaluation of a recent Time-of-Day electricity pricing experiment inspired by the work of Aigner and Hausman (1980).',
     },
+    # b
     {
-        'title': 'Jumping NLP Curves: A Review of Natural Language Processing Research',
-        'abstract': 'Natural language processing (NLP) is a theory-motivated range of computational techniques for the automatic analysis and representation of human language. NLP research has evolved from the era of punch cards and batch processing (in which the analysis of a sentence could take up to 7 minutes) to the era of Google and the likes of it (in which millions of webpages can be processed in less than a second). This review paper draws on recent developments in NLP research to look at the past, present, and future of NLP technology in a new light. Borrowing the paradigm of jumping curves from the field of business management and marketing prediction, this survey article reinterprets the evolution of NLP research as the intersection of three overlapping curves-namely Syntactics, Semantics, and Pragmatics Curveswhich will eventually lead NLP research to evolve into natural language understanding.',
-        'venue': ' ',
-        'authors': ['E Cambria', 'B White'],
-        'year': 2014,
-        'n_citations': 900,
+        'title': 'A Machine Learning guided Rewriting Approach for ASP Logic Programs',
+        'abstract': 'This paper introduces a quantile regression estimator for panel data models with individual heterogeneity and attrition. The method is motivated by the fact that attrition bias is often encountered in Big Data applications. For example, many users sign-up for the latest program but few remain active users several months later, making the evaluation of such interventions inherently very challenging. Building on earlier work by Hausman and Wise (1979), we provide a simple identification strategy that leads to a two-step estimation procedure. In the first step, the coefficients of interest in the selection equation are consistently estimated using parametric or nonparametric methods. In the second step, standard panel quantile methods are employed on a subset of weighted observations. The estimator is computationally easy to implement in Big Data applications with a large number of subjects. We investigate the conditions under which the parameter estimator is asymptotically Gaussian and we carry out a series of Monte Carlo simulations to investigate the finite sample properties of the estimator. Lastly, using a simulation exercise, we apply the method to the evaluation of a recent Time-of-Day electricity pricing experiment inspired by the work of Aigner and Hausman (1980).',
     },
+    # c
     {
-        'title': 'Jumping NLP Curves: A Review of Natural Language Processing Research',
-        'abstract': 'Natural language processing (NLP) is a theory-motivated range of computational techniques for the automatic analysis and representation of human language. NLP research has evolved from the era of punch cards and batch processing (in which the analysis of a sentence could take up to 7 minutes) to the era of Google and the likes of it (in which millions of webpages can be processed in less than a second). This review paper draws on recent developments in NLP research to look at the past, present, and future of NLP technology in a new light. Borrowing the paradigm of jumping curves from the field of business management and marketing prediction, this survey article reinterprets the evolution of NLP research as the intersection of three overlapping curves-namely Syntactics, Semantics, and Pragmatics Curveswhich will eventually lead NLP research to evolve into natural language understanding.',
-        'venue': 'IEEE Computational intelligence ',
-        'authors': [ ],
-        'year': 2014,
-        'n_citations': 900,
+        'title': 'A Panel Quantile Approach to Attrition Bias in Big Data: Evidence from a Randomized Experiment',
+        'abstract': 'Recently enacted legislation grants individuals certain rights to decide in what fashion their personal data may be used, and in particular a "right to be forgotten". This poses a challenge to machine learning: how to proceed when an individual retracts permission to use data which has been part of the training process of a model? From this question emerges the field of machine unlearning, which could be broadly described as the investigation of how to "delete training data from models". Our work complements this direction of research for the specific setting of class-wide deletion requests for classification models (e.g. deep neural networks). As a first step, we propose linear filtration as a intuitive, computationally efficient sanitization method. Our experiments demonstrate benefits in an adversarial setting over naive deletion schemes.',
     },
+    # d
     {
-        'title': 'Jumping NLP Curves: A Review of Natural Language Processing Research',
-        'abstract': 'Natural language processing (NLP) is a theory-motivated range of computational techniques for the automatic analysis and representation of human language. NLP research has evolved from the era of punch cards and batch processing (in which the analysis of a sentence could take up to 7 minutes) to the era of Google and the likes of it (in which millions of webpages can be processed in less than a second). This review paper draws on recent developments in NLP research to look at the past, present, and future of NLP technology in a new light. Borrowing the paradigm of jumping curves from the field of business management and marketing prediction, this survey article reinterprets the evolution of NLP research as the intersection of three overlapping curves-namely Syntactics, Semantics, and Pragmatics Curveswhich will eventually lead NLP research to evolve into natural language understanding.',
-        'venue': 'IEEE Computational intelligence ',
-        'authors': ['E Cambria', 'B White'],
-        'year': 2014,
-        'n_citations': 0,
-    }
+        'title': 'A Machine Learning guided Rewriting Approach for ASP Logic Programs',
+        'abstract': 'Recently enacted legislation grants individuals certain rights to decide in what fashion their personal data may be used, and in particular a "right to be forgotten". This poses a challenge to machine learning: how to proceed when an individual retracts permission to use data which has been part of the training process of a model? From this question emerges the field of machine unlearning, which could be broadly described as the investigation of how to "delete training data from models". Our work complements this direction of research for the specific setting of class-wide deletion requests for classification models (e.g. deep neural networks). As a first step, we propose linear filtration as a intuitive, computationally efficient sanitization method. Our experiments demonstrate benefits in an adversarial setting over naive deletion schemes.',
+    },
 ]
 
 
@@ -66,8 +55,13 @@ import time
 
 st = time.time()
 
-S2_Rank('NLP', papers_example)
+scores = S2_Rank('Machine Learning', papers_example)
 
 et = round(time.time() - st, 6)
+
+a,b,c,d = scores[len(scores) - 4: len(scores)]
+
+print(scores)
+print(a, b, c, d, (d - c) - (b - a))
 
 print(f'{et} {len(papers_example)}')

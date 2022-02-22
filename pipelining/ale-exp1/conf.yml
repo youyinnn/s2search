@@ -2,18 +2,28 @@ description: "
 1-way ALE.
 "
 samples:
-    cslg: 
+    # cslg: 
+    #   - query: "Machine Learning"
+    #     quantiles:
+    #       year: 0.01
+    #       n_citations: 0.01
+    #     intervals:
+    #       title: 1000
+    #       abstract: 1000
+    #       authors: 1000
+    #       venue: 1000
+    cslg-rand-1000: 
       - query: "Machine Learning"
         quantiles:
-          year: 0.01
-          n_citations: 0.01
-        intervals:
-          title: 1000
-          abstract: 1000
-          authors: 1000
-          venue: 1000
+          year: 10
+          n_citations: 10
+          title: 5
+          abstract: 5
+          authors: 5
+          venue: 5
+        # intervals:
           
 sample_from_other_exp:
   cslg: ["exp5", "cslg.data"]
   # cslg: ["pdp-exp1", "cslg-rand-100.data"]
-  cslg-rand-100: ["pdp-exp1", "cslg-rand-100.data"]
+  cslg-rand-1000: ["pdp-exp1", "cslg-rand-100.data"]
