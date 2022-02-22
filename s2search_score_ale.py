@@ -175,10 +175,10 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
     categorical_features = [
         'title', 
         'abstract',
-        # 'venue',
-        # 'authors',
-        # 'year',
-        # 'n_citations',
+        'venue',
+        'authors',
+        'year',
+        'n_citations',
     ]
     for feature_name in categorical_features:
         npz_file_path = path.join(output_exp_dir, 'scores',
@@ -283,12 +283,13 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                                 all_diff_in_neignborhood.append(diff)
                             idx += 4
                         
-                        # accumulated_f1_value = 0
-                        # accumulated_f2_value = 0                      
                         accumulated_f1_value = 0 if k == 0 else ale_values[l][k - 1]
                         accumulated_f2_value = 0 if l == 0 else ale_values[l - 1][k]
-                        ale_values[l][k] = accumulated_f1_value + accumulated_f2_value + np.mean(all_diff_in_neignborhood)
-                     
+                        # ale_values[l][k] = accumulated_f1_value + accumulated_f2_value + np.mean(all_diff_in_neignborhood)
+                        accumulated_value = 0
+                        # accumulated_value = 0 if k == 0 and l == 0 else ale_values[l - 1][k - 1]
+                        ale_values[l][k] = accumulated_f1_value + accumulated_f2_value + accumulated_value + np.mean(all_diff_in_neignborhood)
+
                 et = round(time.time() - st, 6)
                 print(f'\tcompute ale data for {output_data_sample_name}_2w_ale_{f1_feature_name}_{f2_feature_name} within {et} sec')
                 save_pdp_to_npz_2w(output_exp_dir, npz_file_path, f1_quantiles, f2_quantiles, ale_values)
