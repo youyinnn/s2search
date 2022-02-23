@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 import json
 from getting_data import load_sample, read_conf
+from s2search_score_pipelining import get_scores
 
 model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
@@ -25,19 +26,19 @@ def init_ranker():
         print(f'Load the s2 ranker within {et} sec')
 
 
-def get_scores(query, paper_list):
-    init_ranker()
-    scores = []
-    if len(paper_list) > 1000:
-        curr_idx = 0
-        while curr_idx < len(paper_list):
-            end_idx = curr_idx + 1000 if curr_idx + 1000 < len(paper_list) else len(paper_list)
-            curr_list = paper_list[curr_idx: end_idx]
-            scores.extend(ranker.score(query, curr_list))
-            curr_idx += 1000
-    else:
-        scores = ranker.score(query, paper_list)
-    return scores
+# def get_scores(query, paper_list):
+#     init_ranker()
+#     scores = []
+#     if len(paper_list) > 1000:
+#         curr_idx = 0
+#         while curr_idx < len(paper_list):
+#             end_idx = curr_idx + 1000 if curr_idx + 1000 < len(paper_list) else len(paper_list)
+#             curr_list = paper_list[curr_idx: end_idx]
+#             scores.extend(ranker.score(query, curr_list))
+#             curr_idx += 1000
+#     else:
+#         scores = ranker.score(query, paper_list)
+#     return scores
 
 def save_pdp_to_npz(exp_dir_path, npz_file_path, quantile, ale_result, values_for_rug):
     scores_dir = path.join(exp_dir_path, 'scores')
@@ -150,6 +151,46 @@ def get_bin_size(interval_config, quantile_config, feature_name):
 
     return just_interval, quantile_interval, use_interval_not_quantile
 
+def split_df_by_cluster(df):
+    sorted_scores = list(df['score'])
+    cluster_c_end_idx = 0
+    cluster_b_end_idx = 0
+    for i in range(len(sorted_scores)):
+        score = sorted_scores[i]
+        if score < -10:
+            cluster_c_end_idx = i
+        elif score < 0:
+            cluster_b_end_idx = i
+            
+    # print(cluster_c_end_idx, cluster_b_end_idx, cluster_a_end_idx)
+    return df.iloc[0 : cluster_c_end_idx + 1], df.iloc[cluster_c_end_idx + 1: cluster_b_end_idx + 1], df.iloc[cluster_b_end_idx + 1 : len(sorted_scores)]  
+
+def get_grids_and_quantiles(f1_df, f1_feature_name, interval_config, quantile_config):
+    f1_itv, f1_quant, f1_use_itv = get_bin_size(interval_config, quantile_config, f1_feature_name)
+    
+    if f1_feature_name == 'year' or f1_feature_name == 'n_citations':
+        f1_grids, f1_quantiles = divide_by_percentile(f1_df, f1_feature_name, f1_use_itv, f1_quant, f1_itv)
+    else:
+        f1_clst_c, f1_clst_b, f1_clst_a = split_df_by_cluster(f1_df)
+
+        f1_c_grids, f1_c_quantiles = divide_by_percentile(f1_clst_c, f1_feature_name, f1_use_itv, 
+                                                f1_quant, f1_itv)
+        f1_b_grids, f1_b_quantiles = divide_by_percentile(f1_clst_b, f1_feature_name, f1_use_itv, 
+                                                f1_quant, f1_itv)
+        f1_a_grids, f1_a_quantiles = divide_by_percentile(f1_clst_a, f1_feature_name, f1_use_itv, 
+                                                f1_quant, f1_itv)
+        f1_grids = []
+        f1_quantiles = []
+
+        f1_grids.extend(f1_c_grids)
+        f1_grids.extend(f1_b_grids)
+        f1_grids.extend(f1_a_grids)
+        f1_quantiles.extend(f1_c_quantiles)
+        f1_quantiles.extend(f1_b_quantiles)
+        f1_quantiles.extend(f1_a_quantiles)
+    
+    return f1_grids, f1_quantiles
+
 def find_mutial_neighbor(n1, n2):
     # m = pd.DataFrame(columns=n1.columns)
     # for idx1, row1 in n1.iterrows():
@@ -213,14 +254,8 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                 f1_df = load_sample(data_exp_name, data_sample_name, sort=f1_feature_name, del_f = ['s2_id'], rank_f=get_scores, query=query)
                 f2_df = load_sample(data_exp_name, data_sample_name, sort=f2_feature_name, del_f = ['s2_id'], rank_f=get_scores, query=query)
                 
-                f1_itv, f1_quant, f1_use_itv = get_bin_size(interval_config, quantile_config, f1_feature_name)
-                f2_itv, f2_quant, f2_use_itv = get_bin_size(interval_config, quantile_config, f2_feature_name)
-                
-                f1_grids, f1_quantiles = divide_by_percentile(f1_df, f1_feature_name, f1_use_itv, 
-                                                        f1_quant, f1_itv)
-                
-                f2_grids, f2_quantiles = divide_by_percentile(f2_df, f2_feature_name, f2_use_itv, 
-                                                        f2_quant, f2_itv)
+                f1_grids, f1_quantiles = get_grids_and_quantiles(f1_df, f1_feature_name, interval_config, quantile_config)
+                f2_grids, f2_quantiles = get_grids_and_quantiles(f2_df, f2_feature_name, interval_config, quantile_config)
                 
                 if (f1_feature_name == 'authors'):
                     f1_quantiles = [str(x) for x in f1_quantiles]
@@ -273,14 +308,14 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                         while idx < len(four_corner_paper_scores):
                             a_s, b_s, c_s, d_s = four_corner_paper_scores[idx: idx + 4]
                             diff = round((d_s - c_s) - (b_s - a_s), 14)
-                            if a_s > 100 or b_s > 100 or c_s > 100 or d_s > 100:
-                                # print(diff, idx, int(idx / 4), '|', a_s, b_s, c_s, d_s)
-                                a_s, b_s, c_s, d_s = [get_scores(query, [x])[0] for x in four_corner_paper[idx: idx + 4]]
-                                # print('|-', a_s, b_s, c_s, d_s)
-                                all_diff_in_neignborhood.append(round((d_s - c_s) - (b_s - a_s), 14))
-                                pass
-                            else:
-                                all_diff_in_neignborhood.append(diff)
+                            # if a_s > 100 or b_s > 100 or c_s > 100 or d_s > 100:
+                            #     print(diff, idx, int(idx / 4), '|', a_s, b_s, c_s, d_s)
+                            #     a_s, b_s, c_s, d_s = [get_scores(query, [x])[0] for x in four_corner_paper[idx: idx + 4]]
+                            #     # print('|-', a_s, b_s, c_s, d_s)
+                            #     all_diff_in_neignborhood.append(round((d_s - c_s) - (b_s - a_s), 14))
+                            #     pass
+                            # else:
+                            all_diff_in_neignborhood.append(diff)
                             idx += 4
                         
                         accumulated_f1_value = 0 if k == 0 else ale_values[l][k - 1]

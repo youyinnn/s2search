@@ -44,6 +44,22 @@ papers_example = [
     },
 ]
 
+papers_example_year = [
+]
+
+for i in range(1900, 2031):
+    papers_example_year.append({
+        'year': i
+    })
+    
+papers_example_ci = [
+]
+
+for i in range(0, 15001, 100):
+    papers_example_ci.append({
+        'n_citations': i
+    })
+
 
 s2ranker = S2Ranker(data_dir)
 
@@ -65,3 +81,11 @@ print(scores)
 print(a, b, c, d, (d - c) - (b - a))
 
 print(f'{et} {len(papers_example)}')
+
+scores = S2_Rank('Machine Learning', papers_example_year)
+
+# print(scores)
+
+scores = S2_Rank('Machine Learning', papers_example_ci)
+
+print(scores)

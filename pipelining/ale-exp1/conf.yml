@@ -15,8 +15,8 @@ samples:
     cslg-rand-1000: 
       - query: "Machine Learning"
         quantiles:
-          year: 10
-          n_citations: 10
+          year: 5
+          n_citations: 5
           title: 5
           abstract: 5
           authors: 5
@@ -26,4 +26,4 @@ samples:
 sample_from_other_exp:
   cslg: ["exp5", "cslg.data"]
   # cslg: ["pdp-exp1", "cslg-rand-100.data"]
-  cslg-rand-1000: ["pdp-exp1", "cslg-rand-100.data"]
+  cslg-rand-1000: ["pdp-exp1", "cslg-rand-1000.data"]
