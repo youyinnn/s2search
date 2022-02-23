@@ -272,12 +272,12 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                         idx = 0
                         while idx < len(four_corner_paper_scores):
                             a_s, b_s, c_s, d_s = four_corner_paper_scores[idx: idx + 4]
-                            diff = round((d_s - c_s) - (b_s - a_s), 8)
+                            diff = round((d_s - c_s) - (b_s - a_s), 14)
                             if a_s > 100 or b_s > 100 or c_s > 100 or d_s > 100:
                                 # print(diff, idx, int(idx / 4), '|', a_s, b_s, c_s, d_s)
                                 a_s, b_s, c_s, d_s = [get_scores(query, [x])[0] for x in four_corner_paper[idx: idx + 4]]
                                 # print('|-', a_s, b_s, c_s, d_s)
-                                all_diff_in_neignborhood.append(round((d_s - c_s) - (b_s - a_s), 8))
+                                all_diff_in_neignborhood.append(round((d_s - c_s) - (b_s - a_s), 14))
                                 pass
                             else:
                                 all_diff_in_neignborhood.append(diff)

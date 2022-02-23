@@ -26,38 +26,54 @@ def init_ranker():
         et = round(time.time() - st, 2)
         print(f'Load the s2 ranker within {et} sec')
 
+def find_weird_score(scores, paper_list):
+    weird_paper_idx = []
+    weird_paper = []
+    for i in range(len(scores)):
+        score = scores[i]
+        if score > 100:
+            weird_paper_idx.append(i)
+            weird_paper.append(paper_list[i])
+            
+    return weird_paper_idx, weird_paper
+    
 
 def get_scores(query, paper, mask_option='origin', data_file_name=''):
+    init_ranker()
+    scores = []
+    paper_list = paper
+    if len(paper_list) > 1000:
+        curr_idx = 0
+        while curr_idx < len(paper_list):
+            end_idx = curr_idx + 1000 if curr_idx + 1000 < len(paper_list) else len(paper_list)
+            curr_list = paper_list[curr_idx: end_idx]
+            scores.extend(ranker.score(query, curr_list))
+            curr_idx += 1000
+    else:
+        scores = ranker.score(query, paper_list)
+        
+    weird_paper_idx, weird_paper = find_weird_score(scores, paper_list)
+            
+    if len(weird_paper) > 0:
+        fixed_score = [ranker.score(query, [one_paper])[0] for one_paper in weird_paper]
+        idx = 0
+        for weird_idx in weird_paper_idx:
+            scores[weird_idx] = fixed_score[idx]
+            idx += 0
+    
+    weird_paper_idx_again, _ = find_weird_score(scores, paper_list)
+
+    if len(weird_paper_idx_again) > 0:
+        print(f'still got weird scores')
+        
+    return scores
+    
     init_ranker()
     st = time.time()
     scores = ranker.score(query, paper)
 
-    # weird_papers = []
-    # weird = False
-    # for i in range(len(scores)):
-    #     if scores[i] > 100:
-    #         weird = True
-    #     paper[i]['score'] = scores[i]
-    #     weird_papers.append(json.dumps(paper[i]))
-
-    # rand_sequence = hex(zlib.crc32(str(time.time()).encode('utf-8')))
-
-    # if weird:
-    #     pic_dir = os.path.join('.', 'weird_data')
-    #     if not os.path.exists(pic_dir):
-    #         os.mkdir(pic_dir)
-    #     output_data_file_name = os.path.join('weird_data',
-    #                                          f"{data_file_name}_{rand_sequence}.weird.txt")
-    #     with open(output_data_file_name, "w") as leaned_raw_data:
-    #         leaned_raw_data.write(
-    #             f"with query {query}\n" + ",\n".join(weird_papers))
-    #         print(output_data_file_name + " saved")
-
     et = round(time.time() - st, 6)
-    # print(paper)
-    # print(f'Scores\n{scores} on option: {mask_option}')
-    # print(
-    #     f'Compute {len(scores)} scores within {et} sec by masking option {mask_option}')
+
     return scores
 
 
@@ -103,7 +119,7 @@ def score_file_is_configured(sample_configs, score_file_name):
     return False
 
 
-def txt_to_npy(exp_dir, exp_name, sample_name, task_name, masking_option_key):
+def txt_to_npy(exp_dir, exp_name, sample_name, task_name, masking_option_key, et):
     incomplete_file = path.join(
         exp_dir, 'scores', f'{exp_name}_{sample_name}_{task_name}_{masking_option_key}#incomplete.txt')
     arr = np.loadtxt(incomplete_file)
@@ -112,7 +128,7 @@ def txt_to_npy(exp_dir, exp_name, sample_name, task_name, masking_option_key):
     np.savez_compressed(complete_file, arr)
     os.remove(incomplete_file)
     print(
-        f'Score computing for {exp_name}_{sample_name}_{task_name}_{masking_option_key} is done.')
+        f'Score computing for {exp_name}_{sample_name}_{task_name}_{masking_option_key} is done within {et} sec.')
 
 
 if __name__ == '__main__':
@@ -190,6 +206,7 @@ if __name__ == '__main__':
                                 with open(str(data_file_path)) as f:
                                     line_count = 0
                                     idx = 0
+                                    st = time.time()
                                     for line in f:
                                         idx += 1
                                         if (idx <= previous_progress):
@@ -212,7 +229,7 @@ if __name__ == '__main__':
                                             'origin',
                                         ])
                                     txt_to_npy(exp_dir_path_str, exp_name,
-                                               sample_name, f't{t_count}', 'origin')
+                                               sample_name, f't{t_count}', 'origin', round(time.time() - st, 6))
                             else:
                                 print(
                                     f'Scores of {exp_name}_{sample_name}_t{t_count}_origin.npz exist, should pass')
@@ -268,7 +285,7 @@ if __name__ == '__main__':
                                             key,
                                         ])
                                     txt_to_npy(exp_dir_path_str, exp_name,
-                                               sample_name, f't{t_count}', key)
+                                               sample_name, f't{t_count}', key, round(time.time() - st, 6))
                             else:
                                 print(
                                     f'Scores of {exp_name}_{sample_name}_t{t_count}_{key}.npz exist, should pass')
