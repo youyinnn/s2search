@@ -17,14 +17,15 @@ ranker = None
 data_loading_line_limit = 1000
 
 
-def init_ranker():
+def init_ranker(data_dir=model_dir):
     global ranker
     if ranker == None:
         print(f'Loading ranker model...')
         st = time.time()
-        ranker = S2Ranker(model_dir)
+        ranker = S2Ranker(data_dir, use_posthoc_correction=False)
         et = round(time.time() - st, 2)
         print(f'Load the s2 ranker within {et} sec')
+    return ranker
 
 def find_weird_score(scores, paper_list):
     weird_paper_idx = []
