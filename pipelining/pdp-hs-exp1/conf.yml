@@ -8,5 +8,10 @@ samples:
     #   - query: "Machine Learning"
     # cslg-rand-500-3: 
     #   - query: "Machine Learning"    
-    cslg-simple: 
+    cslg-rand-100: 
       - query: "Machine Learning"
+    # cslg-simple: 
+    #   - query: "Machine Learning"
+
+sample_from_other_exp:
+  cslg-rand-100: ["pdp-exp1", "cslg-rand-100.data"]

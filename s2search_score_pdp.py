@@ -13,22 +13,6 @@ model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
 ranker = None
 
-# def init_ranker():
-#     global ranker
-#     if ranker == None:
-#         print(f'Loading ranker model...')
-#         st = time.time()
-#         ranker = S2Ranker(model_dir)
-#         et = round(time.time() - st, 2)
-#         print(f'Load the s2 ranker within {et} sec')
-
-
-# def get_scores(query, paper):
-#     init_ranker()
-#     scores = ranker.score(query, paper)
-#     return scores
-
-
 def read_conf(exp_dir_path):
     conf_path = path.join(exp_dir_path, 'conf.yml')
     with open(str(conf_path), 'r') as f:
