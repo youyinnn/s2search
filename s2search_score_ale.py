@@ -16,14 +16,14 @@ data_dir = str(path.join(os.getcwd(), 'pipelining'))
 ranker = None
 def_quantile_config = {'title': 5, 'abstract': 10, 'venue': 20, 'authors': 10, 'year': 5, 'n_citations': 0.1}
 
-def init_ranker():
-    global ranker
-    if ranker == None:
-        print(f'Loading ranker model...')
-        st = time.time()
-        ranker = S2Ranker(model_dir)
-        et = round(time.time() - st, 2)
-        print(f'Load the s2 ranker within {et} sec')
+# def init_ranker():
+#     global ranker
+#     if ranker == None:
+#         print(f'Loading ranker model...')
+#         st = time.time()
+#         ranker = S2Ranker(model_dir)
+#         et = round(time.time() - st, 2)
+#         print(f'Load the s2 ranker within {et} sec')
 
 
 # def get_scores(query, paper_list):

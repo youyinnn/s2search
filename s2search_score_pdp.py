@@ -7,25 +7,26 @@ import yaml
 import json
 import numpy as np
 from getting_data import load_sample
+from s2search_score_pipelining import get_scores
 
 model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
 ranker = None
 
-def init_ranker():
-    global ranker
-    if ranker == None:
-        print(f'Loading ranker model...')
-        st = time.time()
-        ranker = S2Ranker(model_dir)
-        et = round(time.time() - st, 2)
-        print(f'Load the s2 ranker within {et} sec')
+# def init_ranker():
+#     global ranker
+#     if ranker == None:
+#         print(f'Loading ranker model...')
+#         st = time.time()
+#         ranker = S2Ranker(model_dir)
+#         et = round(time.time() - st, 2)
+#         print(f'Load the s2 ranker within {et} sec')
 
 
-def get_scores(query, paper):
-    init_ranker()
-    scores = ranker.score(query, paper)
-    return scores
+# def get_scores(query, paper):
+#     init_ranker()
+#     scores = ranker.score(query, paper)
+#     return scores
 
 
 def read_conf(exp_dir_path):
@@ -85,10 +86,20 @@ def compute_2d_and_save(exp_dir_path, data_sample_name, query, paper_data):
 
     # TODO: numerical features 2-way pdp
 
+def save_original_scores(output_exp_dir, output_data_sample_name, query, paper_data):
+    npz_file_path = path.join(output_exp_dir, 'scores', f"{output_data_sample_name}_pdp_original.npz")
+    print(f'save original scores {npz_file_path}')
+    if not os.path.exists(npz_file_path):
+        scores = get_scores(query, paper_data)
+        save_pdp_to_npz(output_exp_dir, npz_file_path, scores)
+    else:
+        print(f'\t{npz_file_path} exist, should skip')
+    
 
 def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_name, data_sample_name):
     df = load_sample(data_exp_name, data_sample_name)
     paper_data = json.loads(df.to_json(orient='records'))
+    save_original_scores(output_exp_dir, output_data_sample_name, query, paper_data)
     data_len = len(paper_data)
     categorical_features = ['title', 'abstract', 'venue', 'authors']
     for feature_name in categorical_features:
@@ -109,40 +120,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_na
                     variant_data.append(new_data)
 
                 # get the scores
-                # scores = get_scores(query, variant_data)
-                scores = []
-                if len(variant_data) > 1000:
-                    curr_idx = 0
-                    while curr_idx < len(variant_data):
-                        end_idx = curr_idx + 1000 if curr_idx + 1000 < len(variant_data) else len(variant_data)
-                        curr_list = variant_data[curr_idx: end_idx]
-                        scores.extend(get_scores(query, curr_list))
-                        curr_idx += 1000
-                else:
-                    scores = get_scores(query, variant_data)
-                
-                i = 0
-                abnormal_score = []
-                abnormal_score_idx = []
-                abnormal_score_paper = []
-                for i in range(len(scores)):
-                    score = scores[i]
-                    if score > 20:
-                        abnormal_score.append(score)
-                        abnormal_score_idx.append(i)
-                        abnormal_score_paper.append(variant_data[i])
-                    i += 1
-                
-                if len(abnormal_score_idx) > 0:
-                    normal_score = get_scores(query, abnormal_score_paper)
-                    # print(abnormal_score)
-                    print(f'abnormal scores occur {npz_file_path}, adjust with normal score')
-                    
-                    i = 0
-                    for idx in abnormal_score_idx:
-                        scores[idx] = normal_score[i]
-                        i += 1
-                
+                scores = get_scores(query, variant_data)
                 pdp_value.append(np.mean(scores))
 
             et = round(time.time() - st, 6)
