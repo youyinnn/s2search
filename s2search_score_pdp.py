@@ -7,7 +7,10 @@ import yaml
 import json
 import numpy as np
 from getting_data import load_sample
-from s2search_score_pipelining import get_scores
+try:
+  from s2search_score_pipelining import get_scores
+except ModuleNotFoundError as e:
+  print(f's2search_score_pdp', e)
 
 model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
@@ -115,8 +118,8 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_na
             print(f'\t{npz_file_path} exist, should skip')
 
     numerical_features_and_range = [
-        ['year', range(1900, 2030)],
-        ['n_citations', range(0, 11000, 100)]
+        ['year', range(1960, 2023)],
+        ['n_citations', range(0, 15000, 100)]
     ]
 
     for feature_and_range in numerical_features_and_range:

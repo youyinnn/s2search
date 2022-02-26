@@ -580,9 +580,9 @@ for f in f_list:
             'numerical': True
         }}
         if f == 'year':
-            pdp_xy[f]['x'] = list(range(1900, 2030))
+            pdp_xy[f]['x'] = list(range(1960, 2023))
         elif f == 'n_citations':
-            pdp_xy[f]['x'] = list(range(0, 11000, 100))
+            pdp_xy[f]['x'] = list(range(0, 15000, 100))
         else:
             pdp_xy[f]['y'] = np.sort(feature_pdp_data)
             # pdp_xy[f]['y'] = np.sort(feature_pdp_data)
