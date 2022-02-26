@@ -175,6 +175,19 @@ def get_pdp_and_save_score(exp_dir_path, exp_name, is2d):
         else:
             print(f'**no config for tested sample {tested_sample_name}')
 
+def is_numerical_feature(feature_name):        
+    return True if feature_name == 'year' or feature_name == '' else False
+
+def pdp_based_importance(pdp_value, feature_name):
+    pdp_np = np.array(pdp_value, dtype='float64')
+    if is_numerical_feature(feature_name):
+        _k = len(pdp_value)
+        _mean = np.mean(pdp_value)
+        pdp_np -= _mean
+        pdp_np *= pdp_np
+        return np.sqrt(np.sum(pdp_np) / (_k - 1))         
+    else:
+        return (np.max(pdp_value) - np.min(pdp_value)) / 4
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:

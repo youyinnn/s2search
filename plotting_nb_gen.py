@@ -168,7 +168,7 @@ def gen_for_pdp(exp_name, description, sample_list):
                 "name": "python",
                 "nbconvert_exporter": "python",
                 "pygments_lexer": "ipython3",
-                "version": "3.10.0"
+                "version": "3.9.7"
             }
             open_in_colab_href = f'<a href="https://colab.research.google.com/github/{user_repo}/s2search/blob/{branch}/pipelining/{exp_name}/{exp_name}_{sample_name}_plotting.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>'
             exp_des = f'### Experiment Description\n\n{description.strip()}\n\n> This notebook is for experiment \\<{exp_name}\\> and data sample \\<{sample_name}\\>.'
@@ -192,33 +192,40 @@ if not os.path.exists(pic_dir):
 
             loading_data_md = '### Loading data'
             loading_data_code = f'''sys.path.insert(1, '../../')
-import numpy as np, sys, os
+import numpy as np, sys, os, pandas as pd
+from s2search_score_pdp import pdp_based_importance
 
 sample_name = '{sample_name}'
 
 f_list = ['title', 'abstract', 'venue', 'authors', 'year', 'n_citations']
 
-ale_xy = {{}}
+pdp_xy = {{}}
+pdp_metric = pd.DataFrame(columns=['feature_name', 'pdp_range', 'pdp_importance'])
 
 for f in f_list:
     file = os.path.join('.', 'scores', f'{{sample_name}}_pdp_{{f}}.npz')
     if os.path.exists(file):
         feature_pdp_data = np.load(file)['arr_0']
         
-        ale_xy[f] = {{
+        pdp_xy[f] = {{
             'y': feature_pdp_data,
             'numerical': True
         }}
         if f == 'year':
-            ale_xy[f]['x'] = list(range(1900, 2030))
+            pdp_xy[f]['x'] = list(range(1900, 2030))
         elif f == 'n_citations':
-            ale_xy[f]['x'] = list(range(0, 11000, 100))
+            pdp_xy[f]['x'] = list(range(0, 11000, 100))
         else:
-            ale_xy[f]['y'] = np.sort(feature_pdp_data)
-            ale_xy[f]['x'] = list(range(len(feature_pdp_data)))
-            ale_xy[f]['numerical'] = False
+            pdp_xy[f]['y'] = np.sort(feature_pdp_data)
+            # pdp_xy[f]['y'] = np.sort(feature_pdp_data)
+            pdp_xy[f]['x'] = list(range(len(feature_pdp_data)))
+            pdp_xy[f]['numerical'] = False
             
-        ale_xy[f]['weird'] = feature_pdp_data[len(feature_pdp_data) - 1] > 30
+        pdp_metric.loc[len(pdp_metric.index)] = [f, np.max(feature_pdp_data) - np.min(feature_pdp_data), pdp_based_importance(feature_pdp_data, f)]
+            
+        pdp_xy[f]['weird'] = feature_pdp_data[len(feature_pdp_data) - 1] > 30
+
+print(pdp_metric.sort_values(by=['pdp_importance'], ascending=False))
 '''
 
             plot_data_md = "### PDP"
@@ -228,19 +235,19 @@ categorical_plot_conf = [
     {
         'xlabel': 'Title',
         'ylabel': 'Scores',
-        'ale_xy': ale_xy['title']
+        'pdp_xy': pdp_xy['title']
     },
     {
         'xlabel': 'Abstract',
-        'ale_xy': ale_xy['abstract']
+        'pdp_xy': pdp_xy['abstract']
     },    
     {
         'xlabel': 'Authors',
-        'ale_xy': ale_xy['authors']
+        'pdp_xy': pdp_xy['authors']
     },
     {
         'xlabel': 'Venue',
-        'ale_xy': ale_xy['venue'],
+        'pdp_xy': pdp_xy['venue'],
         # 'zoom': {
         #     'inset_axes': [0.15, 0.45, 0.47, 0.47],
         #     'x_limit': [950, 1010],
@@ -254,11 +261,11 @@ numerical_plot_conf = [
     {
         'xlabel': 'Year',
         'ylabel': 'Scores',
-        'ale_xy': ale_xy['year']
+        'pdp_xy': pdp_xy['year']
     },
     {
         'xlabel': 'Citation Count',
-        'ale_xy': ale_xy['n_citations'],
+        'pdp_xy': pdp_xy['n_citations'],
         # 'zoom': {
         #     'inset_axes': [0.5, 0.2, 0.47, 0.47],
         #     'x_limit': [-100, 1000],
@@ -276,7 +283,7 @@ def pdp_plot(confs, title):
     for conf in confs:
         axess = axes if len(confs) == 1 else axes[subplot_idx]
 
-        axess.plot(conf['ale_xy']['x'], conf['ale_xy']['y'])
+        axess.plot(conf['pdp_xy']['x'], conf['pdp_xy']['y'])
         axess.grid(alpha = 0.4)
 
         if ('ylabel' in conf):
@@ -284,8 +291,8 @@ def pdp_plot(confs, title):
         
         axess.set_xlabel(conf['xlabel'], fontsize=16, labelpad=10)
         
-        if not (conf['ale_xy']['weird']):
-            if (conf['ale_xy']['numerical']):
+        if not (conf['pdp_xy']['weird']):
+            if (conf['pdp_xy']['numerical']):
                 # axess.set_ylim([-1, 3])
                 pass
             else:
@@ -294,7 +301,7 @@ def pdp_plot(confs, title):
                 
         if 'zoom' in conf:
             axins = axess.inset_axes(conf['zoom']['inset_axes']) 
-            axins.plot(conf['ale_xy']['x'], conf['ale_xy']['y'])
+            axins.plot(conf['pdp_xy']['x'], conf['pdp_xy']['y'])
             axins.set_xlim(conf['zoom']['x_limit'])
             axins.set_ylim(conf['zoom']['y_limit'])
             axins.grid(alpha=0.3)
