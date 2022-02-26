@@ -265,20 +265,20 @@ categorical_plot_conf = [
     {
         'xlabel': 'Authors',
         'ale_xy': ale_xy['authors'],
-        'zoom': {
-            'inset_axes': [0.3, 0.3, 0.47, 0.47],
-            'x_limit': [92, 95],
-            'y_limit': [-0.005, 0.03],
-        }
+        # 'zoom': {
+        #     'inset_axes': [0.3, 0.3, 0.47, 0.47],
+        #     'x_limit': [92, 95],
+        #     'y_limit': [-0.005, 0.03],
+        # }
     },    
     {
         'xlabel': 'Venue',
         'ale_xy': ale_xy['venue'],
-        'zoom': {
-            'inset_axes': [0.3, 0.3, 0.47, 0.47],
-            'x_limit': [89, 94],
-            'y_limit': [-1, 6],
-        }
+        # 'zoom': {
+        #     'inset_axes': [0.3, 0.3, 0.47, 0.47],
+        #     'x_limit': [89, 94],
+        #     'y_limit': [-1, 6],
+        # }
     },
 ]
 
@@ -292,11 +292,11 @@ numerical_plot_conf = [
     {
         'xlabel': 'Citations',
         'ale_xy': ale_xy['n_citations'],
-        'zoom': {
-            'inset_axes': [0.4, 0.2, 0.47, 0.47],
-            'x_limit': [-1000.0, 12000],
-            'y_limit': [-0.1, 1.2],
-        },
+        # 'zoom': {
+        #     'inset_axes': [0.4, 0.2, 0.47, 0.47],
+        #     'x_limit': [-1000.0, 12000],
+        #     'y_limit': [-0.1, 1.2],
+        # },
     },
 ]
 

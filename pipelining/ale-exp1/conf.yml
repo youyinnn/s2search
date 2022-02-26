@@ -21,9 +21,18 @@ samples:
           abstract: 5
           authors: 5
           venue: 5
-        # intervals:
+    cslg-rand-5000:
+      - query: "Machine Learning"
+        quantiles:
+          year: 10
+          n_citations: 10
+          title: 10
+          abstract: 10
+          authors: 10
+          venue: 10
           
 sample_from_other_exp:
   cslg: ["exp5", "cslg.data"]
   # cslg: ["pdp-exp1", "cslg-rand-100.data"]
   cslg-rand-1000: ["pdp-exp1", "cslg-rand-1000.data"]
+  cslg-rand-5000: ["pdp-exp1", "cslg-rand-5000.data"]
