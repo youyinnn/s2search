@@ -25,7 +25,7 @@ class S2Ranker:
         with open(os.path.join(data_dir, 'lightgbm_model.pickle'), 'rb') as f:
             self.model = pickle.load(f)
     
-    def score(self, query, papers):
+    def score(self, query, papers, **kws):
         """Score each pair of (query, paper) for all papers
 
         Arguments:
@@ -41,7 +41,7 @@ class S2Ranker:
             make_features(query, self.prepare_result(paper), self.lms) 
             for paper in papers
         ])
-        scores = self.model.predict(X)
+        scores = self.model.predict(X, **kws)
         if self.use_posthoc_correction:
             scores = posthoc_score_adjust(scores, X, query)
         return scores
