@@ -2,17 +2,17 @@ description: "
 1-way ALE.
 "
 samples:
-    # cslg: 
-    #   - query: "Machine Learning"
-    #     quantiles:
-    #       year: 0.01
-    #       n_citations: 0.01
-    #     intervals:
-    #       title: 1000
-    #       abstract: 1000
-    #       authors: 1000
-    #       venue: 1000
-    cslg-rand-1000: 
+    cslg: 
+      - query: "Machine Learning"
+        quantiles:
+          year: 0.01
+          n_citations: 0.01
+        intervals:
+          title: 1000
+          abstract: 1000
+          authors: 1000
+          venue: 1000
+    cslg-rand-1000:
       - query: "Machine Learning"
         quantiles:
           year: 5

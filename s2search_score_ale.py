@@ -1,44 +1,15 @@
-from s2search.rank import S2Ranker
 import time
 import os
 import os.path as path
 import sys
-import yaml
 import math
 import numpy as np
 import pandas as pd
-import json
 from getting_data import load_sample, read_conf
 from s2search_score_pipelining import get_scores
 
-model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
-ranker = None
 def_quantile_config = {'title': 5, 'abstract': 10, 'venue': 20, 'authors': 10, 'year': 5, 'n_citations': 0.1}
-
-# def init_ranker():
-#     global ranker
-#     if ranker == None:
-#         print(f'Loading ranker model...')
-#         st = time.time()
-#         ranker = S2Ranker(model_dir)
-#         et = round(time.time() - st, 2)
-#         print(f'Load the s2 ranker within {et} sec')
-
-
-# def get_scores(query, paper_list):
-#     init_ranker()
-#     scores = []
-#     if len(paper_list) > 1000:
-#         curr_idx = 0
-#         while curr_idx < len(paper_list):
-#             end_idx = curr_idx + 1000 if curr_idx + 1000 < len(paper_list) else len(paper_list)
-#             curr_list = paper_list[curr_idx: end_idx]
-#             scores.extend(ranker.score(query, curr_list))
-#             curr_idx += 1000
-#     else:
-#         scores = ranker.score(query, paper_list)
-#     return scores
 
 def save_pdp_to_npz(exp_dir_path, npz_file_path, quantile, ale_result, values_for_rug):
     scores_dir = path.join(exp_dir_path, 'scores')
@@ -79,7 +50,6 @@ def divide_by_percentile(df, sorted_column_name, use_interval_not_quantile, quan
             
         quantiles.append(df[sorted_column_name].iloc[upper_idx])
         curr_idx += actual_interval
-    # print(use_interval_not_quantile, actual_interval, len(quantiles))
 
     return grids, quantiles
 
@@ -192,15 +162,8 @@ def get_grids_and_quantiles(f1_df, f1_feature_name, interval_config, quantile_co
     return f1_grids, f1_quantiles
 
 def find_mutial_neighbor(n1, n2):
-    # m = pd.DataFrame(columns=n1.columns)
-    # for idx1, row1 in n1.iterrows():
-    #     for idx2, row2 in n2.iterrows():
-    #         if row1['id'] == row2['id']:
-    #             m = pd.concat([m, pd.DataFrame(data=[row1], columns = n1.columns)], ignore_index=True)
-    # return m
     m = pd.DataFrame(columns=n1.columns)
     id_in_n1 = {}
-    # st = time.time()
     for idx1, row1 in n1.iterrows():
         id_in_n1[row1['id']] = ''
     
@@ -208,11 +171,10 @@ def find_mutial_neighbor(n1, n2):
       if id_in_n1.get(row2['id']) != None:
         m = pd.concat([m, pd.DataFrame(data=[row1], columns = n1.columns)], ignore_index=True)
       
-    # print(f'find mutual n within {round(time.time() - st)} sec')
     return m
 
-def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_config, interval_config, data_exp_name, data_sample_name):
-    print(output_exp_dir, output_data_sample_name, query, data_exp_name, data_sample_name)
+def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_config, interval_config, data_exp_name, data_sample_name, for_2way):
+    print(output_exp_dir, output_data_sample_name, query, data_exp_name, data_sample_name, f'2-way {for_2way}')
     categorical_features = [
         'title', 
         'abstract',
@@ -221,116 +183,117 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
         'year',
         'n_citations',
     ]
-    for feature_name in categorical_features:
-        npz_file_path = path.join(output_exp_dir, 'scores',
-                                  f"{output_data_sample_name}_1w_ale_{feature_name}.npz")
-        if not os.path.exists(npz_file_path):
-            df = load_sample(data_exp_name, data_sample_name, sort=feature_name, rank_f=get_scores, query=query)
-            values_for_rug = df[feature_name].to_list() if feature_name == 'year' or feature_name == 'n_citations' else None
-                
-            st = time.time()
-            just_interval, quantile_interval, use_interval_not_quantile = get_bin_size(interval_config, quantile_config, feature_name)
-
-            grids, quantiles = divide_by_percentile(df, feature_name, use_interval_not_quantile, quantile_interval, just_interval)
-            ale_result = get_ale(grids, feature_name, query)
-            
-            et = round(time.time() - st, 6)
-            print(f'\tcompute ale data for {output_data_sample_name}_1w_ale_{feature_name} within {et} sec')
-            if (feature_name == 'authors'):
-                quantiles = [str(x) for x in quantiles]
-            save_pdp_to_npz(output_exp_dir, npz_file_path, quantiles, ale_result, values_for_rug)
-        else:
-            print(f'\t{npz_file_path} exist, should skip')
-            
-    for i in range(len(categorical_features)):
-        f1_feature_name = categorical_features[i]
-        for j in range(i + 1, len(categorical_features)):
-            f2_feature_name = categorical_features[j]
+    if not for_2way:
+        for feature_name in categorical_features:
             npz_file_path = path.join(output_exp_dir, 'scores',
-                                  f"{output_data_sample_name}_2w_ale_{f1_feature_name}_{f2_feature_name}.npz")
+                                    f"{output_data_sample_name}_1w_ale_{feature_name}.npz")
             if not os.path.exists(npz_file_path):
-                print(f1_feature_name, f2_feature_name)
+                df = load_sample(data_exp_name, data_sample_name, sort=feature_name, rank_f=get_scores, query=query)
+                values_for_rug = df[feature_name].to_list() if feature_name == 'year' or feature_name == 'n_citations' else None
+                    
                 st = time.time()
-                f1_df = load_sample(data_exp_name, data_sample_name, sort=f1_feature_name, del_f = ['s2_id'], rank_f=get_scores, query=query)
-                f2_df = load_sample(data_exp_name, data_sample_name, sort=f2_feature_name, del_f = ['s2_id'], rank_f=get_scores, query=query)
+                # grids, quantiles = divide_by_percentile(df, feature_name, use_interval_not_quantile, quantile_interval, just_interval)
+                grids, quantiles = get_grids_and_quantiles(df, feature_name, interval_config, quantile_config)
+                ale_result = get_ale(grids, feature_name, query)
                 
-                f1_grids, f1_quantiles = get_grids_and_quantiles(f1_df, f1_feature_name, interval_config, quantile_config)
-                f2_grids, f2_quantiles = get_grids_and_quantiles(f2_df, f2_feature_name, interval_config, quantile_config)
-                
-                if (f1_feature_name == 'authors'):
-                    f1_quantiles = [str(x) for x in f1_quantiles]
-                if (f2_feature_name == 'authors'):
-                    f2_quantiles = [str(x) for x in f2_quantiles]
-                
-                ale_values = np.zeros([len(f2_grids), len(f1_grids)])
-                
-                for k in range(len(f1_grids)):
-                    f1_grid = f1_grids[k]
-                    f1_upper =  f1_grid['upper_z']
-                    f1_lower =  f1_grid['lower_z']
-                    f1_neighbor =  f1_grid['neighbor']
-                    for l in range(len(f2_grids)):
-                        f2_grid = f2_grids[l]
-                        f2_upper = f2_grid['upper_z']
-                        f2_lower = f2_grid['lower_z']
-                        f2_neighbor =  f1_grid['neighbor']
-                        
-                        mutual_neighbor = find_mutial_neighbor(f1_neighbor, f2_neighbor)
-                        
-                        all_diff_in_neignborhood = []
-                        
-                        four_corner_paper = []
-                        for idx, row in mutual_neighbor.iterrows():
-                            a = {**row}
-                            a[f1_feature_name] = f1_lower
-                            a[f2_feature_name] = f2_lower
-                            
-                            b = {**row}
-                            b[f1_feature_name] = f1_upper
-                            b[f2_feature_name] = f2_lower
-                            
-                            c = {**row}
-                            c[f1_feature_name] = f1_lower
-                            c[f2_feature_name] = f2_upper
-                            
-                            d = {**row}
-                            d[f1_feature_name] = f1_upper
-                            d[f2_feature_name] = f2_upper
-                            
-                            # a_s, b_s, c_s, d_s = get_scores(query, [a, b, c, d])
-                            # a_s, b_s, c_s, d_s = [0,0,0,0]
-                            four_corner_paper.extend([a, b, c, d])
-                            # diff = (d_s - c_s) - (b_s - a_s)
-                            # all_diff_in_neignborhood.append(diff)
-                        
-                        four_corner_paper_scores = get_scores(query, four_corner_paper)
-                        idx = 0
-                        while idx < len(four_corner_paper_scores):
-                            a_s, b_s, c_s, d_s = four_corner_paper_scores[idx: idx + 4]
-                            diff = round((d_s - c_s) - (b_s - a_s), 14)
-                            # if a_s > 100 or b_s > 100 or c_s > 100 or d_s > 100:
-                            #     print(diff, idx, int(idx / 4), '|', a_s, b_s, c_s, d_s)
-                            #     a_s, b_s, c_s, d_s = [get_scores(query, [x])[0] for x in four_corner_paper[idx: idx + 4]]
-                            #     # print('|-', a_s, b_s, c_s, d_s)
-                            #     all_diff_in_neignborhood.append(round((d_s - c_s) - (b_s - a_s), 14))
-                            #     pass
-                            # else:
-                            all_diff_in_neignborhood.append(diff)
-                            idx += 4
-                        
-                        accumulated_f1_value = 0 if k == 0 else ale_values[l][k - 1]
-                        accumulated_f2_value = 0 if l == 0 else ale_values[l - 1][k]
-                        # ale_values[l][k] = accumulated_f1_value + accumulated_f2_value + np.mean(all_diff_in_neignborhood)
-                        accumulated_value = 0
-                        # accumulated_value = 0 if k == 0 and l == 0 else ale_values[l - 1][k - 1]
-                        ale_values[l][k] = accumulated_f1_value + accumulated_f2_value + accumulated_value + np.mean(all_diff_in_neignborhood)
-
                 et = round(time.time() - st, 6)
-                print(f'\tcompute ale data for {output_data_sample_name}_2w_ale_{f1_feature_name}_{f2_feature_name} within {et} sec')
-                save_pdp_to_npz_2w(output_exp_dir, npz_file_path, f1_quantiles, f2_quantiles, ale_values)
+                print(f'\tcompute ale data for {output_data_sample_name}_1w_ale_{feature_name} within {et} sec')
+                if (feature_name == 'authors'):
+                    quantiles = [str(x) for x in quantiles]
+                save_pdp_to_npz(output_exp_dir, npz_file_path, quantiles, ale_result, values_for_rug)
+            else:
+                print(f'\t{npz_file_path} exist, should skip')
+    
+    else:      
+        for i in range(len(categorical_features)):
+            f1_feature_name = categorical_features[i]
+            for j in range(i + 1, len(categorical_features)):
+                f2_feature_name = categorical_features[j]
+                npz_file_path = path.join(output_exp_dir, 'scores',
+                                    f"{output_data_sample_name}_2w_ale_{f1_feature_name}_{f2_feature_name}.npz")
+                if not os.path.exists(npz_file_path):
+                    print(f1_feature_name, f2_feature_name)
+                    st = time.time()
+                    f1_df = load_sample(data_exp_name, data_sample_name, sort=f1_feature_name, del_f = ['s2_id'], rank_f=get_scores, query=query)
+                    f2_df = load_sample(data_exp_name, data_sample_name, sort=f2_feature_name, del_f = ['s2_id'], rank_f=get_scores, query=query)
+                    
+                    f1_grids, f1_quantiles = get_grids_and_quantiles(f1_df, f1_feature_name, interval_config, quantile_config)
+                    f2_grids, f2_quantiles = get_grids_and_quantiles(f2_df, f2_feature_name, interval_config, quantile_config)
+                    
+                    if (f1_feature_name == 'authors'):
+                        f1_quantiles = [str(x) for x in f1_quantiles]
+                    if (f2_feature_name == 'authors'):
+                        f2_quantiles = [str(x) for x in f2_quantiles]
+                    
+                    ale_values = np.zeros([len(f2_grids), len(f1_grids)])
+                    
+                    for k in range(len(f1_grids)):
+                        f1_grid = f1_grids[k]
+                        f1_upper =  f1_grid['upper_z']
+                        f1_lower =  f1_grid['lower_z']
+                        f1_neighbor =  f1_grid['neighbor']
+                        for l in range(len(f2_grids)):
+                            f2_grid = f2_grids[l]
+                            f2_upper = f2_grid['upper_z']
+                            f2_lower = f2_grid['lower_z']
+                            f2_neighbor =  f1_grid['neighbor']
+                            
+                            mutual_neighbor = find_mutial_neighbor(f1_neighbor, f2_neighbor)
+                            
+                            all_diff_in_neignborhood = []
+                            
+                            four_corner_paper = []
+                            for idx, row in mutual_neighbor.iterrows():
+                                a = {**row}
+                                a[f1_feature_name] = f1_lower
+                                a[f2_feature_name] = f2_lower
+                                
+                                b = {**row}
+                                b[f1_feature_name] = f1_upper
+                                b[f2_feature_name] = f2_lower
+                                
+                                c = {**row}
+                                c[f1_feature_name] = f1_lower
+                                c[f2_feature_name] = f2_upper
+                                
+                                d = {**row}
+                                d[f1_feature_name] = f1_upper
+                                d[f2_feature_name] = f2_upper
+                                
+                                # a_s, b_s, c_s, d_s = get_scores(query, [a, b, c, d])
+                                # a_s, b_s, c_s, d_s = [0,0,0,0]
+                                four_corner_paper.extend([a, b, c, d])
+                                # diff = (d_s - c_s) - (b_s - a_s)
+                                # all_diff_in_neignborhood.append(diff)
+                            
+                            four_corner_paper_scores = get_scores(query, four_corner_paper)
+                            idx = 0
+                            while idx < len(four_corner_paper_scores):
+                                a_s, b_s, c_s, d_s = four_corner_paper_scores[idx: idx + 4]
+                                diff = round((d_s - c_s) - (b_s - a_s), 14)
+                                # if a_s > 100 or b_s > 100 or c_s > 100 or d_s > 100:
+                                #     print(diff, idx, int(idx / 4), '|', a_s, b_s, c_s, d_s)
+                                #     a_s, b_s, c_s, d_s = [get_scores(query, [x])[0] for x in four_corner_paper[idx: idx + 4]]
+                                #     # print('|-', a_s, b_s, c_s, d_s)
+                                #     all_diff_in_neignborhood.append(round((d_s - c_s) - (b_s - a_s), 14))
+                                #     pass
+                                # else:
+                                all_diff_in_neignborhood.append(diff)
+                                idx += 4
+                            
+                            accumulated_f1_value = 0 if k == 0 else ale_values[l][k - 1]
+                            accumulated_f2_value = 0 if l == 0 else ale_values[l - 1][k]
+                            # ale_values[l][k] = accumulated_f1_value + accumulated_f2_value + np.mean(all_diff_in_neignborhood)
+                            accumulated_value = 0
+                            # accumulated_value = 0 if k == 0 and l == 0 else ale_values[l - 1][k - 1]
+                            ale_values[l][k] = accumulated_f1_value + accumulated_f2_value + accumulated_value + np.mean(all_diff_in_neignborhood)
+
+                    et = round(time.time() - st, 6)
+                    print(f'\tcompute ale data for {output_data_sample_name}_2w_ale_{f1_feature_name}_{f2_feature_name} within {et} sec')
+                    save_pdp_to_npz_2w(output_exp_dir, npz_file_path, f1_quantiles, f2_quantiles, ale_values)
 
          
-def get_ale_and_save_score(exp_dir_path, exp_name):
+def get_ale_and_save_score(exp_dir_path, exp_name, for_2way):
     des, sample_configs, sample_from_other_exp = read_conf(exp_dir_path)
     
     tested_sample_list = []
@@ -357,7 +320,7 @@ def get_ale_and_save_score(exp_dir_path, exp_name):
                 interval_config = t.get('intervals')
                 compute_and_save(
                     exp_dir_path, tested_sample_name, query, quantile_config, interval_config,
-                    tested_sample_from_exp, tested_sample_data_source_name)
+                    tested_sample_from_exp, tested_sample_data_source_name, for_2way)
         else:
             print(f'**no config for tested sample {tested_sample_name}')
 
@@ -365,9 +328,12 @@ def get_ale_and_save_score(exp_dir_path, exp_name):
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         exp_list = sys.argv[1:]
+        for_2way = '--2w' in exp_list
+        if for_2way:
+            exp_list = [x for x in exp_list if x != '--2w']
         for exp_name in exp_list:
             exp_dir_path = path.join(data_dir, exp_name)
             if path.isdir(exp_dir_path):
-                get_ale_and_save_score(exp_dir_path, exp_name)
+                get_ale_and_save_score(exp_dir_path, exp_name, for_2way)
             else:
                 print(f'**no exp dir {exp_dir_path}')
