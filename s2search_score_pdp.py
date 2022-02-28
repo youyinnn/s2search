@@ -1,4 +1,3 @@
-from s2search.rank import S2Ranker
 import time
 import os
 import os.path as path
@@ -15,6 +14,8 @@ except ModuleNotFoundError as e:
 model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
 ranker = None
+year_pdp_value_space = range(1960, 2023)
+citation_pdp_value_space = range(0, 15000, 100)
 
 def read_conf(exp_dir_path):
     conf_path = path.join(exp_dir_path, 'conf.yml')
@@ -82,69 +83,56 @@ def save_original_scores(output_exp_dir, output_data_sample_name, query, paper_d
     else:
         print(f'\t{npz_file_path} exist, should skip')
     
+def compute_pdp(paper_data, query, feature_name):
+    data_len = len(paper_data)
+    pdp_value = []
+    print(f'\tgetting pdp for {feature_name}')
+    st = time.time()
+    if feature_name == 'year' or feature_name == 'n_citations':
+        if feature_name == 'year':
+            rg = year_pdp_value_space
+        else:
+            rg = citation_pdp_value_space
+        for i in rg:
+            value_that_is_used = i
+            variant_data = []
+            for p in paper_data:
+                new_data = {**p}
+                new_data[feature_name] = value_that_is_used
+                variant_data.append(new_data)
+
+            scores = get_scores(query, variant_data)
+            pdp_value.append(np.mean(scores))
+    else:
+        for i in range(data_len):
+            # pick the i th features value
+            value_that_is_used = paper_data[i][feature_name]
+            variant_data = []
+            # replace it to all papers
+            for p in paper_data:
+                new_data = {**p}
+                new_data[feature_name] = value_that_is_used
+                variant_data.append(new_data)
+
+            # get the scores
+            scores = get_scores(query, variant_data)
+            pdp_value.append(np.mean(scores))
+        
+    et = round(time.time() - st, 6)
+    print(f'\tcompute {len(scores)} pdp within {et} sec')
+    return pdp_value
 
 def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_name, data_sample_name):
     df = load_sample(data_exp_name, data_sample_name)
     paper_data = json.loads(df.to_json(orient='records'))
     save_original_scores(output_exp_dir, output_data_sample_name, query, paper_data)
-    data_len = len(paper_data)
-    categorical_features = ['title', 'abstract', 'venue', 'authors']
+    categorical_features = ['title', 'abstract', 'venue', 'authors', 'year', 'n_citations']
     for feature_name in categorical_features:
         npz_file_path = path.join(output_exp_dir, 'scores',
                                   f"{output_data_sample_name}_pdp_{feature_name}.npz")
         if not os.path.exists(npz_file_path):
-            pdp_value = []
-            print(f'\tgetting score for {feature_name}')
-            st = time.time()
-            for i in range(data_len):
-                # pick the i th features value
-                value_that_is_used = paper_data[i][feature_name]
-                variant_data = []
-                # replace it to all papers
-                for p in paper_data:
-                    new_data = {**p}
-                    new_data[feature_name] = value_that_is_used
-                    variant_data.append(new_data)
-
-                # get the scores
-                scores = get_scores(query, variant_data)
-                pdp_value.append(np.mean(scores))
-
-            et = round(time.time() - st, 6)
+            pdp_value = compute_pdp(paper_data, query, feature_name)
             save_pdp_to_npz(output_exp_dir, npz_file_path, pdp_value)
-            print(
-                f'\tcompute {len(scores)} scores within {et} sec')
-        else:
-            print(f'\t{npz_file_path} exist, should skip')
-
-    numerical_features_and_range = [
-        ['year', range(1960, 2023)],
-        ['n_citations', range(0, 15000, 100)]
-    ]
-
-    for feature_and_range in numerical_features_and_range:
-        pdp_value = []
-        feature_name, rg = feature_and_range
-        npz_file_path = path.join(output_exp_dir, 'scores',
-                                  f"{output_data_sample_name}_pdp_{feature_name}.npz")
-        if not os.path.exists(npz_file_path):
-            print(f'\tgetting score for {feature_name}')
-            st = time.time()
-            for i in rg:
-                value_that_is_used = i
-                variant_data = []
-                for p in paper_data:
-                    new_data = {**p}
-                    new_data[feature_name] = value_that_is_used
-                    variant_data.append(new_data)
-
-                scores = get_scores(query, variant_data)
-                pdp_value.append(np.mean(scores))
-
-            et = round(time.time() - st, 6)
-            save_pdp_to_npz(output_exp_dir, npz_file_path, pdp_value)
-            print(
-                f'\tcompute {len(scores)} scores within {et} sec')
         else:
             print(f'\t{npz_file_path} exist, should skip')
 

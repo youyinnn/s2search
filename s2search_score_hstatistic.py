@@ -1,4 +1,3 @@
-from s2search.rank import S2Ranker
 import time
 import os
 import os.path as path
@@ -9,6 +8,7 @@ import math
 import numpy as np
 from getting_data import load_sample
 from s2search_score_pipelining import get_scores
+from s2search_score_pdp import compute_pdp, year_pdp_value_space, citation_pdp_value_space
 
 model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
@@ -29,24 +29,82 @@ def save_pdp_to_npz(exp_dir_path, npz_file_path, data):
     print(f'\tsave PDP data to {npz_file_path}')
     np.savez_compressed(npz_file_path, data)
 
-
-def pdp_for_a_point(feature_kv, query, paper_data):
-    varant_paper_list = []
+def compute_diagonal_pdp(f1_name, f2_name, query, paper_data):
+    pdp_value = []
+    print(f'\tgetting diagonal pdp for {f1_name}, {f2_name}')
+    st = time.time()
     for i in range(len(paper_data)):
-        new_data = {**paper_data[i]}
-        for key in feature_kv.keys():
-            new_data[key] = feature_kv[key]
-        varant_paper_list.append(new_data)
+        # pick the i th features value
+        f1_value_that_is_used = paper_data[i][f1_name]
+        f2_value_that_is_used = paper_data[i][f2_name]
+        variant_data = []
+        # replace it to all papers
+        for p in paper_data:
+            new_data = {**p}
+            new_data[f1_name] = f1_value_that_is_used
+            new_data[f2_name] = f2_value_that_is_used
+            variant_data.append(new_data)
 
-    # print()
-    # for p in varant_paper_list:
-    #     print(p)
+        scores = get_scores(query, variant_data)
+        pdp_value.append(np.mean(scores))
 
-    scores = get_scores(query, varant_paper_list)
-    # scores = [1]
+    et = round(time.time() - st, 6)
+    print(f'\tcompute {len(scores)} diagonal pdp within {et} sec')
+    return pdp_value
 
-    return np.mean(scores)
+def get_pdp_data_if_exist(output_exp_dir, output_data_sample_name, 
+                          data_exp_name, data_sample_name, f1_name, f2_name, query, paper_data):
+    f1_pdp_data = None
+    f2_pdp_data = None
+    f1_f2_diagonal_pdp_data = None
 
+    f1_pdp_from_source_path = path.join(data_dir, data_exp_name, 'scores',
+                                        f"{data_sample_name}_pdp_{f1_name}.npz")
+    f1_pdp_from_here_path = path.join(output_exp_dir, 'scores',
+                                f"{output_data_sample_name}_pdp_{f1_name}.npz")
+    
+    f1_data_exist = False
+    if os.path.exists(f1_pdp_from_source_path):
+        f1_pdp_data = np.load(f1_pdp_from_source_path)['arr_0']  
+        f1_data_exist = True
+                
+    if os.path.exists(f1_pdp_from_here_path):
+        f1_pdp_data = np.load(f1_pdp_from_here_path)['arr_0']
+        f1_data_exist = True
+    
+    f2_pdp_from_source_path = path.join(data_dir, data_exp_name, 'scores',
+                                f"{data_sample_name}_pdp_{f2_name}.npz")            
+    f2_pdp_from_here_path = path.join(output_exp_dir, 'scores',
+                                f"{output_data_sample_name}_pdp_{f2_name}.npz")
+    
+    f2_data_exist = False
+    if os.path.exists(f2_pdp_from_source_path):
+        f2_pdp_data = np.load(f2_pdp_from_source_path)['arr_0']
+        f2_data_exist = True
+                
+    if os.path.exists(f2_pdp_from_here_path):
+        f2_pdp_data = np.load(f2_pdp_from_here_path)['arr_0']
+        f2_data_exist = True
+    
+    f1_f2_data_exist = False
+    f1_f2_diagonal_pdp_path = path.join(output_exp_dir, 'scores',
+                                f"{output_data_sample_name}_diagonal_pdp_{f1_name}_{f2_name}.npz")
+    
+    if os.path.exists(f1_f2_diagonal_pdp_path):
+        f1_f2_diagonal_pdp_data = np.load(f1_f2_diagonal_pdp_path)['arr_0']
+        f1_f2_data_exist = True
+        
+    if not f1_data_exist:
+        f1_pdp_data = compute_pdp(paper_data, query, f1_name)
+        save_pdp_to_npz(output_exp_dir, f1_pdp_from_here_path, f1_pdp_data)
+    if not f2_data_exist:
+        f2_pdp_data = compute_pdp(paper_data, query, f2_name)
+        save_pdp_to_npz(output_exp_dir, f2_pdp_from_here_path, f2_pdp_data)
+    if not f1_f2_data_exist:
+        f1_f2_diagonal_pdp_data = compute_diagonal_pdp(f1_name, f2_name, query, paper_data)
+        save_pdp_to_npz(output_exp_dir, f1_f2_diagonal_pdp_path, f1_f2_diagonal_pdp_data)
+        
+    return f1_pdp_data, f2_pdp_data, f1_f2_diagonal_pdp_data
 
 def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_name, data_sample_name):
     
@@ -58,55 +116,34 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_na
         'title', 
         'abstract',
         'venue',
-        # 'authors'
+        'authors'
     ]
 
     for f1_idx in range(len(categorical_features)):
         for f2_idx in range(f1_idx + 1, len(categorical_features)):
-            f1_key = categorical_features[f1_idx]
-            f2_key = categorical_features[f2_idx]
-            npz_file_path = path.join(exp_dir_path, 'scores',
-                                      f"{data_sample_name}_hs_{f1_key}_{f2_key}.npz")
+            f1_name = categorical_features[f1_idx]
+            f2_name = categorical_features[f2_idx]
+            npz_file_path = path.join(output_exp_dir, 'scores',
+                                      f"{output_data_sample_name}_hs_{f1_name}_{f2_name}.npz")
 
+            f1_pdp_data, f2_pdp_data, f1_f2_diagonal_pdp_data = \
+                get_pdp_data_if_exist(output_exp_dir, output_data_sample_name, data_exp_name,
+                                      data_sample_name, f1_name, f2_name, query, paper_data)
+            
             if not os.path.exists(npz_file_path):
                 numerator = 0
                 denominator = 0
-                st = time.time()
-                
-                # time spend for 500 papers
-                #   500 ^ 2 * 3 / 10000 * 7 / 60 = 8.75 min
                 for i in range(data_len):
-                    f1_value = paper_data[i][f1_key]
-                    f2_value = paper_data[i][f2_key]
-
-                    # print(f'the {i + 1} pdp of {f1_key} and {f2_key}')
-
-                    f1_pdp_point = pdp_for_a_point(
-                        {
-                            f1_key: f1_value
-                        }, query, paper_data)
-                    f2_pdp_point = pdp_for_a_point(
-                        {
-                            f2_key: f2_value
-                        }, query, paper_data)
-
-                    f1_and_f2_pdp_point = pdp_for_a_point(
-                        {
-                            f1_key: f1_value,
-                            f2_key: f2_value,
-                        }, query, paper_data)
-
-                    # print(f1_pdp_point, f2_pdp_point, f1_and_f2_pdp_point)
-
+                    f1_pdp_point = f1_pdp_data[i]
+                    f2_pdp_point = f2_pdp_data[i]
+                    f1_and_f2_pdp_point = f1_f2_diagonal_pdp_data[i]
                     numerator += math.pow(f1_and_f2_pdp_point -
                                           f1_pdp_point - f2_pdp_point, 2)
                     denominator += math.pow(f1_and_f2_pdp_point, 2)
 
                 h_jk = numerator / denominator
                 h_jk_sqrt = math.sqrt(numerator)
-                et = round(time.time() - st, 6)
-                print(
-                    f'get h statistic {h_jk}\t : {h_jk_sqrt} of {f1_key} and {f2_key} in {et} sec with {data_len} papers')
+                print(f'get h statistic of {f1_name} and {f2_name}      \t-> {h_jk}\t :   {h_jk_sqrt}')
 
 
 def get_hstatistic_and_save_score(exp_dir_path):
