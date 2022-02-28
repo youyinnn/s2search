@@ -7,14 +7,20 @@ import yaml
 import json
 import shutil
 import zlib
-from multiprocessing import Pool
+from multiprocessing import Pool, Manager
 import numpy as np
 import feature_masking as fm
+import psutil
+
+mem = psutil.virtual_memory()
+zj = float(mem.total) / 1024 / 1024 / 1024
+work_load =int(zj / 16)
 
 model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
 ranker = None
 data_loading_line_limit = 1000
+paper_limit_for_a_worker = 10000
 
 
 def init_ranker(data_dir=model_dir):
@@ -39,8 +45,42 @@ def find_weird_score(scores, paper_list):
     return weird_paper_idx, weird_paper
     
 
-def get_scores(query, paper, mask_option='origin', data_file_name=''):
-    init_ranker()
+def get_scores(query, paper, use_pool=False, task_name=None):
+    st = time.time()
+    if use_pool:
+        with Manager() as manager:
+            rd = manager.dict()
+            rd['ranker'] = init_ranker()
+            task_arg = []
+            curr_idx = 0
+            idx = 0
+            while curr_idx < len(paper):
+                end_idx = curr_idx + paper_limit_for_a_worker if curr_idx + paper_limit_for_a_worker < len(paper) else len(paper)
+                curr_list = paper[curr_idx: end_idx]
+                task_arg.append([
+                    rd,
+                    query,
+                    curr_list,
+                    task_name,
+                    idx
+                ])
+                idx += 1
+            print(f'with work load {work_load}')
+            with Pool(processes=work_load) as worker:
+                rs = worker.map_async(get_scores_for_one_worker, task_arg)
+                scores = rs.get()
+    else:
+        scores = get_scores_for_one_worker({
+            'ranker': init_ranker()
+        }, query, paper)
+        
+    et = round(time.time() - st, 6)
+    print(f"[{'Main taks' if task_name == None else task_name}] {len(paper)} scores within {et} sec")
+    return scores
+
+def get_scores_for_one_worker(ranker_dict, query, paper, task_name=None, task_number=0):
+    one_ranker = ranker_dict['ranker']
+    print(f"[{'Main taks' if task_name == None else task_name}:{task_number}] compute {len(paper)} scores with worker {os.getpid()}")
     scores = []
     paper_list = paper
     if len(paper_list) > 1000:
@@ -48,15 +88,15 @@ def get_scores(query, paper, mask_option='origin', data_file_name=''):
         while curr_idx < len(paper_list):
             end_idx = curr_idx + 1000 if curr_idx + 1000 < len(paper_list) else len(paper_list)
             curr_list = paper_list[curr_idx: end_idx]
-            scores.extend(ranker.score(query, curr_list))
+            scores.extend(one_ranker.score(query, curr_list))
             curr_idx += 1000
     else:
-        scores = ranker.score(query, paper_list)
+        scores = one_ranker.score(query, paper_list)
         
     weird_paper_idx, weird_paper = find_weird_score(scores, paper_list)
             
     if len(weird_paper) > 0:
-        fixed_score = [ranker.score(query, [one_paper])[0] for one_paper in weird_paper]
+        fixed_score = [one_ranker.score(query, [one_paper])[0] for one_paper in weird_paper]
         idx = 0
         for weird_idx in weird_paper_idx:
             scores[weird_idx] = fixed_score[idx]
@@ -66,14 +106,6 @@ def get_scores(query, paper, mask_option='origin', data_file_name=''):
 
     if len(weird_paper_idx_again) > 0:
         print(f'still got weird scores')
-        
-    return scores
-    
-    init_ranker()
-    st = time.time()
-    scores = ranker.score(query, paper)
-
-    et = round(time.time() - st, 6)
 
     return scores
 
