@@ -2,11 +2,11 @@ from s2search.rank import S2Ranker
 import time
 import os
 import os.path as path
+import math
 import sys
 import yaml
 import json
 import shutil
-import zlib
 from multiprocessing import Pool, Manager
 import numpy as np
 import feature_masking as fm
@@ -14,23 +14,29 @@ import psutil
 
 mem = psutil.virtual_memory()
 zj = float(mem.total) / 1024 / 1024 / 1024
-work_load =int(zj / 16)
+work_load = math.ceil(zj / 16) * 2
 
-model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
-ranker = None
 data_loading_line_limit = 1000
-paper_limit_for_a_worker = 10000
 
+def check_model_existance(default_dir = './s2search_daa'):
+    if os.path.exists(default_dir):
+        list_files = [f for f in os.listdir(default_dir) if os.path.isfile(os.path.join(default_dir, f))]
+        if 'titles_abstracts_lm.binary' in list_files \
+            and 'authors_lm.binary' in list_files \
+                and 'lightgbm_model.pickle' in list_files \
+                    and 'venues_lm.binary' in list_files:
+            return default_dir
+    else:
+        return os.environ.get('S2_MODEL_DATA')
 
-def init_ranker(data_dir=model_dir):
-    global ranker
-    if ranker == None:
-        print(f'Loading ranker model...')
-        st = time.time()
-        ranker = S2Ranker(data_dir)
-        et = round(time.time() - st, 2)
-        print(f'Load the s2 ranker within {et} sec')
+def init_ranker():
+    data_dir = check_model_existance()
+    print(f'Loading ranker model...')
+    st = time.time()
+    ranker = S2Ranker(data_dir)
+    et = round(time.time() - st, 2)
+    print(f'Load the s2 ranker within {et} sec')
     return ranker
 
 def find_weird_score(scores, paper_list):
@@ -47,39 +53,36 @@ def find_weird_score(scores, paper_list):
 
 def get_scores(query, paper, use_pool=False, task_name=None):
     st = time.time()
-    if use_pool:
-        with Manager() as manager:
-            rd = manager.dict()
-            rd['ranker'] = init_ranker()
-            task_arg = []
-            curr_idx = 0
-            idx = 0
-            while curr_idx < len(paper):
-                end_idx = curr_idx + paper_limit_for_a_worker if curr_idx + paper_limit_for_a_worker < len(paper) else len(paper)
-                curr_list = paper[curr_idx: end_idx]
-                task_arg.append([
-                    rd,
-                    query,
-                    curr_list,
-                    task_name,
-                    idx
-                ])
-                idx += 1
-            print(f'with work load {work_load}')
-            with Pool(processes=work_load) as worker:
-                rs = worker.map_async(get_scores_for_one_worker, task_arg)
-                scores = rs.get()
-    else:
-        scores = get_scores_for_one_worker({
-            'ranker': init_ranker()
-        }, query, paper)
+    used_workload = 1 if not use_pool else work_load
+    task_arg = []
+    curr_idx = 0
+    idx = 0
+    paper_limit_for_a_worker = math.ceil(len(paper) / used_workload)
+    print(f'with {used_workload} workloads, porcessing {paper_limit_for_a_worker} papers per workload')
+    while curr_idx < len(paper):
+        end_idx = curr_idx + paper_limit_for_a_worker if curr_idx + paper_limit_for_a_worker < len(paper) else len(paper)
+        task_arg.append(
+            [
+                query,
+                paper[curr_idx: end_idx],
+                task_name,
+                idx
+            ]
+        )
+        curr_idx += paper_limit_for_a_worker
+        idx += 1
+        
+    with Pool(processes=used_workload) as worker:
+        rs = worker.map_async(get_scores_for_one_worker, task_arg)
+        scores = rs.get()
         
     et = round(time.time() - st, 6)
     print(f"[{'Main taks' if task_name == None else task_name}] {len(paper)} scores within {et} sec")
     return scores
 
-def get_scores_for_one_worker(ranker_dict, query, paper, task_name=None, task_number=0):
-    one_ranker = ranker_dict['ranker']
+def get_scores_for_one_worker(pos_arg):
+    query, paper, task_name, task_number = pos_arg
+    one_ranker = init_ranker()
     print(f"[{'Main taks' if task_name == None else task_name}:{task_number}] compute {len(paper)} scores with worker {os.getpid()}")
     scores = []
     paper_list = paper

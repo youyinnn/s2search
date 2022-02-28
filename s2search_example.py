@@ -60,18 +60,12 @@ for i in range(0, 15001, 100):
         'n_citations': i
     })
 
-
-s2ranker = S2Ranker(data_dir)
-
-def S2_Rank(related_keywords, paper_dict_list):
-    score = s2ranker.score(related_keywords, paper_dict_list)
-    return score
-
 import time
+from s2search_score_pipelining import get_scores
 
 st = time.time()
 
-scores = S2_Rank('Machine Learning', papers_example)
+scores = get_scores('Machine Learning', papers_example)
 
 et = round(time.time() - st, 6)
 
@@ -82,10 +76,10 @@ print(a, b, c, d, (d - c) - (b - a))
 
 print(f'{et} {len(papers_example)}')
 
-scores = S2_Rank('Machine Learning', papers_example_year)
+scores = get_scores('Machine Learning', papers_example_year)
 
 # print(scores)
 
-scores = S2_Rank('Machine Learning', papers_example_ci)
+scores = get_scores('Machine Learning', papers_example_ci)
 
 print(scores)
