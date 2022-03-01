@@ -14,10 +14,11 @@ import psutil
 
 mem = psutil.virtual_memory()
 zj = float(mem.total) / 1024 / 1024 / 1024
-work_load = 1 if math.ceil(zj / 16) == 1 else math.ceil(zj / 16) * 2
+work_load = 1 if math.ceil(zj / 16) == 1 else math.ceil(zj / 16) + math.ceil(zj / 32)
 
 ranker = None
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
+
 data_loading_line_limit = 1000
 
 def check_model_existance(default_dir = path.join(os.getcwd(), 's2search_data')):
@@ -57,31 +58,34 @@ def find_weird_score(scores, paper_list):
 def get_scores(query, paper, use_pool=False, task_name=None):
     st = time.time()
     used_workload = 1 if not use_pool else work_load
-    task_arg = []
-    curr_idx = 0
-    idx = 0
-    paper_limit_for_a_worker = math.ceil(len(paper) / used_workload)
-    print(f'with {used_workload} workloads, porcessing {paper_limit_for_a_worker} papers per workload')
-    while curr_idx < len(paper):
-        end_idx = curr_idx + paper_limit_for_a_worker if curr_idx + paper_limit_for_a_worker < len(paper) else len(paper)
-        task_arg.append(
-            [
-                query,
-                paper[curr_idx: end_idx],
-                task_name,
-                idx
-            ]
-        )
-        curr_idx += paper_limit_for_a_worker
-        idx += 1
-        
-    with Pool(processes=used_workload) as worker:
-        rs = worker.map_async(get_scores_for_one_worker, task_arg)
-        scores = rs.get()
+    if used_workload > 1:
+        task_arg = []
+        curr_idx = 0
+        idx = 0
+        paper_limit_for_a_worker = math.ceil(len(paper) / used_workload)
+        print(f'with {used_workload} workloads, porcessing {paper_limit_for_a_worker} papers per workload')
+        while curr_idx < len(paper):
+            end_idx = curr_idx + paper_limit_for_a_worker if curr_idx + paper_limit_for_a_worker < len(paper) else len(paper)
+            task_arg.append(
+                [
+                    query,
+                    paper[curr_idx: end_idx],
+                    task_name,
+                    idx
+                ]
+            )
+            curr_idx += paper_limit_for_a_worker
+            idx += 1
+        with Pool(processes=used_workload) as worker:
+            rs = worker.map_async(get_scores_for_one_worker, task_arg)
+            scores = rs.get()
+    else:
+        scores = get_scores_for_one_worker([query, paper, task_name, 0])
         
     et = round(time.time() - st, 6)
-    print(f"[{'Main taks' if task_name == None else task_name}] {len(paper)} scores within {et} sec")
-    return scores
+    ts = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    print(f"[{'Main taks' if task_name == None else task_name}][{ts}] {len(paper)} scores within {et} sec ")
+    return np.array(scores).flatten()
 
 def get_scores_for_one_worker(pos_arg):
     query, paper, task_name, task_number = pos_arg

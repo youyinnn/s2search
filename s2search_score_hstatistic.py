@@ -44,7 +44,7 @@ def compute_diagonal_pdp(f1_name, f2_name, query, paper_data):
             new_data[f2_name] = f2_value_that_is_used
             variant_data.append(new_data)
 
-    scores = np.array(get_scores(query, variant_data, use_pool=True, task_name='hs')).flatten()
+    scores = get_scores(query, variant_data, use_pool=True, task_name='hs')
 
     scores_split = np.array_split(scores, len(paper_data))
     pdp_value = [np.mean(x) for x in scores_split]
