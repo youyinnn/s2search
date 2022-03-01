@@ -124,7 +124,7 @@ Note that `n_key_citations` is a Semantic Scholar feature. If you don't have it,
        csms:
          - query: "Mathematical Software"
            masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
-
+   
    sample_from_other_exp:
      cslg: ["exp1", "cslg.data"]
    ```
@@ -206,7 +206,7 @@ Same as we do at normal score computation task:
          - query: "Machine Learning"
        cslg-rand-500:
          - query: "Machine Learning"
-
+   
    ```
 
 The configuration is same as we do in the normal tasks except there is no `masking_option_keys` and use `using_origin_from`.
@@ -243,3 +243,43 @@ python plotting_nb_gen.py pdp-exp1
 ```
 
 It will know when to generate the notebook for normal task and when is for pdp task.
+
+
+
+# Setup On GCP
+
+Instance system require: centos8:
+
+```bash
+sudo yum -y wget git gcc gcc-c++ unzip
+```
+
+Conda env:
+
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
+bash ~/miniconda.sh -b -p $HOME/miniconda
+```
+
+```bash
+conda init
+source ~/miniconda3/bin/activate
+conda create -y --name s2search397 python==3.9.7
+```
+
+Clone the project
+
+```bash
+git clone ...
+```
+
+Python packages:
+
+```bash
+pip install -r requirements.txt
+
+pip install awscli
+aws s3 cp --no-sign-request s3://ai2-s2-research-public/s2search_data.zip .
+```
+
+Then unzip the 16G model files to where is should be.

@@ -14,12 +14,13 @@ import psutil
 
 mem = psutil.virtual_memory()
 zj = float(mem.total) / 1024 / 1024 / 1024
-work_load = math.ceil(zj / 16) * 2
+work_load = 1 if math.ceil(zj / 16) == 1 else math.ceil(zj / 16) * 2
 
+ranker = None
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
 data_loading_line_limit = 1000
 
-def check_model_existance(default_dir = './s2search_daa'):
+def check_model_existance(default_dir = path.join(os.getcwd(), 's2search_data')):
     if os.path.exists(default_dir):
         list_files = [f for f in os.listdir(default_dir) if os.path.isfile(os.path.join(default_dir, f))]
         if 'titles_abstracts_lm.binary' in list_files \
@@ -31,12 +32,14 @@ def check_model_existance(default_dir = './s2search_daa'):
         return os.environ.get('S2_MODEL_DATA')
 
 def init_ranker():
+    global ranker
     data_dir = check_model_existance()
-    print(f'Loading ranker model...')
-    st = time.time()
-    ranker = S2Ranker(data_dir)
-    et = round(time.time() - st, 2)
-    print(f'Load the s2 ranker within {et} sec')
+    if ranker == None:
+        print(f'Loading ranker model...')
+        st = time.time()
+        ranker = S2Ranker(data_dir)
+        et = round(time.time() - st, 2)
+        print(f'Load the s2 ranker within {et} sec')
     return ranker
 
 def find_weird_score(scores, paper_list):

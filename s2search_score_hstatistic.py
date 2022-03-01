@@ -8,7 +8,7 @@ import math
 import numpy as np
 from getting_data import load_sample
 from s2search_score_pipelining import get_scores
-from s2search_score_pdp import compute_pdp, year_pdp_value_space, citation_pdp_value_space
+from s2search_score_pdp import compute_pdp
 
 model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
@@ -30,14 +30,13 @@ def save_pdp_to_npz(exp_dir_path, npz_file_path, data):
     np.savez_compressed(npz_file_path, data)
 
 def compute_diagonal_pdp(f1_name, f2_name, query, paper_data):
-    pdp_value = []
     print(f'\tgetting diagonal pdp for {f1_name}, {f2_name}')
     st = time.time()
+    variant_data = []
     for i in range(len(paper_data)):
         # pick the i th features value
         f1_value_that_is_used = paper_data[i][f1_name]
         f2_value_that_is_used = paper_data[i][f2_name]
-        variant_data = []
         # replace it to all papers
         for p in paper_data:
             new_data = {**p}
@@ -45,8 +44,10 @@ def compute_diagonal_pdp(f1_name, f2_name, query, paper_data):
             new_data[f2_name] = f2_value_that_is_used
             variant_data.append(new_data)
 
-        scores = get_scores(query, variant_data)
-        pdp_value.append(np.mean(scores))
+    scores = np.array(get_scores(query, variant_data, use_pool=True, task_name='hs')).flatten()
+
+    scores_split = np.array_split(scores, len(paper_data))
+    pdp_value = [np.mean(x) for x in scores_split]
 
     et = round(time.time() - st, 6)
     print(f'\tcompute {len(scores)} diagonal pdp within {et} sec')
@@ -168,10 +169,13 @@ def get_hstatistic_and_save_score(exp_dir_path):
         if task != None:
             print(f'computing ale for {tested_sample_name}')
             for t in task:
-                query = t['query']
-                compute_and_save(
-                    exp_dir_path, tested_sample_name, query,
-                    tested_sample_from_exp, tested_sample_data_source_name)
+                try:
+                    query = t['query']
+                    compute_and_save(
+                        exp_dir_path, tested_sample_name, query,
+                        tested_sample_from_exp, tested_sample_data_source_name)
+                except FileNotFoundError as e:
+                    print(e)
         else:
             print(f'**no config for tested sample {tested_sample_name}')
 
