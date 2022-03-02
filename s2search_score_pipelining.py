@@ -14,9 +14,7 @@ import psutil
 
 mem = psutil.virtual_memory()
 zj = float(mem.total) / 1024 / 1024 / 1024
-ranker = None
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
-
 data_loading_line_limit = 1000
 
 work_load = 1 if math.ceil(zj / 16) == 1 else math.ceil(zj / 16) + math.ceil(zj / 32)
@@ -36,14 +34,12 @@ def check_model_existance(default_dir = path.join(os.getcwd(), 's2search_data'))
         return os.environ.get('S2_MODEL_DATA')
 
 def init_ranker():
-    global ranker
     data_dir = check_model_existance()
-    if ranker == None:
-        print(f'Loading ranker model...')
-        st = time.time()
-        ranker = S2Ranker(data_dir)
-        et = round(time.time() - st, 2)
-        print(f'Load the s2 ranker within {et} sec')
+    print(f'Loading process ranker model...')
+    st = time.time()
+    ranker = S2Ranker(data_dir)
+    et = round(time.time() - st, 2)
+    print(f'Load the process s2 ranker within {et} sec')
     return ranker
 
 def find_weird_score(scores, paper_list):
@@ -58,14 +54,13 @@ def find_weird_score(scores, paper_list):
     return weird_paper_idx, weird_paper
     
 
-def get_scores(query, paper, use_pool=False, task_name=None, ptf=True):
+def get_scores(query, paper, task_name=None, ptf=True, use_pool=True):
     st = time.time()
-    used_workload = 1 if not use_pool else work_load
     ts = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    if used_workload > 1:
-        paper_limit_for_a_worker = math.ceil(len(paper) / used_workload)
+    if work_load > 1 and use_pool:
+        paper_limit_for_a_worker = math.ceil(len(paper) / work_load)
         if ptf:
-            print(f'[{ts}] with {used_workload} workloads, porcessing {paper_limit_for_a_worker} papers per workload')
+            print(f'[{ts}] with {work_load} workloads, porcessing {paper_limit_for_a_worker} papers per workload')
         task_arg = []
         curr_idx = 0
         idx = 0
@@ -77,17 +72,17 @@ def get_scores(query, paper, use_pool=False, task_name=None, ptf=True):
                     paper[curr_idx: end_idx],
                     task_name,
                     idx,
-                    ptf
+                    ptf,
                 ]
             )
             curr_idx += paper_limit_for_a_worker
             idx += 1
-        with Pool(processes=used_workload) as worker:
+        with Pool(processes=work_load) as worker:
             rs = worker.map_async(get_scores_for_one_worker, task_arg)
             scores = rs.get()
     else:
         if ptf:
-            print(f'[{ts}] with {used_workload} workloads, porcessing {len(paper)} papers per workload')
+            print(f'[{ts}] with {work_load} workloads, porcessing {len(paper)} papers per workload')
         scores = get_scores_for_one_worker([query, paper, task_name, 0, ptf])
         
     et = round(time.time() - st, 6)

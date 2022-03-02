@@ -304,12 +304,15 @@ def get_ale_and_save_score(exp_dir_path, exp_name, for_2way):
         if task != None:
             print(f'computing ale for {tested_sample_name}')
             for t in task:
-                query = t['query']
-                quantile_config = t.get('quantiles')
-                interval_config = t.get('intervals')
-                compute_and_save(
-                    exp_dir_path, tested_sample_name, query, quantile_config, interval_config,
-                    tested_sample_from_exp, tested_sample_data_source_name, for_2way)
+                try:
+                    query = t['query']
+                    quantile_config = t.get('quantiles')
+                    interval_config = t.get('intervals')
+                    compute_and_save(
+                        exp_dir_path, tested_sample_name, query, quantile_config, interval_config,
+                        tested_sample_from_exp, tested_sample_data_source_name, for_2way)
+                except FileNotFoundError as e:
+                    print(e)
         else:
             print(f'**no config for tested sample {tested_sample_name}')
 

@@ -101,7 +101,7 @@ def compute_pdp(paper_data, query, feature_name):
                 new_data[feature_name] = value_that_is_used
                 variant_data.append(new_data)
 
-        scores = get_scores(query, variant_data, use_pool=True, task_name='pdp-numerical')
+        scores = get_scores(query, variant_data, task_name='pdp-numerical')
         scores_split = np.array_split(scores, len(rg))
         pdp_value = [np.mean(x) for x in scores_split]
     else:
@@ -115,7 +115,7 @@ def compute_pdp(paper_data, query, feature_name):
                 new_data[feature_name] = value_that_is_used
                 variant_data.append(new_data)
 
-        scores = get_scores(query, variant_data, use_pool=True, task_name='pdp-categorical')
+        scores = get_scores(query, variant_data, task_name='pdp-categorical')
         scores_split = np.array_split(scores, len(paper_data))
         pdp_value = [np.mean(x) for x in scores_split]
         
@@ -160,10 +160,13 @@ def get_pdp_and_save_score(exp_dir_path, exp_name, is2d):
         if task != None:
             print(f'computing ale for {tested_sample_name}')
             for t in task:
-                query = t['query']
-                compute_and_save(
-                    exp_dir_path, tested_sample_name, query,
-                    tested_sample_from_exp, tested_sample_data_source_name)
+                try:
+                    query = t['query']
+                    compute_and_save(
+                        exp_dir_path, tested_sample_name, query,
+                        tested_sample_from_exp, tested_sample_data_source_name)
+                except FileNotFoundError as e:
+                    print(e)
         else:
             print(f'**no config for tested sample {tested_sample_name}')
 
