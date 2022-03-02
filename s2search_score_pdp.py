@@ -93,30 +93,31 @@ def compute_pdp(paper_data, query, feature_name):
             rg = year_pdp_value_space
         else:
             rg = citation_pdp_value_space
+        variant_data = []
         for i in rg:
             value_that_is_used = i
-            variant_data = []
             for p in paper_data:
                 new_data = {**p}
                 new_data[feature_name] = value_that_is_used
                 variant_data.append(new_data)
 
-            scores = get_scores(query, variant_data)
-            pdp_value.append(np.mean(scores))
+        scores = get_scores(query, variant_data, use_pool=True, task_name='pdp-numerical')
+        scores_split = np.array_split(scores, len(rg))
+        pdp_value = [np.mean(x) for x in scores_split]
     else:
+        variant_data = []
         for i in range(data_len):
             # pick the i th features value
             value_that_is_used = paper_data[i][feature_name]
-            variant_data = []
             # replace it to all papers
             for p in paper_data:
                 new_data = {**p}
                 new_data[feature_name] = value_that_is_used
                 variant_data.append(new_data)
 
-            # get the scores
-            scores = get_scores(query, variant_data)
-            pdp_value.append(np.mean(scores))
+        scores = get_scores(query, variant_data, use_pool=True, task_name='pdp-categorical')
+        scores_split = np.array_split(scores, len(paper_data))
+        pdp_value = [np.mean(x) for x in scores_split]
         
     et = round(time.time() - st, 6)
     print(f'\tcompute {len(scores)} pdp within {et} sec')
@@ -167,7 +168,8 @@ def get_pdp_and_save_score(exp_dir_path, exp_name, is2d):
             print(f'**no config for tested sample {tested_sample_name}')
 
 def is_numerical_feature(feature_name):        
-    return True if feature_name == 'year' or feature_name == '' else False
+    # return True if feature_name == 'year' or feature_name == '' else False
+    return True
 
 def pdp_based_importance(pdp_value, feature_name):
     pdp_np = np.array(pdp_value, dtype='float64')

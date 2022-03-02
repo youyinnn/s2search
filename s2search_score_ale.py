@@ -56,24 +56,34 @@ def divide_by_percentile(df, sorted_column_name, use_interval_not_quantile, quan
 def get_ale(grids, feature_key, query, centered = False):
     curr_accumulated = 0
     ale_result_list = []
+    points_ul_pairs_2 = []
+    gaps = []
     for grid in grids:
         lv = grid['lower_z']
         uv = grid['upper_z']
         neighbor = grid['neighbor']
         
-        points_ul_pairs = []
         for idx, row in neighbor.iterrows():
             upper_variant = {**row}
             upper_variant[feature_key] = uv
             
             lower_variant = {**row}
             lower_variant[feature_key] = lv
-            points_ul_pairs.append([upper_variant, lower_variant])
+            points_ul_pairs_2.append([upper_variant, lower_variant])
         
-        all_diff_in_this = fn_over_grid_2(query, points_ul_pairs)
-        curr_accumulated += np.mean(all_diff_in_this)
-        ale_result_list.append(curr_accumulated)
+        gaps.append(len(neighbor.index))
     
+    all_diff = fn_over_grid_2(query, points_ul_pairs_2)
+    all_diffs_split = []
+    idx = 0
+    for gap in gaps:
+        all_diffs_split.append(all_diff[idx: idx + gap])
+        idx += gap
+    
+    for diffs in all_diffs_split:
+        curr_accumulated += np.mean(diffs)
+        ale_result_list.append(curr_accumulated)
+        
     if centered: 
         mean = np.mean(ale_result_list)
         return [(x - mean) for x in ale_result_list]
@@ -88,7 +98,7 @@ def fn_over_grid_2(query, points_ul_pairs):
         paper_list.append(upper)
         paper_list.append(lower)
     
-    scores = get_scores(query, paper_list)
+    scores = get_scores(query, paper_list, task_name='ale-1w', ptf=False)
         # scores = list(map(lambda x: get_scores(query, [x]), paper_list))
 
     idx = 0
@@ -137,28 +147,7 @@ def split_df_by_cluster(df):
 
 def get_grids_and_quantiles(f1_df, f1_feature_name, interval_config, quantile_config):
     f1_itv, f1_quant, f1_use_itv = get_bin_size(interval_config, quantile_config, f1_feature_name)
-    
-    if f1_feature_name == 'year' or f1_feature_name == 'n_citations':
-        f1_grids, f1_quantiles = divide_by_percentile(f1_df, f1_feature_name, f1_use_itv, f1_quant, f1_itv)
-    else:
-        f1_clst_c, f1_clst_b, f1_clst_a = split_df_by_cluster(f1_df)
-
-        f1_c_grids, f1_c_quantiles = divide_by_percentile(f1_clst_c, f1_feature_name, f1_use_itv, 
-                                                f1_quant, f1_itv)
-        f1_b_grids, f1_b_quantiles = divide_by_percentile(f1_clst_b, f1_feature_name, f1_use_itv, 
-                                                f1_quant, f1_itv)
-        f1_a_grids, f1_a_quantiles = divide_by_percentile(f1_clst_a, f1_feature_name, f1_use_itv, 
-                                                f1_quant, f1_itv)
-        f1_grids = []
-        f1_quantiles = []
-
-        f1_grids.extend(f1_c_grids)
-        f1_grids.extend(f1_b_grids)
-        f1_grids.extend(f1_a_grids)
-        f1_quantiles.extend(f1_c_quantiles)
-        f1_quantiles.extend(f1_b_quantiles)
-        f1_quantiles.extend(f1_a_quantiles)
-    
+    f1_grids, f1_quantiles = divide_by_percentile(f1_df, f1_feature_name, f1_use_itv, f1_quant, f1_itv)
     return f1_grids, f1_quantiles
 
 def find_mutial_neighbor(n1, n2):
@@ -195,7 +184,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                 # grids, quantiles = divide_by_percentile(df, feature_name, use_interval_not_quantile, quantile_interval, just_interval)
                 grids, quantiles = get_grids_and_quantiles(df, feature_name, interval_config, quantile_config)
                 ale_result = get_ale(grids, feature_name, query)
-                
+
                 et = round(time.time() - st, 6)
                 print(f'\tcompute ale data for {output_data_sample_name}_1w_ale_{feature_name} within {et} sec')
                 if (feature_name == 'authors'):
