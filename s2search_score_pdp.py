@@ -181,7 +181,7 @@ def pdp_based_importance(pdp_value, feature_name):
         _mean = np.mean(pdp_value)
         pdp_np -= _mean
         pdp_np *= pdp_np
-        return np.sqrt(np.sum(pdp_np) / (_k - 1))         
+        return round(np.sqrt(np.sum(pdp_np) / (_k - 1)), 10)      
     else:
         return (np.max(pdp_value) - np.min(pdp_value)) / 4
 
