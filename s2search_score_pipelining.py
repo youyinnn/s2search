@@ -18,6 +18,22 @@ zj = float(mem.total) / 1024 / 1024 / 1024
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
 data_loading_line_limit = 1000
 
+gb_ranker = []
+gb_ranker_enable = False
+
+def enable_global():
+    global gb_ranker_enable
+    gb_ranker_enable = True
+    global gb_ranker
+    if len(gb_ranker) == 0:
+        gb_ranker.append(init_ranker())
+        
+def disable_global():
+    global gb_ranker_enable
+    gb_ranker_enable = False
+    global gb_ranker
+    gb_ranker = []
+
 work_load = 1 if math.ceil(zj / 16) == 1 else math.ceil(zj / 16)
 if os.environ.get('S2_MODEL_WORKLOAD') != None:
     print('using env workload')
@@ -43,6 +59,15 @@ def init_ranker():
     print(f'Load the process s2 ranker within {et} sec')
     return ranker
 
+def get_ranker():
+    global gb_ranker_enable
+    global gb_ranker
+    print(f"get ranker in {os.getpid()} with global setting: {gb_ranker_enable} and gb_ranker len {len(gb_ranker)}")
+    if gb_ranker_enable:
+        return gb_ranker[0]
+    else:
+        return init_ranker()
+
 def find_weird_score(scores, paper_list):
     weird_paper_idx = []
     weird_paper = []
@@ -55,32 +80,38 @@ def find_weird_score(scores, paper_list):
     return weird_paper_idx, weird_paper
     
 
-def get_scores(query, paper, task_name=None, ptf=True, use_pool=True):
+def get_scores(query, paper, task_name=None, ptf=True, force_global = False):
     st = time.time()
     ts = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    used_workload = work_load if use_pool else 1
-    paper_limit_for_a_worker = math.ceil(len(paper) / used_workload)
-    if ptf:
-        print(f'[{ts}] with {used_workload} workloads, porcessing {paper_limit_for_a_worker} papers per workload')
-    task_arg = []
-    curr_idx = 0
-    idx = 0
-    while curr_idx < len(paper):
-        end_idx = curr_idx + paper_limit_for_a_worker if curr_idx + paper_limit_for_a_worker < len(paper) else len(paper)
-        task_arg.append(
-            [
-                query,
-                paper[curr_idx: end_idx],
-                task_name,
-                idx,
-                ptf,
-            ]
-        )
-        curr_idx += paper_limit_for_a_worker
-        idx += 1
-    with Pool(processes=used_workload) as worker:
-        rs = worker.map_async(get_scores_for_one_worker, task_arg)
-        scores = rs.get()
+    if work_load == 1 or force_global:
+        if not force_global:
+            print('fail to not force global because 1 worker available')
+        enable_global()
+        scores = get_scores_for_one_worker([query, paper, task_name, 0, True])
+    else:
+        disable_global()
+        paper_limit_for_a_worker = math.ceil(len(paper) / work_load)
+        if ptf:
+            print(f'[{ts}] with {work_load} workloads, porcessing {paper_limit_for_a_worker} papers per workload')
+        task_arg = []
+        curr_idx = 0
+        idx = 0
+        while curr_idx < len(paper):
+            end_idx = curr_idx + paper_limit_for_a_worker if curr_idx + paper_limit_for_a_worker < len(paper) else len(paper)
+            task_arg.append(
+                [
+                    query,
+                    paper[curr_idx: end_idx],
+                    task_name,
+                    idx,
+                    ptf,
+                ]
+            )
+            curr_idx += paper_limit_for_a_worker
+            idx += 1
+        with Pool(processes=work_load) as worker:
+            rs = worker.map_async(get_scores_for_one_worker, task_arg)
+            scores = rs.get()
         
     et = round(time.time() - st, 6)
     ts = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
@@ -90,7 +121,7 @@ def get_scores(query, paper, task_name=None, ptf=True, use_pool=True):
 
 def get_scores_for_one_worker(pos_arg):
     query, paper, task_name, task_number, ptf = pos_arg
-    one_ranker = init_ranker()
+    one_ranker = get_ranker()
     if ptf:
         print(f"[{'Main taks' if task_name == None else task_name}:{task_number}] compute {len(paper)} scores with worker {os.getpid()}")
     scores = []

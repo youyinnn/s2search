@@ -4,6 +4,7 @@ description: "
 samples:
     cslg: 
       - query: "Machine Learning"
+        twoway: true
         quantiles:
           year: 0.01
           n_citations: 0.01
@@ -14,6 +15,7 @@ samples:
           venue: 1000
     cslg-rand-1000:
       - query: "Machine Learning"
+        twoway: true
         quantiles:
           year: 5
           n_citations: 5
@@ -23,6 +25,7 @@ samples:
           venue: 5
     cslg-rand-5000:
       - query: "Machine Learning"
+        twoway: true
         quantiles:
           year: 10
           n_citations: 10

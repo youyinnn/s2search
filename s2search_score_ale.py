@@ -150,8 +150,8 @@ def get_grids_and_quantiles(f1_df, f1_feature_name, interval_config, quantile_co
     f1_grids, f1_quantiles = divide_by_percentile(f1_df, f1_feature_name, f1_use_itv, f1_quant, f1_itv)
     return f1_grids, f1_quantiles
 
-def find_mutial_neighbor(n1, n2):
-    m = pd.DataFrame(columns=n1.columns)
+def find_mutual_neighbor(n1, n2):
+    m = pd.DataFrame(columns=n1.columns, data=[])
     id_in_n1 = {}
     for idx1, row1 in n1.iterrows():
         id_in_n1[row1['id']] = ''
@@ -214,68 +214,73 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                     if (f2_feature_name == 'authors'):
                         f2_quantiles = [str(x) for x in f2_quantiles]
                     
-                    ale_values = np.zeros([len(f2_grids), len(f1_grids)])
+                    # row: f2_len col: f1_len
+                    ale_values                  = np.zeros([len(f2_grids), len(f1_grids)])
+                    neighbors_number_per_grids  = np.zeros([len(f2_grids), len(f1_grids)])
                     
-                    for k in range(len(f1_grids)):
-                        f1_grid = f1_grids[k]
-                        f1_upper =  f1_grid['upper_z']
-                        f1_lower =  f1_grid['lower_z']
-                        f1_neighbor =  f1_grid['neighbor']
-                        for l in range(len(f2_grids)):
-                            f2_grid = f2_grids[l]
-                            f2_upper = f2_grid['upper_z']
-                            f2_lower = f2_grid['lower_z']
-                            f2_neighbor =  f1_grid['neighbor']
+                    four_corner_paper = []
+
+                    # f1_grids_len * f2_grids_len * (4 * number_of_neighbors)
+                    for row in range(len(f2_grids)):
+                        f2_grid = f2_grids[row]
+                        f2_upper =  f2_grid['upper_z']
+                        f2_lower =  f2_grid['lower_z']
+                        f2_neighbor =  f2_grid['neighbor']
+                        for col in range(len(f1_grids)):
+                            f1_grid = f1_grids[col]
+                            f1_upper = f1_grid['upper_z']
+                            f1_lower = f1_grid['lower_z']
+                            f1_neighbor =  f1_grid['neighbor']
                             
-                            mutual_neighbor = find_mutial_neighbor(f1_neighbor, f2_neighbor)
+                            mutual_neighbor = find_mutual_neighbor(f1_neighbor, f2_neighbor)
                             
-                            all_diff_in_neignborhood = []
+                            neighbors_number_per_grids[row][col] = mutual_neighbor.shape[0] * 4
                             
-                            four_corner_paper = []
-                            for idx, row in mutual_neighbor.iterrows():
-                                a = {**row}
+                            for idx, row_data in mutual_neighbor.iterrows():
+                                a = {**row_data}
                                 a[f1_feature_name] = f1_lower
                                 a[f2_feature_name] = f2_lower
                                 
-                                b = {**row}
+                                b = {**row_data}
                                 b[f1_feature_name] = f1_upper
                                 b[f2_feature_name] = f2_lower
                                 
-                                c = {**row}
+                                c = {**row_data}
                                 c[f1_feature_name] = f1_lower
                                 c[f2_feature_name] = f2_upper
                                 
-                                d = {**row}
+                                d = {**row_data}
                                 d[f1_feature_name] = f1_upper
                                 d[f2_feature_name] = f2_upper
                                 
-                                # a_s, b_s, c_s, d_s = get_scores(query, [a, b, c, d])
-                                # a_s, b_s, c_s, d_s = [0,0,0,0]
                                 four_corner_paper.extend([a, b, c, d])
-                                # diff = (d_s - c_s) - (b_s - a_s)
-                                # all_diff_in_neignborhood.append(diff)
                             
-                            four_corner_paper_scores = get_scores(query, four_corner_paper)
+                    four_corner_paper_scores = get_scores(query, four_corner_paper)
+
+                    c = 0
+                    curr_idx = 0
+                    for row in range(len(f2_grids)):
+                        for col in range(len(f1_grids)):
+                            number_of_neignbor_with_four_corners = int(neighbors_number_per_grids[row][col])            
+                            neignbor_with_four_corner_scores = four_corner_paper_scores[curr_idx : curr_idx + number_of_neignbor_with_four_corners]
+                            
+                            all_diff_in_neignborhood = []
                             idx = 0
-                            while idx < len(four_corner_paper_scores):
-                                a_s, b_s, c_s, d_s = four_corner_paper_scores[idx: idx + 4]
+                            while idx < len(neignbor_with_four_corner_scores):
+                                a_s, b_s, c_s, d_s = neignbor_with_four_corner_scores[idx: idx + 4]
                                 diff = round((d_s - c_s) - (b_s - a_s), 14)
-                                # if a_s > 100 or b_s > 100 or c_s > 100 or d_s > 100:
-                                #     print(diff, idx, int(idx / 4), '|', a_s, b_s, c_s, d_s)
-                                #     a_s, b_s, c_s, d_s = [get_scores(query, [x])[0] for x in four_corner_paper[idx: idx + 4]]
-                                #     # print('|-', a_s, b_s, c_s, d_s)
-                                #     all_diff_in_neignborhood.append(round((d_s - c_s) - (b_s - a_s), 14))
-                                #     pass
-                                # else:
                                 all_diff_in_neignborhood.append(diff)
                                 idx += 4
+                                
                             
-                            accumulated_f1_value = 0 if k == 0 else ale_values[l][k - 1]
-                            accumulated_f2_value = 0 if l == 0 else ale_values[l - 1][k]
-                            # ale_values[l][k] = accumulated_f1_value + accumulated_f2_value + np.mean(all_diff_in_neignborhood)
-                            accumulated_value = 0
-                            # accumulated_value = 0 if k == 0 and l == 0 else ale_values[l - 1][k - 1]
-                            ale_values[l][k] = accumulated_f1_value + accumulated_f2_value + accumulated_value + np.mean(all_diff_in_neignborhood)
+                            accumulated_f1_value = 0 if col == 0 else ale_values[row][col - 1]
+                            accumulated_f2_value = 0 if row == 0 else ale_values[row - 1][col]
+                            
+                            local_ale = 0 if len(all_diff_in_neignborhood) == 0 else np.mean(all_diff_in_neignborhood)
+                            
+                            ale_values[row][col] = accumulated_f1_value + accumulated_f2_value + local_ale
+                            
+                            curr_idx += number_of_neignbor_with_four_corners                            
 
                     et = round(time.time() - st, 6)
                     print(f'\tcompute ale data for {output_data_sample_name}_2w_ale_{f1_feature_name}_{f2_feature_name} within {et} sec')
@@ -306,11 +311,12 @@ def get_ale_and_save_score(exp_dir_path, exp_name, for_2way):
             for t in task:
                 try:
                     query = t['query']
+                    is_for_2way = t.get('twoway') if t.get('twoway') != None else False
                     quantile_config = t.get('quantiles')
                     interval_config = t.get('intervals')
                     compute_and_save(
                         exp_dir_path, tested_sample_name, query, quantile_config, interval_config,
-                        tested_sample_from_exp, tested_sample_data_source_name, for_2way)
+                        tested_sample_from_exp, tested_sample_data_source_name, for_2way and is_for_2way)
                 except FileNotFoundError as e:
                     print(e)
         else:

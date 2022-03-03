@@ -421,11 +421,12 @@ if not os.path.exists(pic_dir):
 
                 loading_data_md = '### Loading data'
                 loading_data_code = f'''
+
 sys.path.insert(1, '../../')
-import numpy as np, sys, os
+import numpy as np, sys, os, pandas as pd
 from getting_data import read_conf
 
-sample_name = 'cslg-rand-1000'
+sample_name = '{sample_name}'
 
 f_list = [
     'title', 
@@ -436,6 +437,7 @@ f_list = [
     'n_citations'
     ]
 ale_rs = []
+ale_metric = pd.DataFrame(columns=['f1_name', 'f2_name', '2w_ale_range', 'mean'])
 
 def replace_quantile(feature_name, quantile):
     if feature_name == 'year' or feature_name == 'n_citations':
@@ -460,6 +462,8 @@ for i in range(len(f_list)):
             
             t = f'The mean of the 2-way ale - ({{f1_name}} * {{f2_name}}): {{np.mean(ale_result)}}'
             
+            ale_metric.loc[len(ale_metric.index)] = [f1_name, f2_name, np.max(ale_result) - np.min(ale_result), np.mean(ale_result)]
+            
             ale = {{
                 'ale': ale_result,
                 'f1_quantile': replace_quantile(f1_name, quantile_1),
@@ -469,9 +473,9 @@ for i in range(len(f_list)):
                 'title': t
             }}
             
-            print(t)
-                
             ale_rs.append(ale)
+
+print(ale_metric)
 '''
 
                 plot_data_md = "### ALE Plots"
