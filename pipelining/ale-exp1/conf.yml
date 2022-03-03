@@ -5,13 +5,13 @@ samples:
     cslg: 
       - query: "Machine Learning"
         twoway: true
-        quantiles:
-          year: 5
-          n_citations: 5
-          title: 5
-          abstract: 5
-          authors: 5
-          venue: 5
+        intervals:
+          year: 1000
+          n_citations: 1000
+          title: 1000
+          abstract: 1000
+          authors: 1000
+          venue: 1000
     cslg-rand-1000:
       - query: "Machine Learning"
         twoway: true
