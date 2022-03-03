@@ -7,7 +7,7 @@ import sys
 import yaml
 import json
 import shutil
-from multiprocessing import Pool, Manager
+from multiprocessing import Pool
 import numpy as np
 import feature_masking as fm
 import psutil

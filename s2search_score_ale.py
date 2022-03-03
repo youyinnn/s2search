@@ -3,13 +3,18 @@ import os
 import os.path as path
 import sys
 import math
+import multiprocessing
 import numpy as np
 import pandas as pd
 from getting_data import load_sample, read_conf
 from s2search_score_pipelining import get_scores
 
+from sys import platform
+from multiprocessing import Pool
+
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
 def_quantile_config = {'title': 5, 'abstract': 10, 'venue': 20, 'authors': 10, 'year': 5, 'n_citations': 0.1}
+p_number = int(multiprocessing.cpu_count() - (2 if platform == "darwin" else 0))
 
 def save_pdp_to_npz(exp_dir_path, npz_file_path, quantile, ale_result, values_for_rug):
     scores_dir = path.join(exp_dir_path, 'scores')
@@ -160,6 +165,35 @@ def find_mutual_neighbor(n1, n2):
 
     return m
 
+def get_four_corner_papers(args):
+    four_corner_paper = []
+    f1_feature_name, f1_lower, f1_upper,f1_neighbor, f2_feature_name, f2_lower,f2_upper,f2_neighbor, row, col, ale_values_shape = args
+    mutual_neighbor = find_mutual_neighbor(f1_neighbor, f2_neighbor)
+    for idx, row_data in mutual_neighbor.iterrows():
+        a = {**row_data}
+        a[f1_feature_name] = f1_lower
+        a[f2_feature_name] = f2_lower
+        
+        b = {**row_data}
+        b[f1_feature_name] = f1_upper
+        b[f2_feature_name] = f2_lower
+        
+        c = {**row_data}
+        c[f1_feature_name] = f1_lower
+        c[f2_feature_name] = f2_upper
+        
+        d = {**row_data}
+        d[f1_feature_name] = f1_upper
+        d[f2_feature_name] = f2_upper
+        four_corner_paper.extend([a, b, c, d])
+        
+    print("\r", f'finding mutual neignbor: ({row}, {col}), {ale_values_shape}', end="" , flush=True)
+    return {
+        'four_corner_paper': four_corner_paper,
+        'row': row,
+        'col': col
+    }
+
 def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_config, interval_config, data_exp_name, data_sample_name, for_2way):
     print(output_exp_dir, output_data_sample_name, query, data_exp_name, data_sample_name, f'2-way {for_2way}')
     categorical_features = [
@@ -216,9 +250,11 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                     ale_values                  = np.zeros([len(f2_grids), len(f1_grids)])
                     neighbors_number_per_grids  = np.zeros([len(f2_grids), len(f1_grids)])
                     
-                    four_corner_paper = []
+                    four_corner_papers = []
 
                     # f1_grids_len * f2_grids_len * (4 * number_of_neighbors)
+                    task_args = []
+                    
                     for row in range(len(f2_grids)):
                         f2_grid = f2_grids[row]
                         f2_upper =  f2_grid['upper_z']
@@ -230,32 +266,27 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                             f1_lower = f1_grid['lower_z']
                             f1_neighbor =  f1_grid['neighbor']
                             
-                            mutual_neighbor = find_mutual_neighbor(f1_neighbor, f2_neighbor)
+                            task_args.append([
+                                f1_feature_name,f1_lower,f1_upper,f1_neighbor,
+                                f2_feature_name,f2_lower,f2_upper,f2_neighbor,
+                                row, col,
+                                ale_values.shape
+                            ])
                             
-                            neighbors_number_per_grids[row][col] = mutual_neighbor.shape[0] * 4
-                            
-                            for idx, row_data in mutual_neighbor.iterrows():
-                                a = {**row_data}
-                                a[f1_feature_name] = f1_lower
-                                a[f2_feature_name] = f2_lower
-                                
-                                b = {**row_data}
-                                b[f1_feature_name] = f1_upper
-                                b[f2_feature_name] = f2_lower
-                                
-                                c = {**row_data}
-                                c[f1_feature_name] = f1_lower
-                                c[f2_feature_name] = f2_upper
-                                
-                                d = {**row_data}
-                                d[f1_feature_name] = f1_upper
-                                d[f2_feature_name] = f2_upper
-                                
-                                four_corner_paper.extend([a, b, c, d])
-                            
-                    four_corner_paper_scores = get_scores(query, four_corner_paper)
+                    with Pool(processes=p_number) as worker:
+                        rs = worker.map_async(get_four_corner_papers, task_args)
+                        task_rs = rs.get()
 
-                    c = 0
+                    print(' - ')        
+                            
+                    for rs in task_rs:
+                        fcp = rs['four_corner_paper']
+                        four_corner_papers.extend(fcp)
+                        neighbors_number_per_grids[rs['row']][rs['col']] = len(fcp)
+                    
+                    
+                    four_corner_paper_scores = get_scores(query, four_corner_papers)
+
                     curr_idx = 0
                     for row in range(len(f2_grids)):
                         for col in range(len(f1_grids)):
