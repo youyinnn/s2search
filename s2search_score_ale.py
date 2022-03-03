@@ -152,14 +152,12 @@ def get_grids_and_quantiles(f1_df, f1_feature_name, interval_config, quantile_co
 
 def find_mutual_neighbor(n1, n2):
     m = pd.DataFrame(columns=n1.columns, data=[])
-    id_in_n1 = {}
-    for idx1, row1 in n1.iterrows():
-        id_in_n1[row1['id']] = ''
-    
+    merge_id = list(pd.merge(n1['id'], n2['id'], on=['id'], how='inner')['id'])
+
     for idx2, row2 in n2.iterrows():
-      if id_in_n1.get(row2['id']) != None:
-        m = pd.concat([m, pd.DataFrame(data=[row1], columns = n1.columns)], ignore_index=True)
-      
+      if row2['id'] in merge_id:
+        m = pd.concat([m, pd.DataFrame(data=[row2], columns = n1.columns)], ignore_index=True)
+
     return m
 
 def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_config, interval_config, data_exp_name, data_sample_name, for_2way):
