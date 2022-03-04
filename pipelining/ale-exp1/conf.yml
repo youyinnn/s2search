@@ -16,22 +16,22 @@ samples:
       - query: "Machine Learning"
         twoway: true
         quantiles:
-          year: 5
-          n_citations: 5
-          title: 5
-          abstract: 5
-          authors: 5
-          venue: 5
+          year: 1
+          n_citations: 1
+          title: 1
+          abstract: 1
+          authors: 1
+          venue: 1
     cslg-rand-5000:
       - query: "Machine Learning"
         twoway: true
         quantiles:
-          year: 10
-          n_citations: 10
-          title: 10
-          abstract: 10
-          authors: 10
-          venue: 10
+          year: 1
+          n_citations: 1
+          title: 1
+          abstract: 1
+          authors: 1
+          venue: 1
           
 sample_from_other_exp:
   cslg: ["exp5", "cslg.data"]
