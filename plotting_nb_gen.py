@@ -239,12 +239,14 @@ print(ale_metric.sort_values(by=['ale_importance'], ascending=False))
 print()
         
 des, sample_configs, sample_from_other_exp = read_conf('.')
-print(f'The following feature choose quantiles as ale bin size:')
-for k in sample_configs['cslg'][0]['quantiles'].keys():
-    print(f"\t{{k}} with {{sample_configs['cslg'][0]['quantiles'][k]}}% quantile, {{len(ale_xy[k]['x'])}} bins are used")
-print(f'The following feature choose fixed amount as ale bin size:')
-for k in sample_configs['cslg'][0]['intervals'].keys():
-    print(f"\t{{k}} with {{sample_configs['cslg'][0]['intervals'][k]}} values, {{len(ale_xy[k]['x'])}} bins are used")
+if sample_configs['{sample_name}'][0].get('quantiles') != None:
+    print(f'The following feature choose quantiles as ale bin size:')
+    for k in sample_configs['{sample_name}'][0]['quantiles'].keys():
+        print(f"\t{{k}} with {{sample_configs['{sample_name}'][0]['quantiles'][k]}}% quantile, {{len(ale_xy[k]['x'])}} bins are used")
+if sample_configs['{sample_name}'][0].get('intervals') != None:
+    print(f'The following feature choose fixed amount as ale bin size:')
+    for k in sample_configs['{sample_name}'][0]['intervals'].keys():
+        print(f"\t{{k}} with {{sample_configs['{sample_name}'][0]['intervals'][k]}} values, {{len(ale_xy[k]['x'])}} bins are used")
 '''
 
                 plot_data_md = "### ALE Plots"
