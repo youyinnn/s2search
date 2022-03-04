@@ -146,6 +146,25 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_na
                 h_jk_sqrt = math.sqrt(numerator)
                 print(f'get h statistic of {f1_name} and {f2_name}      \t-> {h_jk}\t :   {h_jk_sqrt}')
 
+    numerical_features = [
+        'year', 
+        'n_citations'
+    ]
+    
+    for f1_idx in range(len(categorical_features)):
+        for f2_idx in range(len(numerical_features)):
+            f1_name = categorical_features[f1_idx]
+            f2_name = numerical_features[f2_idx]
+            npz_file_path = path.join(output_exp_dir, 'scores',
+                                      f"{output_data_sample_name}_hs_{f1_name}_{f2_name}.npz")
+
+            f1_pdp_data, f2_pdp_data, f1_f2_diagonal_pdp_data = \
+                get_pdp_data_if_exist(output_exp_dir, output_data_sample_name, data_exp_name,
+                                      data_sample_name, f1_name, f2_name, query, paper_data)
+            
+            print(f1_name, f2_name)
+            print(f1_pdp_data != None, f2_pdp_data != None, f1_f2_diagonal_pdp_data != None)
+
 
 def get_hstatistic_and_save_score(exp_dir_path):
     des, sample_configs, sample_from_other_exp = read_conf(exp_dir_path)

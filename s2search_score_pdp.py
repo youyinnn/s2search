@@ -24,12 +24,19 @@ def read_conf(exp_dir_path):
         return conf.get('description'), conf.get('samples'), conf.get('sample_from_other_exp'),
 
 
-def save_pdp_to_npz(exp_dir_path, npz_file_path, data):
+def save_pdp_to_npz(exp_dir_path, npz_file_path, pdp_value):
     scores_dir = path.join(exp_dir_path, 'scores')
     if not path.exists(str(scores_dir)):
         os.mkdir(str(scores_dir))
     print(f'\tsave PDP data to {npz_file_path}')
-    np.savez_compressed(npz_file_path, data)
+    np.savez_compressed(npz_file_path, pdp_value)
+
+def save_pdp_to_npz_for_numerical(exp_dir_path, npz_file_path, pdp_value, feature_value):
+    scores_dir = path.join(exp_dir_path, 'scores')
+    if not path.exists(str(scores_dir)):
+        os.mkdir(str(scores_dir))
+    print(f'\tsave PDP data to {npz_file_path}')
+    np.savez_compressed(npz_file_path, pdp_value=pdp_value, feature_value=feature_value)
 
 
 def compute_2d_and_save(exp_dir_path, data_sample_name, query, paper_data):
@@ -89,21 +96,39 @@ def compute_pdp(paper_data, query, feature_name):
     print(f'\tgetting pdp for {feature_name}')
     st = time.time()
     if feature_name == 'year' or feature_name == 'n_citations':
-        if feature_name == 'year':
-            rg = year_pdp_value_space
-        else:
-            rg = citation_pdp_value_space
+        value_map = {}
+        for p in paper_data:
+            value = p[feature_name]
+            vinm = value_map.get(value)
+            if vinm == None:
+                value_map[value] = 1
+            else:
+                value_map[value] += 1
+        
+        print(value_map)
+
+        sorted_values = list(value_map.keys())
+        sorted_values.sort()
+
         variant_data = []
-        for i in rg:
-            value_that_is_used = i
+        for value_that_is_used in sorted_values:
             for p in paper_data:
                 new_data = {**p}
                 new_data[feature_name] = value_that_is_used
                 variant_data.append(new_data)
 
+        print(f'get {len(paper_data) * len(paper_data)} numerical pdp but actually computing {len(sorted_values) * len(paper_data)}')
         scores = get_scores(query, variant_data, task_name='pdp-numerical')
-        scores_split = np.array_split(scores, len(rg))
-        pdp_value = [np.mean(x) for x in scores_split]
+        
+        scores_split = np.array_split(scores, len(sorted_values))
+        # pdp_value = [np.mean(x) for x in scores_split]
+        idx = 0
+        for value in sorted_values:
+            count = value_map[value]
+            pdp_v = np.mean(scores_split[idx])
+            for i in range(count):
+                pdp_value.append(pdp_v)
+            idx += 1
     else:
         variant_data = []
         for i in range(data_len):
@@ -133,7 +158,11 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_na
                                   f"{output_data_sample_name}_pdp_{feature_name}.npz")
         if not os.path.exists(npz_file_path):
             pdp_value = compute_pdp(paper_data, query, feature_name)
-            save_pdp_to_npz(output_exp_dir, npz_file_path, pdp_value)
+            if feature_name == 'year' or feature_name == 'n_citations':
+                feature_values = [paper[feature_name] for paper in paper_data] 
+                save_pdp_to_npz_for_numerical(output_exp_dir, npz_file_path, pdp_value, feature_values)
+            else:
+                save_pdp_to_npz(output_exp_dir, npz_file_path, pdp_value)
         else:
             print(f'\t{npz_file_path} exist, should skip')
 

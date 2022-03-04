@@ -579,16 +579,17 @@ pdp_metric = pd.DataFrame(columns=['feature_name', 'pdp_range', 'pdp_importance'
 for f in f_list:
     file = os.path.join('.', 'scores', f'{{sample_name}}_pdp_{{f}}.npz')
     if os.path.exists(file):
-        feature_pdp_data = np.load(file)['arr_0']
+        if f == 'year' or f == 'n_citations':
+            feature_pdp_data = np.load(file)['pdp_value']
+        else:
+            feature_pdp_data = np.load(file)['arr_0']
         
         pdp_xy[f] = {{
             'y': feature_pdp_data,
             'numerical': True
         }}
-        if f == 'year':
-            pdp_xy[f]['x'] = list(range(1960, 2023))
-        elif f == 'n_citations':
-            pdp_xy[f]['x'] = list(range(0, 15000, 100))
+        if f == 'year' or f == 'n_citations':
+            pdp_xy[f]['x'] = np.sort(np.load(file)['feature_value'])
         else:
             pdp_xy[f]['y'] = np.sort(feature_pdp_data)
             # pdp_xy[f]['y'] = np.sort(feature_pdp_data)
