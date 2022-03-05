@@ -569,7 +569,7 @@ if not os.path.exists(pic_dir):
 import numpy as np, sys, os, pandas as pd
 from s2search_score_pdp import pdp_based_importance
 
-sample_name = '{sample_name}'
+sample_name = 'cslg-rand-100'
 
 f_list = ['title', 'abstract', 'venue', 'authors', 'year', 'n_citations']
 
@@ -579,17 +579,15 @@ pdp_metric = pd.DataFrame(columns=['feature_name', 'pdp_range', 'pdp_importance'
 for f in f_list:
     file = os.path.join('.', 'scores', f'{{sample_name}}_pdp_{{f}}.npz')
     if os.path.exists(file):
-        if f == 'year' or f == 'n_citations':
-            feature_pdp_data = np.load(file)['pdp_value']
-        else:
-            feature_pdp_data = np.load(file)['arr_0']
+        data = np.load(file)
+        feature_pdp_data = [np.mean(pdps) for pdps in data['arr_0']]
         
         pdp_xy[f] = {{
             'y': feature_pdp_data,
             'numerical': True
         }}
         if f == 'year' or f == 'n_citations':
-            pdp_xy[f]['x'] = np.sort(np.load(file)['feature_value'])
+            pdp_xy[f]['x'] = np.sort(data['arr_1'])
         else:
             pdp_xy[f]['y'] = np.sort(feature_pdp_data)
             # pdp_xy[f]['y'] = np.sort(feature_pdp_data)
@@ -599,6 +597,7 @@ for f in f_list:
         pdp_metric.loc[len(pdp_metric.index)] = [f, np.max(feature_pdp_data) - np.min(feature_pdp_data), pdp_based_importance(feature_pdp_data, f)]
             
         pdp_xy[f]['weird'] = feature_pdp_data[len(feature_pdp_data) - 1] > 30
+        
 
 print(pdp_metric.sort_values(by=['pdp_importance'], ascending=False))
 '''
@@ -694,8 +693,6 @@ plt.savefig(os.path.join('.', 'plot', f'{sample_name}-categorical.png'), facecol
 # second fig
 pdp_plot(numerical_plot_conf, "PDPs for two numerical features")
 plt.savefig(os.path.join('.', 'plot', f'{sample_name}-numerical.png'), facecolor='white', transparent=False, bbox_inches='tight')
-
-plt.show()
 '''
 
             nb['cells'] = [

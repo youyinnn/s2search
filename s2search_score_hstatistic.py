@@ -66,11 +66,11 @@ def get_pdp_data_if_exist(output_exp_dir, output_data_sample_name,
     
     f1_data_exist = False
     if os.path.exists(f1_pdp_from_source_path):
-        f1_pdp_data = np.load(f1_pdp_from_source_path)['arr_0' if (f1_name not in ['year', 'n_citations']) else 'pdp_value']  
+        f1_pdp_data = np.load(f1_pdp_from_source_path)['arr_0']  
         f1_data_exist = True
                 
     if os.path.exists(f1_pdp_from_here_path):
-        f1_pdp_data = np.load(f1_pdp_from_here_path)['arr_0' if (f1_name not in ['year', 'n_citations']) else 'pdp_value']
+        f1_pdp_data = np.load(f1_pdp_from_here_path)['arr_0']
         f1_data_exist = True
     
     f2_pdp_from_source_path = path.join(data_dir, data_exp_name, 'scores',
@@ -80,11 +80,11 @@ def get_pdp_data_if_exist(output_exp_dir, output_data_sample_name,
     
     f2_data_exist = False
     if os.path.exists(f2_pdp_from_source_path):
-        f2_pdp_data = np.load(f2_pdp_from_source_path)['arr_0' if (f2_name not in ['year', 'n_citations']) else 'pdp_value']
+        f2_pdp_data = np.load(f2_pdp_from_source_path)['arr_0']
         f2_data_exist = True
                 
     if os.path.exists(f2_pdp_from_here_path):
-        f2_pdp_data = np.load(f2_pdp_from_here_path)['arr_0' if (f2_name not in ['year', 'n_citations']) else 'pdp_value']
+        f2_pdp_data = np.load(f2_pdp_from_here_path)['arr_0']
         f2_data_exist = True
     
     f1_f2_data_exist = False
