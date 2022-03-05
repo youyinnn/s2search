@@ -38,54 +38,126 @@ def save_pdp_to_npz_for_numerical(exp_dir_path, npz_file_path, pdp_value, featur
     print(f'\tsave PDP data to {npz_file_path}')
     np.savez_compressed(npz_file_path, pdp_value=pdp_value, feature_value=feature_value)
 
+def get_feature_space_and_count(df, fk):
+    count_map = {}
+    values = list(df[fk])
+    if fk == 'authors':
+        values = [json.dumps(v) for v in values]
+    for v in values:
+        if count_map.get(v) == None:
+            count_map[v] = 1
+        else:
+            count_map[v] += 1
 
-def compute_2d_and_save(exp_dir_path, data_sample_name, query, paper_data):
-    data_len = len(paper_data)
-    categorical_features = ['title', 'abstract', 'venue', 'authors']
-    for f1_idx in range(len(categorical_features)):
-        for f2_idx in range(f1_idx + 1, len(categorical_features)):
-            f1_key = categorical_features[f1_idx]
-            f2_key = categorical_features[f2_idx]
-            npz_file_path = path.join(exp_dir_path, 'scores',
-                                      f"{data_sample_name}_pdp2w_{f1_key}_{f2_key}.npz")
-            # print(f1_key, f2_key)
+    return list(dict.fromkeys(values)), count_map
+
+def compute_2w_and_save(output_exp_dir, output_data_sample_name, query, data_exp_name, data_sample_name):
+    feature_names = [
+        'title', 
+        'abstract', 'venue', 
+        'authors', 
+        'year', 
+         'n_citations'
+    ]
+    
+    for f1_idx in range(len(feature_names)):
+        for f2_idx in range(f1_idx + 1, len(feature_names)):
+            f1_key = feature_names[f1_idx]
+            f2_key = feature_names[f2_idx]
+            
+            npz_file_path = path.join(output_exp_dir, 'scores',
+                                      f"{output_data_sample_name}_pdp2w_{f1_key}_{f2_key}.npz")
 
             if not os.path.exists(npz_file_path):
-                paper_score_map = []
-                for i in range(data_len):
-                    for p in paper_data:
-                        variant_data = []
-                        for j in range(data_len):
-                            value_that_feature_2_is_used = paper_data[i][f2_key]
-                            new_data = {**p}
-                            new_data[f2_key] = value_that_feature_2_is_used
-                            value_that_feature_1_is_used = paper_data[j][f1_key]
-                            new_data[f1_key] = value_that_feature_1_is_used
-                            variant_data.append(new_data)
+                print(f'computing 2w pdp for {output_data_sample_name} {f1_key} {f2_key}')
 
-                    # for p in variant_data:
-                    #     print(p)
-                    # print()
+                f1_df = load_sample(data_exp_name, data_sample_name, sort=f1_key, del_f = ['s2_id'], rank_f=get_scores, query=query)
+                f2_df = load_sample(data_exp_name, data_sample_name, sort=f2_key, del_f = ['s2_id'], rank_f=get_scores, query=query)
+                
+                paper_data = json.loads(f1_df.to_json(orient='records'))
+                paper_len = len(paper_data)
+                
+                f1_feature_space, f1_feature_count_map = get_feature_space_and_count(f1_df, f1_key);
+                f2_feature_space, f2_feature_count_map = get_feature_space_and_count(f2_df, f2_key);
 
-                    st = time.time()
-                    scores = get_scores(query, variant_data)
-                    et = round(time.time() - st, 6)
+                variant_data = []
+                
+                # print(f1_feature_count_map)
+                # print(f2_feature_count_map)
 
-                    print(f'done with {i + 1},{j + 1} within {et} sec')
-                    paper_score_map.append(scores.tolist())
+                print(f'compute {paper_len * paper_len * paper_len} but actually computing {len(f1_feature_space) * len(f2_feature_space) * len(paper_data)}')
+                
+                # compressing
+                for f1_value in f1_feature_space:
+                    f1_value = f1_value if f1_key != 'authors' else json.loads(f1_value)
+                    for f2_value in f2_feature_space:
+                        f2_value = f2_value if f2_key != 'authors' else json.loads(f2_value)
+                        for p in paper_data:
+                            varient = {**p}
+                            varient[f1_key] = f1_value
+                            varient[f2_key] = f2_value
+                            variant_data.append(varient)
+                            
+                # print(len(variant_data))
+                scores = get_scores(query, variant_data, task_name='pdp-2w')
+                vd_split = np.array_split(variant_data, len(f1_feature_space) * len(f2_feature_space))
+                
+                # for vd in vd_split:
+                #     print()
+                #     for p in vd:
+                #         print(p['id'], p[f1_key], p[f2_key])
+                
+                scores_split = np.array_split(scores, len(f1_feature_space) * len(f2_feature_space))
+                
+                decompressing_data = []
+                decompressing_data_scores = []
+                
+                # decompressing
+                split_idx = 0
+                for f1_value in f1_feature_space:
+                    f1_value_count = f1_feature_count_map[f1_value]
+                    for i in range(f1_value_count):
+                        for f2_value in f2_feature_space:
+                            f2_value_count = f2_feature_count_map[f2_value]
+                            varient_for_f1_f2 = vd_split[split_idx]
+                            scores_for_varient_f1_f2 = scores_split[split_idx]
+                            for j in range(f2_value_count):
+                                decompressing_data.extend(varient_for_f1_f2)
+                                decompressing_data_scores.extend(scores_for_varient_f1_f2)
+                            # move to next col
+                            split_idx += 1
+                        # go back to this rowu
+                        split_idx -= len(f2_feature_space)
 
-                # print(paper_score_map)
-                save_pdp_to_npz(exp_dir_path, npz_file_path, paper_score_map)
+                    # move to next row
+                    split_idx += len(f2_feature_space)
+                        
+                # idx = 0
+                # for i in range(len(decompressing_data)):
+                #     p = decompressing_data[i]
+                #     if idx % (paper_len * paper_len) == 0:
+                #         print()
+                #     print(f"{p['id']}\t", p[f1_key], p[f2_key], decompressing_data_scores[i])
+                #     idx += 1
+                
+                pdp_2w_value = np.zeros([paper_len, paper_len])
+                
+                curr_idx = 0
+                for col in range(paper_len):
+                    for row in range(paper_len):
+                        # print(row, col, decompressing_data_scores[curr_idx: curr_idx + paper_len])
+                        pdp_2w_value[row][col] = np.mean(decompressing_data_scores[curr_idx: curr_idx + paper_len])
+                        curr_idx += paper_len
+                
+                save_pdp_to_npz(exp_dir_path, npz_file_path, pdp_2w_value)
             else:
                 print(f'\t{npz_file_path} exist, should skip')
-
-    # TODO: numerical features 2-way pdp
 
 def save_original_scores(output_exp_dir, output_data_sample_name, query, paper_data):
     npz_file_path = path.join(output_exp_dir, 'scores', f"{output_data_sample_name}_pdp_original.npz")
     print(f'save original scores {npz_file_path}')
     if not os.path.exists(npz_file_path):
-        scores = get_scores(query, paper_data)
+        scores = get_scores(query, paper_data, task_name='pdp-1w')
         save_pdp_to_npz(output_exp_dir, npz_file_path, scores)
     else:
         print(f'\t{npz_file_path} exist, should skip')
@@ -167,7 +239,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_na
             print(f'\t{npz_file_path} exist, should skip')
 
 
-def get_pdp_and_save_score(exp_dir_path, exp_name, is2d):
+def get_pdp_and_save_score(exp_dir_path, exp_name, for_2way):
     des, sample_configs, sample_from_other_exp = read_conf(exp_dir_path)
     
     tested_sample_list = []
@@ -187,25 +259,36 @@ def get_pdp_and_save_score(exp_dir_path, exp_name, is2d):
         
         task = sample_configs.get(tested_sample_name)
         if task != None:
-            print(f'computing ale for {tested_sample_name}')
+            print(f'computing pdp for {tested_sample_name}')
             for t in task:
                 try:
                     query = t['query']
-                    compute_and_save(
-                        exp_dir_path, tested_sample_name, query,
-                        tested_sample_from_exp, tested_sample_data_source_name)
+                    is_for_2way = t.get('twoway') if t.get('twoway') != None else False
+                    
+                    if for_2way and is_for_2way:
+                        compute_2w_and_save(
+                            exp_dir_path, tested_sample_name, query,
+                            tested_sample_from_exp, tested_sample_data_source_name
+                        )
+                    elif not for_2way:
+                        compute_and_save(
+                            exp_dir_path, tested_sample_name, query,
+                            tested_sample_from_exp, tested_sample_data_source_name
+                        )
+                    else:
+                        print(f'{tested_sample_name} is not for 2 way pdp')
                 except FileNotFoundError as e:
                     print(e)
         else:
             print(f'**no config for tested sample {tested_sample_name}')
 
 def is_numerical_feature(feature_name):        
-    # return True if feature_name == 'year' or feature_name == '' else False
-    return True
+    return True if feature_name == 'year' or feature_name == 'n_citations' else False
 
 def pdp_based_importance(pdp_value, feature_name):
     pdp_np = np.array(pdp_value, dtype='float64')
-    if is_numerical_feature(feature_name):
+    # if is_numerical_feature(feature_name):
+    if True:
         _k = len(pdp_value)
         _mean = np.mean(pdp_value)
         pdp_np -= _mean
@@ -216,15 +299,14 @@ def pdp_based_importance(pdp_value, feature_name):
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        is2d = False
-        if len(sys.argv) > 2 and sys.argv[1] == '--2w':
-            is2d = True
-            exp_list = sys.argv[2:]
-        else:
-            exp_list = sys.argv[1:]
+        exp_list = sys.argv[1:]
+        for_2way = '--2w' in exp_list    
+        if for_2way:
+            exp_list = [x for x in exp_list if x != '--2w']
+
         for exp_name in exp_list:
             exp_dir_path = path.join(data_dir, exp_name)
             if path.isdir(exp_dir_path):
-                get_pdp_and_save_score(exp_dir_path, exp_name, is2d)
+                get_pdp_and_save_score(exp_dir_path, exp_name, for_2way)
             else:
                 print(f'**no exp dir {exp_dir_path}')

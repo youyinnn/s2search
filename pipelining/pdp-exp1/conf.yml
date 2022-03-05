@@ -3,7 +3,8 @@ Produce PDP for a randomly picked data from cslg.
 "
 samples:
     cslg-rand-100: 
-      - query: "Machine Learning"    
+      - query: "Machine Learning"  
+        twoway: true  
     cslg-rand-200: 
       - query: "Machine Learning"    
     cslg-rand-500: 
@@ -12,6 +13,9 @@ samples:
       - query: "Machine Learning"
     cslg-rand-5000: 
       - query: "Machine Learning"
+    # sample:
+    #   - query: "Machine Learning"
+    #     twoway: true
     # cslg: 
     #   - query: "Machine Learning"
 
