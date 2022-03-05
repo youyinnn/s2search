@@ -567,9 +567,9 @@ if not os.path.exists(pic_dir):
             loading_data_md = '### Loading data'
             loading_data_code = f'''sys.path.insert(1, '../../')
 import numpy as np, sys, os, pandas as pd
-from s2search_score_pdp import pdp_based_importance
+from s2search_score_pdp import pdp_based_importance, apply_order
 
-sample_name = 'cslg-rand-100'
+sample_name = '{sample_name}'
 
 f_list = ['title', 'abstract', 'venue', 'authors', 'year', 'n_citations']
 
@@ -580,7 +580,8 @@ for f in f_list:
     file = os.path.join('.', 'scores', f'{{sample_name}}_pdp_{{f}}.npz')
     if os.path.exists(file):
         data = np.load(file)
-        feature_pdp_data = [np.mean(pdps) for pdps in data['arr_0']]
+        sorted_pdp_data = apply_order(data)
+        feature_pdp_data = [np.mean(pdps) for pdps in sorted_pdp_data]
         
         pdp_xy[f] = {{
             'y': feature_pdp_data,
@@ -589,8 +590,7 @@ for f in f_list:
         if f == 'year' or f == 'n_citations':
             pdp_xy[f]['x'] = np.sort(data['arr_1'])
         else:
-            pdp_xy[f]['y'] = np.sort(feature_pdp_data)
-            # pdp_xy[f]['y'] = np.sort(feature_pdp_data)
+            pdp_xy[f]['y'] = feature_pdp_data
             pdp_xy[f]['x'] = list(range(len(feature_pdp_data)))
             pdp_xy[f]['numerical'] = False
             

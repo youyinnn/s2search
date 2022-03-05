@@ -6,6 +6,7 @@ import yaml
 import json
 import math
 import numpy as np
+import pandas as pd
 from getting_data import load_sample
 from s2search_score_pipelining import get_scores
 from s2search_score_pdp import compute_pdp
@@ -66,11 +67,11 @@ def get_pdp_data_if_exist(output_exp_dir, output_data_sample_name,
     
     f1_data_exist = False
     if os.path.exists(f1_pdp_from_source_path):
-        f1_pdp_data = np.load(f1_pdp_from_source_path)['arr_0']  
+        f1_pdp_data = [np.mean(pdps) for pdps in np.load(f1_pdp_from_source_path)['arr_0']]  
         f1_data_exist = True
                 
     if os.path.exists(f1_pdp_from_here_path):
-        f1_pdp_data = np.load(f1_pdp_from_here_path)['arr_0']
+        f1_pdp_data = [np.mean(pdps) for pdps in np.load(f1_pdp_from_source_path)['arr_0']]  
         f1_data_exist = True
     
     f2_pdp_from_source_path = path.join(data_dir, data_exp_name, 'scores',
@@ -80,11 +81,11 @@ def get_pdp_data_if_exist(output_exp_dir, output_data_sample_name,
     
     f2_data_exist = False
     if os.path.exists(f2_pdp_from_source_path):
-        f2_pdp_data = np.load(f2_pdp_from_source_path)['arr_0']
+        f2_pdp_data = [np.mean(pdps) for pdps in np.load(f2_pdp_from_source_path)['arr_0']]  
         f2_data_exist = True
                 
     if os.path.exists(f2_pdp_from_here_path):
-        f2_pdp_data = np.load(f2_pdp_from_here_path)['arr_0']
+        f2_pdp_data = [np.mean(pdps) for pdps in np.load(f2_pdp_from_source_path)['arr_0']]  
         f2_data_exist = True
     
     f1_f2_data_exist = False
@@ -121,6 +122,8 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_na
         'year',
         'n_citations'
     ]
+    
+    hs_metric = pd.DataFrame(columns=['f1', 'f1', 'hs', 'hs_sqrt'])
 
     for f1_idx in range(len(categorical_features)):
         for f2_idx in range(f1_idx + 1, len(categorical_features)):
@@ -146,7 +149,9 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_na
 
                 h_jk = numerator / denominator
                 h_jk_sqrt = math.sqrt(numerator)
-                print(f'get h statistic of {f1_name} and {f2_name}      \t-> {h_jk}\t :   {h_jk_sqrt}')
+                hs_metric.loc[len(hs_metric.index)] = [f1_name, f2_name, h_jk, h_jk_sqrt]
+                
+    print(hs_metric)
 
 def get_hstatistic_and_save_score(exp_dir_path):
     des, sample_configs, sample_from_other_exp = read_conf(exp_dir_path)

@@ -24,19 +24,12 @@ def read_conf(exp_dir_path):
         return conf.get('description'), conf.get('samples'), conf.get('sample_from_other_exp'),
 
 
-def save_pdp_to_npz(exp_dir_path, npz_file_path, *args):
+def save_pdp_to_npz(exp_dir_path, npz_file_path, *args, **kws):
     scores_dir = path.join(exp_dir_path, 'scores')
     if not path.exists(str(scores_dir)):
         os.mkdir(str(scores_dir))
     print(f'\tsave PDP data to {npz_file_path}')
-    np.savez_compressed(npz_file_path, *args)
-
-def save_pdp_to_npz_for_numerical(exp_dir_path, npz_file_path, pdp_value, feature_value):
-    scores_dir = path.join(exp_dir_path, 'scores')
-    if not path.exists(str(scores_dir)):
-        os.mkdir(str(scores_dir))
-    print(f'\tsave PDP data to {npz_file_path}')
-    np.savez_compressed(npz_file_path, pdp_value=pdp_value, feature_value=feature_value)
+    np.savez_compressed(npz_file_path, *args, **kws)
 
 def get_feature_space_and_count(df, fk):
     count_map = {}
@@ -168,43 +161,32 @@ def compute_pdp(paper_data, query, feature_name):
     print(f'\tgetting pdp for {feature_name}')
     st = time.time()
     if feature_name == 'year' or feature_name == 'n_citations':
-        value_map = {}
-        for p in paper_data:
-            value = p[feature_name]
-            vinm = value_map.get(value)
-            if vinm == None:
-                value_map[value] = 1
-            else:
-                value_map[value] += 1
-        
-        # print(value_map)
-
-        sorted_values = list(value_map.keys())
-        sorted_values.sort()
+        unique_values = list(dict.fromkeys([p[feature_name] for p in paper_data]))
+        value_position_map = {}
+        for i in range(len(unique_values)):
+            value = unique_values[i]
+            value_position_map[value] = i
 
         variant_data = []
-        for value_that_is_used in sorted_values:
+        for value_that_is_used in unique_values:
             for p in paper_data:
                 new_data = {**p}
                 new_data[feature_name] = value_that_is_used
                 variant_data.append(new_data)
 
-        print(f'get {len(paper_data) * len(paper_data)} numerical pdp but actually computing {len(sorted_values) * len(paper_data)}')
+        print(f'get {len(paper_data) * len(paper_data)} numerical pdp but actually computing {len(unique_values) * len(paper_data)}')
         scores = get_scores(query, variant_data, task_name='pdp-numerical')
         
-        scores_split = np.array_split(scores, len(sorted_values))
+        scores_split = np.array_split(scores, len(unique_values))
         # pdp_value = [np.mean(x) for x in scores_split]
-        
+
         decompressed_scores_split = []
         
-        idx = 0
-        for value in sorted_values:
-            count = value_map[value]
-            # pdp_v = np.mean(scores_split[idx])
-            for i in range(count):
-                # pdp_value.append(pdp_v)
-                decompressed_scores_split.append(scores_split[idx])
-            idx += 1
+        for p in paper_data:
+            value = p[feature_name]
+            pdp_of_this_value = scores_split[value_position_map[value]]
+            decompressed_scores_split.append(pdp_of_this_value)
+            
         scores_split = decompressed_scores_split
     else:
         variant_data = []
@@ -225,21 +207,57 @@ def compute_pdp(paper_data, query, feature_name):
     print(f'\tcompute {len(scores)} pdp within {et} sec')
     return scores_split
 
+def check_and_add_sorted_order(original_df, data_exp_name, data_sample_name, feature_name, query):
+    sdf = load_sample(data_exp_name, data_sample_name, del_f=['s2_id'], sort=feature_name, rank_f=get_scores, query=query)
+
+    # paper对应排序前的索引是什么
+    original_data_id_map = {}
+    idx = 0
+    for id in list(original_df['id']):
+        original_data_id_map[id] = idx
+        idx += 1
+    
+    # 它的顺序应该是排序后的顺序 它的数据应该是排序前数据的索引
+    sorted_idx_map = []
+    
+    # 排序后索引上应该是哪个paper id
+    for id in list(sdf['id']):
+        sorted_idx_map.append(original_data_id_map[id])
+        
+    return sorted_idx_map
+       
+def apply_order(npz_data):
+    if 'sorted_order' in list(npz_data.keys()):
+        original_data = npz_data['arr_0']
+        sorted_order = npz_data['sorted_order']
+        sorted_data = []
+        for sorted_idx in sorted_order:
+            sorted_data.append(original_data[sorted_idx])
+        return sorted_data
+    else:
+        return npz_data['arr_0']
+
+
 def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_name, data_sample_name):
-    df = load_sample(data_exp_name, data_sample_name)
+    df = load_sample(data_exp_name, data_sample_name, del_f=['s2_id'])
     paper_data = json.loads(df.to_json(orient='records'))
     # save_original_scores(output_exp_dir, output_data_sample_name, query, paper_data)
-    categorical_features = ['title', 'abstract', 'venue', 'authors', 'year', 'n_citations']
+    categorical_features = [
+        'title', 
+        'abstract', 'venue', 'authors', 'year', 
+        'n_citations'
+    ]
     for feature_name in categorical_features:
         npz_file_path = path.join(output_exp_dir, 'scores',
                                   f"{output_data_sample_name}_pdp_{feature_name}.npz")
         if not os.path.exists(npz_file_path):
+            sorted_idx_map = check_and_add_sorted_order(df, data_exp_name, data_sample_name, feature_name, query)
             pdp_value = compute_pdp(paper_data, query, feature_name)
             if feature_name == 'year' or feature_name == 'n_citations':
                 feature_values = [paper[feature_name] for paper in paper_data] 
-                save_pdp_to_npz(output_exp_dir, npz_file_path, pdp_value, feature_values)
+                save_pdp_to_npz(output_exp_dir, npz_file_path, pdp_value, feature_values, sorted_order=sorted_idx_map)
             else:
-                save_pdp_to_npz(output_exp_dir, npz_file_path, pdp_value)
+                save_pdp_to_npz(output_exp_dir, npz_file_path, pdp_value, sorted_order=sorted_idx_map)
         else:
             print(f'\t{npz_file_path} exist, should skip')
 
