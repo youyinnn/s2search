@@ -9,19 +9,19 @@ if __name__ == '__main__':
         for l in f.readlines():
             paper.append(json.loads(l.strip()))
 
-    st = time.time()
-    scores_nw = get_scores('Machine Learning', paper, task_name="Noworker", force_global=True)
-    print(f"compute {len(paper)} paper scores within {round(time.time() - st, 6)} sec")
+    # st = time.time()
+    # scores_nw = get_scores('Machine Learning', paper, task_name="Noworker", force_global=True)
+    # print(f"compute {len(paper)} paper scores within {round(time.time() - st, 6)} sec")
 
-    print()
+    # print()
     
     st = time.time()
     scores_w = get_scores('Machine Learning', paper, task_name="Worker", force_global=False)
     print(f"compute {len(paper)} paper scores within {round(time.time() - st, 6)} sec")
     
-    same = True
-    for i in range(len(scores_nw)):
-        if scores_nw[i] != scores_w[i]:
-            same = False
+    # same = True
+    # for i in range(len(scores_nw)):
+    #     if scores_nw[i] != scores_w[i]:
+    #         same = False
 
-    print(f'the result with or without worker is the same: {same}')
+    # print(f'the result with or without worker is the same: {same}')

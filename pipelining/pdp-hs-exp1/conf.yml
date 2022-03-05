@@ -8,8 +8,8 @@ samples:
     #   - query: "Machine Learning"
     # cslg-rand-500-3: 
     #   - query: "Machine Learning"    
-    # cslg-rand-100:
-    #   - query: "Machine Learning"
+    cslg-rand-1000:
+      - query: "Machine Learning"
     cslg-rand-500:
       - query: "Machine Learning"    
     cslg-rand-5000:
@@ -20,4 +20,5 @@ samples:
 sample_from_other_exp:
   cslg-rand-100: ["pdp-exp1", "cslg-rand-100.data"]
   cslg-rand-500: ["pdp-exp1", "cslg-rand-500.data"]
+  cslg-rand-1000: ["pdp-exp1", "cslg-rand-1000.data"]
   cslg-rand-5000: ["pdp-exp1", "cslg-rand-5000.data"]

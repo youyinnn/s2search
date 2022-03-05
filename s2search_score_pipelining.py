@@ -12,6 +12,10 @@ import numpy as np
 import feature_masking as fm
 import psutil
 from functools import reduce
+import pytz
+import datetime
+
+utc_tz = pytz.timezone('America/Montreal')
 
 mem = psutil.virtual_memory()
 zj = float(mem.total) / 1024 / 1024 / 1024
@@ -82,7 +86,7 @@ def find_weird_score(scores, paper_list):
 
 def get_scores(query, paper, task_name=None, ptf=True, force_global = False):
     st = time.time()
-    ts = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    ts = datetime.datetime.now(tz=utc_tz).strftime("%m/%d/%Y, %H:%M:%S")
     if work_load == 1 or force_global:
         if not force_global:
             print('fail to not force global because 1 worker available')
@@ -114,7 +118,7 @@ def get_scores(query, paper, task_name=None, ptf=True, force_global = False):
             scores = rs.get()
         
     et = round(time.time() - st, 6)
-    ts = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    ts = datetime.datetime.now(tz=utc_tz).strftime("%m/%d/%Y, %H:%M:%S")
     if ptf:
         print(f"[{'Main taks' if task_name == None else task_name}][{ts}] {len(paper)} scores within {et} sec ")
     return reduce(lambda x,y: np.append(x, y), scores)
