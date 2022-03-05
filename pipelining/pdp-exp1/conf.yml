@@ -6,7 +6,8 @@ samples:
       - query: "Machine Learning"  
         twoway: true  
     cslg-rand-200: 
-      - query: "Machine Learning"    
+      - query: "Machine Learning"  
+        twoway: true   
     cslg-rand-500: 
       - query: "Machine Learning"
     cslg-rand-1000: 
