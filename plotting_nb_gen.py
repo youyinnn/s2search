@@ -488,23 +488,24 @@ print(ale_metric)
 '''
 
                 plot_data_md = "### ALE Plots"
-                plot_data_code = '''import matplotlib.pyplot as plt
+                plot_data_code = '''
+import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 
 for ale in ale_rs:
     fig, ax = plt.subplots(figsize=(14, 10), constrained_layout=True)
     cmap = plt.colormaps['BuGn']
     
-    im = ax.pcolormesh(ale['f1_quantile'], ale['f2_quantile'], ale['ale'],  cmap=None, edgecolors='k', linewidths=0)
+    map = ax.pcolormesh(ale['f1_quantile'], ale['f2_quantile'], ale['ale'],  cmap='bwr', edgecolors='k', linewidths=0, alpha=0.7)
 
-    # cf = ax.contourf(ale['f1_quantile'], ale['f2_quantile'], ale['ale'], levels=50, alpha=0.7)
+    # map = ax.contourf(ale['f1_quantile'], ale['f2_quantile'], ale['ale'], cmap='bwr', levels=30, alpha=0.7)
     
     ax.set_xlabel(ale['f1_name'], fontsize=16, labelpad=10)
     ax.set_ylabel(ale['f2_name'], fontsize=16, labelpad=10)
     ax.xaxis.set_major_locator(MaxNLocator(integer=True))
     ax.yaxis.set_major_locator(MaxNLocator(integer=True))
     ax.set_title(ale['title'], fontsize=20, pad=10)
-    fig.colorbar(im, ax=ax, shrink=0.6, pad=0.03)
+    fig.colorbar(map, ax=ax, shrink=0.6, pad=0.03)
     plt.savefig(os.path.join('.', 'plot', f"{sample_name}-2wale-{ale['f1_name']}-{ale['f2_name']}.png"), facecolor='white', transparent=False, bbox_inches='tight')
 '''
 

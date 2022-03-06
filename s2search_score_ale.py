@@ -9,6 +9,10 @@ import pandas as pd
 from getting_data import load_sample, read_conf
 from s2search_score_pipelining import get_scores
 
+from functools import reduce
+from itertools import product
+from operator import add
+
 from sys import platform
 from multiprocessing import Pool
 
@@ -88,10 +92,13 @@ def get_ale(grids, feature_key, query, centered = False):
     for diffs in all_diffs_split:
         curr_accumulated += np.mean(diffs)
         ale_result_list.append(curr_accumulated)
-        
-    if centered: 
-        mean = np.mean(ale_result_list)
-        return [(x - mean) for x in ale_result_list]
+    
+    ale_result_list = np.array(ale_result_list)
+    
+    if centered:
+        # ale_result_list -= np.mean(ale_result_list)
+        ale_result_list -= np.sum(ale_result_list * gaps / np.sum(gaps))
+        return ale_result_list
     else:
         return ale_result_list
 
@@ -330,15 +337,24 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                                 all_diff_in_neignborhood.append(diff)
                                 idx += 4
                                 
+                            # accumulated_f1_value = 0 if col == 0 else ale_values[row][col - 1]
+                            # accumulated_f2_value = 0 if row == 0 else ale_values[row - 1][col]
                             
-                            accumulated_f1_value = 0 if col == 0 else ale_values[row][col - 1]
-                            accumulated_f2_value = 0 if row == 0 else ale_values[row - 1][col]
+                            # accumulated_value = 0 if (col == 0 or row == 0) else ale_values[row - 1][col - 1]
+                            local_effect = 0 if len(all_diff_in_neignborhood) == 0 else np.mean(all_diff_in_neignborhood)
                             
-                            local_ale = 0 if len(all_diff_in_neignborhood) == 0 else np.mean(all_diff_in_neignborhood)
+                            # ale_values[row][col] += accumulated_f1_value + accumulated_f2_value
+                            # ale_values[row][col] += accumulated_value
+                            ale_values[row][col] += local_effect
                             
-                            ale_values[row][col] = accumulated_f1_value + accumulated_f2_value + local_ale
-                            
-                            curr_idx += number_of_neignbor_with_four_corners                            
+                            curr_idx += number_of_neignbor_with_four_corners
+                    
+                    ale_values = np.cumsum(np.cumsum(ale_values, axis=0), axis=1)
+                    
+                    # ale_values -= np.mean(ale_values)
+                    # print(np.mean(ale_values))
+                    # print(np.sum(neighbors_number_per_grids * ale_values) / np.sum(neighbors_number_per_grids))
+                    ale_values -= np.sum(neighbors_number_per_grids * ale_values) / np.sum(neighbors_number_per_grids)
 
                     et = round(time.time() - st, 6)
                     print(f'\tcompute ale data for {output_data_sample_name}_2w_ale_{f1_feature_name}_{f2_feature_name} within {et} sec')
