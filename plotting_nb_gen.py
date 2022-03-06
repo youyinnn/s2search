@@ -269,8 +269,8 @@ categorical_plot_conf = [
         'ale_xy': ale_xy['authors'],
         # 'zoom': {
         #     'inset_axes': [0.3, 0.3, 0.47, 0.47],
-        #     'x_limit': [92, 95],
-        #     'y_limit': [-0.005, 0.03],
+        #     'x_limit': [89, 93],
+        #     'y_limit': [-1, 14],
         # }
     },    
     {
@@ -278,8 +278,8 @@ categorical_plot_conf = [
         'ale_xy': ale_xy['venue'],
         # 'zoom': {
         #     'inset_axes': [0.3, 0.3, 0.47, 0.47],
-        #     'x_limit': [89, 94],
-        #     'y_limit': [-1, 6],
+        #     'x_limit': [89, 93],
+        #     'y_limit': [-1, 13],
         # }
     },
 ]
@@ -289,13 +289,17 @@ numerical_plot_conf = [
         'xlabel': 'Year',
         'ylabel': 'ALE',
         'ale_xy': ale_xy['year'],
-        'rug': True
+        # 'zoom': {
+        #     'inset_axes': [0.15, 0.4, 0.4, 0.4],
+        #     'x_limit': [2019, 2023],
+        #     'y_limit': [1.9, 2.1],
+        # },
     },
     {
         'xlabel': 'Citations',
         'ale_xy': ale_xy['n_citations'],
         # 'zoom': {
-        #     'inset_axes': [0.4, 0.2, 0.47, 0.47],
+        #     'inset_axes': [0.4, 0.65, 0.47, 0.3],
         #     'x_limit': [-1000.0, 12000],
         #     'y_limit': [-0.1, 1.2],
         # },
@@ -312,6 +316,7 @@ def pdp_plot(confs, title):
         
         sns.rugplot(conf['ale_xy']['rug'], ax=axes, height=0.02)
 
+        axes.axhline(y=0, color='k', linestyle='-', lw=0.8)
         axes.plot(conf['ale_xy']['x'], conf['ale_xy']['y'])
         axes.grid(alpha = 0.4)
 
@@ -329,13 +334,14 @@ def pdp_plot(confs, title):
         
         if not (conf['ale_xy']['weird']):
             if (conf['ale_xy']['numerical']):
-                # axes.set_ylim([-1, 3])
+                axes.set_ylim([-1.5, 1.5])
                 pass
             else:
-                axes.set_ylim([-2, 20])
+                axes.set_ylim([-7, 15])
+                pass
                 
         if 'zoom' in conf:
-            axins = axes.inset_axes(conf['zoom']['inset_axes']) 
+            axins = axes.inset_axes(conf['zoom']['inset_axes'])
             axins.xaxis.set_major_locator(MaxNLocator(integer=True))
             axins.yaxis.set_major_locator(MaxNLocator(integer=True))
             axins.plot(conf['ale_xy']['x'], conf['ale_xy']['y'])
@@ -355,8 +361,6 @@ plt.savefig(os.path.join('.', 'plot', f'{sample_name}-1wale-categorical.png'), f
 
 pdp_plot(numerical_plot_conf, f"ALE for {len(numerical_plot_conf)} numerical features")
 plt.savefig(os.path.join('.', 'plot', f'{sample_name}-1wale-numerical.png'), facecolor='white', transparent=False, bbox_inches='tight')
-
-plt.show()
 '''
 
                 nb['cells'] = [

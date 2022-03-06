@@ -193,6 +193,34 @@ def get_four_corner_papers(args):
         'row': row,
         'col': col
     }
+    
+def print_grids_anc_corner(f1_grids, f1_quantiles, f2_grids, f2_quantiles, four_corner_papers, f1k, f2k):
+    f1_gds_df = pd.DataFrame(columns=['seq', 'lower_v', 'upper_v'])
+    for i in range(len(f1_grids)):
+        f1_gds_df.loc[len(f1_gds_df.index)] = [i, f1_grids[i]['lower_z'], f1_grids[i]['upper_z']]
+    
+    f2_gds_df = pd.DataFrame(columns=['seq', 'lower_v', 'upper_v'])
+    for i in range(len(f2_grids)):
+        f2_gds_df.loc[len(f2_gds_df.index)] = [i, f2_grids[i]['lower_z'], f2_grids[i]['upper_z']]
+    
+    print()
+    print(f1_gds_df)
+    print()
+    
+    print()
+    print(f2_gds_df)
+    print()
+    
+    four_corner_papers_df = pd.DataFrame(columns=['seq', 'id', 'f1_v', 'f2_v'])
+    for i in range(len(four_corner_papers)):
+        p = four_corner_papers[i]
+        four_corner_papers_df.loc[len(four_corner_papers_df.index)] = [i, p['id'], p[f1k], p[f2k]]
+       
+           
+    print()
+    print(four_corner_papers_df)
+    print() 
+    
 
 def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_config, interval_config, data_exp_name, data_sample_name, for_2way):
     print(output_exp_dir, output_data_sample_name, query, data_exp_name, data_sample_name, f'2-way {for_2way}')
@@ -215,7 +243,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                 st = time.time()
                 # grids, quantiles = divide_by_percentile(df, feature_name, use_interval_not_quantile, quantile_interval, just_interval)
                 grids, quantiles = get_grids_and_quantiles(df, feature_name, interval_config, quantile_config)
-                ale_result = get_ale(grids, feature_name, query)
+                ale_result = get_ale(grids, feature_name, query, centered=True)
 
                 et = round(time.time() - st, 6)
                 print(f'\tcompute ale data for {output_data_sample_name}_1w_ale_{feature_name} within {et} sec')
@@ -284,6 +312,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                         four_corner_papers.extend(fcp)
                         neighbors_number_per_grids[rs['row']][rs['col']] = len(fcp)
                     
+                    # print_grids_anc_corner(f1_grids, f1_quantiles, f2_grids, f2_quantiles, four_corner_papers, f1_feature_name, f2_feature_name)
                     
                     four_corner_paper_scores = get_scores(query, four_corner_papers)
 

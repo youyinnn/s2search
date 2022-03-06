@@ -32,8 +32,19 @@ samples:
           abstract: 1
           authors: 1
           venue: 1
+    # cslg-simple: 
+    #   - query: "Machine Learning"
+    #     twoway: true
+    #     intervals:
+    #       year: 3
+    #       n_citations: 3
+    #       title: 3
+    #       abstract: 3
+    #       authors: 3
+    #       venue: 3
           
 sample_from_other_exp:
+  cslg-simple: ["pdp-hs-exp1", "cslg-simple.data"]
   cslg: ["exp5", "cslg.data"]
   # cslg: ["pdp-exp1", "cslg-rand-100.data"]
   cslg-rand-1000: ["pdp-exp1", "cslg-rand-1000.data"]

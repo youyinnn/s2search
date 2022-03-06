@@ -10,6 +10,8 @@ import pandas as pd
 from getting_data import load_sample
 from s2search_score_pipelining import get_scores
 from s2search_score_pdp import compute_pdp
+pd.options.display.float_format = '{:,.10f}'.format
+pd.set_option('display.expand_frame_repr', False)
 
 model_dir = './s2search_data'
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
@@ -137,21 +139,17 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_na
                                       data_sample_name, f1_name, f2_name, query, paper_data)
             
             if not os.path.exists(npz_file_path):
-                numerator = 0
-                denominator = 0
-                for i in range(data_len):
-                    f1_pdp_point = f1_pdp_data[i]
-                    f2_pdp_point = f2_pdp_data[i]
-                    f1_and_f2_pdp_point = f1_f2_diagonal_pdp_data[i]
-                    numerator += math.pow(f1_and_f2_pdp_point -
-                                          f1_pdp_point - f2_pdp_point, 2)
-                    denominator += math.pow(f1_and_f2_pdp_point, 2)
+                numerators = f1_f2_diagonal_pdp_data - f1_pdp_data - f2_pdp_data
+                numerators *= numerators
+                numerator = np.sum(numerators)
+                denominators = f1_f2_diagonal_pdp_data * f1_f2_diagonal_pdp_data
+                denominator = np.sum(denominators)
 
                 h_jk = numerator / denominator
                 h_jk_sqrt = math.sqrt(numerator)
                 hs_metric.loc[len(hs_metric.index)] = [f1_name, f2_name, h_jk, h_jk_sqrt]
                 
-    print(hs_metric)
+    print(hs_metric.sort_values(by=['hs_sqrt'], ascending=False))
 
 def get_hstatistic_and_save_score(exp_dir_path):
     des, sample_configs, sample_from_other_exp = read_conf(exp_dir_path)
