@@ -710,6 +710,202 @@ plt.savefig(os.path.join('.', 'plot', f'{sample_name}-numerical.png'), facecolor
             ]
             nbf.write(nb, str(p_nb_file))
 
+        ice_nb_file = path.join(data_dir, exp_name,
+                              f'{exp_name}_ice_{sample_name}_plotting.ipynb')
+        if (not path.exists(ice_nb_file)):
+            print(f'Generating plotting notebook for {exp_name} at {ice_nb_file}')
+        
+            nb = nbf.v4.new_notebook()
+            nb.metadata.kernelspec = {
+                "display_name": "Python 3",
+                "name": "python3"
+            }
+            nb.metadata.language_info = {
+                "codemirror_mode": {
+                    "name": "ipython",
+                    "version": 3
+                },
+                "file_extension": ".py",
+                "mimetype": "text/x-python",
+                "name": "python",
+                "nbconvert_exporter": "python",
+                "pygments_lexer": "ipython3",
+                "version": "3.9.7"
+            }
+            open_in_colab_href = f'<a href="https://colab.research.google.com/github/{user_repo}/s2search/blob/{branch}/pipelining/{exp_name}/{exp_name}_ice_{sample_name}_plotting.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>'
+            exp_des = f'### Experiment Description\n\n{description.strip()}\n\n> This notebook is for experiment \\<{exp_name}\\> and data sample \\<{sample_name}\\>.'
+
+            init_md = '### Initialization'
+            init_code = f'''%load_ext autoreload
+%autoreload 2
+import numpy as np, sys, os
+in_colab = 'google.colab' in sys.modules
+# fetching code and data(if you are using colab
+if in_colab:
+    !rm -rf s2search
+    !git clone --branch pipelining https://github.com/youyinnn/s2search.git
+    sys.path.insert(1, './s2search')
+    %cd s2search/pipelining/{exp_name}/
+
+pic_dir = os.path.join('.', 'plot')
+if not os.path.exists(pic_dir):
+    os.mkdir(pic_dir)
+'''
+
+            loading_data_md = '### Loading data'
+            loading_data_code = f'''sys.path.insert(1, '../../')
+import numpy as np, sys, os, pandas as pd
+from s2search_score_pdp import pdp_based_importance, apply_order
+
+sample_name = '{sample_name}'
+
+f_list = ['title', 
+          'abstract', 'venue', 'authors', 'year', 'n_citations']
+
+pdp_xy = {{}}
+
+for f in f_list:
+    file = os.path.join('.', 'scores', f'{{sample_name}}_pdp_{{f}}.npz')
+    if os.path.exists(file):
+        data = np.load(file)
+        sorted_pdp_data = apply_order(data)
+        average_pdp = [np.mean(pdps) for pdps in sorted_pdp_data]
+        
+        # tran = sorted_pdp_data
+        tran = np.flipud(np.rot90(sorted_pdp_data))
+        
+        average_pdp -= average_pdp[0]
+        
+        for instance in tran:
+            anchor = instance[0]
+            instance -= anchor
+        
+        pdp_xy[f] = {{
+            'y': tran,
+            'numerical': True,
+            'average': average_pdp
+        }}
+        if f == 'year' or f == 'n_citations':
+            pdp_xy[f]['x'] = np.sort(data['arr_1'])
+        else:
+            pdp_xy[f]['x'] = list(range(len(sorted_pdp_data)))
+            pdp_xy[f]['numerical'] = False
+'''
+
+            plot_data_md = "### PDP"
+            plot_data_code = '''import matplotlib.pyplot as plt
+
+categorical_plot_conf = [
+    {
+        'xlabel': 'Title',
+        'ylabel': 'Scores',
+        'pdp_xy': pdp_xy['title']
+    },
+    {
+        'xlabel': 'Abstract',
+        'pdp_xy': pdp_xy['abstract']
+    },    
+    {
+        'xlabel': 'Authors',
+        'pdp_xy': pdp_xy['authors']
+    },
+    {
+        'xlabel': 'Venue',
+        'pdp_xy': pdp_xy['venue'],
+        # 'zoom': {
+        #     'inset_axes': [0.15, 0.45, 0.47, 0.47],
+        #     'x_limit': [950, 1010],
+        #     'y_limit': [-9, 7],
+        #     'connects': [True, True, False, False]
+        # }
+    },
+]
+
+numerical_plot_conf = [
+    {
+        'xlabel': 'Year',
+        'ylabel': 'Scores',
+        'pdp_xy': pdp_xy['year']
+    },
+    {
+        'xlabel': 'Citation Count',
+        'pdp_xy': pdp_xy['n_citations'],
+        # 'zoom': {
+        #     'inset_axes': [0.5, 0.2, 0.47, 0.47],
+        #     'x_limit': [-100, 1000],
+        #     'y_limit': [-7.3, -6.2],
+        #     'connects': [False, False, True, True]
+        # }
+    }
+]
+
+def pdp_plot(confs, title):
+    fig, axes = plt.subplots(nrows=1, ncols=len(confs), figsize=(20, 5), dpi=100)
+    subplot_idx = 0
+    plt.suptitle(title, fontsize=20, fontweight='bold')
+    # plt.autoscale(False)
+    c = '#AAAAAA'
+    for conf in confs:
+        axess = axes if len(confs) == 1 else axes[subplot_idx]
+
+        axess.plot(conf['pdp_xy']['x'], conf['pdp_xy']['average'], c='#FFF301', lw=2, zorder=2)
+
+        for y in conf['pdp_xy']['y'][:]:
+            axess.plot(conf['pdp_xy']['x'], y, 
+                       c=c,zorder=1
+            )
+        axess.grid(alpha = 0.4)
+
+        if ('ylabel' in conf):
+            axess.set_ylabel(conf.get('ylabel'), fontsize=20, labelpad=10)
+        
+        axess.set_xlabel(conf['xlabel'], fontsize=16, labelpad=10)
+        
+        if (conf['pdp_xy']['numerical']):
+            axess.set_ylim([-0.1, 2.5])
+            pass
+        else:
+            axess.set_ylim([-1, 27])
+            pass
+                
+        if 'zoom' in conf:
+            axins = axess.inset_axes(conf['zoom']['inset_axes']) 
+            axins.plot(conf['pdp_xy']['x'], conf['pdp_xy']['average'], c='#FFF301', lw=2, zorder=2)
+            for y in conf['pdp_xy']['y'][:]:
+                axins.plot(conf['pdp_xy']['x'], y, 
+                        c=c,zorder=1
+                )
+            axins.set_xlim(conf['zoom']['x_limit'])
+            axins.set_ylim(conf['zoom']['y_limit'])
+            axins.grid(alpha=0.3)
+            rectpatch, connects = axess.indicate_inset_zoom(axins)
+            connects[0].set_visible(conf['zoom']['connects'][0])
+            connects[1].set_visible(conf['zoom']['connects'][1])
+            connects[2].set_visible(conf['zoom']['connects'][2])
+            connects[3].set_visible(conf['zoom']['connects'][3])
+            
+        subplot_idx += 1
+
+pdp_plot(categorical_plot_conf, "ICE Plots for four categorical features")
+
+# second fig
+pdp_plot(numerical_plot_conf, "ICE Plots for two numerical features")
+'''
+
+            nb['cells'] = [
+                nbf.v4.new_markdown_cell(open_in_colab_href),
+                nbf.v4.new_markdown_cell(exp_des),
+
+                nbf.v4.new_markdown_cell(init_md),
+                nbf.v4.new_code_cell(init_code),
+
+                nbf.v4.new_markdown_cell(loading_data_md),
+                nbf.v4.new_code_cell(loading_data_code),
+
+                nbf.v4.new_markdown_cell(plot_data_md),
+                nbf.v4.new_code_cell(plot_data_code),
+            ]
+            nbf.write(nb, str(ice_nb_file))
 
 if __name__ == '__main__':
     if len(sys.argv) >= 2:
