@@ -426,12 +426,9 @@ if not os.path.exists(pic_dir):
 '''
 
                 loading_data_md = '### Loading data'
-                loading_data_code = f'''
-
-sys.path.insert(1, '../../')
+                loading_data_code = f'''sys.path.insert(1, '../../')
 import numpy as np, sys, os, pandas as pd
 from getting_data import read_conf
-pd.options.display.float_format = '{{:,.8f}}'.format
 
 sample_name = '{sample_name}'
 
@@ -439,18 +436,22 @@ f_list = [
     'title', 
     'abstract', 
     'venue', 
-    # 'authors', 
+    'authors', 
     'year', 
     'n_citations'
     ]
 ale_rs = []
-ale_metric = pd.DataFrame(columns=['f1_name', 'f2_name', '2w_ale_range', 'mean', 'var', 'std'])
+ale_metric = pd.DataFrame(columns=['f1_name', 'f2_name', 'mean', 'var', 'std'])
 
 def replace_quantile(feature_name, quantile):
     if feature_name == 'year' or feature_name == 'n_citations':
         return quantile
     else:
         return list(range(len(quantile)))
+    
+mean_arr = []
+var_arr = []
+std_arr = []
 
 for i in range(len(f_list)):
     f1_name = f_list[i]
@@ -463,18 +464,14 @@ for i in range(len(f_list)):
             quantile_2 = nparr['quantile_2']
             ale_result = nparr['ale_result']
             
-            if np.mean(ale_result) != 0:
-                norm = np.linalg.norm(ale_result)
-                ale_result = ale_result / norm
+            mean_arr.append(np.mean(ale_result))
+            var_arr.append(np.var(ale_result, ddof=1))
+            std_arr.append(np.std(ale_result, ddof=1))
             
-            t = f'The mean of the 2-way ale - ({{f1_name}} * {{f2_name}}): {{np.mean(ale_result)}}'
-            
-            ale_metric.loc[len(ale_metric.index)] = \
-                [f1_name, f2_name, np.max(ale_result) - np.min(ale_result), np.mean(ale_result),\
-                    np.var(ale_result, ddof=1),np.std(ale_result, ddof=1)]
+            t = f'The mean of the 2-way ale - ({{f1_name}} * {{f2_name}})'
             
             ale = {{
-                'ale': ale_result,
+                'ale': (ale_result),
                 'f1_quantile': replace_quantile(f1_name, quantile_1),
                 'f2_quantile': replace_quantile(f2_name, quantile_2),
                 'f1_name': f1_name,
@@ -484,7 +481,17 @@ for i in range(len(f_list)):
             
             ale_rs.append(ale)
 
-print(ale_metric)
+pd.set_option('display.expand_frame_repr', False)
+
+idx = 0
+for i in range(len(f_list)):
+    f1_name = f_list[i]
+    for j in range(i + 1, len(f_list)):
+        f2_name = f_list[j]
+        ale_metric.loc[len(ale_metric.index)] = [f1_name, f2_name, mean_arr[idx], var_arr[idx], std_arr[idx]]
+        idx += 1
+
+print(ale_metric.sort_values(by=['std'], ascending=False))
 '''
 
                 plot_data_md = "### ALE Plots"
@@ -496,8 +503,7 @@ for ale in ale_rs:
     fig, ax = plt.subplots(figsize=(14, 10), constrained_layout=True)
     cmap = plt.colormaps['BuGn']
     
-    map = ax.pcolormesh(ale['f1_quantile'], ale['f2_quantile'], ale['ale'],  cmap='bwr', edgecolors='k', linewidths=0, alpha=0.7)
-
+    map = ax.pcolormesh(ale['f1_quantile'], ale['f2_quantile'], ale['ale'],  cmap='bwr', edgecolors='k', linewidths=0, alpha=0.6)
     # map = ax.contourf(ale['f1_quantile'], ale['f2_quantile'], ale['ale'], cmap='bwr', levels=30, alpha=0.7)
     
     ax.set_xlabel(ale['f1_name'], fontsize=16, labelpad=10)
