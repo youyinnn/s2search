@@ -25,12 +25,12 @@ def read_conf(exp_dir_path):
         return conf.get('description'), conf.get('samples'), conf.get('sample_from_other_exp'),
 
 
-def save_pdp_to_npz(exp_dir_path, npz_file_path, data):
+def save_pdp_to_npz(exp_dir_path, npz_file_path, *args, **kws):
     scores_dir = path.join(exp_dir_path, 'scores')
     if not path.exists(str(scores_dir)):
         os.mkdir(str(scores_dir))
     print(f'\tsave PDP data to {npz_file_path}')
-    np.savez_compressed(npz_file_path, data)
+    np.savez_compressed(npz_file_path, *args, **kws)
 
 def compute_diagonal_pdp(f1_name, f2_name, query, paper_data):
     print(f'\tgetting diagonal pdp for {f1_name}, {f2_name}')
@@ -115,8 +115,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_na
     df = load_sample(data_exp_name, data_sample_name)
     paper_data = json.loads(df.to_json(orient='records'))
     
-    data_len = len(paper_data)
-    categorical_features = [
+    feature_list = [
         'title', 
         'abstract',
         'venue',
@@ -127,29 +126,41 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_na
     
     hs_metric = pd.DataFrame(columns=['f1', 'f1', 'hs', 'hs_sqrt'])
 
-    for f1_idx in range(len(categorical_features)):
-        for f2_idx in range(f1_idx + 1, len(categorical_features)):
-            f1_name = categorical_features[f1_idx]
-            f2_name = categorical_features[f2_idx]
-            npz_file_path = path.join(output_exp_dir, 'scores',
-                                      f"{output_data_sample_name}_hs_{f1_name}_{f2_name}.npz")
+    hs_metrix = np.zeros([len(feature_list), len(feature_list)])
+    hs_sqrt_metrix = np.zeros([len(feature_list), len(feature_list)])
+    
+    for f1_idx in range(len(feature_list)):
+        for f2_idx in range(f1_idx + 1, len(feature_list)):
+            f1_name = feature_list[f1_idx]
+            f2_name = feature_list[f2_idx]
 
             f1_pdp_data, f2_pdp_data, f1_f2_diagonal_pdp_data = \
                 get_pdp_data_if_exist(output_exp_dir, output_data_sample_name, data_exp_name,
                                       data_sample_name, f1_name, f2_name, query, paper_data)
             
-            if not os.path.exists(npz_file_path):
-                numerators = f1_f2_diagonal_pdp_data - f1_pdp_data - f2_pdp_data
-                numerators *= numerators
-                numerator = np.sum(numerators)
-                denominators = f1_f2_diagonal_pdp_data * f1_f2_diagonal_pdp_data
-                denominator = np.sum(denominators)
+            numerators = f1_f2_diagonal_pdp_data - f1_pdp_data - f2_pdp_data
+            numerators *= numerators
+            numerator = np.sum(numerators)
+            denominators = f1_f2_diagonal_pdp_data * f1_f2_diagonal_pdp_data
+            denominator = np.sum(denominators)
 
-                h_jk = numerator / denominator
-                h_jk_sqrt = math.sqrt(numerator)
-                hs_metric.loc[len(hs_metric.index)] = [f1_name, f2_name, h_jk, h_jk_sqrt]
+            h_jk = numerator / denominator
+            h_jk_sqrt = math.sqrt(numerator)
+            hs_metric.loc[len(hs_metric.index)] = [f1_name, f2_name, h_jk, h_jk_sqrt]
+            
+            hs_metrix[f1_idx][f2_idx] = h_jk
+            hs_metrix[f2_idx][f1_idx] = h_jk
+            
+            hs_sqrt_metrix[f1_idx][f2_idx] = h_jk_sqrt
+            hs_sqrt_metrix[f2_idx][f1_idx] = h_jk_sqrt
+            
+    npz_file_path = path.join(output_exp_dir, 'scores',
+                            f"{output_data_sample_name}_hs_metrix.npz")
+    
+    save_pdp_to_npz(output_exp_dir, npz_file_path, hs_metrix=hs_metrix, hs_sqrt_metrix=hs_sqrt_metrix)
                 
     print(hs_metric.sort_values(by=['hs_sqrt'], ascending=False))
+    # print(hs_metric)
 
 def get_hstatistic_and_save_score(exp_dir_path):
     des, sample_configs, sample_from_other_exp = read_conf(exp_dir_path)
