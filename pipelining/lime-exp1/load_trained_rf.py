@@ -1,4 +1,4 @@
-import numpy as np, sys, os, pandas as pd,json, os
+import numpy as np, sys, os, pandas as pd,json, os, time
 sys.path.insert(1, '../../')
 from getting_data import load_sample
 from s2search_score_pipelining import init_ranker
@@ -17,8 +17,10 @@ sample_name = 'cslg'
 query = 'Machine Learning'
 
 if __name__ == '__main__':
+    st = time.time()
     df = load_sample(exp_name, sample_name)
-    paper_data = json.loads(df.to_json(orient='records'))
+    sl = 20000
+    paper_data = json.loads(df.to_json(orient='records'))[:sl]
 
     data_in_arr = []
 
@@ -42,6 +44,7 @@ if __name__ == '__main__':
         print(f'\tsave PDP data to {target_value_npz_file}')
         np.savez_compressed(target_value_npz_file, target_value)
 
+    target_value = target_value[:sl]
 
     categorical_features = np.array([0,1,2,3])
 
@@ -74,6 +77,8 @@ if __name__ == '__main__':
             load(f)
     else:
         print('training the rf')
-        rf = sklearn.ensemble.RandomForestRegressor(n_estimators=100)
+        rf = sklearn.ensemble.RandomForestRegressor(n_estimators=200)
         rf.fit(encoded_train, labels_train)
         dump(rf, rf_trained_model_file)
+        
+    print(f'{round(time.time() - st, 6)}')

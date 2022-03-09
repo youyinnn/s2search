@@ -67,7 +67,7 @@ def load_sample_data(exp_name, sample_name, sort=None):
             data.sort(key = lambda x: x['year'])
     return data
 
-def load_sample(exp_name, sample_name, sort = None, del_f = ['id', 's2_id'], rank_f=None, query=None):
+def load_sample(exp_name, sample_name, sort = None, del_f = ['id', 's2_id'], rank_f=None, query=None, author_as_str=False):
     data = []
     original_dir = os.getcwd()
     if os.getcwd().endswith('/s2search'):
@@ -85,6 +85,8 @@ def load_sample(exp_name, sample_name, sort = None, del_f = ['id', 's2_id'], ran
                 for k in del_f:
                     if jso.get(k) != None:
                         del jso[k]
+            if author_as_str:
+                jso['authors'] = str(jso['authors'])
             data.append(jso)
             
     os.chdir(original_dir)
