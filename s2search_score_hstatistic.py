@@ -159,7 +159,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, data_exp_na
     
     save_pdp_to_npz(output_exp_dir, npz_file_path, hs_metrix=hs_metrix, hs_sqrt_metrix=hs_sqrt_metrix)
                 
-    print(hs_metric.sort_values(by=['hs_sqrt'], ascending=False))
+    print(hs_metric.sort_values(by=['hs'], ascending=False))
     # print(hs_metric)
 
 def get_hstatistic_and_save_score(exp_dir_path):
