@@ -3,6 +3,7 @@ import numpy as np, yaml
 import pandas as pd
 
 feature_key_list = ['title', 'abstract', 'venue', 'authors', 'year', 'n_citations']
+categorical_feature_key_list = ['title', 'abstract', 'venue', 'authors']
 
 def get(exp_name, sample_name):
     exp_dir = '.'

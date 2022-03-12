@@ -63,10 +63,11 @@ def init_ranker():
     print(f'Load the process s2 ranker within {et} sec')
     return ranker
 
-def get_ranker():
+def get_ranker(ptf = False):
     global gb_ranker_enable
     global gb_ranker
-    print(f"get ranker in {os.getpid()} with global setting: {gb_ranker_enable} and gb_ranker len {len(gb_ranker)}")
+    if ptf:
+        print(f"get ranker in {os.getpid()} with global setting: {gb_ranker_enable} and gb_ranker len {len(gb_ranker)}")
     if gb_ranker_enable:
         return gb_ranker[0]
     else:
@@ -88,10 +89,10 @@ def get_scores(query, paper, task_name=None, ptf=True, force_global = False):
     st = time.time()
     ts = datetime.datetime.now(tz=utc_tz).strftime("%m/%d/%Y, %H:%M:%S")
     if work_load == 1 or force_global:
-        if not force_global:
+        if not force_global and ptf:
             print('fail to not force global because 1 worker available')
         enable_global()
-        scores = get_scores_for_one_worker([query, paper, task_name, 0, True])
+        scores = get_scores_for_one_worker([query, paper, task_name, 0, ptf])
     else:
         disable_global()
         paper_limit_for_a_worker = math.ceil(len(paper) / work_load)
@@ -121,11 +122,13 @@ def get_scores(query, paper, task_name=None, ptf=True, force_global = False):
     ts = datetime.datetime.now(tz=utc_tz).strftime("%m/%d/%Y, %H:%M:%S")
     if ptf:
         print(f"[{'Main taks' if task_name == None else task_name}][{ts}] {len(paper)} scores within {et} sec ")
+    if len(scores) == 1:
+        return np.array(scores)
     return reduce(lambda x,y: np.append(x, y), scores)
 
 def get_scores_for_one_worker(pos_arg):
     query, paper, task_name, task_number, ptf = pos_arg
-    one_ranker = get_ranker()
+    one_ranker = get_ranker(ptf)
     if ptf:
         print(f"[{'Main taks' if task_name == None else task_name}:{task_number}] compute {len(paper)} scores with worker {os.getpid()}")
     scores = []
