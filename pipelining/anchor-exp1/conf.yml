@@ -1,0 +1,16 @@
+description: ""
+samples:
+  cslg:
+    - query: "Machine Learning"
+      range: [0, 20000]
+    # - query: "Machine Learning"
+    #   range: [20000, 40000]
+    # - query: "Machine Learning"
+    #   range: [40000, 60000]
+    # - query: "Machine Learning"
+    #   range: [60000, 80000]
+    # - query: "Machine Learning"
+    #   range: [80000, 92937]
+
+sample_from_other_exp:
+  cslg: ["exp5", "cslg.data"]
