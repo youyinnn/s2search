@@ -1,5 +1,5 @@
 from dis import dis
-from s2search_score_pipelining import get_scores, enable_global, disable_global
+from s2search_score_pipelining import get_scores
 import json
 import time
 
