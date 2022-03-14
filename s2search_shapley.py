@@ -10,7 +10,7 @@ def power_set(List):
 
 def main():
     if len(sys.argv) < 2:
-        print('Usage: ./shapley.py <filename>')
+        print('Usage: ./s2search_shapley.py <filename>')
         return
 
     characteristic_function = []
