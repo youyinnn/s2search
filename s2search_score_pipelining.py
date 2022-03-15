@@ -11,7 +11,7 @@ import feature_masking as fm
 from ranker_helper import get_scores
 
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
-data_loading_line_limit = 1000
+data_loading_line_limit = 100000
 
 def read_conf(exp_dir_path_str):
     conf_path = path.join(exp_dir_path_str, 'conf.yml')
