@@ -2,7 +2,7 @@ description: ""
 samples:
   cslg:
     - query: "Machine Learning"
-      range: [0, 20000]
+      range: [0, 10000]
     # - query: "Machine Learning"
     #   range: [20000, 40000]
     # - query: "Machine Learning"

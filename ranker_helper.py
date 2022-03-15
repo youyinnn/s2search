@@ -18,12 +18,12 @@ zj = float(mem.total) / 1024 / 1024 / 1024
 gb_ranker = []
 gb_ranker_enable = False
 
-def enable_global():
+def enable_global(ptf = False):
     global gb_ranker_enable
     gb_ranker_enable = True
     global gb_ranker
     if len(gb_ranker) == 0:
-        gb_ranker.append(init_ranker())
+        gb_ranker.append(init_ranker(ptf))
         
 def disable_global():
     global gb_ranker_enable
@@ -47,13 +47,15 @@ def check_model_existance(default_dir = path.join(os.getcwd(), 's2search_data'))
     else:
         return os.environ.get('S2_MODEL_DATA')
 
-def init_ranker():
+def init_ranker(ptf):
     data_dir = check_model_existance()
-    print(f'Loading process ranker model...')
-    st = time.time()
+    if not ptf:
+        st = time.time()
+        print(f'Loading process ranker model...')
     ranker = S2Ranker(data_dir)
-    et = round(time.time() - st, 2)
-    print(f'Load the process s2 ranker within {et} sec')
+    if not ptf:
+        et = round(time.time() - st, 2)
+        print(f'Load the process s2 ranker within {et} sec')
     return ranker
 
 def get_ranker(ptf = False):
@@ -64,7 +66,7 @@ def get_ranker(ptf = False):
     if gb_ranker_enable:
         return gb_ranker[0]
     else:
-        return init_ranker()
+        return init_ranker(ptf)
 
 def find_weird_score(scores, paper_list):
     weird_paper_idx = []
@@ -84,7 +86,7 @@ def get_scores(query, paper, task_name=None, ptf=True, force_global = False):
     if work_load == 1 or force_global:
         if not force_global and ptf:
             print('fail to not force global because 1 worker available')
-        enable_global()
+        enable_global(ptf)
         scores = get_scores_for_one_worker([query, paper, task_name, 0, ptf])
     else:
         disable_global()

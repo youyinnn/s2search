@@ -29,7 +29,7 @@ def get_scores_and_save(arg):
 
     original_score_npy_file_name = path.join(
         exp_dir_path_str, 'scores', npy_file_name)
-    scores = get_scores(query, paper_data, mask_option, npy_file_name)
+    scores = get_scores(query, paper_data, ptf=False)
     incomplete_file = str(original_score_npy_file_name) + '#incomplete.txt'
 
     scores = [str(score) for score in scores]
@@ -191,6 +191,7 @@ if __name__ == '__main__':
                                 with open(str(data_file_path)) as f:
                                     line_count = 0
                                     idx = 0
+                                    st = time.time()
                                     for line in f:
                                         idx += 1
                                         if (idx <= previous_progress):
