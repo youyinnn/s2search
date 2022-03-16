@@ -18,12 +18,12 @@ zj = float(mem.total) / 1024 / 1024 / 1024
 gb_ranker = []
 gb_ranker_enable = False
 
-def enable_global():
+def enable_global(ptf = False):
     global gb_ranker_enable
     gb_ranker_enable = True
     global gb_ranker
     if len(gb_ranker) == 0:
-        gb_ranker.append(init_ranker())
+        gb_ranker.append(init_ranker(ptf))
         
 def disable_global():
     global gb_ranker_enable
@@ -86,7 +86,7 @@ def get_scores(query, paper, task_name=None, ptf=True, force_global = False):
     if work_load == 1 or force_global:
         if not force_global and ptf:
             print('fail to not force global because 1 worker available')
-        enable_global()
+        enable_global(ptf)
         scores = get_scores_for_one_worker([query, paper, task_name, 0, ptf])
     else:
         disable_global()

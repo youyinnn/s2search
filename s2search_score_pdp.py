@@ -308,7 +308,7 @@ def get_pdp_and_save_score(exp_dir_path, exp_name, for_2way):
 def is_numerical_feature(feature_name):        
     return True if feature_name == 'year' or feature_name == 'n_citations' else False
 
-def pdp_based_importance(pdp_value, feature_name):
+def pdp_based_importance(pdp_value, feature_name = None):
     pdp_np = np.array(pdp_value, dtype='float64')
     # if is_numerical_feature(feature_name):
     if True:
