@@ -10,9 +10,12 @@ from s2search_score_pdp import save_pdp_to_npz
 from anchor import anchor_tabular
 import pytz
 import datetime
+import logging
+
 utc_tz = pytz.timezone('America/Montreal')
 
 data_dir = str(os.path.join(os.getcwd(), 'pipelining'))
+
 
 def get_class(score):
     if score <= -17:
@@ -53,39 +56,34 @@ def decode_paper(categorical_name, encoded_p):
         n_citations=encoded_p[5],
     )
     
+def get_time_str():
+    return datetime.datetime.now(tz=utc_tz).strftime("%m/%d/%Y, %H:%M:%S")
 
-def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_exp_name, data_sample_name):
+def metrics_to_str(metrics):
+    return ', '.join([f'{feature_name}: {len(metrics[feature_name])}' for feature_name in metrics.keys()])
 
+def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_exp_name, data_sample_name):    
     metrics_npz_file = os.path.join(output_exp_dir, 'scores', f'{output_data_sample_name}_metrics_{rg[0]}_{rg[1]}.npz')
 
     st = time.time()
-    ts = datetime.datetime.now(tz=utc_tz).strftime("%m/%d/%Y, %H:%M:%S")
-    print(f'[{ts}] start anchro metrics')
+    ts = get_time_str()
+    logging.info(f'\n[{ts}] start anchor metrics')
     
     categorical_name = {}
-    categorical_name_file = os.path.join(output_exp_dir, 'scores', f'{output_data_sample_name}_categorical_name.npz')
 
-    if not os.path.exists(categorical_name_file):
-        # get categorical_name
-        for i in range(len(feature_key_list)):
-            feature_name = feature_key_list[i]
-            if feature_name in categorical_feature_key_list:
-                df = load_sample(data_exp_name, data_sample_name, query=query, sort=feature_name, rank_f=get_scores)
-                if feature_name == 'authors':
-                    l = [json.dumps(x) for x in df[feature_name]]
-                else:
-                    l = list(df[feature_name])
-                categorical_name[i] = remove_duplicate(l)
-                
-        save_pdp_to_npz('.', categorical_name_file, title=categorical_name[0], abstract=categorical_name[1], \
-        venue=categorical_name[2], authors=categorical_name[3])
-    else:
-        load = np.load(categorical_name_file)
-        categorical_name[0] = load['title']
-        categorical_name[1] = load['abstract']
-        categorical_name[2] = load['venue']
-        categorical_name[3] = load['authors']    
-        
+    # get categorical_name
+    logging.info(f'[{get_time_str()}] get categorical_name')
+    for i in range(len(feature_key_list)):
+        feature_name = feature_key_list[i]
+        if feature_name in categorical_feature_key_list:
+            df = load_sample(data_exp_name, data_sample_name, query=query, sort=feature_name, rank_f=get_scores)
+            if feature_name == 'authors':
+                l = [json.dumps(x) for x in df[feature_name]]
+            else:
+                l = list(df[feature_name])
+            categorical_name[i] = remove_duplicate(l)
+    logging.info(f'[{get_time_str()}] finish get categorical_name')
+                  
     df = load_sample(data_exp_name, data_sample_name)
     paper_data = json.loads(df.to_json(orient='records'))
 
@@ -133,70 +131,101 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
         return np.array(encoded_pred)
     
     metrics = dict(
-        title=0,
-        abstract=0,
-        venue=0,
-        authors=0,
-        year=0,
-        n_citations=0,
+        title=[],
+        abstract=[],
+        venue=[],
+        authors=[],
+        year=[],
+        n_citations=[],
     )
+    
+    previous_work_idx = rg[0]
+    if os.path.exists(metrics_npz_file):
+        previous_data = np.load(metrics_npz_file)
+        metrics = dict(
+            title=list(previous_data['title']),
+            abstract=list(previous_data['abstract']),
+            venue=list(previous_data['venue']),
+            authors=list(previous_data['authors']),
+            year=list(previous_data['year']),
+            n_citations=list(previous_data['n_citations']),
+        )
+        previous_work_idx = previous_data['idx'][0] + 1
 
-    for i in range(len(paper_data[rg[0]: rg[1]])):
-        exp = explainer.explain_instance(paper_data[i], pred_fn, threshold=0.95, batch_size=80)
-        for name in exp.names():
+    sst = time.time()
+    logging.info(f'[{get_time_str()}] start computing anchor from index: {previous_work_idx} to {rg[1] - 1}')
+    count = 0
+    for i in range(previous_work_idx, rg[1]):
+        exp = explainer.explain_instance(paper_data[i], pred_fn, threshold=0.99, tau=0.5)
+        
+        previous_single_precision = 0
+        for j in range(len(exp.names())):
+            name = exp.names()[j]
+            current_single_precision = exp.precision(j) - previous_single_precision
+            previous_single_precision = exp.precision(j)
             for feature_name in metrics.keys():
                 if name.startswith(f'{feature_name} = '):
-                    metrics[feature_name] += 1
-
-
-    save_pdp_to_npz('.', metrics_npz_file, [metrics[f] for f in feature_key_list])
+                    metrics[feature_name].append(current_single_precision)
+        
+        count += 1
+        
+        if count % 10 == 0:
+            ett = round(time.time() - sst, 6)
+            logging.info(f'[{get_time_str()}] ({i} / {rg[1] - rg[0] - 1}) {metrics_to_str(metrics)} within ({ett} total / {round(ett / count, 4)} average)')
+            save_pdp_to_npz('.', metrics_npz_file, 
+                title=metrics['title'],
+                abstract=metrics['abstract'],
+                venue=metrics['venue'],
+                authors=metrics['authors'],
+                year=metrics['year'],
+                n_citations=metrics['n_citations'],
+                idx=[i]
+            )
     
     ts = datetime.datetime.now(tz=utc_tz).strftime("%m/%d/%Y, %H:%M:%S")
     
-    print(metrics)
-    
-    print(f'[{ts}] end anchro metrics witin {round(time.time() - st, 6)}')
+    logging.info(f'[{get_time_str()}] end anchor metrics witin {round(time.time() - st, 6)}')
 
-def get_anchor_metrics(exp_dir_path):
+def get_anchor_metrics(exp_dir_path, sample_name, task_number):
     des, sample_configs, sample_from_other_exp = read_conf(exp_dir_path)
 
     tested_sample_list = []
     
-    for sample_name in sample_configs:
-        if sample_name in sample_from_other_exp.keys():
-            other_exp_name, data_file_name = sample_from_other_exp.get(sample_name)
-            tested_sample_list.append({'exp_name': other_exp_name, 'data_sample_name': sample_name, 'data_source_name': data_file_name.replace('.data', '')})
-        else:
-            tested_sample_list.append({'exp_name': exp_name, 'data_sample_name': sample_name, 'data_source_name': sample_name})
+    if sample_name in sample_from_other_exp.keys():
+        other_exp_name, data_file_name = sample_from_other_exp.get(sample_name)
+        tested_sample_list.append({'exp_name': other_exp_name, 'data_sample_name': sample_name, 'data_source_name': data_file_name.replace('.data', '')})
+    else:
+        tested_sample_list.append({'exp_name': exp_name, 'data_sample_name': sample_name, 'data_source_name': sample_name})
 
-    for tested_sample_config in tested_sample_list:
+    tested_sample_config = tested_sample_list[int(task_number) - 1]
         
-        tested_sample_name = tested_sample_config['data_sample_name']
-        tested_sample_data_source_name = tested_sample_config['data_source_name']
-        tested_sample_from_exp = tested_sample_config['exp_name']
-        
-        task = sample_configs.get(tested_sample_name)
-        if task != None:
-            print(f'computing ale for {tested_sample_name}')
-            for t in task:
-                try:
-                    query = t['query']
-                    range = t['range']
-                    compute_and_save(
-                        exp_dir_path, tested_sample_name, query, range,
-                        tested_sample_from_exp, tested_sample_data_source_name)
-                except FileNotFoundError as e:
-                    print(e)
-        else:
-            print(f'**no config for tested sample {tested_sample_name}')
+    tested_sample_name = tested_sample_config['data_sample_name']
+    tested_sample_data_source_name = tested_sample_config['data_source_name']
+    tested_sample_from_exp = tested_sample_config['exp_name']
+    
+    task = sample_configs.get(tested_sample_name)
+    if task != None:
+        for t in task:
+            query = t['query']
+            rg = t['range']
+            logging.basicConfig(filename=f"{tested_sample_name}_{rg}.log", encoding='utf-8', level=logging.INFO)
+            try:
+                compute_and_save(
+                    exp_dir_path, tested_sample_name, query, rg,
+                    tested_sample_from_exp, tested_sample_data_source_name)
+            except FileNotFoundError as e:
+                logging.error(e)
+    else:
+        logging.warning(f'**no config for tested sample {tested_sample_name}')
             
             
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        exp_list = sys.argv[1:]
-        for exp_name in exp_list:
-            exp_dir_path = os.path.join(data_dir, exp_name)
-            if os.path.isdir(exp_dir_path):
-                get_anchor_metrics(exp_dir_path)
-            else:
-                print(f'**no exp dir {exp_dir_path}')
+        exp_name = sys.argv[1]
+        sample_name = sys.argv[2]
+        task_number = sys.argv[3]
+        exp_dir_path = os.path.join(data_dir, exp_name)
+        if os.path.isdir(exp_dir_path):
+            get_anchor_metrics(exp_dir_path, sample_name, task_number)
+        else:
+            print(f'**no exp dir {exp_dir_path}')
