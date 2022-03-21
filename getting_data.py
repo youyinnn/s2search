@@ -87,7 +87,7 @@ def load_sample(exp_name, sample_name, sort = None, del_f = ['id', 's2_id'], ran
                     if jso.get(k) != None:
                         del jso[k]
             if author_as_str:
-                jso['authors'] = str(jso['authors'])
+                jso['authors'] = json.dumps(jso['authors'])
             data.append(jso)
             
     os.chdir(original_dir)
