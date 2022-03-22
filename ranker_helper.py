@@ -1,6 +1,7 @@
 from s2search.rank import S2Ranker
 import time
 import os
+import sys
 import os.path as path
 import psutil
 from functools import reduce
@@ -9,6 +10,8 @@ import pytz
 import datetime
 from multiprocessing import Pool
 import numpy as np
+import psutil
+from pathlib import Path as pt
 
 utc_tz = pytz.timezone('America/Montreal')
 
@@ -37,6 +40,12 @@ if os.environ.get('S2_MODEL_WORKLOAD') != None:
     work_load = int(os.environ.get('S2_MODEL_WORKLOAD'))
 
 def check_model_existance(default_dir = path.join(os.getcwd(), 's2search_data')):
+    while not default_dir.endswith('/s2search'):
+        default_dir = path.join(pt(default_dir).parents[0])
+
+    if default_dir.endswith('/s2search'):
+        default_dir = path.join(default_dir, 's2search_data')
+
     if os.path.exists(default_dir):
         list_files = [f for f in os.listdir(default_dir) if os.path.isfile(os.path.join(default_dir, f))]
         if 'titles_abstracts_lm.binary' in list_files \
@@ -47,7 +56,7 @@ def check_model_existance(default_dir = path.join(os.getcwd(), 's2search_data'))
     else:
         return os.environ.get('S2_MODEL_DATA')
 
-def init_ranker(ptf):
+def init_ranker(ptf = False):
     data_dir = check_model_existance()
     if not ptf:
         st = time.time()
@@ -87,7 +96,7 @@ def get_scores(query, paper, task_name=None, ptf=True, force_global = False):
         if not force_global and ptf:
             print('fail to not force global because 1 worker available')
         enable_global(ptf)
-        scores = get_scores_for_one_worker([query, paper, task_name, 0, ptf])
+        scores = get_scores_for_one_worker([query, paper, task_name, -1, ptf])
     else:
         disable_global()
         paper_limit_for_a_worker = math.ceil(len(paper) / work_load)
@@ -123,6 +132,12 @@ def get_scores(query, paper, task_name=None, ptf=True, force_global = False):
 
 def get_scores_for_one_worker(pos_arg):
     query, paper, task_name, task_number, ptf = pos_arg
+    
+    if sys.platform != "darwin" and task_number > -1:
+        p = psutil.Process()
+        worker = int(task_number)
+        p.cpu_affinity([worker])
+    
     one_ranker = get_ranker(ptf)
     if ptf:
         print(f"[{'Main taks' if task_name == None else task_name}:{task_number}] compute {len(paper)} scores with worker {os.getpid()}")

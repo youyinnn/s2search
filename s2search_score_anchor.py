@@ -4,7 +4,7 @@ import sys
 import yaml, json
 import numpy as np
 from s2search_score_pipelining import read_conf
-from getting_data import load_sample, feature_key_list, categorical_feature_key_list
+from getting_data import load_sample, feature_key_list, get_categorical_encoded_data, decode_paper
 from ranker_helper import get_scores
 from s2search_score_pdp import save_pdp_to_npz
 from anchor import anchor_tabular
@@ -46,16 +46,6 @@ def remove_duplicate(seq):
     seen = set()
     seen_add = seen.add
     return [x for x in seq if not (x in seen or seen_add(x))]
-
-def decode_paper(categorical_name, encoded_p):
-    return dict(
-        title=categorical_name[0][encoded_p[0]],
-        abstract=categorical_name[1][encoded_p[1]],
-        venue=categorical_name[2][encoded_p[2]],
-        authors=json.loads(categorical_name[3][encoded_p[3]]),
-        year=encoded_p[4],
-        n_citations=encoded_p[5],
-    )
     
 def get_time_str():
     return datetime.datetime.now(tz=utc_tz).strftime("%m/%d/%Y, %H:%M:%S")
@@ -67,24 +57,8 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
     metrics_npz_file = os.path.join(output_exp_dir, 'scores', f'{output_data_sample_name}_metrics_{rg[0]}_{rg[1]}.npz')
 
     st = time.time()
-    ts = get_time_str()
-    logging.info(f'\n[{ts}] start anchor metrics')
+    logging.info(f'\n[{get_time_str()}] start anchor metrics')
     
-    categorical_name = {}
-
-    # get categorical_name
-    logging.info(f'[{get_time_str()}] get categorical_name')
-    for i in range(len(feature_key_list)):
-        feature_name = feature_key_list[i]
-        if feature_name in categorical_feature_key_list:
-            df = load_sample(data_exp_name, data_sample_name, query=query, sort=feature_name, rank_f=get_scores)
-            if feature_name == 'authors':
-                l = [json.dumps(x) for x in df[feature_name]]
-            else:
-                l = list(df[feature_name])
-            categorical_name[i] = remove_duplicate(l)
-    logging.info(f'[{get_time_str()}] finish get categorical_name')
-                  
     df = load_sample(data_exp_name, data_sample_name)
     paper_data = json.loads(df.to_json(orient='records'))
 
@@ -97,29 +71,9 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
     
     # make class_name
     class_name = ['(,-17]','(-17, -10]','(-10, -5]','(-5, <0]','(0, 3]','(3, 5]','(5, 6]','(6, 7]','(7, 8]','(8, 9]','(9,)']
-
-    categorical_name_map = {}
     
-    for i in range(len(feature_key_list)):
-        feature_name = feature_key_list[i]
-        if feature_name in categorical_feature_key_list:
-            categorical_name_map[i] = {}
-            values = categorical_name[i]
-            for j in range(len(values)):
-                value = values[j]
-                categorical_name_map[i][value] = j
-
-    # encoding data
-    for i in range(len(paper_data)):
-        paper_data[i] = [
-            categorical_name_map[0][paper_data[i]['title']], categorical_name_map[1][paper_data[i]['abstract']],
-            categorical_name_map[2][paper_data[i]['venue']], categorical_name_map[3][json.dumps(paper_data[i]['authors'])],
-            paper_data[i]['year'],
-            paper_data[i]['n_citations']
-        ]
-        
-    paper_data = np.array(paper_data)
-
+    categorical_name, paper_data = get_categorical_encoded_data(data_exp_name, data_sample_name, query, paper_data)
+    
     explainer = anchor_tabular.AnchorTabularExplainer(
         class_name,
         feature_key_list,
@@ -183,17 +137,16 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
                 idx=[i]
             )
     
-    ts = datetime.datetime.now(tz=utc_tz).strftime("%m/%d/%Y, %H:%M:%S")
-    
     logging.info(f'[{get_time_str()}] end anchor metrics witin {round(time.time() - st, 6)}')
 
 def get_anchor_metrics(exp_dir_path, sample_name, task_number, cpu_number):
-    p = psutil.Process()
-    worker = int(cpu_number)
-    print(f"Child #{worker}: {p}, affinity {p.cpu_affinity()}", flush=True)
-    time.sleep(1)
-    p.cpu_affinity([worker])
-    print(f"Child #{worker}: Set my affinity to {worker}, affinity now {p.cpu_affinity()}", flush=True)
+
+    if sys.platform != "darwin":
+        p = psutil.Process()
+        worker = int(cpu_number)
+        print(f"Child #{worker}: {p}, affinity {p.cpu_affinity()}", flush=True)
+        p.cpu_affinity([worker])
+        print(f"Child #{worker}: Set my affinity to {worker}, affinity now {p.cpu_affinity()}", flush=True)
 
     des, sample_configs, sample_from_other_exp = read_conf(exp_dir_path)
     
