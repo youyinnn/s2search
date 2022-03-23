@@ -11,6 +11,7 @@ import datetime
 import logging
 from sklearn.model_selection import train_test_split
 import shap
+import psutil
 
 utc_tz = pytz.timezone('America/Montreal')
 
@@ -78,7 +79,14 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
     logging.info(f'[{get_time_str()}] finish computing sampling shap for range: {rg} within {round(time.time() - st, 6)} sec')
     
     
-def get_shap_metrics(exp_dir_path, sample_name, task_number):
+def get_shap_metrics(exp_dir_path, sample_name, task_number, cpu_number):
+
+    if sys.platform != "darwin":
+        p = psutil.Process()
+        worker = int(cpu_number)
+        print(f"Child #{worker}: {p}, affinity {p.cpu_affinity()}", flush=True)
+        p.cpu_affinity([worker])
+        print(f"Child #{worker}: Set my affinity to {worker}, affinity now {p.cpu_affinity()}", flush=True)
 
     des, sample_configs, sample_from_other_exp = read_conf(exp_dir_path)
     
@@ -113,8 +121,9 @@ if __name__ == '__main__':
         exp_name = sys.argv[1]
         sample_name = sys.argv[2]
         task_number = sys.argv[3]
+        cpu_number = sys.argv[4]
         exp_dir_path = os.path.join(data_dir, exp_name)
         if os.path.isdir(exp_dir_path):
-            get_shap_metrics(exp_dir_path, sample_name, task_number)
+            get_shap_metrics(exp_dir_path, sample_name, task_number, cpu_number)
         else:
             print(f'**no exp dir {exp_dir_path}')
