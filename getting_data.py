@@ -69,7 +69,7 @@ def load_sample_data(exp_name, sample_name, sort=None):
             data.sort(key = lambda x: x['year'])
     return data
 
-def load_sample(exp_name, sample_name, sort = None, del_f = ['id', 's2_id'], rank_f=None, query=None, author_as_str=False):
+def load_sample(exp_name, sample_name, sort = None, del_f = ['id', 's2_id'], rank_f=None, query=None, author_as_str=False, task_name = None):
     data = []
     original_dir = os.getcwd()
     if os.getcwd().endswith('/s2search'):
@@ -102,7 +102,7 @@ def load_sample(exp_name, sample_name, sort = None, del_f = ['id', 's2_id'], ran
             dfd = df.drop([x for x in feature_key_list if x != sort], axis=1)
             masked_paper = json.loads(dfd.to_json(orient='records'))
             # ranking
-            masked_scores = rank_f(query, masked_paper)
+            masked_scores = rank_f(query, masked_paper, task_name=task_name)
             scores_df = pd.DataFrame(data={'score': masked_scores})
             return pd.concat([df, scores_df], axis=1).sort_values(by=['score'])           
             

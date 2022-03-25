@@ -8,7 +8,7 @@ import json
 import shutil
 import numpy as np
 import feature_masking as fm
-from ranker_helper import get_scores
+from ranker_helper import get_scores, start_record_paper_count, end_record_paper_count
 
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
 data_loading_line_limit = 100000
@@ -29,7 +29,7 @@ def get_scores_and_save(arg):
 
     original_score_npy_file_name = path.join(
         exp_dir_path_str, 'scores', npy_file_name)
-    scores = get_scores(query, paper_data, ptf=False)
+    scores = get_scores(query, paper_data, ptf=False, task_name=f'masking_{npy_file_name}')
     incomplete_file = str(original_score_npy_file_name) + '#incomplete.txt'
 
     scores = [str(score) for score in scores]
@@ -140,6 +140,7 @@ if __name__ == '__main__':
                                         f'start computing: {original_npy_file}')
 
                                 with open(str(data_file_path)) as f:
+                                    start_record_paper_count(f'{exp_name}_{sample_name}_t{t_count}_origin')
                                     line_count = 0
                                     idx = 0
                                     st = time.time()
@@ -164,6 +165,7 @@ if __name__ == '__main__':
                                             f'{exp_name}_{sample_name}_t{t_count}_origin',
                                             'origin',
                                         ])
+                                    end_record_paper_count(f'{exp_name}_{sample_name}_t{t_count}_origin')
                                     txt_to_npy(exp_dir_path_str, exp_name,
                                                sample_name, f't{t_count}', 'origin', round(time.time() - st, 6))
                             else:
@@ -189,6 +191,7 @@ if __name__ == '__main__':
                                         f'start computing: {feature_masked_npy_file}')
 
                                 with open(str(data_file_path)) as f:
+                                    start_record_paper_count(f'{exp_name}_{sample_name}_t{t_count}_{key}')
                                     line_count = 0
                                     idx = 0
                                     st = time.time()
@@ -221,6 +224,7 @@ if __name__ == '__main__':
                                             f'{exp_name}_{sample_name}_t{t_count}_{key}',
                                             key,
                                         ])
+                                    end_record_paper_count(f'{exp_name}_{sample_name}_t{t_count}_{key}')
                                     txt_to_npy(exp_dir_path_str, exp_name,
                                                sample_name, f't{t_count}', key, round(time.time() - st, 6))
                             else:

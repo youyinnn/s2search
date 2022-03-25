@@ -12,6 +12,7 @@ from multiprocessing import Pool
 import numpy as np
 import psutil
 from pathlib import Path as pt
+import logging
 
 utc_tz = pytz.timezone('America/Montreal')
 
@@ -20,6 +21,41 @@ zj = float(mem.total) / 1024 / 1024 / 1024
 
 gb_ranker = []
 gb_ranker_enable = False
+
+paper_count = 0
+recording_paper_count = False
+
+log_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'model_calls.log')
+
+log = logging.getLogger(__name__)
+log.setLevel(logging.INFO)
+log.addHandler(logging.FileHandler(filename=log_file_path, encoding='utf-8'))
+
+work_load = 1 if math.ceil(zj / 16) == 1 else math.ceil(zj / 16)
+if os.environ.get('S2_MODEL_WORKLOAD') != None:
+    print('using env workload')
+    work_load = int(os.environ.get('S2_MODEL_WORKLOAD'))
+    
+def log_info(task_name, msg):
+    task_name = task_name if task_name != None else 'unnamed task'
+    log.info(f'[{get_time_str()}] [{task_name}]\n{msg}')
+
+def start_record_paper_count(task_name):
+    global recording_paper_count
+    recording_paper_count = True
+    log.info('\n')
+    log_info(task_name, f'============== start ==============')
+    
+def end_record_paper_count(task_name):
+    global recording_paper_count, paper_count
+    current_number = paper_count
+    recording_paper_count = False
+    paper_count = 0
+    log_info(task_name, f'============== end {current_number} ==============')
+    return current_number
+
+def get_time_str():
+    return datetime.datetime.now(tz=utc_tz).strftime("%m/%d/%Y, %H:%M:%S")
 
 def enable_global(ptf = False):
     global gb_ranker_enable
@@ -33,11 +69,6 @@ def disable_global():
     gb_ranker_enable = False
     global gb_ranker
     gb_ranker = []
-
-work_load = 1 if math.ceil(zj / 16) == 1 else math.ceil(zj / 16)
-if os.environ.get('S2_MODEL_WORKLOAD') != None:
-    print('using env workload')
-    work_load = int(os.environ.get('S2_MODEL_WORKLOAD'))
 
 def check_model_existance(default_dir = path.join(os.getcwd(), 's2search_data')):
     while not default_dir.endswith('/s2search'):
@@ -89,7 +120,11 @@ def find_weird_score(scores, paper_list):
     return weird_paper_idx, weird_paper
     
 
-def get_scores(query, paper, task_name=None, ptf=True, force_global = False):
+def get_scores(query, paper, task_name=None, ptf=True, force_global = False):    
+    log_info(task_name, f'get scores for {len(paper)} papers')
+    global recording_paper_count, paper_count
+    if recording_paper_count:
+        paper_count += len(paper)
     st = time.time()
     ts = datetime.datetime.now(tz=utc_tz).strftime("%m/%d/%Y, %H:%M:%S")
     if work_load == 1 or force_global:
@@ -124,6 +159,7 @@ def get_scores(query, paper, task_name=None, ptf=True, force_global = False):
         
     et = round(time.time() - st, 6)
     ts = datetime.datetime.now(tz=utc_tz).strftime("%m/%d/%Y, %H:%M:%S")
+    log_info(task_name, f'task end within {et} sec')
     if ptf:
         print(f"[{'Main taks' if task_name == None else task_name}][{ts}] {len(paper)} scores within {et} sec ")
     if len(scores) == 1:

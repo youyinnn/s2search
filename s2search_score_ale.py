@@ -7,7 +7,7 @@ import multiprocessing
 import numpy as np
 import pandas as pd
 from getting_data import load_sample, read_conf
-from s2search_score_pipelining import get_scores
+from ranker_helper import get_scores, start_record_paper_count, end_record_paper_count
 
 from functools import reduce
 from itertools import product
@@ -62,7 +62,7 @@ def divide_by_percentile(df, sorted_column_name, use_interval_not_quantile, quan
 
     return grids, quantiles
 
-def get_ale(grids, feature_key, query, centered = False):
+def get_ale(grids, feature_key, query, task_name, centered = False):
     curr_accumulated = 0
     ale_result_list = []
     points_ul_pairs_2 = []
@@ -82,7 +82,7 @@ def get_ale(grids, feature_key, query, centered = False):
         
         gaps.append(len(neighbor.index))
     
-    all_diff = fn_over_grid_2(query, points_ul_pairs_2)
+    all_diff = fn_over_grid_2(query, points_ul_pairs_2, task_name)
     all_diffs_split = []
     idx = 0
     for gap in gaps:
@@ -102,7 +102,7 @@ def get_ale(grids, feature_key, query, centered = False):
     else:
         return ale_result_list
 
-def fn_over_grid_2(query, points_ul_pairs):
+def fn_over_grid_2(query, points_ul_pairs, task_name):
     diff_list = []
     paper_list = []
     for point_pair in points_ul_pairs:
@@ -110,7 +110,7 @@ def fn_over_grid_2(query, points_ul_pairs):
         paper_list.append(upper)
         paper_list.append(lower)
     
-    scores = get_scores(query, paper_list, task_name='ale-1w', ptf=False)
+    scores = get_scores(query, paper_list, task_name=task_name, ptf=False)
         # scores = list(map(lambda x: get_scores(query, [x]), paper_list))
 
     idx = 0
@@ -241,37 +241,44 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
     ]
     if not for_2way:
         for feature_name in categorical_features:
+            task_name = f'ale_1w_{output_exp_dir}_{output_data_sample_name}_{feature_name}'
             npz_file_path = path.join(output_exp_dir, 'scores',
                                     f"{output_data_sample_name}_1w_ale_{feature_name}.npz")
             if not os.path.exists(npz_file_path):
-                df = load_sample(data_exp_name, data_sample_name, sort=feature_name, rank_f=get_scores, query=query)
+                start_record_paper_count(task_name)
+                df = load_sample(data_exp_name, data_sample_name, sort=feature_name, rank_f=get_scores, query=query, task_name=f'{task_name}_sorting')
                 values_for_rug = df[feature_name].to_list() if feature_name == 'year' or feature_name == 'n_citations' else None
                     
                 st = time.time()
                 # grids, quantiles = divide_by_percentile(df, feature_name, use_interval_not_quantile, quantile_interval, just_interval)
                 grids, quantiles = get_grids_and_quantiles(df, feature_name, interval_config, quantile_config)
-                ale_result = get_ale(grids, feature_name, query, centered=True)
+                ale_result = get_ale(grids, feature_name, query, task_name=task_name, centered=True)
 
                 et = round(time.time() - st, 6)
                 print(f'\tcompute ale data for {output_data_sample_name}_1w_ale_{feature_name} within {et} sec')
                 if (feature_name == 'authors'):
                     quantiles = [str(x) for x in quantiles]
                 save_pdp_to_npz(output_exp_dir, npz_file_path, quantiles, ale_result, values_for_rug)
+                end_record_paper_count(task_name)
             else:
                 print(f'\t{npz_file_path} exist, should skip')
     
-    else:      
+    else:
         for i in range(len(categorical_features)):
             f1_feature_name = categorical_features[i]
             for j in range(i + 1, len(categorical_features)):
                 f2_feature_name = categorical_features[j]
+                task_name = f'ale_2w_{output_exp_dir}_{output_data_sample_name}_{f1_feature_name}_{f2_feature_name}'
                 npz_file_path = path.join(output_exp_dir, 'scores',
                                     f"{output_data_sample_name}_2w_ale_{f1_feature_name}_{f2_feature_name}.npz")
                 if not os.path.exists(npz_file_path):
                     print(f1_feature_name, f2_feature_name)
+                    start_record_paper_count(task_name)
                     st = time.time()
-                    f1_df = load_sample(data_exp_name, data_sample_name, sort=f1_feature_name, del_f = ['s2_id'], rank_f=get_scores, query=query)
-                    f2_df = load_sample(data_exp_name, data_sample_name, sort=f2_feature_name, del_f = ['s2_id'], rank_f=get_scores, query=query)
+                    f1_df = load_sample(data_exp_name, data_sample_name, sort=f1_feature_name, del_f = ['s2_id'], 
+                                        rank_f=get_scores, query=query, task_name=f'{task_name}_sorting')
+                    f2_df = load_sample(data_exp_name, data_sample_name, sort=f2_feature_name, del_f = ['s2_id'],
+                                        rank_f=get_scores, query=query, task_name=f'{task_name}_sorting')
                     
                     f1_grids, f1_quantiles = get_grids_and_quantiles(f1_df, f1_feature_name, interval_config, quantile_config)
                     f2_grids, f2_quantiles = get_grids_and_quantiles(f2_df, f2_feature_name, interval_config, quantile_config)
@@ -321,7 +328,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                     
                     # print_grids_anc_corner(f1_grids, f1_quantiles, f2_grids, f2_quantiles, four_corner_papers, f1_feature_name, f2_feature_name)
                     
-                    four_corner_paper_scores = get_scores(query, four_corner_papers)
+                    four_corner_paper_scores = get_scores(query, four_corner_papers, task_name='ale-2w', ptf=False)
 
                     curr_idx = 0
                     for row in range(len(f2_grids)):
@@ -356,6 +363,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                     # print(np.sum(neighbors_number_per_grids * ale_values) / np.sum(neighbors_number_per_grids))
                     ale_values -= np.sum(neighbors_number_per_grids * ale_values) / np.sum(neighbors_number_per_grids)
 
+                    end_record_paper_count(task_name)
                     et = round(time.time() - st, 6)
                     print(f'\tcompute ale data for {output_data_sample_name}_2w_ale_{f1_feature_name}_{f2_feature_name} within {et} sec')
                     save_pdp_to_npz_2w(output_exp_dir, npz_file_path, f1_quantiles, f2_quantiles, ale_values)
