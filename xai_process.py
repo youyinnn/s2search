@@ -4,6 +4,7 @@ import sys
 from process import s2search_score_ale
 from process import s2search_score_pipelining
 from process import s2search_score_shap
+from process import s2search_score_anchor
 import plotting_nb_gen
 import ranker_helper
 
@@ -101,7 +102,14 @@ B: {_percentage(cluster_b_count, paper_data_len)}, C: {_percentage(cluster_c_cou
         task_config = sample_config['task'][task_number]
         
         s2search_score_shap.get_sampling_shap_shapley_value(self.exp_dir_path, query, task_config, self.data_info)     
+    
+    def anchor(self, task_number):
+        sample_config = self.get_sample_config_for_this_method('anchor')
+        query = sample_config['query']
+        explainer_configs = sample_config['explainer_configs']
+        task_config = sample_config['task'][task_number]
         
+        s2search_score_anchor.get_anchor_metrics(self.exp_dir_path, query, task_config, explainer_configs, self.data_info)
     
 if __name__ == '__main__':
     if len(sys.argv) > 1:
@@ -126,3 +134,6 @@ if __name__ == '__main__':
                 xps.samplining_shap(task_number)            
             if method == 'check_query':
                 xps.check_query()
+            if method == 'anchor':
+                task_number = int(sys.argv[4])
+                xps.anchor(task_number)

@@ -14,8 +14,6 @@ import psutil
 
 utc_tz = pytz.timezone('America/Montreal')
 
-data_dir = str(os.path.join(os.getcwd(), 'pipelining'))
-
 def get_time_str():
     return datetime.datetime.now(tz=utc_tz).strftime("%m/%d/%Y, %H:%M:%S")
 
@@ -95,7 +93,10 @@ def get_sampling_shap_shapley_value(exp_dir_path, query, task_config, data_info)
     sample_src_exp_name = data_info['sample_src_exp_name']
     rg = task_config['range']
     
-    log_file_path = os.path.join(exp_dir_path, f'{current_sample_name}_shap_{rg}.log')
+    log_dir = os.path.join(exp_dir_path, 'log')
+    if not os.path.exists(log_dir):
+        os.mkdir(log_dir)
+    log_file_path = os.path.join(log_dir, f'{current_sample_name}_shap_{rg}.log')
     
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.INFO)
