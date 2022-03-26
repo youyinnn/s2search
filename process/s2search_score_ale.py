@@ -368,41 +368,55 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
                     print(f'\tcompute ale data for {output_data_sample_name}_2w_ale_{f1_feature_name}_{f2_feature_name} within {et} sec')
                     save_pdp_to_npz_2w(output_exp_dir, npz_file_path, f1_quantiles, f2_quantiles, ale_values)
 
+def get_ale_and_save_score(exp_dir_path, for_2way, sample_config, data_info):
+    
+    current_sample_name = data_info['current_sample_name']
+    sample_src_name = data_info['sample_src_name']
+    sample_src_exp_name = data_info['sample_src_exp_name']
+    
+    print(f'computing ale for {current_sample_name}')
+    for t in sample_config:
+        query = t['query']
+        quantile_config = t.get('quantiles')
+        interval_config = t.get('intervals')
+        compute_and_save(
+            exp_dir_path, current_sample_name, query, quantile_config, interval_config,
+            sample_src_exp_name, sample_src_name, for_2way)
          
-def get_ale_and_save_score(exp_dir_path, exp_name, for_2way):
-    des, sample_configs, sample_from_other_exp = read_conf(exp_dir_path)
+# def get_ale_and_save_score(exp_dir_path, exp_name, for_2way):
+#     des, sample_configs, sample_from_other_exp = read_conf(exp_dir_path)
     
-    tested_sample_list = []
+#     tested_sample_list = []
     
-    for sample_name in sample_configs:
-        if sample_name in sample_from_other_exp.keys():
-            other_exp_name, data_file_name = sample_from_other_exp.get(sample_name)
-            tested_sample_list.append({'exp_name': other_exp_name, 'data_sample_name': sample_name, 'data_source_name': data_file_name.replace('.data', '')})
-        else:
-            tested_sample_list.append({'exp_name': exp_name, 'data_sample_name': sample_name, 'data_source_name': sample_name})
+#     for sample_name in sample_configs:
+#         if sample_name in sample_from_other_exp.keys():
+#             other_exp_name, data_file_name = sample_from_other_exp.get(sample_name)
+#             tested_sample_list.append({'exp_name': other_exp_name, 'data_sample_name': sample_name, 'data_source_name': data_file_name.replace('.data', '')})
+#         else:
+#             tested_sample_list.append({'exp_name': exp_name, 'data_sample_name': sample_name, 'data_source_name': sample_name})
 
-    for tested_sample_config in tested_sample_list:
+#     for tested_sample_config in tested_sample_list:
         
-        tested_sample_name = tested_sample_config['data_sample_name']
-        tested_sample_data_source_name = tested_sample_config['data_source_name']
-        tested_sample_from_exp = tested_sample_config['exp_name']
+#         tested_sample_name = tested_sample_config['data_sample_name']
+#         tested_sample_data_source_name = tested_sample_config['data_source_name']
+#         tested_sample_from_exp = tested_sample_config['exp_name']
         
-        task = sample_configs.get(tested_sample_name)
-        if task != None:
-            print(f'computing ale for {tested_sample_name}')
-            for t in task:
-                try:
-                    query = t['query']
-                    is_for_2way = t.get('twoway') if t.get('twoway') != None else False
-                    quantile_config = t.get('quantiles')
-                    interval_config = t.get('intervals')
-                    compute_and_save(
-                        exp_dir_path, tested_sample_name, query, quantile_config, interval_config,
-                        tested_sample_from_exp, tested_sample_data_source_name, for_2way and is_for_2way)
-                except FileNotFoundError as e:
-                    print(e)
-        else:
-            print(f'**no config for tested sample {tested_sample_name}')
+#         task = sample_configs.get(tested_sample_name)
+#         if task != None:
+#             print(f'computing ale for {tested_sample_name}')
+#             for t in task:
+#                 try:
+#                     query = t['query']
+#                     is_for_2way = t.get('twoway') if t.get('twoway') != None else False
+#                     quantile_config = t.get('quantiles')
+#                     interval_config = t.get('intervals')
+#                     compute_and_save(
+#                         exp_dir_path, tested_sample_name, query, quantile_config, interval_config,
+#                         tested_sample_from_exp, tested_sample_data_source_name, for_2way and is_for_2way)
+#                 except FileNotFoundError as e:
+#                     print(e)
+#         else:
+#             print(f'**no config for tested sample {tested_sample_name}')
 
 
 if __name__ == '__main__':

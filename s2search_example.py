@@ -62,7 +62,7 @@ if __name__ == '__main__':
         })
 
     import time
-    from s2search_score_pipelining import get_scores
+    from ranker_helper import get_scores
 
     st = time.time()
 

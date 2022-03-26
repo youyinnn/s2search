@@ -69,17 +69,13 @@ def load_sample_data(exp_name, sample_name, sort=None):
             data.sort(key = lambda x: x['year'])
     return data
 
-def load_sample(exp_name, sample_name, sort = None, del_f = ['id', 's2_id'], rank_f=None, query=None, author_as_str=False, task_name = None):
+def load_sample(exp_name, sample_name, sort = None, del_f = ['id', 's2_id'], 
+                rank_f=None, query=None, author_as_str=False, task_name = None, not_df=True):
+    
     data = []
-    original_dir = os.getcwd()
-    if os.getcwd().endswith('/s2search'):
-        os.chdir(os.path.join(os.getcwd(), 'pipelining'))
-    else:
-        while not os.getcwd().endswith('/pipelining'):
-            path_parent = os.path.dirname(os.getcwd())
-            os.chdir(path_parent)
+    pipelining_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'pipelining')
 
-    with open(os.path.join(os.getcwd(), exp_name, f'{sample_name}.data')) as f:
+    with open(os.path.join(pipelining_dir, exp_name, f'{sample_name}.data')) as f:
         lines = f.readlines()
         for line in lines:
             jso = json.loads(line.strip())
@@ -91,7 +87,8 @@ def load_sample(exp_name, sample_name, sort = None, del_f = ['id', 's2_id'], ran
                 jso['authors'] = json.dumps(jso['authors'])
             data.append(jso)
             
-    os.chdir(original_dir)
+    if not_df:
+        return data
             
     if sort != None:
         if sort == 'year' or sort == 'n_citations':
@@ -104,9 +101,19 @@ def load_sample(exp_name, sample_name, sort = None, del_f = ['id', 's2_id'], ran
             # ranking
             masked_scores = rank_f(query, masked_paper, task_name=task_name)
             scores_df = pd.DataFrame(data={'score': masked_scores})
-            return pd.concat([df, scores_df], axis=1).sort_values(by=['score'])           
+            return pd.concat([df, scores_df], axis=1).sort_values(by=['score']).astype({
+                'title': 'category',
+                'abstract': 'category',
+                'venue': 'category',
+                'authors': 'category' if author_as_str else 'object',
+            })          
             
-    return pd.read_json(f"[{','.join(list(map(lambda x: json.dumps(x), data)))}]")
+    return pd.read_json(f"[{','.join(list(map(lambda x: json.dumps(x), data)))}]").astype({
+        'title': 'category',
+        'abstract': 'category',
+        'venue': 'category',
+        'authors': 'category' if author_as_str else 'object',
+    })
 
 def read_conf(exp_dir_path):
     conf_path = os.path.join(exp_dir_path, 'conf.yml')

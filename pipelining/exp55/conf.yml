@@ -1,0 +1,61 @@
+description: ""
+samples:
+  cslg:
+    check_query: ["Machine Learning"]
+
+  cscv:
+    check_query: [
+        # "Computer Vision",
+        "Computer Vision Recognition",
+      ]
+    masking:
+      - query: "Computer Vision Recognition"
+        masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
+      - query: "Computer Vision Recognition"
+        masking_option_keys:
+          ["tabs", "tabsv", "tabsvau", "tabsvauy", "tabsvauyc"]
+      - query: "Computer Vision Recognition"
+        masking_option_keys:
+          ["tabsvauc", "tabsvy", "tabsvyc", "tabsvc", "tabsau"]
+      - query: "Computer Vision Recognition"
+        masking_option_keys:
+          ["tabsauy", "tabsauyc", "tabsauc", "tabsy", "tabsyc", "tabsc"]
+      - query: "Computer Vision Recognition"
+        masking_option_keys: ["tv", "tvau", "tvauy", "tvauyc", "tvauc"]
+      - query: "Computer Vision Recognition"
+        masking_option_keys: ["tvy", "tvyc", "tvc", "tau", "tauy"]
+      - query: "Computer Vision Recognition"
+        masking_option_keys: ["tauyc", "tauc", "ty", "tyc", "tc"]
+      - query: "Computer Vision Recognition"
+        masking_option_keys:
+          ["absv", "absvau", "absvauy", "absvauyc", "absvauc", "absvy"]
+      - query: "Computer Vision Recognition"
+        masking_option_keys:
+          ["absvyc", "absvc", "absau", "absauy", "absauyc", "absauc"]
+      - query: "Computer Vision Recognition"
+        masking_option_keys: ["absy", "absyc", "absc"]
+      - query: "Computer Vision Recognition"
+        masking_option_keys: ["vau", "vauy", "vauyc", "vauc", "vy", "vyc"]
+      - query: "Computer Vision Recognition"
+        masking_option_keys: ["vc", "auy", "auyc", "auc", "yc"]
+    ale_1w:
+      - query: "Computer Vision Recognition"
+        quantiles:
+          year: 1
+          n_citations: 1
+          title: 1
+          abstract: 1
+          authors: 1
+          venue: 1
+    ale_2w:
+      - query: "Computer Vision Recognition"
+        quantiles:
+          year: 1
+          n_citations: 1
+          title: 1
+          abstract: 1
+          authors: 1
+          venue: 1
+
+sample_from_other_exp:
+  cslg: ["exp5", "cslg.data"]

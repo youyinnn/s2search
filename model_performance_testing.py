@@ -1,5 +1,5 @@
 from dis import dis
-from s2search_score_pipelining import get_scores
+from ranker_helper import get_scores
 import json
 import time
 import sys

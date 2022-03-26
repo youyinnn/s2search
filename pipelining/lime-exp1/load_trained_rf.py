@@ -1,7 +1,7 @@
 import numpy as np, sys, os, pandas as pd,json, os, time
 sys.path.insert(1, '../../')
 from getting_data import load_sample
-from s2search_score_pipelining import init_ranker
+from ranker_helper import init_ranker
 import sklearn.ensemble
 from sklearn.compose import ColumnTransformer
 from joblib import dump, load

@@ -2,8 +2,8 @@ import os
 import sys
 import time
 import numpy as np
-from s2search_score_pipelining import read_conf
-from getting_data import load_sample, feature_key_list, get_categorical_encoded_data, decode_paper
+from getting_data import read_conf
+from getting_data import get_categorical_encoded_data, decode_paper
 from ranker_helper import get_scores
 from s2search_score_pdp import save_pdp_to_npz
 import pytz
