@@ -203,44 +203,44 @@ def masking_score(pipelining_dir, exp_name, data_info, sample_config):
             else:
                 print(
                     f'Scores of {exp_name}_{current_sample_name}_t{t_count}_{key}.npz exist, should pass')
-    print(f'Done with {exp_name} {file_name}')
+    print(f'Done with {exp_name} {current_sample_name}')
 
 if __name__ == '__main__':    
     if len(sys.argv) > 1:
         exp_list = sys.argv[1:]
-        for exp_name in exp_list:
-            exp_dir_path = path.join(data_dir, exp_name)
-            exp_dir_path_str = str(exp_dir_path)
-            if path.isdir(exp_dir_path):
-                description, sample_configs, sample_from_other_exp = read_conf(
-                    exp_dir_path_str)
-                print(
-                    f'\nRunning s2search ranker on {exp_name} experiment data')
-                print(f'Description of this experiment: {description}')
+        # for exp_name in exp_list:
+        #     exp_dir_path = path.join(data_dir, exp_name)
+        #     exp_dir_path_str = str(exp_dir_path)
+        #     if path.isdir(exp_dir_path):
+        #         description, sample_configs, sample_from_other_exp = read_conf(
+        #             exp_dir_path_str)
+        #         print(
+        #             f'\nRunning s2search ranker on {exp_name} experiment data')
+        #         print(f'Description of this experiment: {description}')
 
-                # scores dir
-                scores_dir = path.join(exp_dir_path_str, 'scores')
-                if not path.exists(str(scores_dir)):
-                    os.mkdir(str(scores_dir))
-                else:
-                    for root, dirs, files in os.walk(scores_dir):
-                        for file_name in files:
-                            # remove score file if it is not configured
-                            if not score_file_is_configured(sample_configs, file_name):
-                                os.remove(
-                                    path.join(exp_dir_path_str, 'scores', file_name))
+        #         # scores dir
+        #         scores_dir = path.join(exp_dir_path_str, 'scores')
+        #         if not path.exists(str(scores_dir)):
+        #             os.mkdir(str(scores_dir))
+        #         else:
+        #             for root, dirs, files in os.walk(scores_dir):
+        #                 for file_name in files:
+        #                     # remove score file if it is not configured
+        #                     if not score_file_is_configured(sample_configs, file_name):
+        #                         os.remove(
+        #                             path.join(exp_dir_path_str, 'scores', file_name))
 
-                # sample_file_list = [f for f in os.listdir(exp_dir_path_str) if path.isfile(path.join(exp_dir_path_str, f)) and f.endswith('.data')]
-                sample_file_list = sample_configs.keys()
+        #         # sample_file_list = [f for f in os.listdir(exp_dir_path_str) if path.isfile(path.join(exp_dir_path_str, f)) and f.endswith('.data')]
+        #         sample_file_list = sample_configs.keys()
 
-                for file_name in sample_file_list:
-                    sample_name = file_name.replace('.data', '')
-                    sample_task_list = sample_configs[sample_name]
+        #         for file_name in sample_file_list:
+        #             sample_name = file_name.replace('.data', '')
+        #             sample_task_list = sample_configs[sample_name]
 
-                    masking_score(sample_name, sample_task_list)
-                print(f'Done with {exp_name}')
+        #             masking_score(sample_name, sample_task_list)
+        #         print(f'Done with {exp_name}')
 
-            else:
-                print(f'\nNo such dir: {str(exp_dir_path)}')
+        #     else:
+        #         print(f'\nNo such dir: {str(exp_dir_path)}')
     else:
         print(f'Please provide the name of the experiment data folder.')

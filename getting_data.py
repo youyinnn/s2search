@@ -70,7 +70,7 @@ def load_sample_data(exp_name, sample_name, sort=None):
     return data
 
 def load_sample(exp_name, sample_name, sort = None, del_f = ['id', 's2_id'], 
-                rank_f=None, query=None, author_as_str=False, task_name = None, not_df=True):
+                rank_f=None, query=None, author_as_str=False, task_name = None, not_df=False):
     
     data = []
     pipelining_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'pipelining')
@@ -128,8 +128,7 @@ def remove_duplicate(seq):
 
 def get_categorical_encoded_data(data_exp_name, data_sample_name, query, paper_data=None):
     if paper_data == None:
-        dff = load_sample(data_exp_name, data_sample_name)
-        paper_data = json.loads(dff.to_json(orient='records'))
+        paper_data = load_sample(data_exp_name, data_sample_name, not_df=True)
         
     categorical_name = {}
     

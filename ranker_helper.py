@@ -37,8 +37,15 @@ if os.environ.get('S2_MODEL_WORKLOAD') != None:
     work_load = int(os.environ.get('S2_MODEL_WORKLOAD'))
     
 def log_info(task_name, msg):
-    task_name = task_name if task_name != None else 'unnamed task'
-    log.info(f'[{get_time_str()}] [{task_name}]\n{msg}')
+    if task_name != None:
+        log.info(f'[{get_time_str()}] [{task_name}]\n{msg}')
+        
+def processing_log(msg):
+    log.info(msg)
+    
+def get_current_paper_count():
+    global paper_count
+    return paper_count
 
 def start_record_paper_count(task_name):
     global recording_paper_count

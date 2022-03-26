@@ -423,11 +423,11 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         exp_list = sys.argv[1:]
         for_2way = '--2w' in exp_list
-        if for_2way:
-            exp_list = [x for x in exp_list if x != '--2w']
-        for exp_name in exp_list:
-            exp_dir_path = path.join(data_dir, exp_name)
-            if path.isdir(exp_dir_path):
-                get_ale_and_save_score(exp_dir_path, exp_name, for_2way)
-            else:
-                print(f'**no exp dir {exp_dir_path}')
+        # if for_2way:
+        #     exp_list = [x for x in exp_list if x != '--2w']
+        # for exp_name in exp_list:
+        #     exp_dir_path = path.join(data_dir, exp_name)
+        #     if path.isdir(exp_dir_path):
+        #         get_ale_and_save_score(exp_dir_path, exp_name, for_2way)
+        #     else:
+        #         print(f'**no exp dir {exp_dir_path}')

@@ -3,6 +3,7 @@ import os
 import sys
 from process import s2search_score_ale
 from process import s2search_score_pipelining
+from process import s2search_score_shap
 import plotting_nb_gen
 import ranker_helper
 
@@ -62,6 +63,10 @@ class XaiProcess:
     def masking(self):
         sample_config = self.get_sample_config_for_this_method('masking')
         s2search_score_pipelining.masking_score(os.path.join(self.work_dir, 'pipelining'), self.exp_name, self.data_info, sample_config)
+        
+    def shapley_value(self):
+        self.masking()
+        plotting_nb_gen.gen_for_shapley_value(self.exp_name, self.description, [self.sample_name])
     
     def check_query(self):
         def _percentage(count, total):
@@ -89,7 +94,13 @@ distribution of {self.data_info['current_sample_name']} is: A: {_percentage(clus
 B: {_percentage(cluster_b_count, paper_data_len)}, C: {_percentage(cluster_c_count, paper_data_len)}")
 
             ranker_helper.end_record_paper_count(f'check query {self.exp_name} {self.sample_name}')
-                    
+                  
+    def samplining_shap(self, task_number):
+        sample_config = self.get_sample_config_for_this_method('smpshap')
+        query = sample_config['query']
+        task_config = sample_config['task'][task_number]
+        
+        s2search_score_shap.get_sampling_shap_shapley_value(self.exp_dir_path, query, task_config, self.data_info)     
         
     
 if __name__ == '__main__':
@@ -107,6 +118,11 @@ if __name__ == '__main__':
             if method == 'ale_2w':
                 xps.ale(is_2w=True)            
             if method == 'masking':
-                xps.masking()            
+                xps.masking() 
+            if method == 'sv':
+                xps.shapley_value()                 
+            if method == 'smpshap':
+                task_number = int(sys.argv[4])
+                xps.samplining_shap(task_number)            
             if method == 'check_query':
                 xps.check_query()

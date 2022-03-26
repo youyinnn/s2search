@@ -4,42 +4,44 @@ samples:
     check_query: ["Machine Learning"]
 
   cscv:
-    check_query: [
-        # "Computer Vision",
+    check_query:
+      [
+        "Computer Vision",
+        "Computer Vision and Pattern Recognition",
         "Computer Vision Recognition",
       ]
     masking:
-      - query: "Computer Vision Recognition"
+      - query: "Computer Vision"
         masking_option_keys: ["t", "abs", "v", "au", "y", "c"]
-      - query: "Computer Vision Recognition"
+      - query: "Computer Vision"
         masking_option_keys:
           ["tabs", "tabsv", "tabsvau", "tabsvauy", "tabsvauyc"]
-      - query: "Computer Vision Recognition"
+      - query: "Computer Vision"
         masking_option_keys:
           ["tabsvauc", "tabsvy", "tabsvyc", "tabsvc", "tabsau"]
-      - query: "Computer Vision Recognition"
+      - query: "Computer Vision"
         masking_option_keys:
           ["tabsauy", "tabsauyc", "tabsauc", "tabsy", "tabsyc", "tabsc"]
-      - query: "Computer Vision Recognition"
+      - query: "Computer Vision"
         masking_option_keys: ["tv", "tvau", "tvauy", "tvauyc", "tvauc"]
-      - query: "Computer Vision Recognition"
+      - query: "Computer Vision"
         masking_option_keys: ["tvy", "tvyc", "tvc", "tau", "tauy"]
-      - query: "Computer Vision Recognition"
+      - query: "Computer Vision"
         masking_option_keys: ["tauyc", "tauc", "ty", "tyc", "tc"]
-      - query: "Computer Vision Recognition"
+      - query: "Computer Vision"
         masking_option_keys:
           ["absv", "absvau", "absvauy", "absvauyc", "absvauc", "absvy"]
-      - query: "Computer Vision Recognition"
+      - query: "Computer Vision"
         masking_option_keys:
           ["absvyc", "absvc", "absau", "absauy", "absauyc", "absauc"]
-      - query: "Computer Vision Recognition"
+      - query: "Computer Vision"
         masking_option_keys: ["absy", "absyc", "absc"]
-      - query: "Computer Vision Recognition"
+      - query: "Computer Vision"
         masking_option_keys: ["vau", "vauy", "vauyc", "vauc", "vy", "vyc"]
-      - query: "Computer Vision Recognition"
+      - query: "Computer Vision"
         masking_option_keys: ["vc", "auy", "auyc", "auc", "yc"]
     ale_1w:
-      - query: "Computer Vision Recognition"
+      - query: "Computer Vision"
         quantiles:
           year: 1
           n_citations: 1
@@ -48,7 +50,7 @@ samples:
           authors: 1
           venue: 1
     ale_2w:
-      - query: "Computer Vision Recognition"
+      - query: "Computer Vision"
         quantiles:
           year: 1
           n_citations: 1
@@ -56,6 +58,25 @@ samples:
           abstract: 1
           authors: 1
           venue: 1
+    smpshap:
+      query: "Computer Vision"
+      task:
+        - range: [1, 8]
+          cpu: 0
+        - range: [2, 8]
+          cpu: 1
+        - range: [3, 8]
+          cpu: 2
+        - range: [4, 8]
+          cpu: 3
+        - range: [5, 8]
+          cpu: 4
+        - range: [6, 8]
+          cpu: 5
+        - range: [7, 8]
+          cpu: 6
+        - range: [8, 8]
+          cpu: 7
 
 sample_from_other_exp:
   cslg: ["exp5", "cslg.data"]

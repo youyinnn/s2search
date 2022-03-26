@@ -4,7 +4,7 @@ import yaml
 import sys
 import nbformat as nbf
 
-data_dir = './pipelining'
+data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'pipelining')
 user_repo = 'DingLi23'
 branch = 'pipelining'
 # user_repo = 'youyinnn'
@@ -910,6 +910,153 @@ pdp_plot(numerical_plot_conf, "ICE Plots for two numerical features")
                 nbf.v4.new_code_cell(plot_data_code),
             ]
             nbf.write(nb, str(ice_nb_file))
+
+
+def gen_for_shapley_value(exp_name, description, sample_list):
+    for sample_name in sample_list:
+        p_nb_file = path.join(data_dir, exp_name,
+                              f'{exp_name}_{sample_name}_shapley_value.ipynb')
+        if (not path.exists(p_nb_file)):
+            print(
+                f'Generating plotting notebook for {exp_name} at {p_nb_file}')
+
+            nb = nbf.v4.new_notebook()
+            nb.metadata.kernelspec = {
+                "display_name": "Python 3",
+                "name": "python3"
+            }
+            nb.metadata.language_info = {
+                "codemirror_mode": {
+                    "name": "ipython",
+                    "version": 3
+                },
+                "file_extension": ".py",
+                "mimetype": "text/x-python",
+                "name": "python",
+                "nbconvert_exporter": "python",
+                "pygments_lexer": "ipython3",
+                "version": "3.9.7"
+            }
+            open_in_colab_href = f'<a href="https://colab.research.google.com/github/{user_repo}/s2search/blob/{branch}/pipelining/{exp_name}/{exp_name}_{sample_name}_shapley_value.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>'
+            exp_des = f'### Experiment Description\n\n{description.strip()}\n\n> This notebook is for experiment \\<{exp_name}\\> and data sample \\<{sample_name}\\>.'
+
+            init_md = '### Initialization'
+            init_code = f'''%reload_ext autoreload
+%autoreload 2
+import numpy as np, sys, os
+sys.path.insert(1, '../../')
+
+from shapley_value import get_shapley_value, feature_key_list
+
+sv = get_shapley_value('{exp_name}', '{sample_name}')
+'''
+
+            plotting_md = '### Plotting'
+            plotting_1_code = f'''import matplotlib.pyplot as plt
+import numpy as np
+from s2search_score_pdp import pdp_based_importance
+
+fig, axs = plt.subplots(nrows=1, ncols=2, figsize=(12, 5), dpi=200)
+
+# generate some random test data
+all_data = []
+average_sv = []
+sv_global_imp = []
+
+for player_sv in [f'{{player}}_sv' for player in feature_key_list]:
+    all_data.append(sv[player_sv])
+    average_sv.append(pdp_based_importance(sv[player_sv]))
+    sv_global_imp.append(np.mean(np.abs(list(sv[player_sv]))))
+    # average_sv.append(np.std(sv[player_sv]))
+    # print(np.max(sv[player_sv]))
+
+# plot violin plot
+axs[0].violinplot(all_data,
+                  showmeans=False,
+                  showmedians=True)
+axs[0].set_title('Violin plot')
+
+# plot box plot
+axs[1].boxplot(all_data, 
+               showfliers=False, 
+               showmeans=True,
+               )
+axs[1].set_title('Box plot')
+
+# adding horizontal grid lines
+for ax in axs:
+    ax.yaxis.grid(True)
+    ax.set_xticks([y + 1 for y in range(len(all_data))],
+                  labels=['title', 'abstract', 'venue', 'authors', 'year', 'n_citations'])
+    ax.set_xlabel('Features')
+    ax.set_ylabel('Shapley Value')
+
+plt.show()
+'''
+
+            plotting_2_code = '''plt.rcdefaults()
+fig, ax = plt.subplots(figsize=(12, 4), dpi=200)
+
+# Example data
+feature_names = ('title', 'abstract', 'venue', 'authors', 'year', 'n_citations')
+y_pos = np.arange(len(feature_names))
+# error = np.random.rand(len(feature_names))
+
+# ax.xaxis.grid(True)
+ax.barh(y_pos, average_sv, align='center', color='#008bfb')
+ax.set_yticks(y_pos, labels=feature_names)
+ax.invert_yaxis()  # labels read top-to-bottom
+ax.set_xlabel('PDP-based Feature Importance on Shapley Value')
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+
+_, xmax = plt.xlim()
+plt.xlim(0, xmax + 1)
+for i, v in enumerate(average_sv):
+    margin = 0.05
+    ax.text(v + margin if v > 0 else margin, i, str(round(v, 4)), color='black', ha='left', va='center')
+
+plt.show()
+'''
+
+            plotting_3_code = '''plt.rcdefaults()
+fig, ax = plt.subplots(figsize=(12, 4), dpi=200)
+
+# Example data
+feature_names = ('title', 'abstract', 'venue', 'authors', 'year', 'n_citations')
+y_pos = np.arange(len(feature_names))
+# error = np.random.rand(len(feature_names))
+
+# ax.xaxis.grid(True)
+ax.barh(y_pos, sv_global_imp, align='center', color='#008bfb')
+ax.set_yticks(y_pos, labels=feature_names)
+ax.invert_yaxis()  # labels read top-to-bottom
+ax.set_xlabel('SHAP Feature Importance')
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+
+_, xmax = plt.xlim()
+plt.xlim(0, xmax + 1)
+for i, v in enumerate(sv_global_imp):
+    margin = 0.05
+    ax.text(v + margin if v > 0 else margin, i, str(round(v, 4)), color='black', ha='left', va='center')
+
+plt.show()
+'''
+
+            nb['cells'] = [
+                nbf.v4.new_markdown_cell(open_in_colab_href),
+                nbf.v4.new_markdown_cell(exp_des),
+
+                nbf.v4.new_markdown_cell(init_md),
+                nbf.v4.new_code_cell(init_code),
+
+                nbf.v4.new_markdown_cell(plotting_md),
+                nbf.v4.new_code_cell(plotting_1_code),
+                nbf.v4.new_code_cell(plotting_2_code),
+                nbf.v4.new_code_cell(plotting_3_code),
+            ]
+            nbf.write(nb, str(p_nb_file))
 
 if __name__ == '__main__':
     if len(sys.argv) >= 2:
