@@ -207,7 +207,7 @@ f_list = [
     'n_citations'
     ]
 ale_xy = {{}}
-ale_metric = pd.DataFrame(columns=['feature_name', 'ale_range', 'ale_importance'])
+ale_metric = pd.DataFrame(columns=['feature_name', 'ale_range', 'ale_importance', 'absolute mean'])
 
 for f in f_list:
     file = os.path.join('.', 'scores', f'{{sample_name}}_1w_ale_{{f}}.npz')
@@ -231,8 +231,8 @@ for f in f_list:
             ale_xy[f]['xticks'] = quantile
             ale_xy[f]['numerical'] = True
             
-        ale_metric.loc[len(ale_metric.index)] = [f, np.max(ale_result) - np.min(ale_result), pdp_based_importance(ale_result, f)]
-               
+        ale_metric.loc[len(ale_metric.index)] = [f, np.max(ale_result) - np.min(ale_result), pdp_based_importance(ale_result, f), np.mean(np.abs(ale_result))]               
+           
         # print(len(ale_result))
         
 print(ale_metric.sort_values(by=['ale_importance'], ascending=False))

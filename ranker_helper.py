@@ -18,6 +18,10 @@ utc_tz = pytz.timezone('America/Montreal')
 
 mem = psutil.virtual_memory()
 zj = float(mem.total) / 1024 / 1024 / 1024
+work_load = 1 if math.ceil(zj / 16) == 1 else math.ceil(zj / 16)
+if os.environ.get('S2_MODEL_WORKLOAD') != None:
+    print('using env workload')
+    work_load = int(os.environ.get('S2_MODEL_WORKLOAD'))
 
 gb_ranker = []
 gb_ranker_enable = False
@@ -25,36 +29,38 @@ gb_ranker_enable = False
 paper_count = 0
 recording_paper_count = False
 
-log_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'model_calls.log')
+ranker_logger = None
 
-log = logging.getLogger(__name__)
-log.setLevel(logging.INFO)
-log.addHandler(logging.FileHandler(filename=log_file_path, encoding='utf-8'))
-
-work_load = 1 if math.ceil(zj / 16) == 1 else math.ceil(zj / 16)
-if os.environ.get('S2_MODEL_WORKLOAD') != None:
-    print('using env workload')
-    work_load = int(os.environ.get('S2_MODEL_WORKLOAD'))
+def set_ranker_logger(exp_dir_path):
+    log_dir = os.path.join(exp_dir_path, 'log')
+    if not os.path.exists(log_dir):
+        os.mkdir(log_dir)
+    log_file_path = os.path.join(log_dir, 'ranker_calls.log')
+    global ranker_logger
+    ranker_logger = logging.getLogger(__name__)
+    ranker_logger.setLevel(logging.INFO)
+    ranker_logger.addHandler(logging.FileHandler(filename=log_file_path, encoding='utf-8'))
     
 def log_info(task_name, msg):
     if task_name != None:
-        log.info(f'[{get_time_str()}] [{task_name}]\n{msg}')
+        ranker_logger.info(f'[{get_time_str()}] [{task_name}]\n{msg}')
         
 def processing_log(msg):
-    log.info(msg)
+    global ranker_logger
+    ranker_logger.info(msg)
     
 def get_current_paper_count():
     global paper_count
     return paper_count
 
 def start_record_paper_count(task_name):
-    global recording_paper_count
+    global recording_paper_count, ranker_logger
     recording_paper_count = True
-    log.info('\n')
+    ranker_logger.info('\n')
     log_info(task_name, f'============== start ==============')
     
 def end_record_paper_count(task_name):
-    global recording_paper_count, paper_count
+    global recording_paper_count, paper_count, ranker_logger
     current_number = paper_count
     recording_paper_count = False
     paper_count = 0

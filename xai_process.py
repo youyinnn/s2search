@@ -12,7 +12,7 @@ method_key = [
     # 'pdp_1w',
     # 'pdp_2w',
     'ale_1w',
-    'ale_2w',
+    # 'ale_2w',
     # 'hs',
     'masking',
     'sv',    
@@ -26,6 +26,7 @@ class XaiProcess:
     def __init__(self, exp_name, sample_name) -> None:
         self.work_dir = os.path.dirname(os.path.abspath(__file__))
         self.exp_dir_path = os.path.join(self.work_dir, 'pipelining', exp_name)
+        ranker_helper.set_ranker_logger(self.exp_dir_path)
         config = getting_data.read_conf(self.exp_dir_path)
         description, sample_configs, samples_from_other_exp_configs = config
         
@@ -48,7 +49,7 @@ class XaiProcess:
 
         self.exp_name = exp_name
         self.sample_name = sample_name
-        
+                
     def get_sample_config_for_this_method(self, method):
         if (type(self.sample_configs[self.sample_name]) == dict):
             # new config
