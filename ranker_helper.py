@@ -31,11 +31,12 @@ recording_paper_count = False
 
 ranker_logger = None
 
-def set_ranker_logger(exp_dir_path):
+def set_ranker_logger(exp_dir_path, method = None):
+    method = method if method != None else 'unknown'
     log_dir = os.path.join(exp_dir_path, 'log')
     if not os.path.exists(log_dir):
         os.mkdir(log_dir)
-    log_file_path = os.path.join(log_dir, 'ranker_calls.log')
+    log_file_path = os.path.join(log_dir, f'ranker_calls_{method}_{datetime.datetime.now(tz=utc_tz).strftime("%m-%d-%Y-%H-%M-%S")}.log')
     global ranker_logger
     ranker_logger = logging.getLogger(__name__)
     ranker_logger.setLevel(logging.INFO)

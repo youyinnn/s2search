@@ -4,7 +4,8 @@ import yaml
 import sys
 import nbformat as nbf
 
-data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'pipelining')
+data_dir = os.path.join(os.path.dirname(
+    os.path.abspath(__file__)), 'pipelining')
 user_repo = 'DingLi23'
 branch = 'pipelining'
 # user_repo = 'youyinnn'
@@ -148,7 +149,8 @@ for sample_data_and_config in sample_data_and_config_arr:
 def gen_for_ale(exp_name, description, sample_list):
     for sample_name in sample_list:
         ale_1w_score_file_name = f'{sample_name}_1w_ale_title.npz'
-        ale_1w_score_file = path.join(data_dir, exp_name, 'scores', ale_1w_score_file_name)
+        ale_1w_score_file = path.join(
+            data_dir, exp_name, 'scores', ale_1w_score_file_name)
         if (path.exists(ale_1w_score_file)):
             ale_1w_nb_file_name = f'{exp_name}_{sample_name}_1w_ale_plotting.ipynb'
             ale_1w_nb_file = path.join(data_dir, exp_name, ale_1w_nb_file_name)
@@ -347,10 +349,10 @@ def pdp_plot(confs, title):
         subplot_idx += 1
 
 pdp_plot(categorical_plot_conf, f"ALE for {len(categorical_plot_conf)} categorical features")
-plt.savefig(os.path.join('.', 'plot', f'{sample_name}-1wale-categorical.png'), facecolor='white', transparent=False, bbox_inches='tight')
+# plt.savefig(os.path.join('.', 'plot', f'{sample_name}-1wale-categorical.png'), facecolor='white', transparent=False, bbox_inches='tight')
 
 pdp_plot(numerical_plot_conf, f"ALE for {len(numerical_plot_conf)} numerical features")
-plt.savefig(os.path.join('.', 'plot', f'{sample_name}-1wale-numerical.png'), facecolor='white', transparent=False, bbox_inches='tight')
+# plt.savefig(os.path.join('.', 'plot', f'{sample_name}-1wale-numerical.png'), facecolor='white', transparent=False, bbox_inches='tight')
 '''
 
                 nb['cells'] = [
@@ -369,9 +371,10 @@ plt.savefig(os.path.join('.', 'plot', f'{sample_name}-1wale-numerical.png'), fac
                 nbf.write(nb, str(ale_1w_nb_file))
         else:
             print(f'no 1-way score file for {sample_name}')
-            
+
         ale_2w_score_file_name = f'{sample_name}_2w_ale_title_abstract.npz'
-        ale_2w_score_file = path.join(data_dir, exp_name, 'scores', ale_2w_score_file_name)
+        ale_2w_score_file = path.join(
+            data_dir, exp_name, 'scores', ale_2w_score_file_name)
         if (path.exists(ale_2w_score_file)):
             ale_2w_nb_file_name = f'{exp_name}_{sample_name}_2w_ale_plotting.ipynb'
             ale_2w_nb_file = path.join(data_dir, exp_name, ale_2w_nb_file_name)
@@ -715,10 +718,11 @@ plt.savefig(os.path.join('.', 'plot', f'{sample_name}-numerical.png'), facecolor
             nbf.write(nb, str(p_nb_file))
 
         ice_nb_file = path.join(data_dir, exp_name,
-                              f'{exp_name}_ice_{sample_name}_plotting.ipynb')
+                                f'{exp_name}_ice_{sample_name}_plotting.ipynb')
         if (not path.exists(ice_nb_file)):
-            print(f'Generating plotting notebook for {exp_name} at {ice_nb_file}')
-        
+            print(
+                f'Generating plotting notebook for {exp_name} at {ice_nb_file}')
+
             nb = nbf.v4.new_notebook()
             nb.metadata.kernelspec = {
                 "display_name": "Python 3",
@@ -1058,6 +1062,7 @@ plt.show()
             ]
             nbf.write(nb, str(p_nb_file))
 
+
 if __name__ == '__main__':
     if len(sys.argv) >= 2:
         exp_name = sys.argv[1]
@@ -1079,6 +1084,6 @@ if __name__ == '__main__':
 
         if exp_name.startswith('pdp'):
             gen_for_pdp(exp_name, description, sample_list)
-            
+
         if exp_name.startswith('ale'):
             gen_for_ale(exp_name, description, sample_list)

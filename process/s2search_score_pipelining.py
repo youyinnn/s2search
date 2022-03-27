@@ -13,11 +13,13 @@ from ranker_helper import get_scores, start_record_paper_count, end_record_paper
 data_dir = str(path.join(os.getcwd(), 'pipelining'))
 data_loading_line_limit = 100000
 
+
 def read_conf(exp_dir_path_str):
     conf_path = path.join(exp_dir_path_str, 'conf.yml')
     with open(str(conf_path), 'r') as f:
         conf = yaml.safe_load(f)
         return conf.get('description'), conf.get('samples'), conf.get('sample_from_other_exp'),
+
 
 def get_scores_and_save(arg):
     query = arg[0]
@@ -28,7 +30,8 @@ def get_scores_and_save(arg):
 
     original_score_npy_file_name = path.join(
         exp_dir_path_str, 'scores', npy_file_name)
-    scores = get_scores(query, paper_data, ptf=False, task_name=f'masking_{npy_file_name}')
+    scores = get_scores(query, paper_data, ptf=False,
+                        task_name=f'masking_{npy_file_name}')
     incomplete_file = str(original_score_npy_file_name) + '#incomplete.txt'
 
     scores = [str(score) for score in scores]
@@ -65,12 +68,13 @@ def txt_to_npy(exp_dir, exp_name, sample_name, task_name, masking_option_key, et
     print(
         f'Score computing for {exp_name}_{sample_name}_{task_name}_{masking_option_key} is done within {et} sec.')
 
+
 def masking_score(pipelining_dir, exp_name, data_info, sample_config):
-    
+
     current_sample_name = data_info['current_sample_name']
     sample_src_name = data_info['sample_src_name']
     sample_src_exp_name = data_info['sample_src_exp_name']
-    
+
     exp_dir_path_str = str(os.path.join(pipelining_dir, exp_name))
 
     t_count = 0
@@ -113,7 +117,8 @@ def masking_score(pipelining_dir, exp_name, data_info, sample_config):
                         f'start computing: {original_npy_file}')
 
                 with open(str(data_file_path)) as f:
-                    start_record_paper_count(f'{exp_name}_{current_sample_name}_t{t_count}_origin')
+                    start_record_paper_count(
+                        f'{exp_name}_{current_sample_name}_t{t_count}_origin')
                     line_count = 0
                     idx = 0
                     st = time.time()
@@ -138,9 +143,10 @@ def masking_score(pipelining_dir, exp_name, data_info, sample_config):
                             f'{exp_name}_{current_sample_name}_t{t_count}_origin',
                             'origin',
                         ])
-                    end_record_paper_count(f'{exp_name}_{current_sample_name}_t{t_count}_origin')
+                    end_record_paper_count(
+                        f'{exp_name}_{current_sample_name}_t{t_count}_origin')
                     txt_to_npy(exp_dir_path_str, exp_name,
-                                current_sample_name, f't{t_count}', 'origin', round(time.time() - st, 6))
+                               current_sample_name, f't{t_count}', 'origin', round(time.time() - st, 6))
             else:
                 print(
                     f'Scores of {exp_name}_{current_sample_name}_t{t_count}_origin.npz exist, should pass')
@@ -164,7 +170,8 @@ def masking_score(pipelining_dir, exp_name, data_info, sample_config):
                         f'start computing: {feature_masked_npy_file}')
 
                 with open(str(data_file_path)) as f:
-                    start_record_paper_count(f'{exp_name}_{current_sample_name}_t{t_count}_{key}')
+                    start_record_paper_count(
+                        f'{exp_name}_{current_sample_name}_t{t_count}_{key}')
                     line_count = 0
                     idx = 0
                     st = time.time()
@@ -197,15 +204,17 @@ def masking_score(pipelining_dir, exp_name, data_info, sample_config):
                             f'{exp_name}_{current_sample_name}_t{t_count}_{key}',
                             key,
                         ])
-                    end_record_paper_count(f'{exp_name}_{current_sample_name}_t{t_count}_{key}')
+                    end_record_paper_count(
+                        f'{exp_name}_{current_sample_name}_t{t_count}_{key}')
                     txt_to_npy(exp_dir_path_str, exp_name,
-                                current_sample_name, f't{t_count}', key, round(time.time() - st, 6))
+                               current_sample_name, f't{t_count}', key, round(time.time() - st, 6))
             else:
                 print(
                     f'Scores of {exp_name}_{current_sample_name}_t{t_count}_{key}.npz exist, should pass')
     print(f'Done with {exp_name} {current_sample_name}')
 
-if __name__ == '__main__':    
+
+if __name__ == '__main__':
     if len(sys.argv) > 1:
         exp_list = sys.argv[1:]
         # for exp_name in exp_list:

@@ -6,12 +6,8 @@ import math
 import multiprocessing
 import numpy as np
 import pandas as pd
-from getting_data import load_sample, read_conf
-from ranker_helper import get_scores, start_record_paper_count, end_record_paper_count
-
-from functools import reduce
-from itertools import product
-from operator import add
+from getting_data import load_sample
+from ranker_helper import get_scores, start_record_paper_count, end_record_paper_count, processing_log
 
 from sys import platform
 from multiprocessing import Pool
@@ -247,6 +243,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, quantile_co
             if not os.path.exists(npz_file_path):
                 start_record_paper_count(task_name)
                 df = load_sample(data_exp_name, data_sample_name, sort=feature_name, rank_f=get_scores, query=query, task_name=f'{task_name}_sorting')
+                # processing_log((df[[feature_name, 'score']].to_json(orient='records')))
                 values_for_rug = df[feature_name].to_list() if feature_name == 'year' or feature_name == 'n_citations' else None
                     
                 st = time.time()
