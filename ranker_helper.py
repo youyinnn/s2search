@@ -43,7 +43,7 @@ def set_ranker_logger(exp_dir_path, method = None):
     ranker_logger.addHandler(logging.FileHandler(filename=log_file_path, encoding='utf-8'))
     
 def log_info(task_name, msg):
-    if task_name != None:
+    if task_name != None and ranker_logger != None:
         ranker_logger.info(f'[{get_time_str()}] [{task_name}]\n{msg}')
         
 def processing_log(msg):
