@@ -4,7 +4,8 @@ import yaml
 import sys
 import nbformat as nbf
 
-data_dir = './pipelining'
+data_dir = os.path.join(os.path.dirname(
+    os.path.abspath(__file__)), 'pipelining')
 user_repo = 'DingLi23'
 branch = 'pipelining'
 # user_repo = 'youyinnn'
@@ -148,7 +149,8 @@ for sample_data_and_config in sample_data_and_config_arr:
 def gen_for_ale(exp_name, description, sample_list):
     for sample_name in sample_list:
         ale_1w_score_file_name = f'{sample_name}_1w_ale_title.npz'
-        ale_1w_score_file = path.join(data_dir, exp_name, 'scores', ale_1w_score_file_name)
+        ale_1w_score_file = path.join(
+            data_dir, exp_name, 'scores', ale_1w_score_file_name)
         if (path.exists(ale_1w_score_file)):
             ale_1w_nb_file_name = f'{exp_name}_{sample_name}_1w_ale_plotting.ipynb'
             ale_1w_nb_file = path.join(data_dir, exp_name, ale_1w_nb_file_name)
@@ -207,7 +209,7 @@ f_list = [
     'n_citations'
     ]
 ale_xy = {{}}
-ale_metric = pd.DataFrame(columns=['feature_name', 'ale_range', 'ale_importance'])
+ale_metric = pd.DataFrame(columns=['feature_name', 'ale_range', 'ale_importance', 'absolute mean'])
 
 for f in f_list:
     file = os.path.join('.', 'scores', f'{{sample_name}}_1w_ale_{{f}}.npz')
@@ -231,22 +233,12 @@ for f in f_list:
             ale_xy[f]['xticks'] = quantile
             ale_xy[f]['numerical'] = True
             
-        ale_metric.loc[len(ale_metric.index)] = [f, np.max(ale_result) - np.min(ale_result), pdp_based_importance(ale_result, f)]
-               
+        ale_metric.loc[len(ale_metric.index)] = [f, np.max(ale_result) - np.min(ale_result), pdp_based_importance(ale_result, f), np.mean(np.abs(ale_result))]               
+           
         # print(len(ale_result))
         
 print(ale_metric.sort_values(by=['ale_importance'], ascending=False))
 print()
-        
-des, sample_configs, sample_from_other_exp = read_conf('.')
-if sample_configs['{sample_name}'][0].get('quantiles') != None:
-    print(f'The following feature choose quantiles as ale bin size:')
-    for k in sample_configs['{sample_name}'][0]['quantiles'].keys():
-        print(f"\t{{k}} with {{sample_configs['{sample_name}'][0]['quantiles'][k]}}% quantile, {{len(ale_xy[k]['x'])}} bins are used")
-if sample_configs['{sample_name}'][0].get('intervals') != None:
-    print(f'The following feature choose fixed amount as ale bin size:')
-    for k in sample_configs['{sample_name}'][0]['intervals'].keys():
-        print(f"\t{{k}} with {{sample_configs['{sample_name}'][0]['intervals'][k]}} values, {{len(ale_xy[k]['x'])}} bins are used")
 '''
 
                 plot_data_md = "### ALE Plots"
@@ -357,10 +349,10 @@ def pdp_plot(confs, title):
         subplot_idx += 1
 
 pdp_plot(categorical_plot_conf, f"ALE for {len(categorical_plot_conf)} categorical features")
-plt.savefig(os.path.join('.', 'plot', f'{sample_name}-1wale-categorical.png'), facecolor='white', transparent=False, bbox_inches='tight')
+# plt.savefig(os.path.join('.', 'plot', f'{sample_name}-1wale-categorical.png'), facecolor='white', transparent=False, bbox_inches='tight')
 
 pdp_plot(numerical_plot_conf, f"ALE for {len(numerical_plot_conf)} numerical features")
-plt.savefig(os.path.join('.', 'plot', f'{sample_name}-1wale-numerical.png'), facecolor='white', transparent=False, bbox_inches='tight')
+# plt.savefig(os.path.join('.', 'plot', f'{sample_name}-1wale-numerical.png'), facecolor='white', transparent=False, bbox_inches='tight')
 '''
 
                 nb['cells'] = [
@@ -379,9 +371,10 @@ plt.savefig(os.path.join('.', 'plot', f'{sample_name}-1wale-numerical.png'), fac
                 nbf.write(nb, str(ale_1w_nb_file))
         else:
             print(f'no 1-way score file for {sample_name}')
-            
+
         ale_2w_score_file_name = f'{sample_name}_2w_ale_title_abstract.npz'
-        ale_2w_score_file = path.join(data_dir, exp_name, 'scores', ale_2w_score_file_name)
+        ale_2w_score_file = path.join(
+            data_dir, exp_name, 'scores', ale_2w_score_file_name)
         if (path.exists(ale_2w_score_file)):
             ale_2w_nb_file_name = f'{exp_name}_{sample_name}_2w_ale_plotting.ipynb'
             ale_2w_nb_file = path.join(data_dir, exp_name, ale_2w_nb_file_name)
@@ -725,10 +718,11 @@ plt.savefig(os.path.join('.', 'plot', f'{sample_name}-numerical.png'), facecolor
             nbf.write(nb, str(p_nb_file))
 
         ice_nb_file = path.join(data_dir, exp_name,
-                              f'{exp_name}_ice_{sample_name}_plotting.ipynb')
+                                f'{exp_name}_ice_{sample_name}_plotting.ipynb')
         if (not path.exists(ice_nb_file)):
-            print(f'Generating plotting notebook for {exp_name} at {ice_nb_file}')
-        
+            print(
+                f'Generating plotting notebook for {exp_name} at {ice_nb_file}')
+
             nb = nbf.v4.new_notebook()
             nb.metadata.kernelspec = {
                 "display_name": "Python 3",
@@ -921,6 +915,154 @@ pdp_plot(numerical_plot_conf, "ICE Plots for two numerical features")
             ]
             nbf.write(nb, str(ice_nb_file))
 
+
+def gen_for_shapley_value(exp_name, description, sample_list):
+    for sample_name in sample_list:
+        p_nb_file = path.join(data_dir, exp_name,
+                              f'{exp_name}_{sample_name}_shapley_value.ipynb')
+        if (not path.exists(p_nb_file)):
+            print(
+                f'Generating plotting notebook for {exp_name} at {p_nb_file}')
+
+            nb = nbf.v4.new_notebook()
+            nb.metadata.kernelspec = {
+                "display_name": "Python 3",
+                "name": "python3"
+            }
+            nb.metadata.language_info = {
+                "codemirror_mode": {
+                    "name": "ipython",
+                    "version": 3
+                },
+                "file_extension": ".py",
+                "mimetype": "text/x-python",
+                "name": "python",
+                "nbconvert_exporter": "python",
+                "pygments_lexer": "ipython3",
+                "version": "3.9.7"
+            }
+            open_in_colab_href = f'<a href="https://colab.research.google.com/github/{user_repo}/s2search/blob/{branch}/pipelining/{exp_name}/{exp_name}_{sample_name}_shapley_value.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>'
+            exp_des = f'### Experiment Description\n\n{description.strip()}\n\n> This notebook is for experiment \\<{exp_name}\\> and data sample \\<{sample_name}\\>.'
+
+            init_md = '### Initialization'
+            init_code = f'''%reload_ext autoreload
+%autoreload 2
+import numpy as np, sys, os
+sys.path.insert(1, '../../')
+
+from shapley_value import get_shapley_value, feature_key_list
+
+sv = get_shapley_value('{exp_name}', '{sample_name}')
+'''
+
+            plotting_md = '### Plotting'
+            plotting_1_code = f'''import matplotlib.pyplot as plt
+import numpy as np
+from s2search_score_pdp import pdp_based_importance
+
+fig, axs = plt.subplots(nrows=1, ncols=2, figsize=(12, 5), dpi=200)
+
+# generate some random test data
+all_data = []
+average_sv = []
+sv_global_imp = []
+
+for player_sv in [f'{{player}}_sv' for player in feature_key_list]:
+    all_data.append(sv[player_sv])
+    average_sv.append(pdp_based_importance(sv[player_sv]))
+    sv_global_imp.append(np.mean(np.abs(list(sv[player_sv]))))
+    # average_sv.append(np.std(sv[player_sv]))
+    # print(np.max(sv[player_sv]))
+
+# plot violin plot
+axs[0].violinplot(all_data,
+                  showmeans=False,
+                  showmedians=True)
+axs[0].set_title('Violin plot')
+
+# plot box plot
+axs[1].boxplot(all_data, 
+               showfliers=False, 
+               showmeans=True,
+               )
+axs[1].set_title('Box plot')
+
+# adding horizontal grid lines
+for ax in axs:
+    ax.yaxis.grid(True)
+    ax.set_xticks([y + 1 for y in range(len(all_data))],
+                  labels=['title', 'abstract', 'venue', 'authors', 'year', 'n_citations'])
+    ax.set_xlabel('Features')
+    ax.set_ylabel('Shapley Value')
+
+plt.show()
+'''
+
+            plotting_2_code = '''plt.rcdefaults()
+fig, ax = plt.subplots(figsize=(12, 4), dpi=200)
+
+# Example data
+feature_names = ('title', 'abstract', 'venue', 'authors', 'year', 'n_citations')
+y_pos = np.arange(len(feature_names))
+# error = np.random.rand(len(feature_names))
+
+# ax.xaxis.grid(True)
+ax.barh(y_pos, average_sv, align='center', color='#008bfb')
+ax.set_yticks(y_pos, labels=feature_names)
+ax.invert_yaxis()  # labels read top-to-bottom
+ax.set_xlabel('PDP-based Feature Importance on Shapley Value')
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+
+_, xmax = plt.xlim()
+plt.xlim(0, xmax + 1)
+for i, v in enumerate(average_sv):
+    margin = 0.05
+    ax.text(v + margin if v > 0 else margin, i, str(round(v, 4)), color='black', ha='left', va='center')
+
+plt.show()
+'''
+
+            plotting_3_code = '''plt.rcdefaults()
+fig, ax = plt.subplots(figsize=(12, 4), dpi=200)
+
+# Example data
+feature_names = ('title', 'abstract', 'venue', 'authors', 'year', 'n_citations')
+y_pos = np.arange(len(feature_names))
+# error = np.random.rand(len(feature_names))
+
+# ax.xaxis.grid(True)
+ax.barh(y_pos, sv_global_imp, align='center', color='#008bfb')
+ax.set_yticks(y_pos, labels=feature_names)
+ax.invert_yaxis()  # labels read top-to-bottom
+ax.set_xlabel('SHAP Feature Importance')
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+
+_, xmax = plt.xlim()
+plt.xlim(0, xmax + 1)
+for i, v in enumerate(sv_global_imp):
+    margin = 0.05
+    ax.text(v + margin if v > 0 else margin, i, str(round(v, 4)), color='black', ha='left', va='center')
+
+plt.show()
+'''
+
+            nb['cells'] = [
+                nbf.v4.new_markdown_cell(open_in_colab_href),
+                nbf.v4.new_markdown_cell(exp_des),
+
+                nbf.v4.new_markdown_cell(init_md),
+                nbf.v4.new_code_cell(init_code),
+
+                nbf.v4.new_markdown_cell(plotting_md),
+                nbf.v4.new_code_cell(plotting_1_code),
+                nbf.v4.new_code_cell(plotting_2_code),
+                nbf.v4.new_code_cell(plotting_3_code),
+            ]
+            nbf.write(nb, str(p_nb_file))
+
+
 if __name__ == '__main__':
     if len(sys.argv) >= 2:
         exp_name = sys.argv[1]
@@ -942,6 +1084,6 @@ if __name__ == '__main__':
 
         if exp_name.startswith('pdp'):
             gen_for_pdp(exp_name, description, sample_list)
-            
+
         if exp_name.startswith('ale'):
             gen_for_ale(exp_name, description, sample_list)

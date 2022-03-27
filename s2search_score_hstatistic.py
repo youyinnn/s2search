@@ -8,7 +8,7 @@ import math
 import numpy as np
 import pandas as pd
 from getting_data import load_sample
-from s2search_score_pipelining import get_scores
+from ranker_helper import get_scores
 from s2search_score_pdp import compute_pdp
 pd.options.display.float_format = '{:,.10f}'.format
 pd.set_option('display.expand_frame_repr', False)

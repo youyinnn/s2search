@@ -7,7 +7,7 @@ import json
 import numpy as np
 from getting_data import load_sample
 try:
-  from s2search_score_pipelining import get_scores
+  from ranker_helper import get_scores
 except ModuleNotFoundError as e:
   print(f's2search_score_pdp', e)
 

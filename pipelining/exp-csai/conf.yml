@@ -1,0 +1,60 @@
+description: ""
+samples:
+  csai:
+    check_query: [
+        "Artificial Intelligence", # A: 2497(6.35%), B: 1549(3.94%), C: 35298(89.72%)
+        "Computer Science", # A: 445(1.13%), B: 2889(7.34%), C: 36010(91.53%)
+        "Machine Learning", # A: 4410(11.21%), B: 13908(35.35%), C: 21026(53.44%)
+      ]
+    masking:
+      - query: "Machine Learning"
+    ale_1w:
+      - query: "Machine Learning"
+        intervals:
+          year: 1000
+          n_citations: 1000
+          title: 1000
+          abstract: 1000
+          authors: 1000
+          venue: 1000
+    smpshap:
+      query: "Machine Learning"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+    anchor:
+      query: "Machine Learning"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]

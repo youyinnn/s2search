@@ -1,0 +1,67 @@
+description: ""
+samples:
+  cslg:
+    check_query: ["Machine Learning"]
+
+  cscv:
+    check_query:
+      [
+        "Computer Vision",
+        "Computer Vision and Pattern Recognition",
+        "Computer Vision Recognition",
+      ]
+    masking:
+      - query: "Computer Vision"
+    ale_1w:
+      - query: "Computer Vision"
+        quantiles:
+          year: 2
+          n_citations: 2
+          title: 2
+          abstract: 2
+          authors: 2
+          venue: 2
+    smpshap:
+      query: "Computer Vision"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+    anchor:
+      query: "Computer Vision"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+
+sample_from_other_exp:
+  cslg: ["exp5", "cslg.data"]

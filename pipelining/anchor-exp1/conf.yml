@@ -1,16 +1,28 @@
 description: ""
 samples:
   cslg:
-    - query: "Machine Learning"
-      range: [0, 10000]
-    # - query: "Machine Learning"
-    #   range: [20000, 40000]
-    # - query: "Machine Learning"
-    #   range: [40000, 60000]
-    # - query: "Machine Learning"
-    #   range: [60000, 80000]
-    # - query: "Machine Learning"
-    #   range: [80000, 92937]
+    anchor:
+      query: "Machine Learning"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
 
 sample_from_other_exp:
   cslg: ["exp5", "cslg.data"]

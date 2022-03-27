@@ -73,7 +73,8 @@ def get_individual_sv_list(task_args):
                 score_of_coalition_without_player = get_ith_instance_pred_by_coalition(i, coalition_without_player, sample_data_and_config_arr)
                 
                 # print(coalition_with_player, coalition_without_player, code_for_coalition_without_player, 
-                #       elem_number_of_s, score_of_coalition_with_player, score_of_coalition_without_player, (score_of_coalition_with_player - score_of_coalition_without_player))
+                #       elem_number_of_s, score_of_coalition_with_player, score_of_coalition_without_player, 
+                #       (score_of_coalition_with_player - score_of_coalition_without_player))
                 
                 sum_ += f_s * factorial((p - 1 - elem_number_of_s)) * (score_of_coalition_with_player - score_of_coalition_without_player)
             sv_for_all_feature.append(sum_ / f_p)
