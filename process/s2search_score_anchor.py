@@ -55,7 +55,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
     logger.info(f'\n[{get_time_str()}] start anchor metrics')
     paper_data = load_sample(data_exp_name, data_sample_name, not_df=True)
 
-    task_name = f'get prediction of paper data for {output_exp_dir} {output_data_sample_name}'
+    task_name = f'get prediction of paper data for {output_exp_dir} {output_data_sample_name} {rg}'
     start_record_paper_count(task_name)
     y_pred_file = os.path.join(output_exp_dir, 'scores', f'{data_sample_name}_y_pred.npz')
     if not os.path.exists(y_pred_file):
@@ -68,7 +68,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
     # make class_name
     class_name = ['(,-17]','(-17, -10]','(-10, -5]','(-5, <0]','(0, 3]','(3, 5]','(5, 6]','(6, 7]','(7, 8]','(8, 9]','(9,)']
     
-    task_name = f'get categorical paper data for {output_exp_dir} {output_data_sample_name}'
+    task_name = f'get categorical paper data for {output_exp_dir} {output_data_sample_name} {rg}'
     start_record_paper_count(task_name)
     categorical_name, paper_data = get_categorical_encoded_data(data_exp_name, data_sample_name, query, paper_data)
     end_record_paper_count(task_name)
@@ -117,7 +117,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
         )
         previous_work_idx = previous_data['idx'][0] + 1
 
-    task_name = f'get anchor metrics for {output_exp_dir} {output_data_sample_name} from index: {previous_work_idx} to {end - 1}'
+    task_name = f'get anchor metrics for {output_exp_dir} {output_data_sample_name} {rg} from index: {previous_work_idx} to {end - 1}'
     start_record_paper_count(task_name)
     
     sst = time.time()
@@ -141,7 +141,10 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
         
         if count % 10 == 0:
             ett = round(time.time() - sst, 6)
-            logger.info(f'[{get_time_str()}] ({i} / {end - 1}) {metrics_to_str(metrics)} within ({ett} total / {round(ett / count, 4)} average)')
+            avg_time = round(ett / count, 4)
+            logger.info(f'[{get_time_str()}] ({i} / {end - 1}) {metrics_to_str(metrics)} \
+within ({ett} total / {avg_time} average)')
+            logger.info(f'estimate time left: {datetime.timedelta(seconds=((end-previous_work_idx-count) * avg_time))}')
             save_pdp_to_npz('.', metrics_npz_file, 
                 title=metrics['title'],
                 abstract=metrics['abstract'],
@@ -174,61 +177,11 @@ def get_anchor_metrics(exp_dir_path, query, task_config, explainer_configs, data
     
     if sys.platform != "darwin":
         p = psutil.Process()
-        worker = int(task_config['cpu'])
-        logger.info(f"Child #{worker}: {p}, affinity {p.cpu_affinity()}", flush=True)
-        p.cpu_affinity([worker])
-        logger.info(f"Child #{worker}: Set my affinity to {worker}, affinity now {p.cpu_affinity()}", flush=True)
+        worker = task_config['cpu']
+        logger.info(f"\nChild #{worker}: {p}, affinity {p.cpu_affinity()}")
+        p.cpu_affinity(worker)
+        logger.info(f"Child #{worker}: Set my affinity to {worker}, affinity now {p.cpu_affinity()}")
         
     compute_and_save(
         exp_dir_path, current_sample_name, query, rg,
         sample_src_exp_name, sample_src_name, logger, explainer_configs)
-    
-
-# def get_anchor_metrics(exp_dir_path, sample_name, task_number, cpu_number):
-
-#     if sys.platform != "darwin":
-#         p = psutil.Process()
-#         worker = int(cpu_number)
-#         print(f"Child #{worker}: {p}, affinity {p.cpu_affinity()}", flush=True)
-#         p.cpu_affinity([worker])
-#         print(f"Child #{worker}: Set my affinity to {worker}, affinity now {p.cpu_affinity()}", flush=True)
-
-#     des, sample_configs, sample_from_other_exp = read_conf(exp_dir_path)
-    
-#     if sample_name in sample_from_other_exp.keys():
-#         other_exp_name, data_file_name = sample_from_other_exp.get(sample_name)
-#         tested_sample_config = {'exp_name': other_exp_name, 'data_sample_name': sample_name, 'data_source_name': data_file_name.replace('.data', '')}
-#     else:
-#         tested_sample_config = {'exp_name': exp_name, 'data_sample_name': sample_name, 'data_source_name': sample_name}
-    
-#     tested_sample_name = tested_sample_config['data_sample_name']
-#     tested_sample_data_source_name = tested_sample_config['data_source_name']
-#     tested_sample_from_exp = tested_sample_config['exp_name']
-    
-#     task = sample_configs.get(tested_sample_name)
-#     if task != None:
-#         t = task[int(task_number) - 1]
-#         query = t['query']
-#         rg = t['range']
-#         logging.basicConfig(filename=f"{tested_sample_name}_{rg}.log", encoding='utf-8', level=logging.INFO)
-#         try:
-#             compute_and_save(
-#                 exp_dir_path, tested_sample_name, query, rg,
-#                 tested_sample_from_exp, tested_sample_data_source_name)
-#         except FileNotFoundError as e:
-#             logging.error(e)
-#     else:
-#         logging.warning(f'**no config for tested sample {tested_sample_name}')
-            
-            
-# if __name__ == '__main__':
-#     if len(sys.argv) > 1:
-#         exp_name = sys.argv[1]
-#         sample_name = sys.argv[2]
-#         task_number = sys.argv[3]
-#         cpu_number = sys.argv[4]
-#         exp_dir_path = os.path.join(data_dir, exp_name)
-#         if os.path.isdir(exp_dir_path):
-#             get_anchor_metrics(exp_dir_path, sample_name, task_number, cpu_number)
-#         else:
-#             print(f'**no exp dir {exp_dir_path}')

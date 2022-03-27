@@ -104,10 +104,10 @@ def get_sampling_shap_shapley_value(exp_dir_path, query, task_config, data_info)
     
     if sys.platform != "darwin":
         p = psutil.Process()
-        worker = int(task_config['cpu'])
-        logger.info(f"Child #{worker}: {p}, affinity {p.cpu_affinity()}", flush=True)
-        p.cpu_affinity([worker])
-        logger.info(f"Child #{worker}: Set my affinity to {worker}, affinity now {p.cpu_affinity()}", flush=True)
+        worker = task_config['cpu']
+        logger.info(f"Child #{worker}: {p}, affinity {p.cpu_affinity()}")
+        p.cpu_affinity(worker)
+        logger.info(f"Child #{worker}: Set my affinity to {worker}, affinity now {p.cpu_affinity()}")
     
     compute_and_save(
         exp_dir_path, current_sample_name, query, rg,
