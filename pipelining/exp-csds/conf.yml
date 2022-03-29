@@ -1,0 +1,61 @@
+description: ""
+samples:
+  csds:
+    check_query: [
+        "Data Structures and Algorithms", # : A: 268(1.41%), B: 9958(52.36%), C: 8791(46.23%)
+        "Data Structures", #  A: 736(3.87%), B: 3400(17.88%), C: 14881(78.25%)
+        "Algorithms", #  A: 7786(40.94%), B: 0(0.0%), C: 11231(59.06%)
+        "data structures and analysis of algorithms", # A: 39(0.21%), B: 10973(57.7%), C: 8005(42.09%)
+      ]
+    masking:
+      - query: "Algorithms"
+    ale_1w:
+      - query: "Algorithms"
+        quantiles:
+          year: 1
+          n_citations: 1
+          title: 1
+          abstract: 1
+          authors: 1
+          venue: 1
+    smpshap:
+      query: "Algorithms"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+    anchor:
+      query: "Algorithms"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
