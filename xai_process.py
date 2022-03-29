@@ -93,6 +93,11 @@ class XaiProcess:
     def __init__(self, exp_name, sample_name) -> None:
         self.work_dir = os.path.dirname(os.path.abspath(__file__))
         self.exp_dir_path = os.path.join(self.work_dir, 'pipelining', exp_name)
+
+        scores_dir = os.path.join(self.exp_dir_path, 'scores')
+        if not os.path.exists(scores_dir):
+            os.mkdir(scores_dir)
+
         config = getting_data.read_conf(self.exp_dir_path)
         description, sample_configs, samples_from_other_exp_configs = config
 
