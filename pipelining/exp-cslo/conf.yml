@@ -1,0 +1,62 @@
+description: ""
+samples:
+  cslo:
+    check_query: [
+        "Logic Computer", # A: 522(4.38%), B: 4549(38.17%), C: 6847(57.45%)
+        "Logic", # A: 4604(38.63%), B: 0(0.0%), C: 7314(61.37%)
+        "model theory", # A: 660(5.54%), B: 4331(36.34%), C: 6927(58.12%)
+        "logics of programs", # A: 100(0.84%), B: 2374(19.92%), C: 9444(79.24%)
+      
+      ]
+    masking:
+      - query: "Logic"
+    ale_1w:
+      - query: "Logic"
+        quantiles:
+          year: 1
+          n_citations: 1
+          title: 1
+          abstract: 1
+          authors: 1
+          venue: 1
+    smpshap:
+      query: "Logic"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+    anchor:
+      query: "Logic"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]

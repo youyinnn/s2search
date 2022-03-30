@@ -950,9 +950,9 @@ def gen_for_shapley_value(exp_name, description, sample_list):
 import numpy as np, sys, os
 sys.path.insert(1, '../../')
 
-from shapley_value import get_shapley_value, feature_key_list
+from shapley_value import compute_shapley_value, feature_key_list
 
-sv = get_shapley_value('{exp_name}', '{sample_name}')
+sv = compute_shapley_value('{exp_name}', '{sample_name}')
 '''
 
             plotting_md = '### Plotting'

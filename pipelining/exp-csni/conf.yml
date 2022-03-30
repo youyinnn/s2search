@@ -1,0 +1,61 @@
+description: ""
+samples:
+  csni:
+    check_query: [
+        "Networking and Internet Architecture", # A: 103(0.63%), B: 5137(31.28%), C: 11182(68.09%)
+        "communication networks", # A: 2256(13.74%), B: 8369(50.96%), C: 5797(35.3%)
+        "Network", # A: 9641(58.71%), B: 0(0.0%), C: 6781(41.29%)
+
+      ]
+    masking:
+      - query: "communication networks"
+    ale_1w:
+      - query: "communication networks"
+        quantiles:
+          year: 7
+          n_citations: 7
+          title: 7
+          abstract: 7
+          authors: 7
+          venue: 7
+    smpshap:
+      query: "communication networks"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+    anchor:
+      query: "communication networks"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]

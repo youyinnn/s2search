@@ -1,0 +1,63 @@
+description: ""
+samples:
+  cshc:
+    check_query: [
+        # "Human-Computer Interaction", # A: 321(3.73%), B: 3547(41.21%), C: 4740(55.07%)
+        # "HCI", # A: 259(3.01%), B: 0(0.0%), C: 8349(96.99%)
+        # "Human", # A: 2383(27.68%), B: 0(0.0%), C: 6225(72.32%)
+        "Human Computer", # A: 544(6.32%),     B: 2745(31.89%), C: 5319(61.79%)
+        "Human Interaction", # A: 752(8.74%),     B: 2297(26.68%), C: 5559(64.58%)
+        "Human Computer Interaction", # A: 321(3.73%),     B: 3547(41.21%), C: 4740(55.07%)
+      ]
+    masking:
+      - query: "Human Interaction"
+    ale_1w:
+      - query: "Human Interaction"
+        quantiles:
+          year: 5
+          n_citations: 5
+          title: 5
+          abstract: 5
+          authors: 5
+          venue: 5
+    smpshap:
+      query: "Human Interaction"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+    anchor:
+      query: "Human Interaction"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]

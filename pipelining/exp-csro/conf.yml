@@ -1,0 +1,61 @@
+description: ""
+samples:
+  csro:
+    check_query: [
+        "Robotics", # A: 4969(30.89%), B: 0(0.0%), C: 11119(69.11%)
+        "Machine", # A: 748(4.65%), B: 0(0.0%), C: 15340(95.35%)
+        "Auto", #  A: 76(0.47%), B: 0(0.0%), C: 16012(99.53%)
+        "Automation", # A: 2862(17.79%), B: 0(0.0%), C: 13226(82.21%)
+      ]
+    masking:
+      - query: "Robotics"
+    ale_1w:
+      - query: "Robotics"
+        quantiles:
+          year: 1
+          n_citations: 1
+          title: 1
+          abstract: 1
+          authors: 1
+          venue: 1
+    smpshap:
+      query: "Robotics"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+    anchor:
+      query: "Robotics"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
