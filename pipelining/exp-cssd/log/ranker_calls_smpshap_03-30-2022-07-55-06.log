@@ -1,0 +1,69 @@
+
+
+[03/30/2022, 07:55:06] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-cssd cssd]
+============== start ==============
+[03/30/2022, 07:55:16] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-cssd cssd]
+============== end 28184 ==============
+
+
+[03/30/2022, 07:55:16] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-cssd cssd]
+============== start ==============
+[03/30/2022, 07:55:20] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-cssd cssd]
+============== end 5636 ==============
+
+
+[03/30/2022, 07:55:20] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-cssd cssd]
+============== start ==============
+instances left: 167
+estimating time left: 0:09:41.594200
+---- 10:40010
+instances left: 157
+estimating time left: 0:09:31.181700
+---- 20:80020
+instances left: 147
+estimating time left: 0:08:48.538500
+---- 30:120030
+instances left: 137
+estimating time left: 0:08:12.405400
+---- 40:160040
+instances left: 127
+estimating time left: 0:07:35.269600
+---- 50:200050
+instances left: 117
+estimating time left: 0:06:58.848300
+---- 60:240060
+instances left: 107
+estimating time left: 0:06:22.856700
+---- 70:280070
+instances left: 97
+estimating time left: 0:05:46.775000
+---- 80:320080
+instances left: 87
+estimating time left: 0:05:11.781900
+---- 90:360090
+instances left: 77
+estimating time left: 0:04:35.405900
+---- 100:400100
+instances left: 67
+estimating time left: 0:04:00.375900
+---- 110:440110
+instances left: 57
+estimating time left: 0:03:24.493200
+---- 120:480120
+instances left: 47
+estimating time left: 0:02:48.894500
+---- 130:520130
+instances left: 37
+estimating time left: 0:02:13.285100
+---- 140:560140
+instances left: 27
+estimating time left: 0:01:37.524000
+---- 150:600150
+instances left: 17
+estimating time left: 0:01:01.325800
+---- 160:640160
+instances left: 7
+estimating time left: 0:00:25.265100
+---- 170:680170
+[03/30/2022, 08:05:34] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-cssd cssd]
+============== end 680170 ==============
