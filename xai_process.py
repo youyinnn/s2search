@@ -154,7 +154,11 @@ class XaiProcess:
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         exp_list = [md
-                    for md in sys.argv[1:] if not md.startswith('--')]
+                    for md in sys.argv[1:] if not md.startswith('--') and md not in [str(n) for n in range(20)]]
+
+        task_number_from_arg = [md
+                                for md in sys.argv[1:] if md in [str(n) for n in range(20)]]
+
         method = [md.replace('--', '')
                   for md in sys.argv if md.startswith('--')][0]
 
@@ -172,11 +176,11 @@ if __name__ == '__main__':
                 if method == 'sv':
                     xps.shapley_value()
                 if method == 'smpshap':
-                    task_number = int(sys.argv[4])
+                    task_number = int(task_number_from_arg[0])
                     xps.samplining_shap(task_number)
                 if method == 'check_query':
                     xps.check_query()
                 if method == 'anchor':
-                    task_number = int(sys.argv[4])
+                    task_number = int(task_number_from_arg[0])
                     xps.anchor(task_number)
                 xps.remove_empty_log()
