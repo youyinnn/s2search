@@ -1,0 +1,58 @@
+description: ""
+samples:
+  cscc:
+    check_query: [
+        "Computational Complexity", # A: 1199(13.7%), B: 3479(39.75%), C: 4074(46.55%)
+      ]
+    masking:
+      - query: "Computational Complexity"
+    ale_1w:
+      - query: "Computational Complexity"
+        quantiles:
+          year: 5
+          n_citations: 5
+          title: 5
+          abstract: 5
+          authors: 5
+          venue: 5
+    smpshap:
+      query: "Computational Complexity"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+    anchor:
+      query: "Computational Complexity"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]

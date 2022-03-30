@@ -1,0 +1,63 @@
+description: ""
+samples:
+  csne:
+    check_query: [
+        "Neural and Evolutionary Computing", #  A: 28(0.28%), B: 6632(67.44%), C: 3174(32.28%)
+        "neural networks", #  A: 3707(37.7%), B: 2053(20.88%), C: 4074(41.43%)
+        "connectionism", 
+        "genetic algorithms", 
+        "artificial life", 
+        "adaptive behavior",
+      ]
+    masking:
+      - query: "neural networks"
+    ale_1w:
+      - query: "neural networks"
+        quantiles:
+          year: 1
+          n_citations: 1
+          title: 1
+          abstract: 1
+          authors: 1
+          venue: 1
+    smpshap:
+      query: "neural networks"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+    anchor:
+      query: "neural networks"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]

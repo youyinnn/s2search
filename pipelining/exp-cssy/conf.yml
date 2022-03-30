@@ -1,0 +1,61 @@
+description: ""
+samples:
+  cssy:
+    check_query: [
+        "Systems and Control", # A: 5069(28.46%), B: 7825(43.93%), C: 4918(27.61%)
+        "automatic",
+        "control system",
+        "modeling, simulation and optimization",
+      ]
+    masking:
+      - query: "Systems and Control"
+    ale_1w:
+      - query: "Systems and Control"
+        quantiles:
+          year: 10
+          n_citations: 10
+          title: 10
+          abstract: 10
+          authors: 10
+          venue: 10
+    smpshap:
+      query: "Systems and Control"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+    anchor:
+      query: "Systems and Control"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]

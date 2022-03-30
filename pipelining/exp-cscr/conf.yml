@@ -1,0 +1,62 @@
+description: ""
+samples:
+  cscr:
+    check_query: [
+        "Secure", #A: 3446(17.79%), B: 0(0.0%), C: 15928(82.21%)
+        "Cryptography Security", # A: 518(2.67%), B: 7773(40.12%), C: 11083(57.21%)
+        "Protecting", # A: 1106(5.71%), B: 0(0.0%), C: 18268(94.29%)
+        "Security", #A: 7703(39.76%), B: 0(0.0%), C: 11671(60.24%)
+
+      ]
+    masking:
+      - query: "Security"
+    ale_1w:
+      - query: "Security"
+        quantiles:
+          year: 5
+          n_citations: 5
+          title: 5
+          abstract: 5
+          authors: 5
+          venue: 5
+    smpshap:
+      query: "Security"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+    anchor:
+      query: "Security"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]

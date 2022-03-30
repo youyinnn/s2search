@@ -1,0 +1,61 @@
+description: ""
+samples:
+  csdm:
+    check_query: [
+        "Discrete Mathematics", # A: 91(0.87%), B: 673(6.44%), C: 9680(92.68%)
+        "graph theory", #A: 702(6.72%), B: 4818(46.13%), C: 4924(47.15%)
+        "applications of probability", # A: 63(0.6%), B: 1332(12.75%), C: 9049(86.64%)
+        "Mathematics", # A: 214(2.05%), B: 0(0.0%), C: 10230(97.95%)
+      ]
+    masking:
+      - query: "graph theory"
+    ale_1w:
+      - query: "graph theory"
+        quantiles:
+          year: 5
+          n_citations: 5
+          title: 5
+          abstract: 5
+          authors: 5
+          venue: 5
+    smpshap:
+      query: "graph theory"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+    anchor:
+      query: "graph theory"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]

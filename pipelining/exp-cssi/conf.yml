@@ -1,0 +1,60 @@
+description: ""
+samples:
+  cssi:
+    check_query: [
+        "Social and Information Networks", #  A: 1241(8.69%), B: 10064(70.48%), C: 2974(20.83%)
+        "Social Networks", # A: 3572(25.02%), B: 6731(47.14%), C: 3976(27.85%)
+        "Information Networks", #  A: 2153(15.08%), B: 7125(49.9%), C: 5001(35.02%)
+      ]
+    masking:
+      - query: "Social Networks"
+    ale_1w:
+      - query: "Social Networks"
+        quantiles:
+          year: 10
+          n_citations: 10
+          title: 10
+          abstract: 10
+          authors: 10
+          venue: 10
+    smpshap:
+      query: "Social Networks"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+    anchor:
+      query: "Social Networks"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]

@@ -1,0 +1,66 @@
+description: ""
+samples:
+  cscy:
+    check_query: [
+        # "technology policy", # A: 69(0.63%), B: 1852(16.85%), C: 9073(82.53%)
+        # "Computers and Society", # A: 12(0.11%), B: 711(6.47%), C: 10271(93.42%)
+        # "computer ethics", # A: 27(0.25%), B: 1065(9.69%), C: 9902(90.07%)
+        # "information technology and public policy", #  A: 3(0.03%), B: 4629(42.1%), C: 6362(57.87%)
+        # "legal aspects of computing", # A: 2(0.02%), B: 1402(12.75%), C: 9590(87.23%)
+        # "computers and education", # A: 13(0.12%), B: 859(7.81%), C: 10122(92.07%)
+        # "legal", # A: 275(2.5%), B: 0(0.0%), C: 10719(97.5%)
+        # "Policy", # A: 487(4.43%), B: 0(0.0%), C: 10507(95.57%)
+        "information technology", # AA: 529(4.81%),     B: 3178(28.91%), C: 7287(66.28%)
+      ]
+    masking:
+      - query: "information technology"
+    ale_1w:
+      - query: "information technology"
+        quantiles:
+          year: 5
+          n_citations: 5
+          title: 5
+          abstract: 5
+          authors: 5
+          venue: 5
+    smpshap:
+      query: "information technology"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
+    anchor:
+      query: "information technology"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [15, 15]
