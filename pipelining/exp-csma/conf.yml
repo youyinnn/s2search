@@ -1,0 +1,61 @@
+description: ""
+samples:
+  csma:
+    check_query: [
+        "Multiagent Systems", #A: 134(2.94%),     B: 1444(31.65%), C: 2984(65.41%)
+        "distributed artificial intelligence", # A: 19(0.42%),     B: 1089(23.87%), C: 3454(75.71%)
+        "intelligent agents", #A: 135(2.96%),     B: 2064(45.24%), C: 2363(51.8%)
+
+      ]
+    masking:
+      - query: "Multiagent Systems"
+    ale_1w:
+      - query: "Multiagent Systems"
+        quantiles:
+          year: 5
+          n_citations: 5
+          title: 5
+          abstract: 5
+          authors: 5
+          venue: 5
+    smpshap:
+      query: "Multiagent Systems"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+    anchor:
+      query: "Multiagent Systems"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]

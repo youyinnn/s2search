@@ -1,0 +1,60 @@
+description: ""
+samples:
+  csoh:
+    check_query: [
+        "Computer Science", # A: 44(2.26%),     B: 173(8.9%), C: 1727(88.84%)
+        "other", #  A: 0(0.0%),     B: 1944(100.0%), C: 0(0.0%)
+        "computer", # A: 169(8.69%),     B: 0(0.0%), C: 1775(91.31%)
+      ]
+    masking:
+      - query: "computer"
+    ale_1w:
+      - query: "computer"
+        quantiles:
+          year: 5
+          n_citations: 5
+          title: 5
+          abstract: 5
+          authors: 5
+          venue: 5
+    smpshap:
+      query: "computer"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+    anchor:
+      query: "computer"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]

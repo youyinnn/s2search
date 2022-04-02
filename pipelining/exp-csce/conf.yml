@@ -1,0 +1,62 @@
+description: ""
+samples:
+  csce:
+    check_query: [
+        "Computational Engineering", # A: 109(2.46%),     B: 1193(26.89%), C: 3134(70.65%)
+        "Finance", # A: 53(1.19%),     B: 0(0.0%), C: 4383(98.81%)
+        "Computation", # A: 243(5.48%),     B: 0(0.0%), C: 4193(94.52%)
+        "Computational Engineering, Finance, and Science", # A: 0(0.0%),     B: 1411(31.81%), C: 3025(68.19%)
+
+      ]
+    masking:
+      - query: "Computational Engineering"
+    ale_1w:
+      - query: "Computational Engineering"
+        quantiles:
+          year: 5
+          n_citations: 5
+          title: 5
+          abstract: 5
+          authors: 5
+          venue: 5
+    smpshap:
+      query: "Computational Engineering"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+    anchor:
+      query: "Computational Engineering"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]

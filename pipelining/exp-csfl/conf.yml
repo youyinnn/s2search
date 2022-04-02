@@ -1,0 +1,64 @@
+description: ""
+samples:
+  csfl:
+    check_query: [
+        "Formal Languages and Automata Theory", #  A: 27(0.74%),     B: 2296(62.78%), C: 1334(36.48%)
+        "Languages", # A: 867(23.71%),     B: 0(0.0%), C: 2790(76.29%)
+        "grammar",
+        "learning in games",
+        "coordination",
+        "language theory", # A: 162(4.43%),     B: 1095(29.94%), C: 2400(65.63%)
+        "automata theory", # A: 240(6.56%),     B: 1537(42.03%), C: 1880(51.41%)
+      ]
+    masking:
+      - query: "automata theory"
+    ale_1w:
+      - query: "automata theory"
+        quantiles:
+          year: 3
+          n_citations: 3
+          title: 3
+          abstract: 3
+          authors: 3
+          venue: 3
+    smpshap:
+      query: "automata theory"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+    anchor:
+      query: "automata theory"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]

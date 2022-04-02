@@ -1,0 +1,61 @@
+description: ""
+samples:
+  csdb:
+    check_query: [
+        "Database", #  A: 1681(26.98%),     B: 0(0.0%), C: 4549(73.02%)
+        "datamining", # A: 7(0.11%),     B: 0(0.0%), C: 6223(99.89%)
+        "Data", # A: 4390(70.47%),     B: 0(0.0%), C: 1840(29.53%)
+        "data processing", # A: 817(13.11%),     B: 3763(60.4%), C: 1650(26.48%)
+      ]
+    masking:
+      - query: "data processing"
+    ale_1w:
+      - query: "data processing"
+        quantiles:
+          year: 5
+          n_citations: 5
+          title: 5
+          abstract: 5
+          authors: 5
+          venue: 5
+    smpshap:
+      query: "data processing"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+    anchor:
+      query: "data processing"
+      explainer_configs:
+        threshold: 0.9999
+        tau: 0.6
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
