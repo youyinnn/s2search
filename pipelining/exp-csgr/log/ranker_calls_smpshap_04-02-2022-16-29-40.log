@@ -1,0 +1,42 @@
+
+
+[04/02/2022, 16:29:40] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-csgr csgr]
+============== start ==============
+[04/02/2022, 16:29:45] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-csgr csgr]
+============== end 12932 ==============
+
+
+[04/02/2022, 16:29:45] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-csgr csgr]
+============== start ==============
+[04/02/2022, 16:29:47] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-csgr csgr]
+============== end 2586 ==============
+
+
+[04/02/2022, 16:29:47] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-csgr csgr]
+============== start ==============
+instances left: 71
+estimating time left: 0:03:42.656000
+---- 10:40018
+instances left: 61
+estimating time left: 0:03:19.445600
+---- 20:80032
+instances left: 51
+estimating time left: 0:02:46.362000
+---- 30:120046
+instances left: 41
+estimating time left: 0:02:14.041300
+---- 40:160056
+instances left: 31
+estimating time left: 0:01:41.658300
+---- 50:200066
+instances left: 21
+estimating time left: 0:01:08.147100
+---- 60:240076
+instances left: 11
+estimating time left: 0:00:35.843500
+---- 70:280090
+instances left: 1
+estimating time left: 0:00:03.317300
+---- 80:320104
+[04/02/2022, 16:34:12] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-csgr csgr]
+============== end 320104 ==============

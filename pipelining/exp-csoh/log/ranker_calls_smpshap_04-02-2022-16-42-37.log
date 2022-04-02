@@ -1,0 +1,30 @@
+
+
+[04/02/2022, 16:42:37] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-csoh csoh]
+============== start ==============
+[04/02/2022, 16:42:40] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-csoh csoh]
+============== end 7776 ==============
+
+
+[04/02/2022, 16:42:40] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-csoh csoh]
+============== start ==============
+[04/02/2022, 16:42:41] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-csoh csoh]
+============== end 1555 ==============
+
+
+[04/02/2022, 16:42:41] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-csoh csoh]
+============== start ==============
+instances left: 36
+estimating time left: 0:01:39.846000
+---- 10:40010
+instances left: 26
+estimating time left: 0:01:12.789600
+---- 20:80024
+instances left: 16
+estimating time left: 0:00:43.795200
+---- 30:120034
+instances left: 6
+estimating time left: 0:00:16.405800
+---- 40:160044
+[04/02/2022, 16:44:30] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-csoh csoh]
+============== end 160044 ==============

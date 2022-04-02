@@ -1,0 +1,71 @@
+
+Child #[0, 1]: psutil.Process(pid=14855, name='python', status='running', started='20:50:56'), affinity [0, 1]
+Child #[0, 1]: Set my affinity to [0, 1], affinity now [0, 1]
+
+[04/02/2022, 19:03:35] start anchor metrics
+[04/02/2022, 19:03:39] start computing anchor from index: 0 to 320 with config: 0.9999 0.6
+[04/02/2022, 19:03:53] (9 / 320) title: 10, abstract: 9, venue: 2, authors: 3, year: 6, n_citations: 3 within (14.665293 total / 1.4665 average)
+estimate time left: 0:07:36.081500
+[04/02/2022, 19:04:09] (19 / 320) title: 20, abstract: 18, venue: 5, authors: 6, year: 13, n_citations: 6 within (30.514218 total / 1.5257 average)
+estimate time left: 0:07:39.235700
+[04/02/2022, 19:04:25] (29 / 320) title: 30, abstract: 27, venue: 10, authors: 7, year: 21, n_citations: 10 within (46.557688 total / 1.5519 average)
+estimate time left: 0:07:31.602900
+[04/02/2022, 19:04:41] (39 / 320) title: 40, abstract: 36, venue: 12, authors: 9, year: 28, n_citations: 13 within (62.396202 total / 1.5599 average)
+estimate time left: 0:07:18.331900
+[04/02/2022, 19:04:57] (49 / 320) title: 49, abstract: 46, venue: 15, authors: 12, year: 35, n_citations: 17 within (78.745892 total / 1.5749 average)
+estimate time left: 0:07:06.797900
+[04/02/2022, 19:05:16] (59 / 320) title: 59, abstract: 56, venue: 18, authors: 15, year: 42, n_citations: 23 within (97.367005 total / 1.6228 average)
+estimate time left: 0:07:03.550800
+[04/02/2022, 19:05:34] (69 / 320) title: 68, abstract: 64, venue: 22, authors: 20, year: 49, n_citations: 27 within (115.324872 total / 1.6475 average)
+estimate time left: 0:06:53.522500
+[04/02/2022, 19:05:52] (79 / 320) title: 78, abstract: 72, venue: 26, authors: 22, year: 56, n_citations: 32 within (133.141547 total / 1.6643 average)
+estimate time left: 0:06:41.096300
+[04/02/2022, 19:06:07] (89 / 320) title: 88, abstract: 82, venue: 28, authors: 25, year: 64, n_citations: 37 within (148.503618 total / 1.65 average)
+estimate time left: 0:06:21.150000
+[04/02/2022, 19:06:22] (99 / 320) title: 98, abstract: 90, venue: 33, authors: 26, year: 73, n_citations: 40 within (163.50919 total / 1.6351 average)
+estimate time left: 0:06:01.357100
+[04/02/2022, 19:06:40] (109 / 320) title: 108, abstract: 99, venue: 37, authors: 28, year: 82, n_citations: 45 within (181.185236 total / 1.6471 average)
+estimate time left: 0:05:47.538100
+[04/02/2022, 19:06:57] (119 / 320) title: 118, abstract: 108, venue: 38, authors: 30, year: 92, n_citations: 50 within (198.440912 total / 1.6537 average)
+estimate time left: 0:05:32.393700
+[04/02/2022, 19:07:16] (129 / 320) title: 128, abstract: 118, venue: 41, authors: 34, year: 101, n_citations: 55 within (217.631312 total / 1.6741 average)
+estimate time left: 0:05:19.753100
+[04/02/2022, 19:07:35] (139 / 320) title: 138, abstract: 127, venue: 44, authors: 37, year: 109, n_citations: 60 within (236.16712 total / 1.6869 average)
+estimate time left: 0:05:05.328900
+[04/02/2022, 19:07:57] (149 / 320) title: 147, abstract: 136, venue: 47, authors: 37, year: 117, n_citations: 65 within (258.915673 total / 1.7261 average)
+estimate time left: 0:04:55.163100
+[04/02/2022, 19:08:16] (159 / 320) title: 156, abstract: 146, venue: 52, authors: 39, year: 125, n_citations: 72 within (277.018478 total / 1.7314 average)
+estimate time left: 0:04:38.755400
+[04/02/2022, 19:08:32] (169 / 320) title: 166, abstract: 156, venue: 56, authors: 45, year: 131, n_citations: 77 within (293.509917 total / 1.7265 average)
+estimate time left: 0:04:20.701500
+[04/02/2022, 19:08:49] (179 / 320) title: 176, abstract: 164, venue: 60, authors: 48, year: 138, n_citations: 84 within (310.252353 total / 1.7236 average)
+estimate time left: 0:04:03.027600
+[04/02/2022, 19:09:08] (189 / 320) title: 185, abstract: 174, venue: 65, authors: 55, year: 147, n_citations: 91 within (329.377353 total / 1.7336 average)
+estimate time left: 0:03:47.101600
+[04/02/2022, 19:09:26] (199 / 320) title: 195, abstract: 183, venue: 69, authors: 58, year: 155, n_citations: 97 within (347.822814 total / 1.7391 average)
+estimate time left: 0:03:30.431100
+[04/02/2022, 19:09:42] (209 / 320) title: 205, abstract: 193, venue: 74, authors: 60, year: 163, n_citations: 99 within (363.884973 total / 1.7328 average)
+estimate time left: 0:03:12.340800
+[04/02/2022, 19:10:00] (219 / 320) title: 214, abstract: 203, venue: 79, authors: 64, year: 171, n_citations: 105 within (381.378769 total / 1.7335 average)
+estimate time left: 0:02:55.083500
+[04/02/2022, 19:10:15] (229 / 320) title: 223, abstract: 213, venue: 83, authors: 67, year: 180, n_citations: 109 within (396.41771 total / 1.7236 average)
+estimate time left: 0:02:36.847600
+[04/02/2022, 19:10:31] (239 / 320) title: 233, abstract: 222, venue: 88, authors: 69, year: 189, n_citations: 115 within (412.404681 total / 1.7184 average)
+estimate time left: 0:02:19.190400
+[04/02/2022, 19:10:52] (249 / 320) title: 243, abstract: 231, venue: 91, authors: 73, year: 198, n_citations: 121 within (433.27321 total / 1.7331 average)
+estimate time left: 0:02:03.050100
+[04/02/2022, 19:11:09] (259 / 320) title: 252, abstract: 240, venue: 94, authors: 75, year: 206, n_citations: 125 within (449.954869 total / 1.7306 average)
+estimate time left: 0:01:45.566600
+[04/02/2022, 19:11:23] (269 / 320) title: 262, abstract: 250, venue: 97, authors: 77, year: 215, n_citations: 129 within (464.001702 total / 1.7185 average)
+estimate time left: 0:01:27.643500
+[04/02/2022, 19:11:44] (279 / 320) title: 272, abstract: 259, venue: 100, authors: 81, year: 221, n_citations: 133 within (485.028629 total / 1.7322 average)
+estimate time left: 0:01:11.020200
+[04/02/2022, 19:12:04] (289 / 320) title: 281, abstract: 266, venue: 104, authors: 83, year: 228, n_citations: 136 within (505.029874 total / 1.7415 average)
+estimate time left: 0:00:53.986500
+[04/02/2022, 19:12:26] (299 / 320) title: 291, abstract: 276, venue: 107, authors: 86, year: 236, n_citations: 143 within (527.601191 total / 1.7587 average)
+estimate time left: 0:00:36.932700
+[04/02/2022, 19:12:48] (309 / 320) title: 301, abstract: 286, venue: 111, authors: 86, year: 245, n_citations: 148 within (549.409106 total / 1.7723 average)
+estimate time left: 0:00:19.495300
+[04/02/2022, 19:13:07] (319 / 320) title: 311, abstract: 295, venue: 114, authors: 87, year: 254, n_citations: 153 within (568.757979 total / 1.7774 average)
+estimate time left: 0:00:01.777400
+[04/02/2022, 19:13:08] end anchor metrics witin 573.539776
