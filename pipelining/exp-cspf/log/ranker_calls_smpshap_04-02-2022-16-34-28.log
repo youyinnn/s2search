@@ -1,0 +1,36 @@
+
+
+[04/02/2022, 16:34:28] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-cspf cspf]
+============== start ==============
+[04/02/2022, 16:34:32] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-cspf cspf]
+============== end 11180 ==============
+
+
+[04/02/2022, 16:34:32] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-cspf cspf]
+============== start ==============
+[04/02/2022, 16:34:34] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-cspf cspf]
+============== end 2236 ==============
+
+
+[04/02/2022, 16:34:34] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-cspf cspf]
+============== start ==============
+instances left: 60
+estimating time left: 0:03:29.490000
+---- 10:40010
+instances left: 50
+estimating time left: 0:02:51.120000
+---- 20:80020
+instances left: 40
+estimating time left: 0:02:21.960000
+---- 30:120030
+instances left: 30
+estimating time left: 0:01:44.739000
+---- 40:160040
+instances left: 20
+estimating time left: 0:01:09.712000
+---- 50:200050
+instances left: 10
+estimating time left: 0:00:34.444000
+---- 60:240060
+[04/02/2022, 16:38:00] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-cspf cspf]
+============== end 240060 ==============

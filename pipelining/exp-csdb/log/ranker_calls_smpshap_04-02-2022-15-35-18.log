@@ -1,0 +1,63 @@
+
+
+[04/02/2022, 15:35:18] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-csdb csdb]
+============== start ==============
+[04/02/2022, 15:35:28] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-csdb csdb]
+============== end 24920 ==============
+
+
+[04/02/2022, 15:35:28] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-csdb csdb]
+============== start ==============
+[04/02/2022, 15:35:33] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-csdb csdb]
+============== end 4984 ==============
+
+
+[04/02/2022, 15:35:33] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-csdb csdb]
+============== start ==============
+instances left: 144
+estimating time left: 0:09:22.910400
+---- 10:40010
+instances left: 134
+estimating time left: 0:09:17.225600
+---- 20:80020
+instances left: 124
+estimating time left: 0:08:28.648000
+---- 30:120030
+instances left: 114
+estimating time left: 0:07:50.740200
+---- 40:160040
+instances left: 104
+estimating time left: 0:07:15.614400
+---- 50:200050
+instances left: 94
+estimating time left: 0:06:32.534600
+---- 60:240060
+instances left: 84
+estimating time left: 0:05:46.878000
+---- 70:280070
+instances left: 74
+estimating time left: 0:05:06.204600
+---- 80:320080
+instances left: 64
+estimating time left: 0:04:22.304000
+---- 90:360090
+instances left: 54
+estimating time left: 0:03:40.606200
+---- 100:400100
+instances left: 44
+estimating time left: 0:03:00.149200
+---- 110:440110
+instances left: 34
+estimating time left: 0:02:18.179400
+---- 120:480120
+instances left: 24
+estimating time left: 0:01:38.020800
+---- 130:520130
+instances left: 14
+estimating time left: 0:00:57.244600
+---- 140:560140
+instances left: 4
+estimating time left: 0:00:16.369600
+---- 150:600150
+[04/02/2022, 15:45:47] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-csdb csdb]
+============== end 600150 ==============

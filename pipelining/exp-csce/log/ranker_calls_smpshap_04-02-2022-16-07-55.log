@@ -1,0 +1,102 @@
+
+
+[04/02/2022, 16:07:55] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-csce csce]
+============== start ==============
+
+
+[04/02/2022, 16:07:55] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-csce csce]
+============== start ==============
+[04/02/2022, 16:08:01] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-csce csce]
+============== end 17744 ==============
+
+
+[04/02/2022, 16:08:01] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-csce csce]
+============== start ==============
+[04/02/2022, 16:08:02] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-csce csce]
+============== end 17744 ==============
+
+
+[04/02/2022, 16:08:02] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-csce csce]
+============== start ==============
+[04/02/2022, 16:08:04] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-csce csce]
+============== end 3548 ==============
+
+
+[04/02/2022, 16:08:04] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-csce csce]
+============== start ==============
+[04/02/2022, 16:08:05] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-csce csce]
+============== end 3548 ==============
+
+
+[04/02/2022, 16:08:05] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-csce csce]
+============== start ==============
+instances left: 102
+estimating time left: 0:06:07.026600
+---- 10:40010
+instances left: 102
+estimating time left: 0:06:33.281400
+---- 10:40010
+instances left: 92
+estimating time left: 0:05:40.390800
+---- 20:80020
+instances left: 92
+estimating time left: 0:05:36.158800
+---- 20:80020
+instances left: 82
+estimating time left: 0:05:08.959600
+---- 30:120030
+instances left: 82
+estimating time left: 0:05:13.346600
+---- 30:120030
+instances left: 72
+estimating time left: 0:04:27.141600
+---- 40:160040
+instances left: 72
+estimating time left: 0:04:29.337600
+---- 40:160040
+instances left: 62
+estimating time left: 0:03:49.226400
+---- 50:200050
+instances left: 62
+estimating time left: 0:03:57.373200
+---- 50:200050
+instances left: 52
+estimating time left: 0:03:11.729200
+---- 60:240060
+instances left: 52
+estimating time left: 0:03:17.797600
+---- 60:240060
+instances left: 42
+estimating time left: 0:02:35.862000
+---- 70:280070
+instances left: 42
+estimating time left: 0:02:38.970000
+---- 70:280070
+instances left: 32
+estimating time left: 0:01:59.638400
+---- 80:320080
+instances left: 32
+estimating time left: 0:02:00.611200
+---- 80:320080
+instances left: 22
+estimating time left: 0:01:22.638600
+---- 90:360090
+instances left: 22
+estimating time left: 0:01:22.504400
+---- 90:360090
+instances left: 12
+estimating time left: 0:00:44.942400
+---- 100:400100
+instances left: 12
+estimating time left: 0:00:44.940000
+---- 100:400100
+instances left: 2
+estimating time left: 0:00:07.473400
+---- 110:440110
+[04/02/2022, 16:14:55] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-csce csce]
+============== end 440110 ==============
+instances left: 2
+estimating time left: 0:00:07.468000
+---- 110:440110
+[04/02/2022, 16:14:56] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-csce csce]
+============== end 440110 ==============
