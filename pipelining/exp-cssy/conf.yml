@@ -36,7 +36,7 @@ samples:
         - range: [7, 8]
           cpu: [12, 13]
         - range: [8, 8]
-          cpu: [15, 15]
+          cpu: [14, 15]
     anchor:
       query: "Systems and Control"
       explainer_configs:
@@ -58,4 +58,4 @@ samples:
         - range: [7, 8]
           cpu: [12, 13]
         - range: [8, 8]
-          cpu: [15, 15]
+          cpu: [14, 15]
