@@ -67,6 +67,8 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
     shap_values = []
     base_values = set([])
     count = 0
+    print(len(X_train), len(X_test), curr_end, end)
+
     while curr_end < end:
         stt = time.time()
         shap_v = explainer(X_test[curr_start: curr_end])

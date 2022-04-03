@@ -1,0 +1,63 @@
+
+
+[04/03/2022, 06:10:12] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse csdb]
+============== start ==============
+[04/03/2022, 06:10:21] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse csdb]
+============== end 24920 ==============
+
+
+[04/03/2022, 06:10:21] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse csdb]
+============== start ==============
+[04/03/2022, 06:10:24] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse csdb]
+============== end 4984 ==============
+
+
+[04/03/2022, 06:10:24] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse csdb]
+============== start ==============
+instances left: 146
+estimating time left: 0:08:14.034800
+---- 10:40010
+instances left: 136
+estimating time left: 0:07:58.706400
+---- 20:80020
+instances left: 126
+estimating time left: 0:07:19.084800
+---- 30:120030
+instances left: 116
+estimating time left: 0:06:43.877200
+---- 40:160040
+instances left: 106
+estimating time left: 0:06:11.243800
+---- 50:200050
+instances left: 96
+estimating time left: 0:05:33.062400
+---- 60:240060
+instances left: 86
+estimating time left: 0:04:57.362200
+---- 70:280070
+instances left: 76
+estimating time left: 0:04:20.657200
+---- 80:320080
+instances left: 66
+estimating time left: 0:03:46.261200
+---- 90:360090
+instances left: 56
+estimating time left: 0:03:11.077600
+---- 100:400100
+instances left: 46
+estimating time left: 0:02:36.680600
+---- 110:440110
+instances left: 36
+estimating time left: 0:02:02.378400
+---- 120:480120
+instances left: 26
+estimating time left: 0:01:27.721400
+---- 130:520130
+instances left: 16
+estimating time left: 0:00:54.057600
+---- 140:560140
+instances left: 6
+estimating time left: 0:00:20.204400
+---- 150:600150
+[04/03/2022, 06:18:49] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse csdb]
+============== end 600150 ==============

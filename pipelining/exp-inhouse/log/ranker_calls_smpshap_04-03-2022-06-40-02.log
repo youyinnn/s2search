@@ -1,0 +1,36 @@
+
+
+[04/03/2022, 06:40:02] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse cset]
+============== start ==============
+[04/03/2022, 06:40:05] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse cset]
+============== end 10200 ==============
+
+
+[04/03/2022, 06:40:05] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse cset]
+============== start ==============
+[04/03/2022, 06:40:07] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse cset]
+============== end 2040 ==============
+
+
+[04/03/2022, 06:40:07] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse cset]
+============== start ==============
+instances left: 54
+estimating time left: 0:03:13.573800
+---- 10:40018
+instances left: 44
+estimating time left: 0:02:28.002800
+---- 20:80028
+instances left: 34
+estimating time left: 0:01:52.438000
+---- 30:120042
+instances left: 24
+estimating time left: 0:01:18.823200
+---- 40:160052
+instances left: 14
+estimating time left: 0:00:45.414600
+---- 50:200062
+instances left: 4
+estimating time left: 0:00:12.832000
+---- 60:240080
+[04/03/2022, 06:43:19] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse cset]
+============== end 240080 ==============

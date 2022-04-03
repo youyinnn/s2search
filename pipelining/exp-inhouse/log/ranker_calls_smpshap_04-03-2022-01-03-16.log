@@ -1,0 +1,246 @@
+
+
+[04/03/2022, 01:03:16] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse cscl]
+============== start ==============
+[04/03/2022, 01:04:02] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse cscl]
+============== end 123000 ==============
+
+
+[04/03/2022, 01:04:02] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse cscl]
+============== start ==============
+[04/03/2022, 01:04:22] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse cscl]
+============== end 24600 ==============
+
+
+[04/03/2022, 01:04:22] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse cscl]
+============== start ==============
+instances left: 759
+estimating time left: 1:18:02.878200
+---- 10:40010
+instances left: 749
+estimating time left: 1:18:07.991000
+---- 20:80020
+instances left: 739
+estimating time left: 1:16:51.655600
+---- 30:120030
+instances left: 729
+estimating time left: 1:16:21.910800
+---- 40:160040
+instances left: 719
+estimating time left: 1:14:49.507900
+---- 50:200050
+instances left: 709
+estimating time left: 1:14:56.690700
+---- 60:240060
+instances left: 699
+estimating time left: 1:14:11.861100
+---- 70:280070
+instances left: 689
+estimating time left: 1:12:45.986300
+---- 80:320080
+instances left: 679
+estimating time left: 1:11:06.292800
+---- 90:360090
+instances left: 669
+estimating time left: 1:09:38.373300
+---- 100:400100
+instances left: 659
+estimating time left: 1:08:49.755300
+---- 110:440110
+instances left: 649
+estimating time left: 1:07:21.842200
+---- 120:480120
+instances left: 639
+estimating time left: 1:06:17.966700
+---- 130:520130
+instances left: 629
+estimating time left: 1:05:14.958900
+---- 140:560140
+instances left: 619
+estimating time left: 1:04:20.269700
+---- 150:600150
+instances left: 609
+estimating time left: 1:03:09.441600
+---- 160:640160
+instances left: 599
+estimating time left: 1:02:14.106100
+---- 170:680170
+instances left: 589
+estimating time left: 1:01:27.493400
+---- 180:720180
+instances left: 579
+estimating time left: 1:00:25.524300
+---- 190:760190
+instances left: 569
+estimating time left: 0:59:19.948500
+---- 200:800200
+instances left: 559
+estimating time left: 0:58:16.321400
+---- 210:840210
+instances left: 549
+estimating time left: 0:57:13.940100
+---- 220:880220
+instances left: 539
+estimating time left: 0:56:09.935800
+---- 230:920230
+instances left: 529
+estimating time left: 0:55:07.625400
+---- 240:960240
+instances left: 519
+estimating time left: 0:54:07.331100
+---- 250:1000250
+instances left: 509
+estimating time left: 0:53:08.019700
+---- 260:1040260
+instances left: 499
+estimating time left: 0:52:03.540400
+---- 270:1080270
+instances left: 489
+estimating time left: 0:50:59.770800
+---- 280:1120280
+instances left: 479
+estimating time left: 0:49:52.025600
+---- 290:1160290
+instances left: 469
+estimating time left: 0:48:50.312000
+---- 300:1200300
+instances left: 459
+estimating time left: 0:47:50.494200
+---- 310:1240310
+instances left: 449
+estimating time left: 0:46:51.233900
+---- 320:1280320
+instances left: 439
+estimating time left: 0:45:49.588700
+---- 330:1320330
+instances left: 429
+estimating time left: 0:44:46.612500
+---- 340:1360340
+instances left: 419
+estimating time left: 0:43:43.149500
+---- 350:1400350
+instances left: 409
+estimating time left: 0:42:42.916700
+---- 360:1440360
+instances left: 399
+estimating time left: 0:41:38.777400
+---- 370:1480370
+instances left: 389
+estimating time left: 0:40:36.268100
+---- 380:1520380
+instances left: 379
+estimating time left: 0:39:32.085200
+---- 390:1560390
+instances left: 369
+estimating time left: 0:38:29.829300
+---- 400:1600400
+instances left: 359
+estimating time left: 0:37:26.047600
+---- 410:1640410
+instances left: 349
+estimating time left: 0:36:28.893100
+---- 420:1680420
+instances left: 339
+estimating time left: 0:35:25.699500
+---- 430:1720430
+instances left: 329
+estimating time left: 0:34:23.685400
+---- 440:1760440
+instances left: 319
+estimating time left: 0:33:19.779100
+---- 450:1800450
+instances left: 309
+estimating time left: 0:32:21.230700
+---- 460:1840460
+instances left: 299
+estimating time left: 0:31:17.062200
+---- 470:1880470
+instances left: 289
+estimating time left: 0:30:13.128200
+---- 480:1920480
+instances left: 279
+estimating time left: 0:29:09.218400
+---- 490:1960490
+instances left: 269
+estimating time left: 0:28:06.764500
+---- 500:2000500
+instances left: 259
+estimating time left: 0:27:02.868100
+---- 510:2040510
+instances left: 249
+estimating time left: 0:25:59.985000
+---- 520:2080520
+instances left: 239
+estimating time left: 0:24:56.140000
+---- 530:2120530
+instances left: 229
+estimating time left: 0:23:53.425500
+---- 540:2160540
+instances left: 219
+estimating time left: 0:22:50.896200
+---- 550:2200550
+instances left: 209
+estimating time left: 0:21:48.507200
+---- 560:2240560
+instances left: 199
+estimating time left: 0:20:44.585800
+---- 570:2280570
+instances left: 189
+estimating time left: 0:19:41.628000
+---- 580:2320580
+instances left: 179
+estimating time left: 0:18:39.036400
+---- 590:2360590
+instances left: 169
+estimating time left: 0:17:37.128800
+---- 600:2400600
+instances left: 159
+estimating time left: 0:16:34.704000
+---- 610:2440610
+instances left: 149
+estimating time left: 0:15:32.650600
+---- 620:2480620
+instances left: 139
+estimating time left: 0:14:29.848100
+---- 630:2520630
+instances left: 129
+estimating time left: 0:13:27.191700
+---- 640:2560640
+instances left: 119
+estimating time left: 0:12:24.571100
+---- 650:2600650
+instances left: 109
+estimating time left: 0:11:21.827700
+---- 660:2640660
+instances left: 99
+estimating time left: 0:10:19.393500
+---- 670:2680670
+instances left: 89
+estimating time left: 0:09:16.721700
+---- 680:2720680
+instances left: 79
+estimating time left: 0:08:14.042300
+---- 690:2760690
+instances left: 69
+estimating time left: 0:07:11.574300
+---- 700:2800700
+instances left: 59
+estimating time left: 0:06:08.956500
+---- 710:2840710
+instances left: 49
+estimating time left: 0:05:06.387200
+---- 720:2880720
+instances left: 39
+estimating time left: 0:04:03.843600
+---- 730:2920730
+instances left: 29
+estimating time left: 0:03:01.296400
+---- 740:2960740
+instances left: 19
+estimating time left: 0:01:58.750000
+---- 750:3000750
+instances left: 9
+estimating time left: 0:00:56.245500
+---- 760:3040760
+[04/03/2022, 02:23:32] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse cscl]
+============== end 3040760 ==============

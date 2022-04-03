@@ -1,0 +1,141 @@
+
+
+[04/03/2022, 03:46:24] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse csni]
+============== start ==============
+[04/03/2022, 03:46:47] [get categorical paper data for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse csni]
+============== end 65688 ==============
+
+
+[04/03/2022, 03:46:47] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse csni]
+============== start ==============
+[04/03/2022, 03:46:57] [sampling shap explainer training for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse csni]
+============== end 13137 ==============
+
+
+[04/03/2022, 03:46:57] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse csni]
+============== start ==============
+instances left: 401
+estimating time left: 0:29:49.823400
+---- 10:40010
+instances left: 391
+estimating time left: 0:31:10.113900
+---- 20:80020
+instances left: 381
+estimating time left: 0:30:08.797500
+---- 30:120030
+instances left: 371
+estimating time left: 0:29:54.044700
+---- 40:160040
+instances left: 361
+estimating time left: 0:28:58.937000
+---- 50:200050
+instances left: 351
+estimating time left: 0:27:50.760000
+---- 60:240060
+instances left: 341
+estimating time left: 0:26:58.181400
+---- 70:280070
+instances left: 331
+estimating time left: 0:25:58.679000
+---- 80:320080
+instances left: 321
+estimating time left: 0:25:16.660800
+---- 90:360090
+instances left: 311
+estimating time left: 0:24:21.824400
+---- 100:400100
+instances left: 301
+estimating time left: 0:23:33.405700
+---- 110:440110
+instances left: 291
+estimating time left: 0:22:49.038600
+---- 120:480120
+instances left: 281
+estimating time left: 0:22:00.109900
+---- 130:520130
+instances left: 271
+estimating time left: 0:21:12.724400
+---- 140:560140
+instances left: 261
+estimating time left: 0:20:24.168300
+---- 150:600150
+instances left: 251
+estimating time left: 0:19:33.876800
+---- 160:640160
+instances left: 241
+estimating time left: 0:18:45.470000
+---- 170:680170
+instances left: 231
+estimating time left: 0:17:55.813200
+---- 180:720180
+instances left: 221
+estimating time left: 0:17:11.009200
+---- 190:760190
+instances left: 211
+estimating time left: 0:16:24.483800
+---- 200:800200
+instances left: 201
+estimating time left: 0:15:41.745300
+---- 210:840210
+instances left: 191
+estimating time left: 0:14:53.803600
+---- 220:880220
+instances left: 181
+estimating time left: 0:14:05.487200
+---- 230:920230
+instances left: 171
+estimating time left: 0:13:19.852500
+---- 240:960240
+instances left: 161
+estimating time left: 0:12:33.914700
+---- 250:1000250
+instances left: 151
+estimating time left: 0:11:46.136400
+---- 260:1040260
+instances left: 141
+estimating time left: 0:10:59.034000
+---- 270:1080270
+instances left: 131
+estimating time left: 0:10:14.010100
+---- 280:1120280
+instances left: 121
+estimating time left: 0:09:27.248000
+---- 290:1160290
+instances left: 111
+estimating time left: 0:08:41.489100
+---- 300:1200300
+instances left: 101
+estimating time left: 0:07:55.083800
+---- 310:1240310
+instances left: 91
+estimating time left: 0:07:08.464400
+---- 320:1280320
+instances left: 81
+estimating time left: 0:06:21.388500
+---- 330:1320330
+instances left: 71
+estimating time left: 0:05:33.920100
+---- 340:1360340
+instances left: 61
+estimating time left: 0:04:47.072100
+---- 350:1400350
+instances left: 51
+estimating time left: 0:03:59.552100
+---- 360:1440360
+instances left: 41
+estimating time left: 0:03:12.589300
+---- 370:1480370
+instances left: 31
+estimating time left: 0:02:25.641100
+---- 380:1520380
+instances left: 21
+estimating time left: 0:01:38.842800
+---- 390:1560390
+instances left: 11
+estimating time left: 0:00:51.703300
+---- 400:1600400
+instances left: 1
+estimating time left: 0:00:04.698300
+---- 410:1640410
+[04/03/2022, 04:19:03] [sampling shap sv computing for /home/youyinnn_gmail_com/s2search/pipelining/exp-inhouse csni]
+============== end 1640410 ==============
