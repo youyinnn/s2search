@@ -99,67 +99,78 @@ def get_individual_sv_list(task_args):
 
 
 def compute_shapley_value(exp_name, sample_name):
-    sample_data_and_config_arr = get(exp_name, sample_name)
 
-    combination_list = ['+']
+    csv_path = os.path.join(os.path.dirname(os.path.abspath(
+        __file__)), 'pipelining', exp_name, 'scores', f'{exp_name}_{sample_name}_sv.csv')
 
-    for task in sample_data_and_config_arr:
-        moks = task['masking_option_keys']
-        for i in range(len(moks)):
-            co = moks[i]
-            code_of_co = get_code(co)
-            r_code = reverse_code(code_of_co)
-            moks[i] = get_coalition_by_code(r_code)
-            # print(co, get_coalition_by_code(r_code))
-        combination_list.extend([co for co in moks])
+    if os.path.exists(csv_path):
+        df = pd.read_csv(csv_path)
+    else:
+        sample_data_and_config_arr = get(exp_name, sample_name)
 
-    exclusive_combination_list = {}
+        combination_list = ['+']
 
-    for feature_name in feature_key_list:
-        exclusive_combination_list[feature_name] = \
-            [coalition for coalition in combination_list if feature_name not in coalition]
+        for task in sample_data_and_config_arr:
+            moks = task['masking_option_keys']
+            for i in range(len(moks)):
+                co = moks[i]
+                code_of_co = get_code(co)
+                r_code = reverse_code(code_of_co)
+                moks[i] = get_coalition_by_code(r_code)
+                # print(co, get_coalition_by_code(r_code))
+            combination_list.extend([co for co in moks])
 
-    for player in exclusive_combination_list.keys():
-        coalitions = exclusive_combination_list[player]
-        for i in range(len(coalitions)):
-            coalition_without_player = coalitions[i]
-            if coalition_without_player == '+':
-                coalitions[i] = [player, '+']
-            else:
-                codes = get_code(coalition_without_player)
-                player_idx = feature_key_list.index(player)
-                codes = codes[:player_idx] + '1' + codes[player_idx + 1:]
-                coalition_with_player = get_coalition_by_code(codes)
-                coalitions[i] = [coalition_with_player,
-                                 coalition_without_player]
+        exclusive_combination_list = {}
 
-    data_len = sample_data_and_config_arr[0]['origin'].shape[0]
+        for feature_name in feature_key_list:
+            exclusive_combination_list[feature_name] = \
+                [coalition for coalition in combination_list if feature_name not in coalition]
 
-    work_load = int(multiprocessing.cpu_count()) - 2
-    paper_limit_for_a_worker = ceil(data_len / work_load)
+        for player in exclusive_combination_list.keys():
+            coalitions = exclusive_combination_list[player]
+            for i in range(len(coalitions)):
+                coalition_without_player = coalitions[i]
+                if coalition_without_player == '+':
+                    coalitions[i] = [player, '+']
+                else:
+                    codes = get_code(coalition_without_player)
+                    player_idx = feature_key_list.index(player)
+                    codes = codes[:player_idx] + '1' + codes[player_idx + 1:]
+                    coalition_with_player = get_coalition_by_code(codes)
+                    coalitions[i] = [coalition_with_player,
+                                     coalition_without_player]
 
-    task_args = []
+        data_len = sample_data_and_config_arr[0]['origin'].shape[0]
 
-    curr_idx = 0
-    while curr_idx < data_len:
-        end_idx = curr_idx + paper_limit_for_a_worker if curr_idx + \
-            paper_limit_for_a_worker < data_len else data_len
-        task_args.append([
-            curr_idx,
-            end_idx,
-            exclusive_combination_list,
-            sample_data_and_config_arr
-        ])
-        curr_idx += paper_limit_for_a_worker
+        work_load = int(multiprocessing.cpu_count()) - 2
+        paper_limit_for_a_worker = ceil(data_len / work_load)
 
-    with Pool(processes=work_load) as worker:
-        rs = worker.map_async(get_individual_sv_list, task_args)
-        individual_sv = rs.get()
+        task_args = []
 
-    data = []
+        curr_idx = 0
+        while curr_idx < data_len:
+            end_idx = curr_idx + paper_limit_for_a_worker if curr_idx + \
+                paper_limit_for_a_worker < data_len else data_len
+            task_args.append([
+                curr_idx,
+                end_idx,
+                exclusive_combination_list,
+                sample_data_and_config_arr
+            ])
+            curr_idx += paper_limit_for_a_worker
 
-    for p in individual_sv:
-        for o in p:
-            data.append(o)
+        with Pool(processes=work_load) as worker:
+            rs = worker.map_async(get_individual_sv_list, task_args)
+            individual_sv = rs.get()
 
-    return pd.DataFrame(columns=[f'{f}_sv' for f in feature_key_list], data=data)
+        data = []
+
+        for p in individual_sv:
+            for o in p:
+                data.append(o)
+
+        df = pd.DataFrame(
+            columns=[f'{f}_sv' for f in feature_key_list], data=data)
+        df.to_csv(csv_path, index_label=False)
+
+    return df

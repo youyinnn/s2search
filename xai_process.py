@@ -7,6 +7,7 @@ from process import s2search_score_shap
 from process import s2search_score_anchor
 import plotting_nb_gen
 import ranker_helper
+import shapley_value
 
 method_key = [
     # 'pdp_1w',
@@ -60,7 +61,7 @@ class XaiProcess:
             }
         else:
             return {
-                'sample_src_exp_name': exp_name,
+                'sample_src_exp_name': self.exp_name,
                 'current_sample_name': sample_name,
                 'sample_src_name': sample_name
             }
@@ -88,6 +89,7 @@ class XaiProcess:
         for sample_name in self.sample_configs.keys():
             plotting_nb_gen.gen_for_shapley_value(
                 self.exp_name, self.description, [sample_name])
+            shapley_value.compute_shapley_value(self.exp_name, sample_name)
 
     def check_query(self):
         def _percentage(count, total):

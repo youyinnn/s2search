@@ -1,8 +1,5 @@
 description: ""
 samples:
-  cslg:
-    check_query: ["Machine Learning"]
-
   cscv:
     check_query:
       [
