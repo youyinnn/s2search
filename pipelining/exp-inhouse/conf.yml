@@ -1,0 +1,401 @@
+description: ""
+samples:
+  # cscv
+  csai:
+    smpshap:
+      query: "Artificial Intelligence"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  # csit
+  cscl:
+    smpshap:
+      query: "Computation and Language"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  cscr:
+    smpshap:
+      query: "Cryptography and Security"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  csds:
+    smpshap:
+      query: "Data Structure"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  # cssy
+  csni:
+    smpshap:
+      query: "Internet Architecture"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  # csro
+  csdc:
+    smpshap:
+      query: "distributed"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  cssi:
+    smpshap:
+      query: "Social and Information Networks"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  # cslo
+  # csna
+  cscy:
+    smpshap:
+      query: "society"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  csdm:
+    smpshap:
+      query: "Discrete Mathematics"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  # csir
+  # csne
+  # csse
+  # cscc
+  cshc:
+    smpshap:
+      query: "Human-Computer Interaction"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  # csgt
+  # cssd
+  csdb:
+    smpshap:
+      query: "Databases"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  # cspl
+  cscg:
+    smpshap:
+      query: "Computational Geometry"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  # csce
+  # csma
+  # csmm
+  csdl:
+    smpshap:
+      query: "Digital Libraries"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  # csgr
+  csfl:
+    smpshap:
+      query: "Formal Languages and Automata Theory"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  # cspf
+  csar:
+    smpshap:
+      query: "Hardware Architecture"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  cset:
+    smpshap:
+      query: "Emerging Technologies"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  # csoh
+  # csms
+  # cssc
+  csos:
+    smpshap:
+      query: "Operating Systems"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+  csgl:
+    smpshap:
+      query: "General Literature"
+      task:
+        - range: [1, 8]
+          cpu: [0, 1]
+        - range: [2, 8]
+          cpu: [2, 3]
+        - range: [3, 8]
+          cpu: [4, 5]
+        - range: [4, 8]
+          cpu: [6, 7]
+        - range: [5, 8]
+          cpu: [8, 9]
+        - range: [6, 8]
+          cpu: [10, 11]
+        - range: [7, 8]
+          cpu: [12, 13]
+        - range: [8, 8]
+          cpu: [14, 15]
+
+sample_from_other_exp:
+  csai: ["exp-csai", "csai.data"]
+  cscl: ["exp-cscl", "cscl.data"]
+  cscr: ["exp-cscr", "cscr.data"]
+  csds: ["exp-csds", "csds.data"]
+  csni: ["exp-csni", "csni.data"]
+  csdc: ["exp-csdc", "csdc.data"]
+  cssi: ["exp-cssi", "cssi.data"]
+  cscy: ["exp-cscy", "cscy.data"]
+  csdm: ["exp-csdm", "csdm.data"]
+  cshc: ["exp-cshc", "cshc.data"]
+  csdb: ["exp-csdb", "csdb.data"]
+  cscg: ["exp-cscg", "cscg.data"]
+  csdl: ["exp-csdl", "csdl.data"]
+  csfl: ["exp-csfl", "csfl.data"]
+  csar: ["exp-csar", "csar.data"]
+  cset: ["exp-cset", "cset.data"]
