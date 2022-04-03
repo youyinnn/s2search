@@ -1,6 +1,11 @@
 description: ""
 samples:
-  # cscv
+  cslg:
+    smpshap:
+      data_from: ["exp-cslg", "cslg"]
+  cscv:
+    smpshap:
+      data_from: ["exp-cscv", "cscv"]
   csai:
     smpshap:
       query: "Artificial Intelligence"
@@ -21,7 +26,9 @@ samples:
           cpu: [12, 13]
         - range: [8, 8]
           cpu: [14, 15]
-  # csit
+  csit:
+    smpshap:
+      data_from: ["exp-csit", "csit"]
   cscl:
     smpshap:
       query: "Computation and Language"
@@ -82,7 +89,9 @@ samples:
           cpu: [12, 13]
         - range: [8, 8]
           cpu: [14, 15]
-  # cssy
+  cssy:
+    smpshap:
+      data_from: ["exp-cssy", "cssy"]
   csni:
     smpshap:
       query: "Internet Architecture"
@@ -103,7 +112,9 @@ samples:
           cpu: [12, 13]
         - range: [8, 8]
           cpu: [14, 15]
-  # csro
+  csro:
+    smpshap:
+      data_from: ["exp-csro", "csro"]
   csdc:
     smpshap:
       query: "distributed"
@@ -144,8 +155,12 @@ samples:
           cpu: [12, 13]
         - range: [8, 8]
           cpu: [14, 15]
-  # cslo
-  # csna
+  cslo:
+    smpshap:
+      data_from: ["exp-cslo", "cslo"]
+  csna:
+    smpshap:
+      data_from: ["exp-csna", "csna"]
   cscy:
     smpshap:
       query: "society"
@@ -186,10 +201,18 @@ samples:
           cpu: [12, 13]
         - range: [8, 8]
           cpu: [14, 15]
-  # csir
-  # csne
-  # csse
-  # cscc
+  csir:
+    smpshap:
+      data_from: ["exp-csir", "csir"]
+  csne:
+    smpshap:
+      data_from: ["exp-csne", "csne"]
+  csse:
+    smpshap:
+      data_from: ["exp-csse", "csse"]
+  cscc:
+    smpshap:
+      data_from: ["exp-cscc", "cscc"]
   cshc:
     smpshap:
       query: "Human-Computer Interaction"
@@ -210,8 +233,12 @@ samples:
           cpu: [12, 13]
         - range: [8, 8]
           cpu: [14, 15]
-  # csgt
-  # cssd
+  csgt:
+    smpshap:
+      data_from: ["exp-csgt", "csgt"]
+  cssd:
+    smpshap:
+      data_from: ["exp-cssd", "cssd"]
   csdb:
     smpshap:
       query: "Databases"
@@ -232,7 +259,9 @@ samples:
           cpu: [12, 13]
         - range: [8, 8]
           cpu: [14, 15]
-  # cspl
+  cspl:
+    smpshap:
+      data_from: ["exp-cspl", "cspl"]
   cscg:
     smpshap:
       query: "Computational Geometry"
@@ -253,9 +282,15 @@ samples:
           cpu: [12, 13]
         - range: [8, 8]
           cpu: [14, 15]
-  # csce
-  # csma
-  # csmm
+  csce:
+    smpshap:
+      data_from: ["exp-csce", "csce"]
+  csma:
+    smpshap:
+      data_from: ["exp-csma", "csma"]
+  csmm:
+    smpshap:
+      data_from: ["exp-csmm", "csmm"]
   csdl:
     smpshap:
       query: "Digital Libraries"
@@ -276,7 +311,9 @@ samples:
           cpu: [12, 13]
         - range: [8, 8]
           cpu: [14, 15]
-  # csgr
+  csgr:
+    smpshap:
+      data_from: ["exp-csgr", "csgr"]
   csfl:
     smpshap:
       query: "Formal Languages and Automata Theory"
@@ -297,7 +334,9 @@ samples:
           cpu: [12, 13]
         - range: [8, 8]
           cpu: [14, 15]
-  # cspf
+  cspf:
+    smpshap:
+      data_from: ["exp-cspf", "cspf"]
   csar:
     smpshap:
       query: "Hardware Architecture"
@@ -338,21 +377,27 @@ samples:
           cpu: [12, 13]
         - range: [8, 8]
           cpu: [14, 15]
-  # csoh
-  # csms
-  # cssc
-  # csos:
-  #   smpshap:
-  #     query: "Operating Systems"
-  #     task:
-  #       - range: [1, 1]
-  #         cpu: [0, 1]
-  # csgl:
-  #   smpshap:
-  #     query: "General Literature"
-  #     task:
-  #       - range: [1, 1]
-  #         cpu: [0, 1]
+  csoh:
+    smpshap:
+      data_from: ["exp-csoh", "csoh"]
+  csms:
+    smpshap:
+      data_from: ["exp-csms", "csms"]
+  cssc:
+    smpshap:
+      data_from: ["exp-cssc", "cssc"]
+  csos:
+    smpshap:
+      query: "Operating Systems"
+      task:
+        - range: [1, 1]
+          cpu: [0, 1]
+  csgl:
+    smpshap:
+      query: "General Literature"
+      task:
+        - range: [1, 1]
+          cpu: [0, 1]
 
 sample_from_other_exp:
   csai: ["exp-csai", "csai.data"]

@@ -1,6 +1,7 @@
 import getting_data
 import os
 import sys
+import numpy as np
 from process import s2search_score_ale
 from process import s2search_score_pipelining
 from process import s2search_score_shap
@@ -127,11 +128,12 @@ class XaiProcess:
         for sample_name in self.sample_configs.keys():
             sample_config = self.get_sample_config_for_this_method(
                 sample_name, 'smpshap')
-            query = sample_config['query']
-            task_config = sample_config['task'][task_number]
+            if sample_config.get('query') != None and sample_config.get('task') != None:
+                query = sample_config['query']
+                task_config = sample_config['task'][task_number]
 
-            s2search_score_shap.get_sampling_shap_shapley_value(
-                self.exp_dir_path, query, task_config, self.get_data_info(sample_name))
+                s2search_score_shap.get_sampling_shap_shapley_value(
+                    self.exp_dir_path, query, task_config, self.get_data_info(sample_name))
 
     def anchor(self, task_number):
         for sample_name in self.sample_configs.keys():
@@ -151,6 +153,45 @@ class XaiProcess:
             size = os.path.getsize(os.path.join(log_dir, f))
             if size == 0:
                 os.remove(os.path.join(log_dir, f))
+
+
+def get_smp_shap_data(exp_name, sample_name_list=None):
+    work_dir = os.path.dirname(os.path.abspath(__file__))
+    exp_dir_path = os.path.join(work_dir, 'pipelining', exp_name)
+    config = getting_data.read_conf(exp_dir_path)
+    description, sample_configs, samples_from_other_exp_configs = config
+
+    shap_data = {}
+    check_list = sample_configs.keys() if sample_name_list == None else sample_name_list
+    for sample_name in check_list:
+        sample_smshap_config = sample_configs[sample_name]['smpshap']
+        if sample_smshap_config.get('task') != None:
+            shap_sv = []
+            shap_bv = []
+            for task in sample_smshap_config.get('task'):
+                rg = task['range']
+                m_file = os.path.join(
+                    exp_dir_path, 'scores', f"{sample_name}_shap_sampling_{rg[0]}_{rg[1]}.npz")
+                if os.path.exists(m_file):
+                    ld = np.load(m_file)
+
+                    shap_values = ld['shap_values']
+                    base_values = ld['base_values']
+
+                    shap_sv.extend(shap_values)
+                    shap_bv.extend(base_values)
+
+            shap_data[sample_name] = dict(
+                shap_sv=shap_sv,
+                shap_bv=shap_bv,
+            )
+        else:
+            src_exp_name, src_sample_name = sample_smshap_config = sample_configs[
+                sample_name]['smpshap']['data_from']
+            src_shap_data = get_smp_shap_data(src_exp_name, [src_sample_name])
+            shap_data[sample_name] = src_shap_data[src_sample_name]
+
+    return shap_data
 
 
 if __name__ == '__main__':
