@@ -1,0 +1,640 @@
+
+
+[03/27/2022, 21:29:45] [exp-csna_csna_t1_origin]
+============== start ==============
+[03/27/2022, 21:29:45] [masking_exp-csna_csna_t1_origin]
+get scores for 11581 papers
+[03/27/2022, 21:29:51] [masking_exp-csna_csna_t1_origin]
+task end within 6.064322 sec
+[03/27/2022, 21:29:51] [exp-csna_csna_t1_origin]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:29:51] [exp-csna_csna_t1_t]
+============== start ==============
+[03/27/2022, 21:29:51] [masking_exp-csna_csna_t1_t]
+get scores for 11581 papers
+[03/27/2022, 21:29:57] [masking_exp-csna_csna_t1_t]
+task end within 5.759285 sec
+[03/27/2022, 21:29:57] [exp-csna_csna_t1_t]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:29:57] [exp-csna_csna_t1_abs]
+============== start ==============
+[03/27/2022, 21:29:57] [masking_exp-csna_csna_t1_abs]
+get scores for 11581 papers
+[03/27/2022, 21:30:01] [masking_exp-csna_csna_t1_abs]
+task end within 3.767447 sec
+[03/27/2022, 21:30:01] [exp-csna_csna_t1_abs]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:01] [exp-csna_csna_t1_v]
+============== start ==============
+[03/27/2022, 21:30:01] [masking_exp-csna_csna_t1_v]
+get scores for 11581 papers
+[03/27/2022, 21:30:07] [masking_exp-csna_csna_t1_v]
+task end within 5.950541 sec
+[03/27/2022, 21:30:07] [exp-csna_csna_t1_v]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:07] [exp-csna_csna_t1_au]
+============== start ==============
+[03/27/2022, 21:30:07] [masking_exp-csna_csna_t1_au]
+get scores for 11581 papers
+[03/27/2022, 21:30:12] [masking_exp-csna_csna_t1_au]
+task end within 5.150581 sec
+[03/27/2022, 21:30:13] [exp-csna_csna_t1_au]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:13] [exp-csna_csna_t1_y]
+============== start ==============
+[03/27/2022, 21:30:13] [masking_exp-csna_csna_t1_y]
+get scores for 11581 papers
+[03/27/2022, 21:30:19] [masking_exp-csna_csna_t1_y]
+task end within 6.15095 sec
+[03/27/2022, 21:30:19] [exp-csna_csna_t1_y]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:19] [exp-csna_csna_t1_c]
+============== start ==============
+[03/27/2022, 21:30:19] [masking_exp-csna_csna_t1_c]
+get scores for 11581 papers
+[03/27/2022, 21:30:25] [masking_exp-csna_csna_t1_c]
+task end within 5.907965 sec
+[03/27/2022, 21:30:25] [exp-csna_csna_t1_c]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:25] [exp-csna_csna_t1_tabs]
+============== start ==============
+[03/27/2022, 21:30:25] [masking_exp-csna_csna_t1_tabs]
+get scores for 11581 papers
+[03/27/2022, 21:30:29] [masking_exp-csna_csna_t1_tabs]
+task end within 3.293333 sec
+[03/27/2022, 21:30:29] [exp-csna_csna_t1_tabs]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:29] [exp-csna_csna_t1_tabsv]
+============== start ==============
+[03/27/2022, 21:30:29] [masking_exp-csna_csna_t1_tabsv]
+get scores for 11581 papers
+[03/27/2022, 21:30:32] [masking_exp-csna_csna_t1_tabsv]
+task end within 3.00205 sec
+[03/27/2022, 21:30:32] [exp-csna_csna_t1_tabsv]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:32] [exp-csna_csna_t1_tabsvau]
+============== start ==============
+[03/27/2022, 21:30:32] [masking_exp-csna_csna_t1_tabsvau]
+get scores for 11581 papers
+[03/27/2022, 21:30:34] [masking_exp-csna_csna_t1_tabsvau]
+task end within 2.062367 sec
+[03/27/2022, 21:30:34] [exp-csna_csna_t1_tabsvau]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:34] [exp-csna_csna_t1_tabsvauy]
+============== start ==============
+[03/27/2022, 21:30:35] [masking_exp-csna_csna_t1_tabsvauy]
+get scores for 11581 papers
+[03/27/2022, 21:30:37] [masking_exp-csna_csna_t1_tabsvauy]
+task end within 2.076689 sec
+[03/27/2022, 21:30:37] [exp-csna_csna_t1_tabsvauy]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:37] [exp-csna_csna_t1_tabsvauyc]
+============== start ==============
+[03/27/2022, 21:30:37] [masking_exp-csna_csna_t1_tabsvauyc]
+get scores for 11581 papers
+[03/27/2022, 21:30:39] [masking_exp-csna_csna_t1_tabsvauyc]
+task end within 2.107939 sec
+[03/27/2022, 21:30:39] [exp-csna_csna_t1_tabsvauyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:39] [exp-csna_csna_t1_tabsvauc]
+============== start ==============
+[03/27/2022, 21:30:39] [masking_exp-csna_csna_t1_tabsvauc]
+get scores for 11581 papers
+[03/27/2022, 21:30:41] [masking_exp-csna_csna_t1_tabsvauc]
+task end within 2.152504 sec
+[03/27/2022, 21:30:41] [exp-csna_csna_t1_tabsvauc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:41] [exp-csna_csna_t1_tabsvy]
+============== start ==============
+[03/27/2022, 21:30:42] [masking_exp-csna_csna_t1_tabsvy]
+get scores for 11581 papers
+[03/27/2022, 21:30:45] [masking_exp-csna_csna_t1_tabsvy]
+task end within 2.98153 sec
+[03/27/2022, 21:30:45] [exp-csna_csna_t1_tabsvy]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:45] [exp-csna_csna_t1_tabsvyc]
+============== start ==============
+[03/27/2022, 21:30:45] [masking_exp-csna_csna_t1_tabsvyc]
+get scores for 11581 papers
+[03/27/2022, 21:30:48] [masking_exp-csna_csna_t1_tabsvyc]
+task end within 3.011214 sec
+[03/27/2022, 21:30:48] [exp-csna_csna_t1_tabsvyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:48] [exp-csna_csna_t1_tabsvc]
+============== start ==============
+[03/27/2022, 21:30:48] [masking_exp-csna_csna_t1_tabsvc]
+get scores for 11581 papers
+[03/27/2022, 21:30:51] [masking_exp-csna_csna_t1_tabsvc]
+task end within 3.08201 sec
+[03/27/2022, 21:30:51] [exp-csna_csna_t1_tabsvc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:51] [exp-csna_csna_t1_tabsau]
+============== start ==============
+[03/27/2022, 21:30:52] [masking_exp-csna_csna_t1_tabsau]
+get scores for 11581 papers
+[03/27/2022, 21:30:54] [masking_exp-csna_csna_t1_tabsau]
+task end within 2.367988 sec
+[03/27/2022, 21:30:54] [exp-csna_csna_t1_tabsau]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:54] [exp-csna_csna_t1_tabsauy]
+============== start ==============
+[03/27/2022, 21:30:54] [masking_exp-csna_csna_t1_tabsauy]
+get scores for 11581 papers
+[03/27/2022, 21:30:57] [masking_exp-csna_csna_t1_tabsauy]
+task end within 2.460834 sec
+[03/27/2022, 21:30:57] [exp-csna_csna_t1_tabsauy]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:57] [exp-csna_csna_t1_tabsauyc]
+============== start ==============
+[03/27/2022, 21:30:57] [masking_exp-csna_csna_t1_tabsauyc]
+get scores for 11581 papers
+[03/27/2022, 21:30:59] [masking_exp-csna_csna_t1_tabsauyc]
+task end within 2.364243 sec
+[03/27/2022, 21:30:59] [exp-csna_csna_t1_tabsauyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:30:59] [exp-csna_csna_t1_tabsauc]
+============== start ==============
+[03/27/2022, 21:31:00] [masking_exp-csna_csna_t1_tabsauc]
+get scores for 11581 papers
+[03/27/2022, 21:31:02] [masking_exp-csna_csna_t1_tabsauc]
+task end within 2.427158 sec
+[03/27/2022, 21:31:02] [exp-csna_csna_t1_tabsauc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:31:02] [exp-csna_csna_t1_tabsy]
+============== start ==============
+[03/27/2022, 21:31:02] [masking_exp-csna_csna_t1_tabsy]
+get scores for 11581 papers
+[03/27/2022, 21:31:05] [masking_exp-csna_csna_t1_tabsy]
+task end within 3.245865 sec
+[03/27/2022, 21:31:05] [exp-csna_csna_t1_tabsy]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:31:05] [exp-csna_csna_t1_tabsyc]
+============== start ==============
+[03/27/2022, 21:31:06] [masking_exp-csna_csna_t1_tabsyc]
+get scores for 11581 papers
+[03/27/2022, 21:31:09] [masking_exp-csna_csna_t1_tabsyc]
+task end within 3.193606 sec
+[03/27/2022, 21:31:09] [exp-csna_csna_t1_tabsyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:31:09] [exp-csna_csna_t1_tabsc]
+============== start ==============
+[03/27/2022, 21:31:09] [masking_exp-csna_csna_t1_tabsc]
+get scores for 11581 papers
+[03/27/2022, 21:31:12] [masking_exp-csna_csna_t1_tabsc]
+task end within 3.27833 sec
+[03/27/2022, 21:31:12] [exp-csna_csna_t1_tabsc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:31:13] [exp-csna_csna_t1_tv]
+============== start ==============
+[03/27/2022, 21:31:13] [masking_exp-csna_csna_t1_tv]
+get scores for 11581 papers
+[03/27/2022, 21:31:18] [masking_exp-csna_csna_t1_tv]
+task end within 5.141478 sec
+[03/27/2022, 21:31:18] [exp-csna_csna_t1_tv]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:31:18] [exp-csna_csna_t1_tvau]
+============== start ==============
+[03/27/2022, 21:31:18] [masking_exp-csna_csna_t1_tvau]
+get scores for 11581 papers
+[03/27/2022, 21:31:23] [masking_exp-csna_csna_t1_tvau]
+task end within 4.589274 sec
+[03/27/2022, 21:31:23] [exp-csna_csna_t1_tvau]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:31:23] [exp-csna_csna_t1_tvauy]
+============== start ==============
+[03/27/2022, 21:31:23] [masking_exp-csna_csna_t1_tvauy]
+get scores for 11581 papers
+[03/27/2022, 21:31:27] [masking_exp-csna_csna_t1_tvauy]
+task end within 4.351509 sec
+[03/27/2022, 21:31:27] [exp-csna_csna_t1_tvauy]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:31:27] [exp-csna_csna_t1_tvauyc]
+============== start ==============
+[03/27/2022, 21:31:28] [masking_exp-csna_csna_t1_tvauyc]
+get scores for 11581 papers
+[03/27/2022, 21:31:32] [masking_exp-csna_csna_t1_tvauyc]
+task end within 4.284812 sec
+[03/27/2022, 21:31:32] [exp-csna_csna_t1_tvauyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:31:32] [exp-csna_csna_t1_tvauc]
+============== start ==============
+[03/27/2022, 21:31:32] [masking_exp-csna_csna_t1_tvauc]
+get scores for 11581 papers
+[03/27/2022, 21:31:36] [masking_exp-csna_csna_t1_tvauc]
+task end within 4.318095 sec
+[03/27/2022, 21:31:36] [exp-csna_csna_t1_tvauc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:31:37] [exp-csna_csna_t1_tvy]
+============== start ==============
+[03/27/2022, 21:31:37] [masking_exp-csna_csna_t1_tvy]
+get scores for 11581 papers
+[03/27/2022, 21:31:42] [masking_exp-csna_csna_t1_tvy]
+task end within 5.265768 sec
+[03/27/2022, 21:31:42] [exp-csna_csna_t1_tvy]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:31:42] [exp-csna_csna_t1_tvyc]
+============== start ==============
+[03/27/2022, 21:31:42] [masking_exp-csna_csna_t1_tvyc]
+get scores for 11581 papers
+[03/27/2022, 21:31:47] [masking_exp-csna_csna_t1_tvyc]
+task end within 5.219314 sec
+[03/27/2022, 21:31:48] [exp-csna_csna_t1_tvyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:31:48] [exp-csna_csna_t1_tvc]
+============== start ==============
+[03/27/2022, 21:31:48] [masking_exp-csna_csna_t1_tvc]
+get scores for 11581 papers
+[03/27/2022, 21:31:53] [masking_exp-csna_csna_t1_tvc]
+task end within 5.287591 sec
+[03/27/2022, 21:31:53] [exp-csna_csna_t1_tvc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:31:53] [exp-csna_csna_t1_tau]
+============== start ==============
+[03/27/2022, 21:31:53] [masking_exp-csna_csna_t1_tau]
+get scores for 11581 papers
+[03/27/2022, 21:31:58] [masking_exp-csna_csna_t1_tau]
+task end within 4.608965 sec
+[03/27/2022, 21:31:58] [exp-csna_csna_t1_tau]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:31:58] [exp-csna_csna_t1_tauy]
+============== start ==============
+[03/27/2022, 21:31:58] [masking_exp-csna_csna_t1_tauy]
+get scores for 11581 papers
+[03/27/2022, 21:32:03] [masking_exp-csna_csna_t1_tauy]
+task end within 4.519322 sec
+[03/27/2022, 21:32:03] [exp-csna_csna_t1_tauy]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:32:03] [exp-csna_csna_t1_tauyc]
+============== start ==============
+[03/27/2022, 21:32:03] [masking_exp-csna_csna_t1_tauyc]
+get scores for 11581 papers
+[03/27/2022, 21:32:07] [masking_exp-csna_csna_t1_tauyc]
+task end within 4.472437 sec
+[03/27/2022, 21:32:07] [exp-csna_csna_t1_tauyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:32:07] [exp-csna_csna_t1_tauc]
+============== start ==============
+[03/27/2022, 21:32:08] [masking_exp-csna_csna_t1_tauc]
+get scores for 11581 papers
+[03/27/2022, 21:32:12] [masking_exp-csna_csna_t1_tauc]
+task end within 4.553689 sec
+[03/27/2022, 21:32:12] [exp-csna_csna_t1_tauc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:32:12] [exp-csna_csna_t1_ty]
+============== start ==============
+[03/27/2022, 21:32:13] [masking_exp-csna_csna_t1_ty]
+get scores for 11581 papers
+[03/27/2022, 21:32:18] [masking_exp-csna_csna_t1_ty]
+task end within 5.343639 sec
+[03/27/2022, 21:32:18] [exp-csna_csna_t1_ty]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:32:18] [exp-csna_csna_t1_tyc]
+============== start ==============
+[03/27/2022, 21:32:18] [masking_exp-csna_csna_t1_tyc]
+get scores for 11581 papers
+[03/27/2022, 21:32:24] [masking_exp-csna_csna_t1_tyc]
+task end within 5.534565 sec
+[03/27/2022, 21:32:24] [exp-csna_csna_t1_tyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:32:24] [exp-csna_csna_t1_tc]
+============== start ==============
+[03/27/2022, 21:32:24] [masking_exp-csna_csna_t1_tc]
+get scores for 11581 papers
+[03/27/2022, 21:32:29] [masking_exp-csna_csna_t1_tc]
+task end within 5.372121 sec
+[03/27/2022, 21:32:29] [exp-csna_csna_t1_tc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:32:29] [exp-csna_csna_t1_absv]
+============== start ==============
+[03/27/2022, 21:32:30] [masking_exp-csna_csna_t1_absv]
+get scores for 11581 papers
+[03/27/2022, 21:32:33] [masking_exp-csna_csna_t1_absv]
+task end within 3.675562 sec
+[03/27/2022, 21:32:33] [exp-csna_csna_t1_absv]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:32:33] [exp-csna_csna_t1_absvau]
+============== start ==============
+[03/27/2022, 21:32:34] [masking_exp-csna_csna_t1_absvau]
+get scores for 11581 papers
+[03/27/2022, 21:32:37] [masking_exp-csna_csna_t1_absvau]
+task end within 2.913076 sec
+[03/27/2022, 21:32:37] [exp-csna_csna_t1_absvau]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:32:37] [exp-csna_csna_t1_absvauy]
+============== start ==============
+[03/27/2022, 21:32:37] [masking_exp-csna_csna_t1_absvauy]
+get scores for 11581 papers
+[03/27/2022, 21:32:39] [masking_exp-csna_csna_t1_absvauy]
+task end within 2.653241 sec
+[03/27/2022, 21:32:40] [exp-csna_csna_t1_absvauy]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:32:40] [exp-csna_csna_t1_absvauyc]
+============== start ==============
+[03/27/2022, 21:32:40] [masking_exp-csna_csna_t1_absvauyc]
+get scores for 11581 papers
+[03/27/2022, 21:32:42] [masking_exp-csna_csna_t1_absvauyc]
+task end within 2.599781 sec
+[03/27/2022, 21:32:42] [exp-csna_csna_t1_absvauyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:32:42] [exp-csna_csna_t1_absvauc]
+============== start ==============
+[03/27/2022, 21:32:43] [masking_exp-csna_csna_t1_absvauc]
+get scores for 11581 papers
+[03/27/2022, 21:32:45] [masking_exp-csna_csna_t1_absvauc]
+task end within 2.58768 sec
+[03/27/2022, 21:32:45] [exp-csna_csna_t1_absvauc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:32:45] [exp-csna_csna_t1_absvy]
+============== start ==============
+[03/27/2022, 21:32:45] [masking_exp-csna_csna_t1_absvy]
+get scores for 11581 papers
+[03/27/2022, 21:32:49] [masking_exp-csna_csna_t1_absvy]
+task end within 3.582932 sec
+[03/27/2022, 21:32:49] [exp-csna_csna_t1_absvy]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:32:49] [exp-csna_csna_t1_absvyc]
+============== start ==============
+[03/27/2022, 21:32:49] [masking_exp-csna_csna_t1_absvyc]
+get scores for 11581 papers
+[03/27/2022, 21:32:53] [masking_exp-csna_csna_t1_absvyc]
+task end within 3.484153 sec
+[03/27/2022, 21:32:53] [exp-csna_csna_t1_absvyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:32:53] [exp-csna_csna_t1_absvc]
+============== start ==============
+[03/27/2022, 21:32:53] [masking_exp-csna_csna_t1_absvc]
+get scores for 11581 papers
+[03/27/2022, 21:32:57] [masking_exp-csna_csna_t1_absvc]
+task end within 3.834731 sec
+[03/27/2022, 21:32:57] [exp-csna_csna_t1_absvc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:32:57] [exp-csna_csna_t1_absau]
+============== start ==============
+[03/27/2022, 21:32:57] [masking_exp-csna_csna_t1_absau]
+get scores for 11581 papers
+[03/27/2022, 21:33:00] [masking_exp-csna_csna_t1_absau]
+task end within 3.015835 sec
+[03/27/2022, 21:33:00] [exp-csna_csna_t1_absau]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:33:00] [exp-csna_csna_t1_absauy]
+============== start ==============
+[03/27/2022, 21:33:01] [masking_exp-csna_csna_t1_absauy]
+get scores for 11581 papers
+[03/27/2022, 21:33:03] [masking_exp-csna_csna_t1_absauy]
+task end within 2.864452 sec
+[03/27/2022, 21:33:03] [exp-csna_csna_t1_absauy]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:33:03] [exp-csna_csna_t1_absauyc]
+============== start ==============
+[03/27/2022, 21:33:04] [masking_exp-csna_csna_t1_absauyc]
+get scores for 11581 papers
+[03/27/2022, 21:33:07] [masking_exp-csna_csna_t1_absauyc]
+task end within 2.893364 sec
+[03/27/2022, 21:33:07] [exp-csna_csna_t1_absauyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:33:07] [exp-csna_csna_t1_absauc]
+============== start ==============
+[03/27/2022, 21:33:07] [masking_exp-csna_csna_t1_absauc]
+get scores for 11581 papers
+[03/27/2022, 21:33:10] [masking_exp-csna_csna_t1_absauc]
+task end within 2.792459 sec
+[03/27/2022, 21:33:10] [exp-csna_csna_t1_absauc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:33:10] [exp-csna_csna_t1_absy]
+============== start ==============
+[03/27/2022, 21:33:10] [masking_exp-csna_csna_t1_absy]
+get scores for 11581 papers
+[03/27/2022, 21:33:14] [masking_exp-csna_csna_t1_absy]
+task end within 3.808568 sec
+[03/27/2022, 21:33:14] [exp-csna_csna_t1_absy]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:33:14] [exp-csna_csna_t1_absyc]
+============== start ==============
+[03/27/2022, 21:33:14] [masking_exp-csna_csna_t1_absyc]
+get scores for 11581 papers
+[03/27/2022, 21:33:18] [masking_exp-csna_csna_t1_absyc]
+task end within 3.754551 sec
+[03/27/2022, 21:33:18] [exp-csna_csna_t1_absyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:33:18] [exp-csna_csna_t1_absc]
+============== start ==============
+[03/27/2022, 21:33:18] [masking_exp-csna_csna_t1_absc]
+get scores for 11581 papers
+[03/27/2022, 21:33:22] [masking_exp-csna_csna_t1_absc]
+task end within 3.7173 sec
+[03/27/2022, 21:33:22] [exp-csna_csna_t1_absc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:33:22] [exp-csna_csna_t1_vau]
+============== start ==============
+[03/27/2022, 21:33:22] [masking_exp-csna_csna_t1_vau]
+get scores for 11581 papers
+[03/27/2022, 21:33:27] [masking_exp-csna_csna_t1_vau]
+task end within 4.78141 sec
+[03/27/2022, 21:33:27] [exp-csna_csna_t1_vau]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:33:27] [exp-csna_csna_t1_vauy]
+============== start ==============
+[03/27/2022, 21:33:27] [masking_exp-csna_csna_t1_vauy]
+get scores for 11581 papers
+[03/27/2022, 21:33:32] [masking_exp-csna_csna_t1_vauy]
+task end within 4.76212 sec
+[03/27/2022, 21:33:32] [exp-csna_csna_t1_vauy]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:33:32] [exp-csna_csna_t1_vauyc]
+============== start ==============
+[03/27/2022, 21:33:32] [masking_exp-csna_csna_t1_vauyc]
+get scores for 11581 papers
+[03/27/2022, 21:33:37] [masking_exp-csna_csna_t1_vauyc]
+task end within 4.791141 sec
+[03/27/2022, 21:33:37] [exp-csna_csna_t1_vauyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:33:37] [exp-csna_csna_t1_vauc]
+============== start ==============
+[03/27/2022, 21:33:37] [masking_exp-csna_csna_t1_vauc]
+get scores for 11581 papers
+[03/27/2022, 21:33:42] [masking_exp-csna_csna_t1_vauc]
+task end within 4.705856 sec
+[03/27/2022, 21:33:42] [exp-csna_csna_t1_vauc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:33:42] [exp-csna_csna_t1_vy]
+============== start ==============
+[03/27/2022, 21:33:42] [masking_exp-csna_csna_t1_vy]
+get scores for 11581 papers
+[03/27/2022, 21:33:48] [masking_exp-csna_csna_t1_vy]
+task end within 5.595473 sec
+[03/27/2022, 21:33:48] [exp-csna_csna_t1_vy]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:33:48] [exp-csna_csna_t1_vyc]
+============== start ==============
+[03/27/2022, 21:33:48] [masking_exp-csna_csna_t1_vyc]
+get scores for 11581 papers
+[03/27/2022, 21:33:54] [masking_exp-csna_csna_t1_vyc]
+task end within 5.595112 sec
+[03/27/2022, 21:33:54] [exp-csna_csna_t1_vyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:33:54] [exp-csna_csna_t1_vc]
+============== start ==============
+[03/27/2022, 21:33:54] [masking_exp-csna_csna_t1_vc]
+get scores for 11581 papers
+[03/27/2022, 21:33:59] [masking_exp-csna_csna_t1_vc]
+task end within 5.674625 sec
+[03/27/2022, 21:33:59] [exp-csna_csna_t1_vc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:34:00] [exp-csna_csna_t1_auy]
+============== start ==============
+[03/27/2022, 21:34:00] [masking_exp-csna_csna_t1_auy]
+get scores for 11581 papers
+[03/27/2022, 21:34:05] [masking_exp-csna_csna_t1_auy]
+task end within 5.018759 sec
+[03/27/2022, 21:34:05] [exp-csna_csna_t1_auy]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:34:05] [exp-csna_csna_t1_auyc]
+============== start ==============
+[03/27/2022, 21:34:05] [masking_exp-csna_csna_t1_auyc]
+get scores for 11581 papers
+[03/27/2022, 21:34:10] [masking_exp-csna_csna_t1_auyc]
+task end within 5.013592 sec
+[03/27/2022, 21:34:10] [exp-csna_csna_t1_auyc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:34:10] [exp-csna_csna_t1_auc]
+============== start ==============
+[03/27/2022, 21:34:10] [masking_exp-csna_csna_t1_auc]
+get scores for 11581 papers
+[03/27/2022, 21:34:15] [masking_exp-csna_csna_t1_auc]
+task end within 5.026649 sec
+[03/27/2022, 21:34:15] [exp-csna_csna_t1_auc]
+============== end 11581 ==============
+
+
+[03/27/2022, 21:34:15] [exp-csna_csna_t1_yc]
+============== start ==============
+[03/27/2022, 21:34:16] [masking_exp-csna_csna_t1_yc]
+get scores for 11581 papers
+[03/27/2022, 21:34:21] [masking_exp-csna_csna_t1_yc]
+task end within 5.872072 sec
+[03/27/2022, 21:34:21] [exp-csna_csna_t1_yc]
+============== end 11581 ==============

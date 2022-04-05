@@ -1,0 +1,640 @@
+
+
+[03/27/2022, 21:18:25] [exp-cssi_cssi_t1_origin]
+============== start ==============
+[03/27/2022, 21:18:26] [masking_exp-cssi_cssi_t1_origin]
+get scores for 14279 papers
+[03/27/2022, 21:18:33] [masking_exp-cssi_cssi_t1_origin]
+task end within 7.57362 sec
+[03/27/2022, 21:18:33] [exp-cssi_cssi_t1_origin]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:18:33] [exp-cssi_cssi_t1_t]
+============== start ==============
+[03/27/2022, 21:18:34] [masking_exp-cssi_cssi_t1_t]
+get scores for 14279 papers
+[03/27/2022, 21:18:41] [masking_exp-cssi_cssi_t1_t]
+task end within 7.061754 sec
+[03/27/2022, 21:18:41] [exp-cssi_cssi_t1_t]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:18:41] [exp-cssi_cssi_t1_abs]
+============== start ==============
+[03/27/2022, 21:18:41] [masking_exp-cssi_cssi_t1_abs]
+get scores for 14279 papers
+[03/27/2022, 21:18:46] [masking_exp-cssi_cssi_t1_abs]
+task end within 4.87775 sec
+[03/27/2022, 21:18:46] [exp-cssi_cssi_t1_abs]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:18:46] [exp-cssi_cssi_t1_v]
+============== start ==============
+[03/27/2022, 21:18:46] [masking_exp-cssi_cssi_t1_v]
+get scores for 14279 papers
+[03/27/2022, 21:18:54] [masking_exp-cssi_cssi_t1_v]
+task end within 7.464242 sec
+[03/27/2022, 21:18:54] [exp-cssi_cssi_t1_v]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:18:54] [exp-cssi_cssi_t1_au]
+============== start ==============
+[03/27/2022, 21:18:54] [masking_exp-cssi_cssi_t1_au]
+get scores for 14279 papers
+[03/27/2022, 21:19:01] [masking_exp-cssi_cssi_t1_au]
+task end within 6.584625 sec
+[03/27/2022, 21:19:01] [exp-cssi_cssi_t1_au]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:19:01] [exp-cssi_cssi_t1_y]
+============== start ==============
+[03/27/2022, 21:19:01] [masking_exp-cssi_cssi_t1_y]
+get scores for 14279 papers
+[03/27/2022, 21:19:09] [masking_exp-cssi_cssi_t1_y]
+task end within 8.071689 sec
+[03/27/2022, 21:19:09] [exp-cssi_cssi_t1_y]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:19:09] [exp-cssi_cssi_t1_c]
+============== start ==============
+[03/27/2022, 21:19:09] [masking_exp-cssi_cssi_t1_c]
+get scores for 14279 papers
+[03/27/2022, 21:19:17] [masking_exp-cssi_cssi_t1_c]
+task end within 8.024036 sec
+[03/27/2022, 21:19:17] [exp-cssi_cssi_t1_c]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:19:17] [exp-cssi_cssi_t1_tabs]
+============== start ==============
+[03/27/2022, 21:19:18] [masking_exp-cssi_cssi_t1_tabs]
+get scores for 14279 papers
+[03/27/2022, 21:19:22] [masking_exp-cssi_cssi_t1_tabs]
+task end within 4.334726 sec
+[03/27/2022, 21:19:22] [exp-cssi_cssi_t1_tabs]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:19:22] [exp-cssi_cssi_t1_tabsv]
+============== start ==============
+[03/27/2022, 21:19:22] [masking_exp-cssi_cssi_t1_tabsv]
+get scores for 14279 papers
+[03/27/2022, 21:19:26] [masking_exp-cssi_cssi_t1_tabsv]
+task end within 3.98396 sec
+[03/27/2022, 21:19:26] [exp-cssi_cssi_t1_tabsv]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:19:26] [exp-cssi_cssi_t1_tabsvau]
+============== start ==============
+[03/27/2022, 21:19:27] [masking_exp-cssi_cssi_t1_tabsvau]
+get scores for 14279 papers
+[03/27/2022, 21:19:29] [masking_exp-cssi_cssi_t1_tabsvau]
+task end within 2.560596 sec
+[03/27/2022, 21:19:29] [exp-cssi_cssi_t1_tabsvau]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:19:29] [exp-cssi_cssi_t1_tabsvauy]
+============== start ==============
+[03/27/2022, 21:19:30] [masking_exp-cssi_cssi_t1_tabsvauy]
+get scores for 14279 papers
+[03/27/2022, 21:19:32] [masking_exp-cssi_cssi_t1_tabsvauy]
+task end within 2.671477 sec
+[03/27/2022, 21:19:32] [exp-cssi_cssi_t1_tabsvauy]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:19:32] [exp-cssi_cssi_t1_tabsvauyc]
+============== start ==============
+[03/27/2022, 21:19:33] [masking_exp-cssi_cssi_t1_tabsvauyc]
+get scores for 14279 papers
+[03/27/2022, 21:19:35] [masking_exp-cssi_cssi_t1_tabsvauyc]
+task end within 2.477768 sec
+[03/27/2022, 21:19:35] [exp-cssi_cssi_t1_tabsvauyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:19:35] [exp-cssi_cssi_t1_tabsvauc]
+============== start ==============
+[03/27/2022, 21:19:36] [masking_exp-cssi_cssi_t1_tabsvauc]
+get scores for 14279 papers
+[03/27/2022, 21:19:38] [masking_exp-cssi_cssi_t1_tabsvauc]
+task end within 2.616862 sec
+[03/27/2022, 21:19:38] [exp-cssi_cssi_t1_tabsvauc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:19:38] [exp-cssi_cssi_t1_tabsvy]
+============== start ==============
+[03/27/2022, 21:19:39] [masking_exp-cssi_cssi_t1_tabsvy]
+get scores for 14279 papers
+[03/27/2022, 21:19:43] [masking_exp-cssi_cssi_t1_tabsvy]
+task end within 3.894886 sec
+[03/27/2022, 21:19:43] [exp-cssi_cssi_t1_tabsvy]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:19:43] [exp-cssi_cssi_t1_tabsvyc]
+============== start ==============
+[03/27/2022, 21:19:43] [masking_exp-cssi_cssi_t1_tabsvyc]
+get scores for 14279 papers
+[03/27/2022, 21:19:47] [masking_exp-cssi_cssi_t1_tabsvyc]
+task end within 3.877454 sec
+[03/27/2022, 21:19:47] [exp-cssi_cssi_t1_tabsvyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:19:47] [exp-cssi_cssi_t1_tabsvc]
+============== start ==============
+[03/27/2022, 21:19:47] [masking_exp-cssi_cssi_t1_tabsvc]
+get scores for 14279 papers
+[03/27/2022, 21:19:51] [masking_exp-cssi_cssi_t1_tabsvc]
+task end within 3.972321 sec
+[03/27/2022, 21:19:51] [exp-cssi_cssi_t1_tabsvc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:19:51] [exp-cssi_cssi_t1_tabsau]
+============== start ==============
+[03/27/2022, 21:19:51] [masking_exp-cssi_cssi_t1_tabsau]
+get scores for 14279 papers
+[03/27/2022, 21:19:54] [masking_exp-cssi_cssi_t1_tabsau]
+task end within 2.931484 sec
+[03/27/2022, 21:19:54] [exp-cssi_cssi_t1_tabsau]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:19:54] [exp-cssi_cssi_t1_tabsauy]
+============== start ==============
+[03/27/2022, 21:19:55] [masking_exp-cssi_cssi_t1_tabsauy]
+get scores for 14279 papers
+[03/27/2022, 21:19:58] [masking_exp-cssi_cssi_t1_tabsauy]
+task end within 2.830139 sec
+[03/27/2022, 21:19:58] [exp-cssi_cssi_t1_tabsauy]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:19:58] [exp-cssi_cssi_t1_tabsauyc]
+============== start ==============
+[03/27/2022, 21:19:58] [masking_exp-cssi_cssi_t1_tabsauyc]
+get scores for 14279 papers
+[03/27/2022, 21:20:01] [masking_exp-cssi_cssi_t1_tabsauyc]
+task end within 2.898001 sec
+[03/27/2022, 21:20:01] [exp-cssi_cssi_t1_tabsauyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:20:01] [exp-cssi_cssi_t1_tabsauc]
+============== start ==============
+[03/27/2022, 21:20:01] [masking_exp-cssi_cssi_t1_tabsauc]
+get scores for 14279 papers
+[03/27/2022, 21:20:04] [masking_exp-cssi_cssi_t1_tabsauc]
+task end within 2.974889 sec
+[03/27/2022, 21:20:04] [exp-cssi_cssi_t1_tabsauc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:20:04] [exp-cssi_cssi_t1_tabsy]
+============== start ==============
+[03/27/2022, 21:20:04] [masking_exp-cssi_cssi_t1_tabsy]
+get scores for 14279 papers
+[03/27/2022, 21:20:09] [masking_exp-cssi_cssi_t1_tabsy]
+task end within 4.302508 sec
+[03/27/2022, 21:20:09] [exp-cssi_cssi_t1_tabsy]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:20:09] [exp-cssi_cssi_t1_tabsyc]
+============== start ==============
+[03/27/2022, 21:20:09] [masking_exp-cssi_cssi_t1_tabsyc]
+get scores for 14279 papers
+[03/27/2022, 21:20:13] [masking_exp-cssi_cssi_t1_tabsyc]
+task end within 4.230908 sec
+[03/27/2022, 21:20:13] [exp-cssi_cssi_t1_tabsyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:20:13] [exp-cssi_cssi_t1_tabsc]
+============== start ==============
+[03/27/2022, 21:20:14] [masking_exp-cssi_cssi_t1_tabsc]
+get scores for 14279 papers
+[03/27/2022, 21:20:18] [masking_exp-cssi_cssi_t1_tabsc]
+task end within 4.312565 sec
+[03/27/2022, 21:20:18] [exp-cssi_cssi_t1_tabsc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:20:18] [exp-cssi_cssi_t1_tv]
+============== start ==============
+[03/27/2022, 21:20:18] [masking_exp-cssi_cssi_t1_tv]
+get scores for 14279 papers
+[03/27/2022, 21:20:26] [masking_exp-cssi_cssi_t1_tv]
+task end within 7.115666 sec
+[03/27/2022, 21:20:26] [exp-cssi_cssi_t1_tv]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:20:26] [exp-cssi_cssi_t1_tvau]
+============== start ==============
+[03/27/2022, 21:20:26] [masking_exp-cssi_cssi_t1_tvau]
+get scores for 14279 papers
+[03/27/2022, 21:20:32] [masking_exp-cssi_cssi_t1_tvau]
+task end within 5.695244 sec
+[03/27/2022, 21:20:32] [exp-cssi_cssi_t1_tvau]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:20:32] [exp-cssi_cssi_t1_tvauy]
+============== start ==============
+[03/27/2022, 21:20:32] [masking_exp-cssi_cssi_t1_tvauy]
+get scores for 14279 papers
+[03/27/2022, 21:20:38] [masking_exp-cssi_cssi_t1_tvauy]
+task end within 5.641503 sec
+[03/27/2022, 21:20:38] [exp-cssi_cssi_t1_tvauy]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:20:38] [exp-cssi_cssi_t1_tvauyc]
+============== start ==============
+[03/27/2022, 21:20:38] [masking_exp-cssi_cssi_t1_tvauyc]
+get scores for 14279 papers
+[03/27/2022, 21:20:44] [masking_exp-cssi_cssi_t1_tvauyc]
+task end within 5.610778 sec
+[03/27/2022, 21:20:44] [exp-cssi_cssi_t1_tvauyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:20:44] [exp-cssi_cssi_t1_tvauc]
+============== start ==============
+[03/27/2022, 21:20:44] [masking_exp-cssi_cssi_t1_tvauc]
+get scores for 14279 papers
+[03/27/2022, 21:20:50] [masking_exp-cssi_cssi_t1_tvauc]
+task end within 5.687838 sec
+[03/27/2022, 21:20:50] [exp-cssi_cssi_t1_tvauc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:20:50] [exp-cssi_cssi_t1_tvy]
+============== start ==============
+[03/27/2022, 21:20:50] [masking_exp-cssi_cssi_t1_tvy]
+get scores for 14279 papers
+[03/27/2022, 21:20:57] [masking_exp-cssi_cssi_t1_tvy]
+task end within 7.012565 sec
+[03/27/2022, 21:20:57] [exp-cssi_cssi_t1_tvy]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:20:57] [exp-cssi_cssi_t1_tvyc]
+============== start ==============
+[03/27/2022, 21:20:57] [masking_exp-cssi_cssi_t1_tvyc]
+get scores for 14279 papers
+[03/27/2022, 21:21:04] [masking_exp-cssi_cssi_t1_tvyc]
+task end within 6.928339 sec
+[03/27/2022, 21:21:04] [exp-cssi_cssi_t1_tvyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:21:04] [exp-cssi_cssi_t1_tvc]
+============== start ==============
+[03/27/2022, 21:21:05] [masking_exp-cssi_cssi_t1_tvc]
+get scores for 14279 papers
+[03/27/2022, 21:21:12] [masking_exp-cssi_cssi_t1_tvc]
+task end within 7.031873 sec
+[03/27/2022, 21:21:12] [exp-cssi_cssi_t1_tvc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:21:12] [exp-cssi_cssi_t1_tau]
+============== start ==============
+[03/27/2022, 21:21:12] [masking_exp-cssi_cssi_t1_tau]
+get scores for 14279 papers
+[03/27/2022, 21:21:18] [masking_exp-cssi_cssi_t1_tau]
+task end within 6.004858 sec
+[03/27/2022, 21:21:18] [exp-cssi_cssi_t1_tau]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:21:18] [exp-cssi_cssi_t1_tauy]
+============== start ==============
+[03/27/2022, 21:21:18] [masking_exp-cssi_cssi_t1_tauy]
+get scores for 14279 papers
+[03/27/2022, 21:21:24] [masking_exp-cssi_cssi_t1_tauy]
+task end within 6.013547 sec
+[03/27/2022, 21:21:24] [exp-cssi_cssi_t1_tauy]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:21:24] [exp-cssi_cssi_t1_tauyc]
+============== start ==============
+[03/27/2022, 21:21:25] [masking_exp-cssi_cssi_t1_tauyc]
+get scores for 14279 papers
+[03/27/2022, 21:21:31] [masking_exp-cssi_cssi_t1_tauyc]
+task end within 5.831591 sec
+[03/27/2022, 21:21:31] [exp-cssi_cssi_t1_tauyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:21:31] [exp-cssi_cssi_t1_tauc]
+============== start ==============
+[03/27/2022, 21:21:31] [masking_exp-cssi_cssi_t1_tauc]
+get scores for 14279 papers
+[03/27/2022, 21:21:37] [masking_exp-cssi_cssi_t1_tauc]
+task end within 6.044565 sec
+[03/27/2022, 21:21:37] [exp-cssi_cssi_t1_tauc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:21:37] [exp-cssi_cssi_t1_ty]
+============== start ==============
+[03/27/2022, 21:21:37] [masking_exp-cssi_cssi_t1_ty]
+get scores for 14279 papers
+[03/27/2022, 21:21:45] [masking_exp-cssi_cssi_t1_ty]
+task end within 7.264968 sec
+[03/27/2022, 21:21:45] [exp-cssi_cssi_t1_ty]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:21:45] [exp-cssi_cssi_t1_tyc]
+============== start ==============
+[03/27/2022, 21:21:45] [masking_exp-cssi_cssi_t1_tyc]
+get scores for 14279 papers
+[03/27/2022, 21:21:52] [masking_exp-cssi_cssi_t1_tyc]
+task end within 7.183961 sec
+[03/27/2022, 21:21:52] [exp-cssi_cssi_t1_tyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:21:52] [exp-cssi_cssi_t1_tc]
+============== start ==============
+[03/27/2022, 21:21:53] [masking_exp-cssi_cssi_t1_tc]
+get scores for 14279 papers
+[03/27/2022, 21:22:00] [masking_exp-cssi_cssi_t1_tc]
+task end within 7.117605 sec
+[03/27/2022, 21:22:00] [exp-cssi_cssi_t1_tc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:22:00] [exp-cssi_cssi_t1_absv]
+============== start ==============
+[03/27/2022, 21:22:00] [masking_exp-cssi_cssi_t1_absv]
+get scores for 14279 papers
+[03/27/2022, 21:22:05] [masking_exp-cssi_cssi_t1_absv]
+task end within 4.669125 sec
+[03/27/2022, 21:22:05] [exp-cssi_cssi_t1_absv]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:22:05] [exp-cssi_cssi_t1_absvau]
+============== start ==============
+[03/27/2022, 21:22:05] [masking_exp-cssi_cssi_t1_absvau]
+get scores for 14279 papers
+[03/27/2022, 21:22:08] [masking_exp-cssi_cssi_t1_absvau]
+task end within 3.339008 sec
+[03/27/2022, 21:22:08] [exp-cssi_cssi_t1_absvau]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:22:08] [exp-cssi_cssi_t1_absvauy]
+============== start ==============
+[03/27/2022, 21:22:09] [masking_exp-cssi_cssi_t1_absvauy]
+get scores for 14279 papers
+[03/27/2022, 21:22:12] [masking_exp-cssi_cssi_t1_absvauy]
+task end within 3.247616 sec
+[03/27/2022, 21:22:12] [exp-cssi_cssi_t1_absvauy]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:22:12] [exp-cssi_cssi_t1_absvauyc]
+============== start ==============
+[03/27/2022, 21:22:12] [masking_exp-cssi_cssi_t1_absvauyc]
+get scores for 14279 papers
+[03/27/2022, 21:22:16] [masking_exp-cssi_cssi_t1_absvauyc]
+task end within 3.357424 sec
+[03/27/2022, 21:22:16] [exp-cssi_cssi_t1_absvauyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:22:16] [exp-cssi_cssi_t1_absvauc]
+============== start ==============
+[03/27/2022, 21:22:16] [masking_exp-cssi_cssi_t1_absvauc]
+get scores for 14279 papers
+[03/27/2022, 21:22:19] [masking_exp-cssi_cssi_t1_absvauc]
+task end within 3.309225 sec
+[03/27/2022, 21:22:19] [exp-cssi_cssi_t1_absvauc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:22:19] [exp-cssi_cssi_t1_absvy]
+============== start ==============
+[03/27/2022, 21:22:20] [masking_exp-cssi_cssi_t1_absvy]
+get scores for 14279 papers
+[03/27/2022, 21:22:24] [masking_exp-cssi_cssi_t1_absvy]
+task end within 4.604897 sec
+[03/27/2022, 21:22:24] [exp-cssi_cssi_t1_absvy]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:22:24] [exp-cssi_cssi_t1_absvyc]
+============== start ==============
+[03/27/2022, 21:22:25] [masking_exp-cssi_cssi_t1_absvyc]
+get scores for 14279 papers
+[03/27/2022, 21:22:29] [masking_exp-cssi_cssi_t1_absvyc]
+task end within 4.587848 sec
+[03/27/2022, 21:22:29] [exp-cssi_cssi_t1_absvyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:22:29] [exp-cssi_cssi_t1_absvc]
+============== start ==============
+[03/27/2022, 21:22:30] [masking_exp-cssi_cssi_t1_absvc]
+get scores for 14279 papers
+[03/27/2022, 21:22:34] [masking_exp-cssi_cssi_t1_absvc]
+task end within 4.647087 sec
+[03/27/2022, 21:22:34] [exp-cssi_cssi_t1_absvc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:22:34] [exp-cssi_cssi_t1_absau]
+============== start ==============
+[03/27/2022, 21:22:35] [masking_exp-cssi_cssi_t1_absau]
+get scores for 14279 papers
+[03/27/2022, 21:22:38] [masking_exp-cssi_cssi_t1_absau]
+task end within 3.617607 sec
+[03/27/2022, 21:22:38] [exp-cssi_cssi_t1_absau]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:22:38] [exp-cssi_cssi_t1_absauy]
+============== start ==============
+[03/27/2022, 21:22:39] [masking_exp-cssi_cssi_t1_absauy]
+get scores for 14279 papers
+[03/27/2022, 21:22:42] [masking_exp-cssi_cssi_t1_absauy]
+task end within 3.657481 sec
+[03/27/2022, 21:22:42] [exp-cssi_cssi_t1_absauy]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:22:42] [exp-cssi_cssi_t1_absauyc]
+============== start ==============
+[03/27/2022, 21:22:43] [masking_exp-cssi_cssi_t1_absauyc]
+get scores for 14279 papers
+[03/27/2022, 21:22:46] [masking_exp-cssi_cssi_t1_absauyc]
+task end within 3.484094 sec
+[03/27/2022, 21:22:46] [exp-cssi_cssi_t1_absauyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:22:46] [exp-cssi_cssi_t1_absauc]
+============== start ==============
+[03/27/2022, 21:22:46] [masking_exp-cssi_cssi_t1_absauc]
+get scores for 14279 papers
+[03/27/2022, 21:22:50] [masking_exp-cssi_cssi_t1_absauc]
+task end within 3.648566 sec
+[03/27/2022, 21:22:50] [exp-cssi_cssi_t1_absauc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:22:50] [exp-cssi_cssi_t1_absy]
+============== start ==============
+[03/27/2022, 21:22:50] [masking_exp-cssi_cssi_t1_absy]
+get scores for 14279 papers
+[03/27/2022, 21:22:55] [masking_exp-cssi_cssi_t1_absy]
+task end within 4.990036 sec
+[03/27/2022, 21:22:55] [exp-cssi_cssi_t1_absy]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:22:55] [exp-cssi_cssi_t1_absyc]
+============== start ==============
+[03/27/2022, 21:22:56] [masking_exp-cssi_cssi_t1_absyc]
+get scores for 14279 papers
+[03/27/2022, 21:23:01] [masking_exp-cssi_cssi_t1_absyc]
+task end within 4.866736 sec
+[03/27/2022, 21:23:01] [exp-cssi_cssi_t1_absyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:23:01] [exp-cssi_cssi_t1_absc]
+============== start ==============
+[03/27/2022, 21:23:01] [masking_exp-cssi_cssi_t1_absc]
+get scores for 14279 papers
+[03/27/2022, 21:23:06] [masking_exp-cssi_cssi_t1_absc]
+task end within 4.93059 sec
+[03/27/2022, 21:23:06] [exp-cssi_cssi_t1_absc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:23:06] [exp-cssi_cssi_t1_vau]
+============== start ==============
+[03/27/2022, 21:23:06] [masking_exp-cssi_cssi_t1_vau]
+get scores for 14279 papers
+[03/27/2022, 21:23:13] [masking_exp-cssi_cssi_t1_vau]
+task end within 6.444266 sec
+[03/27/2022, 21:23:13] [exp-cssi_cssi_t1_vau]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:23:13] [exp-cssi_cssi_t1_vauy]
+============== start ==============
+[03/27/2022, 21:23:13] [masking_exp-cssi_cssi_t1_vauy]
+get scores for 14279 papers
+[03/27/2022, 21:23:20] [masking_exp-cssi_cssi_t1_vauy]
+task end within 6.442261 sec
+[03/27/2022, 21:23:20] [exp-cssi_cssi_t1_vauy]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:23:20] [exp-cssi_cssi_t1_vauyc]
+============== start ==============
+[03/27/2022, 21:23:20] [masking_exp-cssi_cssi_t1_vauyc]
+get scores for 14279 papers
+[03/27/2022, 21:23:26] [masking_exp-cssi_cssi_t1_vauyc]
+task end within 6.25804 sec
+[03/27/2022, 21:23:26] [exp-cssi_cssi_t1_vauyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:23:26] [exp-cssi_cssi_t1_vauc]
+============== start ==============
+[03/27/2022, 21:23:26] [masking_exp-cssi_cssi_t1_vauc]
+get scores for 14279 papers
+[03/27/2022, 21:23:33] [masking_exp-cssi_cssi_t1_vauc]
+task end within 6.371433 sec
+[03/27/2022, 21:23:33] [exp-cssi_cssi_t1_vauc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:23:33] [exp-cssi_cssi_t1_vy]
+============== start ==============
+[03/27/2022, 21:23:33] [masking_exp-cssi_cssi_t1_vy]
+get scores for 14279 papers
+[03/27/2022, 21:23:41] [masking_exp-cssi_cssi_t1_vy]
+task end within 7.67082 sec
+[03/27/2022, 21:23:41] [exp-cssi_cssi_t1_vy]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:23:41] [exp-cssi_cssi_t1_vyc]
+============== start ==============
+[03/27/2022, 21:23:41] [masking_exp-cssi_cssi_t1_vyc]
+get scores for 14279 papers
+[03/27/2022, 21:23:49] [masking_exp-cssi_cssi_t1_vyc]
+task end within 7.639992 sec
+[03/27/2022, 21:23:49] [exp-cssi_cssi_t1_vyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:23:49] [exp-cssi_cssi_t1_vc]
+============== start ==============
+[03/27/2022, 21:23:49] [masking_exp-cssi_cssi_t1_vc]
+get scores for 14279 papers
+[03/27/2022, 21:23:57] [masking_exp-cssi_cssi_t1_vc]
+task end within 7.603082 sec
+[03/27/2022, 21:23:57] [exp-cssi_cssi_t1_vc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:23:57] [exp-cssi_cssi_t1_auy]
+============== start ==============
+[03/27/2022, 21:23:57] [masking_exp-cssi_cssi_t1_auy]
+get scores for 14279 papers
+[03/27/2022, 21:24:04] [masking_exp-cssi_cssi_t1_auy]
+task end within 6.677281 sec
+[03/27/2022, 21:24:04] [exp-cssi_cssi_t1_auy]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:24:04] [exp-cssi_cssi_t1_auyc]
+============== start ==============
+[03/27/2022, 21:24:04] [masking_exp-cssi_cssi_t1_auyc]
+get scores for 14279 papers
+[03/27/2022, 21:24:11] [masking_exp-cssi_cssi_t1_auyc]
+task end within 6.58384 sec
+[03/27/2022, 21:24:11] [exp-cssi_cssi_t1_auyc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:24:11] [exp-cssi_cssi_t1_auc]
+============== start ==============
+[03/27/2022, 21:24:11] [masking_exp-cssi_cssi_t1_auc]
+get scores for 14279 papers
+[03/27/2022, 21:24:18] [masking_exp-cssi_cssi_t1_auc]
+task end within 6.592755 sec
+[03/27/2022, 21:24:18] [exp-cssi_cssi_t1_auc]
+============== end 14279 ==============
+
+
+[03/27/2022, 21:24:18] [exp-cssi_cssi_t1_yc]
+============== start ==============
+[03/27/2022, 21:24:18] [masking_exp-cssi_cssi_t1_yc]
+get scores for 14279 papers
+[03/27/2022, 21:24:26] [masking_exp-cssi_cssi_t1_yc]
+task end within 7.849987 sec
+[03/27/2022, 21:24:26] [exp-cssi_cssi_t1_yc]
+============== end 14279 ==============

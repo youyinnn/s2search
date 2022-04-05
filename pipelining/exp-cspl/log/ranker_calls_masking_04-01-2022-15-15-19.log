@@ -1,0 +1,641 @@
+
+
+[04/01/2022, 15:15:19] [exp-cspl_cspl_t1_origin]
+============== start ==============
+[04/01/2022, 15:15:19] [masking_exp-cspl_cspl_t1_origin]
+get scores for 5471 papers
+[04/01/2022, 15:15:22] [masking_exp-cspl_cspl_t1_origin]
+task end within 2.976332 sec
+[04/01/2022, 15:15:22] [exp-cspl_cspl_t1_origin]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:22] [exp-cspl_cspl_t1_t]
+============== start ==============
+[04/01/2022, 15:15:22] [masking_exp-cspl_cspl_t1_t]
+get scores for 5471 papers
+[04/01/2022, 15:15:25] [masking_exp-cspl_cspl_t1_t]
+task end within 2.785081 sec
+[04/01/2022, 15:15:25] [exp-cspl_cspl_t1_t]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:25] [exp-cspl_cspl_t1_abs]
+============== start ==============
+[04/01/2022, 15:15:25] [masking_exp-cspl_cspl_t1_abs]
+get scores for 5471 papers
+[04/01/2022, 15:15:27] [masking_exp-cspl_cspl_t1_abs]
+task end within 2.063612 sec
+[04/01/2022, 15:15:27] [exp-cspl_cspl_t1_abs]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:27] [exp-cspl_cspl_t1_v]
+============== start ==============
+[04/01/2022, 15:15:27] [masking_exp-cspl_cspl_t1_v]
+get scores for 5471 papers
+[04/01/2022, 15:15:30] [masking_exp-cspl_cspl_t1_v]
+task end within 2.968443 sec
+[04/01/2022, 15:15:30] [exp-cspl_cspl_t1_v]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:30] [exp-cspl_cspl_t1_au]
+============== start ==============
+[04/01/2022, 15:15:30] [masking_exp-cspl_cspl_t1_au]
+get scores for 5471 papers
+[04/01/2022, 15:15:33] [masking_exp-cspl_cspl_t1_au]
+task end within 2.52671 sec
+[04/01/2022, 15:15:33] [exp-cspl_cspl_t1_au]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:33] [exp-cspl_cspl_t1_y]
+============== start ==============
+[04/01/2022, 15:15:33] [masking_exp-cspl_cspl_t1_y]
+get scores for 5471 papers
+[04/01/2022, 15:15:36] [masking_exp-cspl_cspl_t1_y]
+task end within 2.923772 sec
+[04/01/2022, 15:15:36] [exp-cspl_cspl_t1_y]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:36] [exp-cspl_cspl_t1_c]
+============== start ==============
+[04/01/2022, 15:15:36] [masking_exp-cspl_cspl_t1_c]
+get scores for 5471 papers
+[04/01/2022, 15:15:39] [masking_exp-cspl_cspl_t1_c]
+task end within 2.972356 sec
+[04/01/2022, 15:15:39] [exp-cspl_cspl_t1_c]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:39] [exp-cspl_cspl_t1_tabs]
+============== start ==============
+[04/01/2022, 15:15:39] [masking_exp-cspl_cspl_t1_tabs]
+get scores for 5471 papers
+[04/01/2022, 15:15:41] [masking_exp-cspl_cspl_t1_tabs]
+task end within 1.934386 sec
+[04/01/2022, 15:15:41] [exp-cspl_cspl_t1_tabs]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:41] [exp-cspl_cspl_t1_tabsv]
+============== start ==============
+[04/01/2022, 15:15:41] [masking_exp-cspl_cspl_t1_tabsv]
+get scores for 5471 papers
+[04/01/2022, 15:15:43] [masking_exp-cspl_cspl_t1_tabsv]
+task end within 1.912779 sec
+[04/01/2022, 15:15:43] [exp-cspl_cspl_t1_tabsv]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:43] [exp-cspl_cspl_t1_tabsvau]
+============== start ==============
+[04/01/2022, 15:15:43] [masking_exp-cspl_cspl_t1_tabsvau]
+get scores for 5471 papers
+[04/01/2022, 15:15:45] [masking_exp-cspl_cspl_t1_tabsvau]
+task end within 1.358397 sec
+[04/01/2022, 15:15:45] [exp-cspl_cspl_t1_tabsvau]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:45] [exp-cspl_cspl_t1_tabsvauy]
+============== start ==============
+[04/01/2022, 15:15:45] [masking_exp-cspl_cspl_t1_tabsvauy]
+get scores for 5471 papers
+[04/01/2022, 15:15:46] [masking_exp-cspl_cspl_t1_tabsvauy]
+task end within 1.344614 sec
+[04/01/2022, 15:15:46] [exp-cspl_cspl_t1_tabsvauy]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:46] [exp-cspl_cspl_t1_tabsvauyc]
+============== start ==============
+[04/01/2022, 15:15:46] [masking_exp-cspl_cspl_t1_tabsvauyc]
+get scores for 5471 papers
+[04/01/2022, 15:15:48] [masking_exp-cspl_cspl_t1_tabsvauyc]
+task end within 1.397151 sec
+[04/01/2022, 15:15:48] [exp-cspl_cspl_t1_tabsvauyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:48] [exp-cspl_cspl_t1_tabsvauc]
+============== start ==============
+[04/01/2022, 15:15:48] [masking_exp-cspl_cspl_t1_tabsvauc]
+get scores for 5471 papers
+[04/01/2022, 15:15:49] [masking_exp-cspl_cspl_t1_tabsvauc]
+task end within 1.42698 sec
+[04/01/2022, 15:15:49] [exp-cspl_cspl_t1_tabsvauc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:49] [exp-cspl_cspl_t1_tabsvy]
+============== start ==============
+[04/01/2022, 15:15:49] [masking_exp-cspl_cspl_t1_tabsvy]
+get scores for 5471 papers
+[04/01/2022, 15:15:51] [masking_exp-cspl_cspl_t1_tabsvy]
+task end within 1.824499 sec
+[04/01/2022, 15:15:51] [exp-cspl_cspl_t1_tabsvy]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:51] [exp-cspl_cspl_t1_tabsvyc]
+============== start ==============
+[04/01/2022, 15:15:51] [masking_exp-cspl_cspl_t1_tabsvyc]
+get scores for 5471 papers
+[04/01/2022, 15:15:53] [masking_exp-cspl_cspl_t1_tabsvyc]
+task end within 1.828574 sec
+[04/01/2022, 15:15:53] [exp-cspl_cspl_t1_tabsvyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:53] [exp-cspl_cspl_t1_tabsvc]
+============== start ==============
+[04/01/2022, 15:15:53] [masking_exp-cspl_cspl_t1_tabsvc]
+get scores for 5471 papers
+[04/01/2022, 15:15:55] [masking_exp-cspl_cspl_t1_tabsvc]
+task end within 1.808736 sec
+[04/01/2022, 15:15:55] [exp-cspl_cspl_t1_tabsvc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:55] [exp-cspl_cspl_t1_tabsau]
+============== start ==============
+[04/01/2022, 15:15:55] [masking_exp-cspl_cspl_t1_tabsau]
+get scores for 5471 papers
+[04/01/2022, 15:15:57] [masking_exp-cspl_cspl_t1_tabsau]
+task end within 1.511703 sec
+[04/01/2022, 15:15:57] [exp-cspl_cspl_t1_tabsau]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:57] [exp-cspl_cspl_t1_tabsauy]
+============== start ==============
+[04/01/2022, 15:15:57] [masking_exp-cspl_cspl_t1_tabsauy]
+get scores for 5471 papers
+[04/01/2022, 15:15:58] [masking_exp-cspl_cspl_t1_tabsauy]
+task end within 1.52194 sec
+[04/01/2022, 15:15:58] [exp-cspl_cspl_t1_tabsauy]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:15:58] [exp-cspl_cspl_t1_tabsauyc]
+============== start ==============
+[04/01/2022, 15:15:58] [masking_exp-cspl_cspl_t1_tabsauyc]
+get scores for 5471 papers
+[04/01/2022, 15:16:00] [masking_exp-cspl_cspl_t1_tabsauyc]
+task end within 1.486003 sec
+[04/01/2022, 15:16:00] [exp-cspl_cspl_t1_tabsauyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:00] [exp-cspl_cspl_t1_tabsauc]
+============== start ==============
+[04/01/2022, 15:16:00] [masking_exp-cspl_cspl_t1_tabsauc]
+get scores for 5471 papers
+[04/01/2022, 15:16:01] [masking_exp-cspl_cspl_t1_tabsauc]
+task end within 1.466879 sec
+[04/01/2022, 15:16:01] [exp-cspl_cspl_t1_tabsauc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:01] [exp-cspl_cspl_t1_tabsy]
+============== start ==============
+[04/01/2022, 15:16:02] [masking_exp-cspl_cspl_t1_tabsy]
+get scores for 5471 papers
+[04/01/2022, 15:16:04] [masking_exp-cspl_cspl_t1_tabsy]
+task end within 2.012864 sec
+[04/01/2022, 15:16:04] [exp-cspl_cspl_t1_tabsy]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:04] [exp-cspl_cspl_t1_tabsyc]
+============== start ==============
+[04/01/2022, 15:16:04] [masking_exp-cspl_cspl_t1_tabsyc]
+get scores for 5471 papers
+[04/01/2022, 15:16:06] [masking_exp-cspl_cspl_t1_tabsyc]
+task end within 1.901492 sec
+[04/01/2022, 15:16:06] [exp-cspl_cspl_t1_tabsyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:06] [exp-cspl_cspl_t1_tabsc]
+============== start ==============
+[04/01/2022, 15:16:06] [masking_exp-cspl_cspl_t1_tabsc]
+get scores for 5471 papers
+[04/01/2022, 15:16:08] [masking_exp-cspl_cspl_t1_tabsc]
+task end within 1.858049 sec
+[04/01/2022, 15:16:08] [exp-cspl_cspl_t1_tabsc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:08] [exp-cspl_cspl_t1_tv]
+============== start ==============
+[04/01/2022, 15:16:08] [masking_exp-cspl_cspl_t1_tv]
+get scores for 5471 papers
+[04/01/2022, 15:16:10] [masking_exp-cspl_cspl_t1_tv]
+task end within 2.746267 sec
+[04/01/2022, 15:16:10] [exp-cspl_cspl_t1_tv]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:10] [exp-cspl_cspl_t1_tvau]
+============== start ==============
+[04/01/2022, 15:16:11] [masking_exp-cspl_cspl_t1_tvau]
+get scores for 5471 papers
+[04/01/2022, 15:16:13] [masking_exp-cspl_cspl_t1_tvau]
+task end within 2.363231 sec
+[04/01/2022, 15:16:13] [exp-cspl_cspl_t1_tvau]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:13] [exp-cspl_cspl_t1_tvauy]
+============== start ==============
+[04/01/2022, 15:16:13] [masking_exp-cspl_cspl_t1_tvauy]
+get scores for 5471 papers
+[04/01/2022, 15:16:15] [masking_exp-cspl_cspl_t1_tvauy]
+task end within 2.294417 sec
+[04/01/2022, 15:16:15] [exp-cspl_cspl_t1_tvauy]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:15] [exp-cspl_cspl_t1_tvauyc]
+============== start ==============
+[04/01/2022, 15:16:15] [masking_exp-cspl_cspl_t1_tvauyc]
+get scores for 5471 papers
+[04/01/2022, 15:16:18] [masking_exp-cspl_cspl_t1_tvauyc]
+task end within 2.268824 sec
+[04/01/2022, 15:16:18] [exp-cspl_cspl_t1_tvauyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:18] [exp-cspl_cspl_t1_tvauc]
+============== start ==============
+[04/01/2022, 15:16:18] [masking_exp-cspl_cspl_t1_tvauc]
+get scores for 5471 papers
+[04/01/2022, 15:16:20] [masking_exp-cspl_cspl_t1_tvauc]
+task end within 2.403606 sec
+[04/01/2022, 15:16:20] [exp-cspl_cspl_t1_tvauc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:20] [exp-cspl_cspl_t1_tvy]
+============== start ==============
+[04/01/2022, 15:16:20] [masking_exp-cspl_cspl_t1_tvy]
+get scores for 5471 papers
+[04/01/2022, 15:16:23] [masking_exp-cspl_cspl_t1_tvy]
+task end within 2.768445 sec
+[04/01/2022, 15:16:23] [exp-cspl_cspl_t1_tvy]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:23] [exp-cspl_cspl_t1_tvyc]
+============== start ==============
+[04/01/2022, 15:16:23] [masking_exp-cspl_cspl_t1_tvyc]
+get scores for 5471 papers
+[04/01/2022, 15:16:26] [masking_exp-cspl_cspl_t1_tvyc]
+task end within 2.740972 sec
+[04/01/2022, 15:16:26] [exp-cspl_cspl_t1_tvyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:26] [exp-cspl_cspl_t1_tvc]
+============== start ==============
+[04/01/2022, 15:16:26] [masking_exp-cspl_cspl_t1_tvc]
+get scores for 5471 papers
+[04/01/2022, 15:16:29] [masking_exp-cspl_cspl_t1_tvc]
+task end within 2.692426 sec
+[04/01/2022, 15:16:29] [exp-cspl_cspl_t1_tvc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:29] [exp-cspl_cspl_t1_tau]
+============== start ==============
+[04/01/2022, 15:16:29] [masking_exp-cspl_cspl_t1_tau]
+get scores for 5471 papers
+[04/01/2022, 15:16:31] [masking_exp-cspl_cspl_t1_tau]
+task end within 2.422301 sec
+[04/01/2022, 15:16:31] [exp-cspl_cspl_t1_tau]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:31] [exp-cspl_cspl_t1_tauy]
+============== start ==============
+[04/01/2022, 15:16:31] [masking_exp-cspl_cspl_t1_tauy]
+get scores for 5471 papers
+[04/01/2022, 15:16:34] [masking_exp-cspl_cspl_t1_tauy]
+task end within 2.598546 sec
+[04/01/2022, 15:16:34] [exp-cspl_cspl_t1_tauy]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:34] [exp-cspl_cspl_t1_tauyc]
+============== start ==============
+[04/01/2022, 15:16:34] [masking_exp-cspl_cspl_t1_tauyc]
+get scores for 5471 papers
+[04/01/2022, 15:16:37] [masking_exp-cspl_cspl_t1_tauyc]
+task end within 2.3327 sec
+[04/01/2022, 15:16:37] [exp-cspl_cspl_t1_tauyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:37] [exp-cspl_cspl_t1_tauc]
+============== start ==============
+[04/01/2022, 15:16:37] [masking_exp-cspl_cspl_t1_tauc]
+get scores for 5471 papers
+[04/01/2022, 15:16:39] [masking_exp-cspl_cspl_t1_tauc]
+task end within 2.441793 sec
+[04/01/2022, 15:16:39] [exp-cspl_cspl_t1_tauc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:39] [exp-cspl_cspl_t1_ty]
+============== start ==============
+[04/01/2022, 15:16:39] [masking_exp-cspl_cspl_t1_ty]
+get scores for 5471 papers
+[04/01/2022, 15:16:42] [masking_exp-cspl_cspl_t1_ty]
+task end within 2.866748 sec
+[04/01/2022, 15:16:42] [exp-cspl_cspl_t1_ty]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:42] [exp-cspl_cspl_t1_tyc]
+============== start ==============
+[04/01/2022, 15:16:42] [masking_exp-cspl_cspl_t1_tyc]
+get scores for 5471 papers
+[04/01/2022, 15:16:45] [masking_exp-cspl_cspl_t1_tyc]
+task end within 2.800175 sec
+[04/01/2022, 15:16:45] [exp-cspl_cspl_t1_tyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:45] [exp-cspl_cspl_t1_tc]
+============== start ==============
+[04/01/2022, 15:16:45] [masking_exp-cspl_cspl_t1_tc]
+get scores for 5471 papers
+[04/01/2022, 15:16:48] [masking_exp-cspl_cspl_t1_tc]
+task end within 2.825157 sec
+[04/01/2022, 15:16:48] [exp-cspl_cspl_t1_tc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:48] [exp-cspl_cspl_t1_absv]
+============== start ==============
+[04/01/2022, 15:16:48] [masking_exp-cspl_cspl_t1_absv]
+get scores for 5471 papers
+[04/01/2022, 15:16:50] [masking_exp-cspl_cspl_t1_absv]
+task end within 1.960828 sec
+[04/01/2022, 15:16:50] [exp-cspl_cspl_t1_absv]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:50] [exp-cspl_cspl_t1_absvau]
+============== start ==============
+[04/01/2022, 15:16:50] [masking_exp-cspl_cspl_t1_absvau]
+get scores for 5471 papers
+[04/01/2022, 15:16:52] [masking_exp-cspl_cspl_t1_absvau]
+task end within 1.557438 sec
+[04/01/2022, 15:16:52] [exp-cspl_cspl_t1_absvau]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:52] [exp-cspl_cspl_t1_absvauy]
+============== start ==============
+[04/01/2022, 15:16:52] [masking_exp-cspl_cspl_t1_absvauy]
+get scores for 5471 papers
+[04/01/2022, 15:16:53] [masking_exp-cspl_cspl_t1_absvauy]
+task end within 1.663209 sec
+[04/01/2022, 15:16:53] [exp-cspl_cspl_t1_absvauy]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:53] [exp-cspl_cspl_t1_absvauyc]
+============== start ==============
+[04/01/2022, 15:16:54] [masking_exp-cspl_cspl_t1_absvauyc]
+get scores for 5471 papers
+[04/01/2022, 15:16:55] [masking_exp-cspl_cspl_t1_absvauyc]
+task end within 1.559467 sec
+[04/01/2022, 15:16:55] [exp-cspl_cspl_t1_absvauyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:55] [exp-cspl_cspl_t1_absvauc]
+============== start ==============
+[04/01/2022, 15:16:55] [masking_exp-cspl_cspl_t1_absvauc]
+get scores for 5471 papers
+[04/01/2022, 15:16:57] [masking_exp-cspl_cspl_t1_absvauc]
+task end within 1.561112 sec
+[04/01/2022, 15:16:57] [exp-cspl_cspl_t1_absvauc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:57] [exp-cspl_cspl_t1_absvy]
+============== start ==============
+[04/01/2022, 15:16:57] [masking_exp-cspl_cspl_t1_absvy]
+get scores for 5471 papers
+[04/01/2022, 15:16:59] [masking_exp-cspl_cspl_t1_absvy]
+task end within 2.077412 sec
+[04/01/2022, 15:16:59] [exp-cspl_cspl_t1_absvy]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:16:59] [exp-cspl_cspl_t1_absvyc]
+============== start ==============
+[04/01/2022, 15:16:59] [masking_exp-cspl_cspl_t1_absvyc]
+get scores for 5471 papers
+[04/01/2022, 15:17:01] [masking_exp-cspl_cspl_t1_absvyc]
+task end within 2.12342 sec
+[04/01/2022, 15:17:01] [exp-cspl_cspl_t1_absvyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:01] [exp-cspl_cspl_t1_absvc]
+============== start ==============
+[04/01/2022, 15:17:01] [masking_exp-cspl_cspl_t1_absvc]
+get scores for 5471 papers
+[04/01/2022, 15:17:03] [masking_exp-cspl_cspl_t1_absvc]
+task end within 1.97051 sec
+[04/01/2022, 15:17:03] [exp-cspl_cspl_t1_absvc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:03] [exp-cspl_cspl_t1_absau]
+============== start ==============
+[04/01/2022, 15:17:03] [masking_exp-cspl_cspl_t1_absau]
+get scores for 5471 papers
+[04/01/2022, 15:17:05] [masking_exp-cspl_cspl_t1_absau]
+task end within 1.642151 sec
+[04/01/2022, 15:17:05] [exp-cspl_cspl_t1_absau]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:05] [exp-cspl_cspl_t1_absauy]
+============== start ==============
+[04/01/2022, 15:17:05] [masking_exp-cspl_cspl_t1_absauy]
+get scores for 5471 papers
+[04/01/2022, 15:17:07] [masking_exp-cspl_cspl_t1_absauy]
+task end within 1.712084 sec
+[04/01/2022, 15:17:07] [exp-cspl_cspl_t1_absauy]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:07] [exp-cspl_cspl_t1_absauyc]
+============== start ==============
+[04/01/2022, 15:17:07] [masking_exp-cspl_cspl_t1_absauyc]
+get scores for 5471 papers
+[04/01/2022, 15:17:09] [masking_exp-cspl_cspl_t1_absauyc]
+task end within 1.828465 sec
+[04/01/2022, 15:17:09] [exp-cspl_cspl_t1_absauyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:09] [exp-cspl_cspl_t1_absauc]
+============== start ==============
+[04/01/2022, 15:17:09] [masking_exp-cspl_cspl_t1_absauc]
+get scores for 5471 papers
+[04/01/2022, 15:17:11] [masking_exp-cspl_cspl_t1_absauc]
+task end within 1.628904 sec
+[04/01/2022, 15:17:11] [exp-cspl_cspl_t1_absauc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:11] [exp-cspl_cspl_t1_absy]
+============== start ==============
+[04/01/2022, 15:17:11] [masking_exp-cspl_cspl_t1_absy]
+get scores for 5471 papers
+[04/01/2022, 15:17:13] [masking_exp-cspl_cspl_t1_absy]
+task end within 2.070877 sec
+[04/01/2022, 15:17:13] [exp-cspl_cspl_t1_absy]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:13] [exp-cspl_cspl_t1_absyc]
+============== start ==============
+[04/01/2022, 15:17:13] [masking_exp-cspl_cspl_t1_absyc]
+get scores for 5471 papers
+[04/01/2022, 15:17:15] [masking_exp-cspl_cspl_t1_absyc]
+task end within 2.139062 sec
+[04/01/2022, 15:17:15] [exp-cspl_cspl_t1_absyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:15] [exp-cspl_cspl_t1_absc]
+============== start ==============
+[04/01/2022, 15:17:15] [masking_exp-cspl_cspl_t1_absc]
+get scores for 5471 papers
+[04/01/2022, 15:17:17] [masking_exp-cspl_cspl_t1_absc]
+task end within 2.123544 sec
+[04/01/2022, 15:17:17] [exp-cspl_cspl_t1_absc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:17] [exp-cspl_cspl_t1_vau]
+============== start ==============
+[04/01/2022, 15:17:17] [masking_exp-cspl_cspl_t1_vau]
+get scores for 5471 papers
+[04/01/2022, 15:17:20] [masking_exp-cspl_cspl_t1_vau]
+task end within 2.435915 sec
+[04/01/2022, 15:17:20] [exp-cspl_cspl_t1_vau]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:20] [exp-cspl_cspl_t1_vauy]
+============== start ==============
+[04/01/2022, 15:17:20] [masking_exp-cspl_cspl_t1_vauy]
+get scores for 5471 papers
+[04/01/2022, 15:17:22] [masking_exp-cspl_cspl_t1_vauy]
+task end within 2.46741 sec
+[04/01/2022, 15:17:22] [exp-cspl_cspl_t1_vauy]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:22] [exp-cspl_cspl_t1_vauyc]
+============== start ==============
+[04/01/2022, 15:17:22] [masking_exp-cspl_cspl_t1_vauyc]
+get scores for 5471 papers
+[04/01/2022, 15:17:25] [masking_exp-cspl_cspl_t1_vauyc]
+task end within 2.528062 sec
+[04/01/2022, 15:17:25] [exp-cspl_cspl_t1_vauyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:25] [exp-cspl_cspl_t1_vauc]
+============== start ==============
+[04/01/2022, 15:17:25] [masking_exp-cspl_cspl_t1_vauc]
+get scores for 5471 papers
+[04/01/2022, 15:17:28] [masking_exp-cspl_cspl_t1_vauc]
+task end within 2.595768 sec
+[04/01/2022, 15:17:28] [exp-cspl_cspl_t1_vauc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:28] [exp-cspl_cspl_t1_vy]
+============== start ==============
+[04/01/2022, 15:17:28] [masking_exp-cspl_cspl_t1_vy]
+get scores for 5471 papers
+[04/01/2022, 15:17:31] [masking_exp-cspl_cspl_t1_vy]
+task end within 2.897926 sec
+[04/01/2022, 15:17:31] [exp-cspl_cspl_t1_vy]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:31] [exp-cspl_cspl_t1_vyc]
+============== start ==============
+[04/01/2022, 15:17:31] [masking_exp-cspl_cspl_t1_vyc]
+get scores for 5471 papers
+[04/01/2022, 15:17:34] [masking_exp-cspl_cspl_t1_vyc]
+task end within 2.828882 sec
+[04/01/2022, 15:17:34] [exp-cspl_cspl_t1_vyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:34] [exp-cspl_cspl_t1_vc]
+============== start ==============
+[04/01/2022, 15:17:34] [masking_exp-cspl_cspl_t1_vc]
+get scores for 5471 papers
+[04/01/2022, 15:17:37] [masking_exp-cspl_cspl_t1_vc]
+task end within 2.942386 sec
+[04/01/2022, 15:17:37] [exp-cspl_cspl_t1_vc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:37] [exp-cspl_cspl_t1_auy]
+============== start ==============
+[04/01/2022, 15:17:37] [masking_exp-cspl_cspl_t1_auy]
+get scores for 5471 papers
+[04/01/2022, 15:17:39] [masking_exp-cspl_cspl_t1_auy]
+task end within 2.596017 sec
+[04/01/2022, 15:17:39] [exp-cspl_cspl_t1_auy]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:39] [exp-cspl_cspl_t1_auyc]
+============== start ==============
+[04/01/2022, 15:17:40] [masking_exp-cspl_cspl_t1_auyc]
+get scores for 5471 papers
+[04/01/2022, 15:17:42] [masking_exp-cspl_cspl_t1_auyc]
+task end within 2.55172 sec
+[04/01/2022, 15:17:42] [exp-cspl_cspl_t1_auyc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:42] [exp-cspl_cspl_t1_auc]
+============== start ==============
+[04/01/2022, 15:17:42] [masking_exp-cspl_cspl_t1_auc]
+get scores for 5471 papers
+[04/01/2022, 15:17:45] [masking_exp-cspl_cspl_t1_auc]
+task end within 2.591543 sec
+[04/01/2022, 15:17:45] [exp-cspl_cspl_t1_auc]
+============== end 5471 ==============
+
+
+[04/01/2022, 15:17:45] [exp-cspl_cspl_t1_yc]
+============== start ==============
+[04/01/2022, 15:17:45] [masking_exp-cspl_cspl_t1_yc]
+get scores for 5471 papers
+[04/01/2022, 15:17:48] [masking_exp-cspl_cspl_t1_yc]
+task end within 3.107112 sec
+[04/01/2022, 15:17:48] [exp-cspl_cspl_t1_yc]
+============== end 5471 ==============
+

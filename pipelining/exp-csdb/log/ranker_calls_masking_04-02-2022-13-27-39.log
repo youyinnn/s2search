@@ -1,0 +1,640 @@
+
+
+[04/02/2022, 13:27:39] [exp-csdb_csdb_t1_origin]
+============== start ==============
+[04/02/2022, 13:27:39] [masking_exp-csdb_csdb_t1_origin]
+get scores for 6230 papers
+[04/02/2022, 13:27:54] [masking_exp-csdb_csdb_t1_origin]
+task end within 14.327678 sec
+[04/02/2022, 13:27:54] [exp-csdb_csdb_t1_origin]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:27:54] [exp-csdb_csdb_t1_t]
+============== start ==============
+[04/02/2022, 13:27:54] [masking_exp-csdb_csdb_t1_t]
+get scores for 6230 papers
+[04/02/2022, 13:27:58] [masking_exp-csdb_csdb_t1_t]
+task end within 4.049779 sec
+[04/02/2022, 13:27:58] [exp-csdb_csdb_t1_t]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:27:58] [exp-csdb_csdb_t1_abs]
+============== start ==============
+[04/02/2022, 13:27:58] [masking_exp-csdb_csdb_t1_abs]
+get scores for 6230 papers
+[04/02/2022, 13:28:00] [masking_exp-csdb_csdb_t1_abs]
+task end within 2.145764 sec
+[04/02/2022, 13:28:00] [exp-csdb_csdb_t1_abs]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:00] [exp-csdb_csdb_t1_v]
+============== start ==============
+[04/02/2022, 13:28:01] [masking_exp-csdb_csdb_t1_v]
+get scores for 6230 papers
+[04/02/2022, 13:28:05] [masking_exp-csdb_csdb_t1_v]
+task end within 4.185177 sec
+[04/02/2022, 13:28:05] [exp-csdb_csdb_t1_v]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:05] [exp-csdb_csdb_t1_au]
+============== start ==============
+[04/02/2022, 13:28:05] [masking_exp-csdb_csdb_t1_au]
+get scores for 6230 papers
+[04/02/2022, 13:28:09] [masking_exp-csdb_csdb_t1_au]
+task end within 3.51165 sec
+[04/02/2022, 13:28:09] [exp-csdb_csdb_t1_au]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:09] [exp-csdb_csdb_t1_y]
+============== start ==============
+[04/02/2022, 13:28:09] [masking_exp-csdb_csdb_t1_y]
+get scores for 6230 papers
+[04/02/2022, 13:28:13] [masking_exp-csdb_csdb_t1_y]
+task end within 4.277006 sec
+[04/02/2022, 13:28:13] [exp-csdb_csdb_t1_y]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:13] [exp-csdb_csdb_t1_c]
+============== start ==============
+[04/02/2022, 13:28:13] [masking_exp-csdb_csdb_t1_c]
+get scores for 6230 papers
+[04/02/2022, 13:28:17] [masking_exp-csdb_csdb_t1_c]
+task end within 4.290626 sec
+[04/02/2022, 13:28:17] [exp-csdb_csdb_t1_c]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:17] [exp-csdb_csdb_t1_tabs]
+============== start ==============
+[04/02/2022, 13:28:18] [masking_exp-csdb_csdb_t1_tabs]
+get scores for 6230 papers
+[04/02/2022, 13:28:19] [masking_exp-csdb_csdb_t1_tabs]
+task end within 1.827352 sec
+[04/02/2022, 13:28:20] [exp-csdb_csdb_t1_tabs]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:20] [exp-csdb_csdb_t1_tabsv]
+============== start ==============
+[04/02/2022, 13:28:20] [masking_exp-csdb_csdb_t1_tabsv]
+get scores for 6230 papers
+[04/02/2022, 13:28:21] [masking_exp-csdb_csdb_t1_tabsv]
+task end within 1.701665 sec
+[04/02/2022, 13:28:21] [exp-csdb_csdb_t1_tabsv]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:21] [exp-csdb_csdb_t1_tabsvau]
+============== start ==============
+[04/02/2022, 13:28:21] [masking_exp-csdb_csdb_t1_tabsvau]
+get scores for 6230 papers
+[04/02/2022, 13:28:22] [masking_exp-csdb_csdb_t1_tabsvau]
+task end within 0.882553 sec
+[04/02/2022, 13:28:22] [exp-csdb_csdb_t1_tabsvau]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:22] [exp-csdb_csdb_t1_tabsvauy]
+============== start ==============
+[04/02/2022, 13:28:23] [masking_exp-csdb_csdb_t1_tabsvauy]
+get scores for 6230 papers
+[04/02/2022, 13:28:23] [masking_exp-csdb_csdb_t1_tabsvauy]
+task end within 0.851191 sec
+[04/02/2022, 13:28:23] [exp-csdb_csdb_t1_tabsvauy]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:23] [exp-csdb_csdb_t1_tabsvauyc]
+============== start ==============
+[04/02/2022, 13:28:24] [masking_exp-csdb_csdb_t1_tabsvauyc]
+get scores for 6230 papers
+[04/02/2022, 13:28:24] [masking_exp-csdb_csdb_t1_tabsvauyc]
+task end within 0.861515 sec
+[04/02/2022, 13:28:24] [exp-csdb_csdb_t1_tabsvauyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:25] [exp-csdb_csdb_t1_tabsvauc]
+============== start ==============
+[04/02/2022, 13:28:25] [masking_exp-csdb_csdb_t1_tabsvauc]
+get scores for 6230 papers
+[04/02/2022, 13:28:26] [masking_exp-csdb_csdb_t1_tabsvauc]
+task end within 0.886445 sec
+[04/02/2022, 13:28:26] [exp-csdb_csdb_t1_tabsvauc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:26] [exp-csdb_csdb_t1_tabsvy]
+============== start ==============
+[04/02/2022, 13:28:26] [masking_exp-csdb_csdb_t1_tabsvy]
+get scores for 6230 papers
+[04/02/2022, 13:28:27] [masking_exp-csdb_csdb_t1_tabsvy]
+task end within 1.676633 sec
+[04/02/2022, 13:28:27] [exp-csdb_csdb_t1_tabsvy]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:27] [exp-csdb_csdb_t1_tabsvyc]
+============== start ==============
+[04/02/2022, 13:28:28] [masking_exp-csdb_csdb_t1_tabsvyc]
+get scores for 6230 papers
+[04/02/2022, 13:28:29] [masking_exp-csdb_csdb_t1_tabsvyc]
+task end within 1.677766 sec
+[04/02/2022, 13:28:29] [exp-csdb_csdb_t1_tabsvyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:29] [exp-csdb_csdb_t1_tabsvc]
+============== start ==============
+[04/02/2022, 13:28:29] [masking_exp-csdb_csdb_t1_tabsvc]
+get scores for 6230 papers
+[04/02/2022, 13:28:31] [masking_exp-csdb_csdb_t1_tabsvc]
+task end within 1.693475 sec
+[04/02/2022, 13:28:31] [exp-csdb_csdb_t1_tabsvc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:31] [exp-csdb_csdb_t1_tabsau]
+============== start ==============
+[04/02/2022, 13:28:31] [masking_exp-csdb_csdb_t1_tabsau]
+get scores for 6230 papers
+[04/02/2022, 13:28:32] [masking_exp-csdb_csdb_t1_tabsau]
+task end within 1.098304 sec
+[04/02/2022, 13:28:32] [exp-csdb_csdb_t1_tabsau]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:32] [exp-csdb_csdb_t1_tabsauy]
+============== start ==============
+[04/02/2022, 13:28:33] [masking_exp-csdb_csdb_t1_tabsauy]
+get scores for 6230 papers
+[04/02/2022, 13:28:34] [masking_exp-csdb_csdb_t1_tabsauy]
+task end within 1.033387 sec
+[04/02/2022, 13:28:34] [exp-csdb_csdb_t1_tabsauy]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:34] [exp-csdb_csdb_t1_tabsauyc]
+============== start ==============
+[04/02/2022, 13:28:34] [masking_exp-csdb_csdb_t1_tabsauyc]
+get scores for 6230 papers
+[04/02/2022, 13:28:35] [masking_exp-csdb_csdb_t1_tabsauyc]
+task end within 1.049833 sec
+[04/02/2022, 13:28:35] [exp-csdb_csdb_t1_tabsauyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:35] [exp-csdb_csdb_t1_tabsauc]
+============== start ==============
+[04/02/2022, 13:28:35] [masking_exp-csdb_csdb_t1_tabsauc]
+get scores for 6230 papers
+[04/02/2022, 13:28:36] [masking_exp-csdb_csdb_t1_tabsauc]
+task end within 1.059331 sec
+[04/02/2022, 13:28:36] [exp-csdb_csdb_t1_tabsauc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:36] [exp-csdb_csdb_t1_tabsy]
+============== start ==============
+[04/02/2022, 13:28:36] [masking_exp-csdb_csdb_t1_tabsy]
+get scores for 6230 papers
+[04/02/2022, 13:28:38] [masking_exp-csdb_csdb_t1_tabsy]
+task end within 1.820411 sec
+[04/02/2022, 13:28:38] [exp-csdb_csdb_t1_tabsy]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:38] [exp-csdb_csdb_t1_tabsyc]
+============== start ==============
+[04/02/2022, 13:28:38] [masking_exp-csdb_csdb_t1_tabsyc]
+get scores for 6230 papers
+[04/02/2022, 13:28:40] [masking_exp-csdb_csdb_t1_tabsyc]
+task end within 1.831636 sec
+[04/02/2022, 13:28:40] [exp-csdb_csdb_t1_tabsyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:40] [exp-csdb_csdb_t1_tabsc]
+============== start ==============
+[04/02/2022, 13:28:40] [masking_exp-csdb_csdb_t1_tabsc]
+get scores for 6230 papers
+[04/02/2022, 13:28:42] [masking_exp-csdb_csdb_t1_tabsc]
+task end within 1.846948 sec
+[04/02/2022, 13:28:42] [exp-csdb_csdb_t1_tabsc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:42] [exp-csdb_csdb_t1_tv]
+============== start ==============
+[04/02/2022, 13:28:42] [masking_exp-csdb_csdb_t1_tv]
+get scores for 6230 papers
+[04/02/2022, 13:28:46] [masking_exp-csdb_csdb_t1_tv]
+task end within 3.983205 sec
+[04/02/2022, 13:28:46] [exp-csdb_csdb_t1_tv]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:46] [exp-csdb_csdb_t1_tvau]
+============== start ==============
+[04/02/2022, 13:28:46] [masking_exp-csdb_csdb_t1_tvau]
+get scores for 6230 papers
+[04/02/2022, 13:28:49] [masking_exp-csdb_csdb_t1_tvau]
+task end within 3.079989 sec
+[04/02/2022, 13:28:49] [exp-csdb_csdb_t1_tvau]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:49] [exp-csdb_csdb_t1_tvauy]
+============== start ==============
+[04/02/2022, 13:28:50] [masking_exp-csdb_csdb_t1_tvauy]
+get scores for 6230 papers
+[04/02/2022, 13:28:53] [masking_exp-csdb_csdb_t1_tvauy]
+task end within 3.075674 sec
+[04/02/2022, 13:28:53] [exp-csdb_csdb_t1_tvauy]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:53] [exp-csdb_csdb_t1_tvauyc]
+============== start ==============
+[04/02/2022, 13:28:53] [masking_exp-csdb_csdb_t1_tvauyc]
+get scores for 6230 papers
+[04/02/2022, 13:28:56] [masking_exp-csdb_csdb_t1_tvauyc]
+task end within 3.082666 sec
+[04/02/2022, 13:28:56] [exp-csdb_csdb_t1_tvauyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:56] [exp-csdb_csdb_t1_tvauc]
+============== start ==============
+[04/02/2022, 13:28:56] [masking_exp-csdb_csdb_t1_tvauc]
+get scores for 6230 papers
+[04/02/2022, 13:28:59] [masking_exp-csdb_csdb_t1_tvauc]
+task end within 3.072555 sec
+[04/02/2022, 13:28:59] [exp-csdb_csdb_t1_tvauc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:28:59] [exp-csdb_csdb_t1_tvy]
+============== start ==============
+[04/02/2022, 13:28:59] [masking_exp-csdb_csdb_t1_tvy]
+get scores for 6230 papers
+[04/02/2022, 13:29:03] [masking_exp-csdb_csdb_t1_tvy]
+task end within 3.935008 sec
+[04/02/2022, 13:29:03] [exp-csdb_csdb_t1_tvy]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:03] [exp-csdb_csdb_t1_tvyc]
+============== start ==============
+[04/02/2022, 13:29:04] [masking_exp-csdb_csdb_t1_tvyc]
+get scores for 6230 papers
+[04/02/2022, 13:29:07] [masking_exp-csdb_csdb_t1_tvyc]
+task end within 3.869952 sec
+[04/02/2022, 13:29:07] [exp-csdb_csdb_t1_tvyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:07] [exp-csdb_csdb_t1_tvc]
+============== start ==============
+[04/02/2022, 13:29:08] [masking_exp-csdb_csdb_t1_tvc]
+get scores for 6230 papers
+[04/02/2022, 13:29:12] [masking_exp-csdb_csdb_t1_tvc]
+task end within 3.933002 sec
+[04/02/2022, 13:29:12] [exp-csdb_csdb_t1_tvc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:12] [exp-csdb_csdb_t1_tau]
+============== start ==============
+[04/02/2022, 13:29:12] [masking_exp-csdb_csdb_t1_tau]
+get scores for 6230 papers
+[04/02/2022, 13:29:15] [masking_exp-csdb_csdb_t1_tau]
+task end within 3.221784 sec
+[04/02/2022, 13:29:15] [exp-csdb_csdb_t1_tau]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:15] [exp-csdb_csdb_t1_tauy]
+============== start ==============
+[04/02/2022, 13:29:15] [masking_exp-csdb_csdb_t1_tauy]
+get scores for 6230 papers
+[04/02/2022, 13:29:18] [masking_exp-csdb_csdb_t1_tauy]
+task end within 3.204148 sec
+[04/02/2022, 13:29:18] [exp-csdb_csdb_t1_tauy]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:18] [exp-csdb_csdb_t1_tauyc]
+============== start ==============
+[04/02/2022, 13:29:19] [masking_exp-csdb_csdb_t1_tauyc]
+get scores for 6230 papers
+[04/02/2022, 13:29:22] [masking_exp-csdb_csdb_t1_tauyc]
+task end within 3.204479 sec
+[04/02/2022, 13:29:22] [exp-csdb_csdb_t1_tauyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:22] [exp-csdb_csdb_t1_tauc]
+============== start ==============
+[04/02/2022, 13:29:22] [masking_exp-csdb_csdb_t1_tauc]
+get scores for 6230 papers
+[04/02/2022, 13:29:25] [masking_exp-csdb_csdb_t1_tauc]
+task end within 3.263314 sec
+[04/02/2022, 13:29:25] [exp-csdb_csdb_t1_tauc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:25] [exp-csdb_csdb_t1_ty]
+============== start ==============
+[04/02/2022, 13:29:25] [masking_exp-csdb_csdb_t1_ty]
+get scores for 6230 papers
+[04/02/2022, 13:29:29] [masking_exp-csdb_csdb_t1_ty]
+task end within 4.022688 sec
+[04/02/2022, 13:29:29] [exp-csdb_csdb_t1_ty]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:29] [exp-csdb_csdb_t1_tyc]
+============== start ==============
+[04/02/2022, 13:29:30] [masking_exp-csdb_csdb_t1_tyc]
+get scores for 6230 papers
+[04/02/2022, 13:29:34] [masking_exp-csdb_csdb_t1_tyc]
+task end within 4.024589 sec
+[04/02/2022, 13:29:34] [exp-csdb_csdb_t1_tyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:34] [exp-csdb_csdb_t1_tc]
+============== start ==============
+[04/02/2022, 13:29:34] [masking_exp-csdb_csdb_t1_tc]
+get scores for 6230 papers
+[04/02/2022, 13:29:38] [masking_exp-csdb_csdb_t1_tc]
+task end within 4.0339 sec
+[04/02/2022, 13:29:38] [exp-csdb_csdb_t1_tc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:38] [exp-csdb_csdb_t1_absv]
+============== start ==============
+[04/02/2022, 13:29:38] [masking_exp-csdb_csdb_t1_absv]
+get scores for 6230 papers
+[04/02/2022, 13:29:40] [masking_exp-csdb_csdb_t1_absv]
+task end within 2.052747 sec
+[04/02/2022, 13:29:40] [exp-csdb_csdb_t1_absv]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:40] [exp-csdb_csdb_t1_absvau]
+============== start ==============
+[04/02/2022, 13:29:40] [masking_exp-csdb_csdb_t1_absvau]
+get scores for 6230 papers
+[04/02/2022, 13:29:41] [masking_exp-csdb_csdb_t1_absvau]
+task end within 1.27557 sec
+[04/02/2022, 13:29:41] [exp-csdb_csdb_t1_absvau]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:42] [exp-csdb_csdb_t1_absvauy]
+============== start ==============
+[04/02/2022, 13:29:42] [masking_exp-csdb_csdb_t1_absvauy]
+get scores for 6230 papers
+[04/02/2022, 13:29:43] [masking_exp-csdb_csdb_t1_absvauy]
+task end within 1.233386 sec
+[04/02/2022, 13:29:43] [exp-csdb_csdb_t1_absvauy]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:43] [exp-csdb_csdb_t1_absvauyc]
+============== start ==============
+[04/02/2022, 13:29:43] [masking_exp-csdb_csdb_t1_absvauyc]
+get scores for 6230 papers
+[04/02/2022, 13:29:44] [masking_exp-csdb_csdb_t1_absvauyc]
+task end within 1.234946 sec
+[04/02/2022, 13:29:44] [exp-csdb_csdb_t1_absvauyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:44] [exp-csdb_csdb_t1_absvauc]
+============== start ==============
+[04/02/2022, 13:29:45] [masking_exp-csdb_csdb_t1_absvauc]
+get scores for 6230 papers
+[04/02/2022, 13:29:46] [masking_exp-csdb_csdb_t1_absvauc]
+task end within 1.261524 sec
+[04/02/2022, 13:29:46] [exp-csdb_csdb_t1_absvauc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:46] [exp-csdb_csdb_t1_absvy]
+============== start ==============
+[04/02/2022, 13:29:46] [masking_exp-csdb_csdb_t1_absvy]
+get scores for 6230 papers
+[04/02/2022, 13:29:48] [masking_exp-csdb_csdb_t1_absvy]
+task end within 2.0244 sec
+[04/02/2022, 13:29:48] [exp-csdb_csdb_t1_absvy]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:48] [exp-csdb_csdb_t1_absvyc]
+============== start ==============
+[04/02/2022, 13:29:48] [masking_exp-csdb_csdb_t1_absvyc]
+get scores for 6230 papers
+[04/02/2022, 13:29:50] [masking_exp-csdb_csdb_t1_absvyc]
+task end within 2.05917 sec
+[04/02/2022, 13:29:50] [exp-csdb_csdb_t1_absvyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:50] [exp-csdb_csdb_t1_absvc]
+============== start ==============
+[04/02/2022, 13:29:50] [masking_exp-csdb_csdb_t1_absvc]
+get scores for 6230 papers
+[04/02/2022, 13:29:52] [masking_exp-csdb_csdb_t1_absvc]
+task end within 2.035819 sec
+[04/02/2022, 13:29:52] [exp-csdb_csdb_t1_absvc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:52] [exp-csdb_csdb_t1_absau]
+============== start ==============
+[04/02/2022, 13:29:53] [masking_exp-csdb_csdb_t1_absau]
+get scores for 6230 papers
+[04/02/2022, 13:29:54] [masking_exp-csdb_csdb_t1_absau]
+task end within 1.43831 sec
+[04/02/2022, 13:29:54] [exp-csdb_csdb_t1_absau]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:54] [exp-csdb_csdb_t1_absauy]
+============== start ==============
+[04/02/2022, 13:29:54] [masking_exp-csdb_csdb_t1_absauy]
+get scores for 6230 papers
+[04/02/2022, 13:29:56] [masking_exp-csdb_csdb_t1_absauy]
+task end within 1.377932 sec
+[04/02/2022, 13:29:56] [exp-csdb_csdb_t1_absauy]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:56] [exp-csdb_csdb_t1_absauyc]
+============== start ==============
+[04/02/2022, 13:29:56] [masking_exp-csdb_csdb_t1_absauyc]
+get scores for 6230 papers
+[04/02/2022, 13:29:57] [masking_exp-csdb_csdb_t1_absauyc]
+task end within 1.379915 sec
+[04/02/2022, 13:29:57] [exp-csdb_csdb_t1_absauyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:57] [exp-csdb_csdb_t1_absauc]
+============== start ==============
+[04/02/2022, 13:29:57] [masking_exp-csdb_csdb_t1_absauc]
+get scores for 6230 papers
+[04/02/2022, 13:29:59] [masking_exp-csdb_csdb_t1_absauc]
+task end within 1.387137 sec
+[04/02/2022, 13:29:59] [exp-csdb_csdb_t1_absauc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:29:59] [exp-csdb_csdb_t1_absy]
+============== start ==============
+[04/02/2022, 13:29:59] [masking_exp-csdb_csdb_t1_absy]
+get scores for 6230 papers
+[04/02/2022, 13:30:01] [masking_exp-csdb_csdb_t1_absy]
+task end within 2.129508 sec
+[04/02/2022, 13:30:01] [exp-csdb_csdb_t1_absy]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:30:01] [exp-csdb_csdb_t1_absyc]
+============== start ==============
+[04/02/2022, 13:30:01] [masking_exp-csdb_csdb_t1_absyc]
+get scores for 6230 papers
+[04/02/2022, 13:30:03] [masking_exp-csdb_csdb_t1_absyc]
+task end within 2.145097 sec
+[04/02/2022, 13:30:03] [exp-csdb_csdb_t1_absyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:30:03] [exp-csdb_csdb_t1_absc]
+============== start ==============
+[04/02/2022, 13:30:04] [masking_exp-csdb_csdb_t1_absc]
+get scores for 6230 papers
+[04/02/2022, 13:30:06] [masking_exp-csdb_csdb_t1_absc]
+task end within 2.156848 sec
+[04/02/2022, 13:30:06] [exp-csdb_csdb_t1_absc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:30:06] [exp-csdb_csdb_t1_vau]
+============== start ==============
+[04/02/2022, 13:30:06] [masking_exp-csdb_csdb_t1_vau]
+get scores for 6230 papers
+[04/02/2022, 13:30:09] [masking_exp-csdb_csdb_t1_vau]
+task end within 3.418081 sec
+[04/02/2022, 13:30:09] [exp-csdb_csdb_t1_vau]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:30:09] [exp-csdb_csdb_t1_vauy]
+============== start ==============
+[04/02/2022, 13:30:09] [masking_exp-csdb_csdb_t1_vauy]
+get scores for 6230 papers
+[04/02/2022, 13:30:13] [masking_exp-csdb_csdb_t1_vauy]
+task end within 3.402038 sec
+[04/02/2022, 13:30:13] [exp-csdb_csdb_t1_vauy]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:30:13] [exp-csdb_csdb_t1_vauyc]
+============== start ==============
+[04/02/2022, 13:30:13] [masking_exp-csdb_csdb_t1_vauyc]
+get scores for 6230 papers
+[04/02/2022, 13:30:16] [masking_exp-csdb_csdb_t1_vauyc]
+task end within 3.437137 sec
+[04/02/2022, 13:30:16] [exp-csdb_csdb_t1_vauyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:30:16] [exp-csdb_csdb_t1_vauc]
+============== start ==============
+[04/02/2022, 13:30:17] [masking_exp-csdb_csdb_t1_vauc]
+get scores for 6230 papers
+[04/02/2022, 13:30:20] [masking_exp-csdb_csdb_t1_vauc]
+task end within 3.413266 sec
+[04/02/2022, 13:30:20] [exp-csdb_csdb_t1_vauc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:30:20] [exp-csdb_csdb_t1_vy]
+============== start ==============
+[04/02/2022, 13:30:20] [masking_exp-csdb_csdb_t1_vy]
+get scores for 6230 papers
+[04/02/2022, 13:30:24] [masking_exp-csdb_csdb_t1_vy]
+task end within 4.211399 sec
+[04/02/2022, 13:30:24] [exp-csdb_csdb_t1_vy]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:30:24] [exp-csdb_csdb_t1_vyc]
+============== start ==============
+[04/02/2022, 13:30:25] [masking_exp-csdb_csdb_t1_vyc]
+get scores for 6230 papers
+[04/02/2022, 13:30:29] [masking_exp-csdb_csdb_t1_vyc]
+task end within 4.185645 sec
+[04/02/2022, 13:30:29] [exp-csdb_csdb_t1_vyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:30:29] [exp-csdb_csdb_t1_vc]
+============== start ==============
+[04/02/2022, 13:30:29] [masking_exp-csdb_csdb_t1_vc]
+get scores for 6230 papers
+[04/02/2022, 13:30:33] [masking_exp-csdb_csdb_t1_vc]
+task end within 4.235383 sec
+[04/02/2022, 13:30:33] [exp-csdb_csdb_t1_vc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:30:33] [exp-csdb_csdb_t1_auy]
+============== start ==============
+[04/02/2022, 13:30:33] [masking_exp-csdb_csdb_t1_auy]
+get scores for 6230 papers
+[04/02/2022, 13:30:37] [masking_exp-csdb_csdb_t1_auy]
+task end within 3.520365 sec
+[04/02/2022, 13:30:37] [exp-csdb_csdb_t1_auy]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:30:37] [exp-csdb_csdb_t1_auyc]
+============== start ==============
+[04/02/2022, 13:30:37] [masking_exp-csdb_csdb_t1_auyc]
+get scores for 6230 papers
+[04/02/2022, 13:30:41] [masking_exp-csdb_csdb_t1_auyc]
+task end within 3.510837 sec
+[04/02/2022, 13:30:41] [exp-csdb_csdb_t1_auyc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:30:41] [exp-csdb_csdb_t1_auc]
+============== start ==============
+[04/02/2022, 13:30:41] [masking_exp-csdb_csdb_t1_auc]
+get scores for 6230 papers
+[04/02/2022, 13:30:44] [masking_exp-csdb_csdb_t1_auc]
+task end within 3.605879 sec
+[04/02/2022, 13:30:44] [exp-csdb_csdb_t1_auc]
+============== end 6230 ==============
+
+
+[04/02/2022, 13:30:44] [exp-csdb_csdb_t1_yc]
+============== start ==============
+[04/02/2022, 13:30:45] [masking_exp-csdb_csdb_t1_yc]
+get scores for 6230 papers
+[04/02/2022, 13:30:49] [masking_exp-csdb_csdb_t1_yc]
+task end within 4.315711 sec
+[04/02/2022, 13:30:49] [exp-csdb_csdb_t1_yc]
+============== end 6230 ==============

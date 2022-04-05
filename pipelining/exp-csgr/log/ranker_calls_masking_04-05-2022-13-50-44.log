@@ -1,0 +1,640 @@
+
+
+[04/05/2022, 13:50:44] [exp-csgr_csgr_t1_origin]
+============== start ==============
+[04/05/2022, 13:50:44] [masking_exp-csgr_csgr_t1_origin]
+get scores for 3233 papers
+[04/05/2022, 13:50:46] [masking_exp-csgr_csgr_t1_origin]
+task end within 2.013273 sec
+[04/05/2022, 13:50:46] [exp-csgr_csgr_t1_origin]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:50:46] [exp-csgr_csgr_t1_t]
+============== start ==============
+[04/05/2022, 13:50:46] [masking_exp-csgr_csgr_t1_t]
+get scores for 3233 papers
+[04/05/2022, 13:50:48] [masking_exp-csgr_csgr_t1_t]
+task end within 1.958484 sec
+[04/05/2022, 13:50:48] [exp-csgr_csgr_t1_t]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:50:48] [exp-csgr_csgr_t1_abs]
+============== start ==============
+[04/05/2022, 13:50:48] [masking_exp-csgr_csgr_t1_abs]
+get scores for 3233 papers
+[04/05/2022, 13:50:49] [masking_exp-csgr_csgr_t1_abs]
+task end within 0.994863 sec
+[04/05/2022, 13:50:49] [exp-csgr_csgr_t1_abs]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:50:49] [exp-csgr_csgr_t1_v]
+============== start ==============
+[04/05/2022, 13:50:49] [masking_exp-csgr_csgr_t1_v]
+get scores for 3233 papers
+[04/05/2022, 13:50:51] [masking_exp-csgr_csgr_t1_v]
+task end within 1.935183 sec
+[04/05/2022, 13:50:51] [exp-csgr_csgr_t1_v]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:50:51] [exp-csgr_csgr_t1_au]
+============== start ==============
+[04/05/2022, 13:50:51] [masking_exp-csgr_csgr_t1_au]
+get scores for 3233 papers
+[04/05/2022, 13:50:53] [masking_exp-csgr_csgr_t1_au]
+task end within 1.652103 sec
+[04/05/2022, 13:50:53] [exp-csgr_csgr_t1_au]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:50:53] [exp-csgr_csgr_t1_y]
+============== start ==============
+[04/05/2022, 13:50:53] [masking_exp-csgr_csgr_t1_y]
+get scores for 3233 papers
+[04/05/2022, 13:50:55] [masking_exp-csgr_csgr_t1_y]
+task end within 1.97641 sec
+[04/05/2022, 13:50:55] [exp-csgr_csgr_t1_y]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:50:55] [exp-csgr_csgr_t1_c]
+============== start ==============
+[04/05/2022, 13:50:55] [masking_exp-csgr_csgr_t1_c]
+get scores for 3233 papers
+[04/05/2022, 13:50:57] [masking_exp-csgr_csgr_t1_c]
+task end within 2.02358 sec
+[04/05/2022, 13:50:57] [exp-csgr_csgr_t1_c]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:50:57] [exp-csgr_csgr_t1_tabs]
+============== start ==============
+[04/05/2022, 13:50:57] [masking_exp-csgr_csgr_t1_tabs]
+get scores for 3233 papers
+[04/05/2022, 13:50:58] [masking_exp-csgr_csgr_t1_tabs]
+task end within 0.892988 sec
+[04/05/2022, 13:50:58] [exp-csgr_csgr_t1_tabs]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:50:58] [exp-csgr_csgr_t1_tabsv]
+============== start ==============
+[04/05/2022, 13:50:58] [masking_exp-csgr_csgr_t1_tabsv]
+get scores for 3233 papers
+[04/05/2022, 13:50:59] [masking_exp-csgr_csgr_t1_tabsv]
+task end within 0.824973 sec
+[04/05/2022, 13:50:59] [exp-csgr_csgr_t1_tabsv]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:50:59] [exp-csgr_csgr_t1_tabsvau]
+============== start ==============
+[04/05/2022, 13:50:59] [masking_exp-csgr_csgr_t1_tabsvau]
+get scores for 3233 papers
+[04/05/2022, 13:50:59] [masking_exp-csgr_csgr_t1_tabsvau]
+task end within 0.418695 sec
+[04/05/2022, 13:50:59] [exp-csgr_csgr_t1_tabsvau]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:50:59] [exp-csgr_csgr_t1_tabsvauy]
+============== start ==============
+[04/05/2022, 13:50:59] [masking_exp-csgr_csgr_t1_tabsvauy]
+get scores for 3233 papers
+[04/05/2022, 13:51:00] [masking_exp-csgr_csgr_t1_tabsvauy]
+task end within 0.413043 sec
+[04/05/2022, 13:51:00] [exp-csgr_csgr_t1_tabsvauy]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:00] [exp-csgr_csgr_t1_tabsvauyc]
+============== start ==============
+[04/05/2022, 13:51:00] [masking_exp-csgr_csgr_t1_tabsvauyc]
+get scores for 3233 papers
+[04/05/2022, 13:51:00] [masking_exp-csgr_csgr_t1_tabsvauyc]
+task end within 0.416301 sec
+[04/05/2022, 13:51:00] [exp-csgr_csgr_t1_tabsvauyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:00] [exp-csgr_csgr_t1_tabsvauc]
+============== start ==============
+[04/05/2022, 13:51:00] [masking_exp-csgr_csgr_t1_tabsvauc]
+get scores for 3233 papers
+[04/05/2022, 13:51:01] [masking_exp-csgr_csgr_t1_tabsvauc]
+task end within 0.421876 sec
+[04/05/2022, 13:51:01] [exp-csgr_csgr_t1_tabsvauc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:01] [exp-csgr_csgr_t1_tabsvy]
+============== start ==============
+[04/05/2022, 13:51:01] [masking_exp-csgr_csgr_t1_tabsvy]
+get scores for 3233 papers
+[04/05/2022, 13:51:02] [masking_exp-csgr_csgr_t1_tabsvy]
+task end within 0.81906 sec
+[04/05/2022, 13:51:02] [exp-csgr_csgr_t1_tabsvy]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:02] [exp-csgr_csgr_t1_tabsvyc]
+============== start ==============
+[04/05/2022, 13:51:02] [masking_exp-csgr_csgr_t1_tabsvyc]
+get scores for 3233 papers
+[04/05/2022, 13:51:03] [masking_exp-csgr_csgr_t1_tabsvyc]
+task end within 0.856518 sec
+[04/05/2022, 13:51:03] [exp-csgr_csgr_t1_tabsvyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:03] [exp-csgr_csgr_t1_tabsvc]
+============== start ==============
+[04/05/2022, 13:51:03] [masking_exp-csgr_csgr_t1_tabsvc]
+get scores for 3233 papers
+[04/05/2022, 13:51:04] [masking_exp-csgr_csgr_t1_tabsvc]
+task end within 0.821835 sec
+[04/05/2022, 13:51:04] [exp-csgr_csgr_t1_tabsvc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:04] [exp-csgr_csgr_t1_tabsau]
+============== start ==============
+[04/05/2022, 13:51:04] [masking_exp-csgr_csgr_t1_tabsau]
+get scores for 3233 papers
+[04/05/2022, 13:51:04] [masking_exp-csgr_csgr_t1_tabsau]
+task end within 0.50679 sec
+[04/05/2022, 13:51:04] [exp-csgr_csgr_t1_tabsau]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:04] [exp-csgr_csgr_t1_tabsauy]
+============== start ==============
+[04/05/2022, 13:51:04] [masking_exp-csgr_csgr_t1_tabsauy]
+get scores for 3233 papers
+[04/05/2022, 13:51:05] [masking_exp-csgr_csgr_t1_tabsauy]
+task end within 0.492683 sec
+[04/05/2022, 13:51:05] [exp-csgr_csgr_t1_tabsauy]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:05] [exp-csgr_csgr_t1_tabsauyc]
+============== start ==============
+[04/05/2022, 13:51:05] [masking_exp-csgr_csgr_t1_tabsauyc]
+get scores for 3233 papers
+[04/05/2022, 13:51:05] [masking_exp-csgr_csgr_t1_tabsauyc]
+task end within 0.49533 sec
+[04/05/2022, 13:51:05] [exp-csgr_csgr_t1_tabsauyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:05] [exp-csgr_csgr_t1_tabsauc]
+============== start ==============
+[04/05/2022, 13:51:05] [masking_exp-csgr_csgr_t1_tabsauc]
+get scores for 3233 papers
+[04/05/2022, 13:51:06] [masking_exp-csgr_csgr_t1_tabsauc]
+task end within 0.502566 sec
+[04/05/2022, 13:51:06] [exp-csgr_csgr_t1_tabsauc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:06] [exp-csgr_csgr_t1_tabsy]
+============== start ==============
+[04/05/2022, 13:51:06] [masking_exp-csgr_csgr_t1_tabsy]
+get scores for 3233 papers
+[04/05/2022, 13:51:07] [masking_exp-csgr_csgr_t1_tabsy]
+task end within 0.884867 sec
+[04/05/2022, 13:51:07] [exp-csgr_csgr_t1_tabsy]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:07] [exp-csgr_csgr_t1_tabsyc]
+============== start ==============
+[04/05/2022, 13:51:07] [masking_exp-csgr_csgr_t1_tabsyc]
+get scores for 3233 papers
+[04/05/2022, 13:51:08] [masking_exp-csgr_csgr_t1_tabsyc]
+task end within 0.902077 sec
+[04/05/2022, 13:51:08] [exp-csgr_csgr_t1_tabsyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:08] [exp-csgr_csgr_t1_tabsc]
+============== start ==============
+[04/05/2022, 13:51:08] [masking_exp-csgr_csgr_t1_tabsc]
+get scores for 3233 papers
+[04/05/2022, 13:51:09] [masking_exp-csgr_csgr_t1_tabsc]
+task end within 0.8964 sec
+[04/05/2022, 13:51:09] [exp-csgr_csgr_t1_tabsc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:09] [exp-csgr_csgr_t1_tv]
+============== start ==============
+[04/05/2022, 13:51:09] [masking_exp-csgr_csgr_t1_tv]
+get scores for 3233 papers
+[04/05/2022, 13:51:11] [masking_exp-csgr_csgr_t1_tv]
+task end within 1.866603 sec
+[04/05/2022, 13:51:11] [exp-csgr_csgr_t1_tv]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:11] [exp-csgr_csgr_t1_tvau]
+============== start ==============
+[04/05/2022, 13:51:11] [masking_exp-csgr_csgr_t1_tvau]
+get scores for 3233 papers
+[04/05/2022, 13:51:12] [masking_exp-csgr_csgr_t1_tvau]
+task end within 1.442849 sec
+[04/05/2022, 13:51:12] [exp-csgr_csgr_t1_tvau]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:12] [exp-csgr_csgr_t1_tvauy]
+============== start ==============
+[04/05/2022, 13:51:12] [masking_exp-csgr_csgr_t1_tvauy]
+get scores for 3233 papers
+[04/05/2022, 13:51:14] [masking_exp-csgr_csgr_t1_tvauy]
+task end within 1.418716 sec
+[04/05/2022, 13:51:14] [exp-csgr_csgr_t1_tvauy]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:14] [exp-csgr_csgr_t1_tvauyc]
+============== start ==============
+[04/05/2022, 13:51:14] [masking_exp-csgr_csgr_t1_tvauyc]
+get scores for 3233 papers
+[04/05/2022, 13:51:15] [masking_exp-csgr_csgr_t1_tvauyc]
+task end within 1.409188 sec
+[04/05/2022, 13:51:15] [exp-csgr_csgr_t1_tvauyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:15] [exp-csgr_csgr_t1_tvauc]
+============== start ==============
+[04/05/2022, 13:51:15] [masking_exp-csgr_csgr_t1_tvauc]
+get scores for 3233 papers
+[04/05/2022, 13:51:17] [masking_exp-csgr_csgr_t1_tvauc]
+task end within 1.419553 sec
+[04/05/2022, 13:51:17] [exp-csgr_csgr_t1_tvauc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:17] [exp-csgr_csgr_t1_tvy]
+============== start ==============
+[04/05/2022, 13:51:17] [masking_exp-csgr_csgr_t1_tvy]
+get scores for 3233 papers
+[04/05/2022, 13:51:19] [masking_exp-csgr_csgr_t1_tvy]
+task end within 1.878776 sec
+[04/05/2022, 13:51:19] [exp-csgr_csgr_t1_tvy]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:19] [exp-csgr_csgr_t1_tvyc]
+============== start ==============
+[04/05/2022, 13:51:19] [masking_exp-csgr_csgr_t1_tvyc]
+get scores for 3233 papers
+[04/05/2022, 13:51:21] [masking_exp-csgr_csgr_t1_tvyc]
+task end within 1.818153 sec
+[04/05/2022, 13:51:21] [exp-csgr_csgr_t1_tvyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:21] [exp-csgr_csgr_t1_tvc]
+============== start ==============
+[04/05/2022, 13:51:21] [masking_exp-csgr_csgr_t1_tvc]
+get scores for 3233 papers
+[04/05/2022, 13:51:23] [masking_exp-csgr_csgr_t1_tvc]
+task end within 1.857148 sec
+[04/05/2022, 13:51:23] [exp-csgr_csgr_t1_tvc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:23] [exp-csgr_csgr_t1_tau]
+============== start ==============
+[04/05/2022, 13:51:23] [masking_exp-csgr_csgr_t1_tau]
+get scores for 3233 papers
+[04/05/2022, 13:51:24] [masking_exp-csgr_csgr_t1_tau]
+task end within 1.507037 sec
+[04/05/2022, 13:51:24] [exp-csgr_csgr_t1_tau]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:24] [exp-csgr_csgr_t1_tauy]
+============== start ==============
+[04/05/2022, 13:51:24] [masking_exp-csgr_csgr_t1_tauy]
+get scores for 3233 papers
+[04/05/2022, 13:51:26] [masking_exp-csgr_csgr_t1_tauy]
+task end within 1.478895 sec
+[04/05/2022, 13:51:26] [exp-csgr_csgr_t1_tauy]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:26] [exp-csgr_csgr_t1_tauyc]
+============== start ==============
+[04/05/2022, 13:51:26] [masking_exp-csgr_csgr_t1_tauyc]
+get scores for 3233 papers
+[04/05/2022, 13:51:27] [masking_exp-csgr_csgr_t1_tauyc]
+task end within 1.543769 sec
+[04/05/2022, 13:51:27] [exp-csgr_csgr_t1_tauyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:27] [exp-csgr_csgr_t1_tauc]
+============== start ==============
+[04/05/2022, 13:51:27] [masking_exp-csgr_csgr_t1_tauc]
+get scores for 3233 papers
+[04/05/2022, 13:51:29] [masking_exp-csgr_csgr_t1_tauc]
+task end within 1.503677 sec
+[04/05/2022, 13:51:29] [exp-csgr_csgr_t1_tauc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:29] [exp-csgr_csgr_t1_ty]
+============== start ==============
+[04/05/2022, 13:51:29] [masking_exp-csgr_csgr_t1_ty]
+get scores for 3233 papers
+[04/05/2022, 13:51:31] [masking_exp-csgr_csgr_t1_ty]
+task end within 1.869628 sec
+[04/05/2022, 13:51:31] [exp-csgr_csgr_t1_ty]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:31] [exp-csgr_csgr_t1_tyc]
+============== start ==============
+[04/05/2022, 13:51:31] [masking_exp-csgr_csgr_t1_tyc]
+get scores for 3233 papers
+[04/05/2022, 13:51:33] [masking_exp-csgr_csgr_t1_tyc]
+task end within 1.885649 sec
+[04/05/2022, 13:51:33] [exp-csgr_csgr_t1_tyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:33] [exp-csgr_csgr_t1_tc]
+============== start ==============
+[04/05/2022, 13:51:33] [masking_exp-csgr_csgr_t1_tc]
+get scores for 3233 papers
+[04/05/2022, 13:51:35] [masking_exp-csgr_csgr_t1_tc]
+task end within 1.878567 sec
+[04/05/2022, 13:51:35] [exp-csgr_csgr_t1_tc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:35] [exp-csgr_csgr_t1_absv]
+============== start ==============
+[04/05/2022, 13:51:35] [masking_exp-csgr_csgr_t1_absv]
+get scores for 3233 papers
+[04/05/2022, 13:51:36] [masking_exp-csgr_csgr_t1_absv]
+task end within 0.940705 sec
+[04/05/2022, 13:51:36] [exp-csgr_csgr_t1_absv]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:36] [exp-csgr_csgr_t1_absvau]
+============== start ==============
+[04/05/2022, 13:51:36] [masking_exp-csgr_csgr_t1_absvau]
+get scores for 3233 papers
+[04/05/2022, 13:51:37] [masking_exp-csgr_csgr_t1_absvau]
+task end within 0.532645 sec
+[04/05/2022, 13:51:37] [exp-csgr_csgr_t1_absvau]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:37] [exp-csgr_csgr_t1_absvauy]
+============== start ==============
+[04/05/2022, 13:51:37] [masking_exp-csgr_csgr_t1_absvauy]
+get scores for 3233 papers
+[04/05/2022, 13:51:37] [masking_exp-csgr_csgr_t1_absvauy]
+task end within 0.526608 sec
+[04/05/2022, 13:51:37] [exp-csgr_csgr_t1_absvauy]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:37] [exp-csgr_csgr_t1_absvauyc]
+============== start ==============
+[04/05/2022, 13:51:37] [masking_exp-csgr_csgr_t1_absvauyc]
+get scores for 3233 papers
+[04/05/2022, 13:51:38] [masking_exp-csgr_csgr_t1_absvauyc]
+task end within 0.536539 sec
+[04/05/2022, 13:51:38] [exp-csgr_csgr_t1_absvauyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:38] [exp-csgr_csgr_t1_absvauc]
+============== start ==============
+[04/05/2022, 13:51:38] [masking_exp-csgr_csgr_t1_absvauc]
+get scores for 3233 papers
+[04/05/2022, 13:51:38] [masking_exp-csgr_csgr_t1_absvauc]
+task end within 0.542387 sec
+[04/05/2022, 13:51:38] [exp-csgr_csgr_t1_absvauc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:38] [exp-csgr_csgr_t1_absvy]
+============== start ==============
+[04/05/2022, 13:51:39] [masking_exp-csgr_csgr_t1_absvy]
+get scores for 3233 papers
+[04/05/2022, 13:51:39] [masking_exp-csgr_csgr_t1_absvy]
+task end within 0.935662 sec
+[04/05/2022, 13:51:39] [exp-csgr_csgr_t1_absvy]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:39] [exp-csgr_csgr_t1_absvyc]
+============== start ==============
+[04/05/2022, 13:51:40] [masking_exp-csgr_csgr_t1_absvyc]
+get scores for 3233 papers
+[04/05/2022, 13:51:41] [masking_exp-csgr_csgr_t1_absvyc]
+task end within 0.971002 sec
+[04/05/2022, 13:51:41] [exp-csgr_csgr_t1_absvyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:41] [exp-csgr_csgr_t1_absvc]
+============== start ==============
+[04/05/2022, 13:51:41] [masking_exp-csgr_csgr_t1_absvc]
+get scores for 3233 papers
+[04/05/2022, 13:51:42] [masking_exp-csgr_csgr_t1_absvc]
+task end within 0.940006 sec
+[04/05/2022, 13:51:42] [exp-csgr_csgr_t1_absvc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:42] [exp-csgr_csgr_t1_absau]
+============== start ==============
+[04/05/2022, 13:51:42] [masking_exp-csgr_csgr_t1_absau]
+get scores for 3233 papers
+[04/05/2022, 13:51:42] [masking_exp-csgr_csgr_t1_absau]
+task end within 0.617589 sec
+[04/05/2022, 13:51:42] [exp-csgr_csgr_t1_absau]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:42] [exp-csgr_csgr_t1_absauy]
+============== start ==============
+[04/05/2022, 13:51:42] [masking_exp-csgr_csgr_t1_absauy]
+get scores for 3233 papers
+[04/05/2022, 13:51:43] [masking_exp-csgr_csgr_t1_absauy]
+task end within 0.617932 sec
+[04/05/2022, 13:51:43] [exp-csgr_csgr_t1_absauy]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:43] [exp-csgr_csgr_t1_absauyc]
+============== start ==============
+[04/05/2022, 13:51:43] [masking_exp-csgr_csgr_t1_absauyc]
+get scores for 3233 papers
+[04/05/2022, 13:51:44] [masking_exp-csgr_csgr_t1_absauyc]
+task end within 0.648281 sec
+[04/05/2022, 13:51:44] [exp-csgr_csgr_t1_absauyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:44] [exp-csgr_csgr_t1_absauc]
+============== start ==============
+[04/05/2022, 13:51:44] [masking_exp-csgr_csgr_t1_absauc]
+get scores for 3233 papers
+[04/05/2022, 13:51:44] [masking_exp-csgr_csgr_t1_absauc]
+task end within 0.610843 sec
+[04/05/2022, 13:51:44] [exp-csgr_csgr_t1_absauc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:44] [exp-csgr_csgr_t1_absy]
+============== start ==============
+[04/05/2022, 13:51:44] [masking_exp-csgr_csgr_t1_absy]
+get scores for 3233 papers
+[04/05/2022, 13:51:45] [masking_exp-csgr_csgr_t1_absy]
+task end within 0.994637 sec
+[04/05/2022, 13:51:45] [exp-csgr_csgr_t1_absy]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:45] [exp-csgr_csgr_t1_absyc]
+============== start ==============
+[04/05/2022, 13:51:45] [masking_exp-csgr_csgr_t1_absyc]
+get scores for 3233 papers
+[04/05/2022, 13:51:46] [masking_exp-csgr_csgr_t1_absyc]
+task end within 0.991264 sec
+[04/05/2022, 13:51:47] [exp-csgr_csgr_t1_absyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:47] [exp-csgr_csgr_t1_absc]
+============== start ==============
+[04/05/2022, 13:51:47] [masking_exp-csgr_csgr_t1_absc]
+get scores for 3233 papers
+[04/05/2022, 13:51:48] [masking_exp-csgr_csgr_t1_absc]
+task end within 1.08267 sec
+[04/05/2022, 13:51:48] [exp-csgr_csgr_t1_absc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:48] [exp-csgr_csgr_t1_vau]
+============== start ==============
+[04/05/2022, 13:51:48] [masking_exp-csgr_csgr_t1_vau]
+get scores for 3233 papers
+[04/05/2022, 13:51:49] [masking_exp-csgr_csgr_t1_vau]
+task end within 1.526583 sec
+[04/05/2022, 13:51:49] [exp-csgr_csgr_t1_vau]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:49] [exp-csgr_csgr_t1_vauy]
+============== start ==============
+[04/05/2022, 13:51:49] [masking_exp-csgr_csgr_t1_vauy]
+get scores for 3233 papers
+[04/05/2022, 13:51:51] [masking_exp-csgr_csgr_t1_vauy]
+task end within 1.506281 sec
+[04/05/2022, 13:51:51] [exp-csgr_csgr_t1_vauy]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:51] [exp-csgr_csgr_t1_vauyc]
+============== start ==============
+[04/05/2022, 13:51:51] [masking_exp-csgr_csgr_t1_vauyc]
+get scores for 3233 papers
+[04/05/2022, 13:51:52] [masking_exp-csgr_csgr_t1_vauyc]
+task end within 1.55963 sec
+[04/05/2022, 13:51:52] [exp-csgr_csgr_t1_vauyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:53] [exp-csgr_csgr_t1_vauc]
+============== start ==============
+[04/05/2022, 13:51:53] [masking_exp-csgr_csgr_t1_vauc]
+get scores for 3233 papers
+[04/05/2022, 13:51:54] [masking_exp-csgr_csgr_t1_vauc]
+task end within 1.530246 sec
+[04/05/2022, 13:51:54] [exp-csgr_csgr_t1_vauc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:54] [exp-csgr_csgr_t1_vy]
+============== start ==============
+[04/05/2022, 13:51:54] [masking_exp-csgr_csgr_t1_vy]
+get scores for 3233 papers
+[04/05/2022, 13:51:56] [masking_exp-csgr_csgr_t1_vy]
+task end within 1.91918 sec
+[04/05/2022, 13:51:56] [exp-csgr_csgr_t1_vy]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:56] [exp-csgr_csgr_t1_vyc]
+============== start ==============
+[04/05/2022, 13:51:56] [masking_exp-csgr_csgr_t1_vyc]
+get scores for 3233 papers
+[04/05/2022, 13:51:58] [masking_exp-csgr_csgr_t1_vyc]
+task end within 1.978607 sec
+[04/05/2022, 13:51:58] [exp-csgr_csgr_t1_vyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:51:58] [exp-csgr_csgr_t1_vc]
+============== start ==============
+[04/05/2022, 13:51:58] [masking_exp-csgr_csgr_t1_vc]
+get scores for 3233 papers
+[04/05/2022, 13:52:00] [masking_exp-csgr_csgr_t1_vc]
+task end within 1.934189 sec
+[04/05/2022, 13:52:00] [exp-csgr_csgr_t1_vc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:52:00] [exp-csgr_csgr_t1_auy]
+============== start ==============
+[04/05/2022, 13:52:00] [masking_exp-csgr_csgr_t1_auy]
+get scores for 3233 papers
+[04/05/2022, 13:52:02] [masking_exp-csgr_csgr_t1_auy]
+task end within 1.583589 sec
+[04/05/2022, 13:52:02] [exp-csgr_csgr_t1_auy]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:52:02] [exp-csgr_csgr_t1_auyc]
+============== start ==============
+[04/05/2022, 13:52:02] [masking_exp-csgr_csgr_t1_auyc]
+get scores for 3233 papers
+[04/05/2022, 13:52:04] [masking_exp-csgr_csgr_t1_auyc]
+task end within 1.599214 sec
+[04/05/2022, 13:52:04] [exp-csgr_csgr_t1_auyc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:52:04] [exp-csgr_csgr_t1_auc]
+============== start ==============
+[04/05/2022, 13:52:04] [masking_exp-csgr_csgr_t1_auc]
+get scores for 3233 papers
+[04/05/2022, 13:52:05] [masking_exp-csgr_csgr_t1_auc]
+task end within 1.598223 sec
+[04/05/2022, 13:52:05] [exp-csgr_csgr_t1_auc]
+============== end 3233 ==============
+
+
+[04/05/2022, 13:52:05] [exp-csgr_csgr_t1_yc]
+============== start ==============
+[04/05/2022, 13:52:05] [masking_exp-csgr_csgr_t1_yc]
+get scores for 3233 papers
+[04/05/2022, 13:52:07] [masking_exp-csgr_csgr_t1_yc]
+task end within 1.980723 sec
+[04/05/2022, 13:52:07] [exp-csgr_csgr_t1_yc]
+============== end 3233 ==============

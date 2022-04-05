@@ -1,0 +1,640 @@
+
+
+[04/02/2022, 13:49:44] [exp-csce_csce_t1_origin]
+============== start ==============
+[04/02/2022, 13:49:44] [masking_exp-csce_csce_t1_origin]
+get scores for 4436 papers
+[04/02/2022, 13:49:56] [masking_exp-csce_csce_t1_origin]
+task end within 11.32667 sec
+[04/02/2022, 13:49:56] [exp-csce_csce_t1_origin]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:49:56] [exp-csce_csce_t1_t]
+============== start ==============
+[04/02/2022, 13:49:56] [masking_exp-csce_csce_t1_t]
+get scores for 4436 papers
+[04/02/2022, 13:49:59] [masking_exp-csce_csce_t1_t]
+task end within 2.89541 sec
+[04/02/2022, 13:49:59] [exp-csce_csce_t1_t]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:49:59] [exp-csce_csce_t1_abs]
+============== start ==============
+[04/02/2022, 13:49:59] [masking_exp-csce_csce_t1_abs]
+get scores for 4436 papers
+[04/02/2022, 13:50:00] [masking_exp-csce_csce_t1_abs]
+task end within 1.651685 sec
+[04/02/2022, 13:50:00] [exp-csce_csce_t1_abs]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:00] [exp-csce_csce_t1_v]
+============== start ==============
+[04/02/2022, 13:50:01] [masking_exp-csce_csce_t1_v]
+get scores for 4436 papers
+[04/02/2022, 13:50:04] [masking_exp-csce_csce_t1_v]
+task end within 2.943 sec
+[04/02/2022, 13:50:04] [exp-csce_csce_t1_v]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:04] [exp-csce_csce_t1_au]
+============== start ==============
+[04/02/2022, 13:50:04] [masking_exp-csce_csce_t1_au]
+get scores for 4436 papers
+[04/02/2022, 13:50:06] [masking_exp-csce_csce_t1_au]
+task end within 2.471666 sec
+[04/02/2022, 13:50:06] [exp-csce_csce_t1_au]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:06] [exp-csce_csce_t1_y]
+============== start ==============
+[04/02/2022, 13:50:06] [masking_exp-csce_csce_t1_y]
+get scores for 4436 papers
+[04/02/2022, 13:50:09] [masking_exp-csce_csce_t1_y]
+task end within 3.022309 sec
+[04/02/2022, 13:50:09] [exp-csce_csce_t1_y]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:09] [exp-csce_csce_t1_c]
+============== start ==============
+[04/02/2022, 13:50:09] [masking_exp-csce_csce_t1_c]
+get scores for 4436 papers
+[04/02/2022, 13:50:12] [masking_exp-csce_csce_t1_c]
+task end within 3.034299 sec
+[04/02/2022, 13:50:12] [exp-csce_csce_t1_c]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:12] [exp-csce_csce_t1_tabs]
+============== start ==============
+[04/02/2022, 13:50:13] [masking_exp-csce_csce_t1_tabs]
+get scores for 4436 papers
+[04/02/2022, 13:50:14] [masking_exp-csce_csce_t1_tabs]
+task end within 1.384451 sec
+[04/02/2022, 13:50:14] [exp-csce_csce_t1_tabs]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:14] [exp-csce_csce_t1_tabsv]
+============== start ==============
+[04/02/2022, 13:50:14] [masking_exp-csce_csce_t1_tabsv]
+get scores for 4436 papers
+[04/02/2022, 13:50:15] [masking_exp-csce_csce_t1_tabsv]
+task end within 1.213258 sec
+[04/02/2022, 13:50:15] [exp-csce_csce_t1_tabsv]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:15] [exp-csce_csce_t1_tabsvau]
+============== start ==============
+[04/02/2022, 13:50:15] [masking_exp-csce_csce_t1_tabsvau]
+get scores for 4436 papers
+[04/02/2022, 13:50:16] [masking_exp-csce_csce_t1_tabsvau]
+task end within 0.64671 sec
+[04/02/2022, 13:50:16] [exp-csce_csce_t1_tabsvau]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:16] [exp-csce_csce_t1_tabsvauy]
+============== start ==============
+[04/02/2022, 13:50:16] [masking_exp-csce_csce_t1_tabsvauy]
+get scores for 4436 papers
+[04/02/2022, 13:50:17] [masking_exp-csce_csce_t1_tabsvauy]
+task end within 0.631635 sec
+[04/02/2022, 13:50:17] [exp-csce_csce_t1_tabsvauy]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:17] [exp-csce_csce_t1_tabsvauyc]
+============== start ==============
+[04/02/2022, 13:50:17] [masking_exp-csce_csce_t1_tabsvauyc]
+get scores for 4436 papers
+[04/02/2022, 13:50:18] [masking_exp-csce_csce_t1_tabsvauyc]
+task end within 0.640164 sec
+[04/02/2022, 13:50:18] [exp-csce_csce_t1_tabsvauyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:18] [exp-csce_csce_t1_tabsvauc]
+============== start ==============
+[04/02/2022, 13:50:18] [masking_exp-csce_csce_t1_tabsvauc]
+get scores for 4436 papers
+[04/02/2022, 13:50:18] [masking_exp-csce_csce_t1_tabsvauc]
+task end within 0.6455 sec
+[04/02/2022, 13:50:18] [exp-csce_csce_t1_tabsvauc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:18] [exp-csce_csce_t1_tabsvy]
+============== start ==============
+[04/02/2022, 13:50:18] [masking_exp-csce_csce_t1_tabsvy]
+get scores for 4436 papers
+[04/02/2022, 13:50:20] [masking_exp-csce_csce_t1_tabsvy]
+task end within 1.192452 sec
+[04/02/2022, 13:50:20] [exp-csce_csce_t1_tabsvy]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:20] [exp-csce_csce_t1_tabsvyc]
+============== start ==============
+[04/02/2022, 13:50:20] [masking_exp-csce_csce_t1_tabsvyc]
+get scores for 4436 papers
+[04/02/2022, 13:50:21] [masking_exp-csce_csce_t1_tabsvyc]
+task end within 1.189211 sec
+[04/02/2022, 13:50:21] [exp-csce_csce_t1_tabsvyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:21] [exp-csce_csce_t1_tabsvc]
+============== start ==============
+[04/02/2022, 13:50:21] [masking_exp-csce_csce_t1_tabsvc]
+get scores for 4436 papers
+[04/02/2022, 13:50:22] [masking_exp-csce_csce_t1_tabsvc]
+task end within 1.212059 sec
+[04/02/2022, 13:50:22] [exp-csce_csce_t1_tabsvc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:22] [exp-csce_csce_t1_tabsau]
+============== start ==============
+[04/02/2022, 13:50:22] [masking_exp-csce_csce_t1_tabsau]
+get scores for 4436 papers
+[04/02/2022, 13:50:23] [masking_exp-csce_csce_t1_tabsau]
+task end within 0.770454 sec
+[04/02/2022, 13:50:23] [exp-csce_csce_t1_tabsau]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:23] [exp-csce_csce_t1_tabsauy]
+============== start ==============
+[04/02/2022, 13:50:23] [masking_exp-csce_csce_t1_tabsauy]
+get scores for 4436 papers
+[04/02/2022, 13:50:24] [masking_exp-csce_csce_t1_tabsauy]
+task end within 0.85954 sec
+[04/02/2022, 13:50:24] [exp-csce_csce_t1_tabsauy]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:24] [exp-csce_csce_t1_tabsauyc]
+============== start ==============
+[04/02/2022, 13:50:24] [masking_exp-csce_csce_t1_tabsauyc]
+get scores for 4436 papers
+[04/02/2022, 13:50:25] [masking_exp-csce_csce_t1_tabsauyc]
+task end within 0.769663 sec
+[04/02/2022, 13:50:25] [exp-csce_csce_t1_tabsauyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:25] [exp-csce_csce_t1_tabsauc]
+============== start ==============
+[04/02/2022, 13:50:25] [masking_exp-csce_csce_t1_tabsauc]
+get scores for 4436 papers
+[04/02/2022, 13:50:26] [masking_exp-csce_csce_t1_tabsauc]
+task end within 0.850096 sec
+[04/02/2022, 13:50:26] [exp-csce_csce_t1_tabsauc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:26] [exp-csce_csce_t1_tabsy]
+============== start ==============
+[04/02/2022, 13:50:26] [masking_exp-csce_csce_t1_tabsy]
+get scores for 4436 papers
+[04/02/2022, 13:50:27] [masking_exp-csce_csce_t1_tabsy]
+task end within 1.316438 sec
+[04/02/2022, 13:50:28] [exp-csce_csce_t1_tabsy]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:28] [exp-csce_csce_t1_tabsyc]
+============== start ==============
+[04/02/2022, 13:50:28] [masking_exp-csce_csce_t1_tabsyc]
+get scores for 4436 papers
+[04/02/2022, 13:50:29] [masking_exp-csce_csce_t1_tabsyc]
+task end within 1.302337 sec
+[04/02/2022, 13:50:29] [exp-csce_csce_t1_tabsyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:29] [exp-csce_csce_t1_tabsc]
+============== start ==============
+[04/02/2022, 13:50:29] [masking_exp-csce_csce_t1_tabsc]
+get scores for 4436 papers
+[04/02/2022, 13:50:30] [masking_exp-csce_csce_t1_tabsc]
+task end within 1.313513 sec
+[04/02/2022, 13:50:30] [exp-csce_csce_t1_tabsc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:30] [exp-csce_csce_t1_tv]
+============== start ==============
+[04/02/2022, 13:50:30] [masking_exp-csce_csce_t1_tv]
+get scores for 4436 papers
+[04/02/2022, 13:50:33] [masking_exp-csce_csce_t1_tv]
+task end within 2.770045 sec
+[04/02/2022, 13:50:33] [exp-csce_csce_t1_tv]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:33] [exp-csce_csce_t1_tvau]
+============== start ==============
+[04/02/2022, 13:50:33] [masking_exp-csce_csce_t1_tvau]
+get scores for 4436 papers
+[04/02/2022, 13:50:36] [masking_exp-csce_csce_t1_tvau]
+task end within 2.209364 sec
+[04/02/2022, 13:50:36] [exp-csce_csce_t1_tvau]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:36] [exp-csce_csce_t1_tvauy]
+============== start ==============
+[04/02/2022, 13:50:36] [masking_exp-csce_csce_t1_tvauy]
+get scores for 4436 papers
+[04/02/2022, 13:50:38] [masking_exp-csce_csce_t1_tvauy]
+task end within 2.187071 sec
+[04/02/2022, 13:50:38] [exp-csce_csce_t1_tvauy]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:38] [exp-csce_csce_t1_tvauyc]
+============== start ==============
+[04/02/2022, 13:50:38] [masking_exp-csce_csce_t1_tvauyc]
+get scores for 4436 papers
+[04/02/2022, 13:50:40] [masking_exp-csce_csce_t1_tvauyc]
+task end within 2.186309 sec
+[04/02/2022, 13:50:40] [exp-csce_csce_t1_tvauyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:40] [exp-csce_csce_t1_tvauc]
+============== start ==============
+[04/02/2022, 13:50:40] [masking_exp-csce_csce_t1_tvauc]
+get scores for 4436 papers
+[04/02/2022, 13:50:43] [masking_exp-csce_csce_t1_tvauc]
+task end within 2.205395 sec
+[04/02/2022, 13:50:43] [exp-csce_csce_t1_tvauc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:43] [exp-csce_csce_t1_tvy]
+============== start ==============
+[04/02/2022, 13:50:43] [masking_exp-csce_csce_t1_tvy]
+get scores for 4436 papers
+[04/02/2022, 13:50:45] [masking_exp-csce_csce_t1_tvy]
+task end within 2.739366 sec
+[04/02/2022, 13:50:45] [exp-csce_csce_t1_tvy]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:45] [exp-csce_csce_t1_tvyc]
+============== start ==============
+[04/02/2022, 13:50:46] [masking_exp-csce_csce_t1_tvyc]
+get scores for 4436 papers
+[04/02/2022, 13:50:48] [masking_exp-csce_csce_t1_tvyc]
+task end within 2.750016 sec
+[04/02/2022, 13:50:48] [exp-csce_csce_t1_tvyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:48] [exp-csce_csce_t1_tvc]
+============== start ==============
+[04/02/2022, 13:50:48] [masking_exp-csce_csce_t1_tvc]
+get scores for 4436 papers
+[04/02/2022, 13:50:51] [masking_exp-csce_csce_t1_tvc]
+task end within 2.756208 sec
+[04/02/2022, 13:50:51] [exp-csce_csce_t1_tvc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:51] [exp-csce_csce_t1_tau]
+============== start ==============
+[04/02/2022, 13:50:51] [masking_exp-csce_csce_t1_tau]
+get scores for 4436 papers
+[04/02/2022, 13:50:54] [masking_exp-csce_csce_t1_tau]
+task end within 2.322563 sec
+[04/02/2022, 13:50:54] [exp-csce_csce_t1_tau]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:54] [exp-csce_csce_t1_tauy]
+============== start ==============
+[04/02/2022, 13:50:54] [masking_exp-csce_csce_t1_tauy]
+get scores for 4436 papers
+[04/02/2022, 13:50:56] [masking_exp-csce_csce_t1_tauy]
+task end within 2.293417 sec
+[04/02/2022, 13:50:56] [exp-csce_csce_t1_tauy]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:56] [exp-csce_csce_t1_tauyc]
+============== start ==============
+[04/02/2022, 13:50:56] [masking_exp-csce_csce_t1_tauyc]
+get scores for 4436 papers
+[04/02/2022, 13:50:59] [masking_exp-csce_csce_t1_tauyc]
+task end within 2.370846 sec
+[04/02/2022, 13:50:59] [exp-csce_csce_t1_tauyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:50:59] [exp-csce_csce_t1_tauc]
+============== start ==============
+[04/02/2022, 13:50:59] [masking_exp-csce_csce_t1_tauc]
+get scores for 4436 papers
+[04/02/2022, 13:51:01] [masking_exp-csce_csce_t1_tauc]
+task end within 2.3208 sec
+[04/02/2022, 13:51:01] [exp-csce_csce_t1_tauc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:01] [exp-csce_csce_t1_ty]
+============== start ==============
+[04/02/2022, 13:51:01] [masking_exp-csce_csce_t1_ty]
+get scores for 4436 papers
+[04/02/2022, 13:51:04] [masking_exp-csce_csce_t1_ty]
+task end within 2.859815 sec
+[04/02/2022, 13:51:04] [exp-csce_csce_t1_ty]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:04] [exp-csce_csce_t1_tyc]
+============== start ==============
+[04/02/2022, 13:51:04] [masking_exp-csce_csce_t1_tyc]
+get scores for 4436 papers
+[04/02/2022, 13:51:07] [masking_exp-csce_csce_t1_tyc]
+task end within 2.843217 sec
+[04/02/2022, 13:51:07] [exp-csce_csce_t1_tyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:07] [exp-csce_csce_t1_tc]
+============== start ==============
+[04/02/2022, 13:51:07] [masking_exp-csce_csce_t1_tc]
+get scores for 4436 papers
+[04/02/2022, 13:51:10] [masking_exp-csce_csce_t1_tc]
+task end within 2.853771 sec
+[04/02/2022, 13:51:10] [exp-csce_csce_t1_tc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:10] [exp-csce_csce_t1_absv]
+============== start ==============
+[04/02/2022, 13:51:10] [masking_exp-csce_csce_t1_absv]
+get scores for 4436 papers
+[04/02/2022, 13:51:11] [masking_exp-csce_csce_t1_absv]
+task end within 1.414151 sec
+[04/02/2022, 13:51:11] [exp-csce_csce_t1_absv]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:12] [exp-csce_csce_t1_absvau]
+============== start ==============
+[04/02/2022, 13:51:12] [masking_exp-csce_csce_t1_absvau]
+get scores for 4436 papers
+[04/02/2022, 13:51:12] [masking_exp-csce_csce_t1_absvau]
+task end within 0.854789 sec
+[04/02/2022, 13:51:13] [exp-csce_csce_t1_absvau]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:13] [exp-csce_csce_t1_absvauy]
+============== start ==============
+[04/02/2022, 13:51:13] [masking_exp-csce_csce_t1_absvauy]
+get scores for 4436 papers
+[04/02/2022, 13:51:13] [masking_exp-csce_csce_t1_absvauy]
+task end within 0.842167 sec
+[04/02/2022, 13:51:13] [exp-csce_csce_t1_absvauy]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:13] [exp-csce_csce_t1_absvauyc]
+============== start ==============
+[04/02/2022, 13:51:14] [masking_exp-csce_csce_t1_absvauyc]
+get scores for 4436 papers
+[04/02/2022, 13:51:14] [masking_exp-csce_csce_t1_absvauyc]
+task end within 0.849225 sec
+[04/02/2022, 13:51:14] [exp-csce_csce_t1_absvauyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:14] [exp-csce_csce_t1_absvauc]
+============== start ==============
+[04/02/2022, 13:51:15] [masking_exp-csce_csce_t1_absvauc]
+get scores for 4436 papers
+[04/02/2022, 13:51:15] [masking_exp-csce_csce_t1_absvauc]
+task end within 0.853684 sec
+[04/02/2022, 13:51:15] [exp-csce_csce_t1_absvauc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:15] [exp-csce_csce_t1_absvy]
+============== start ==============
+[04/02/2022, 13:51:16] [masking_exp-csce_csce_t1_absvy]
+get scores for 4436 papers
+[04/02/2022, 13:51:17] [masking_exp-csce_csce_t1_absvy]
+task end within 1.397219 sec
+[04/02/2022, 13:51:17] [exp-csce_csce_t1_absvy]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:17] [exp-csce_csce_t1_absvyc]
+============== start ==============
+[04/02/2022, 13:51:17] [masking_exp-csce_csce_t1_absvyc]
+get scores for 4436 papers
+[04/02/2022, 13:51:18] [masking_exp-csce_csce_t1_absvyc]
+task end within 1.407289 sec
+[04/02/2022, 13:51:18] [exp-csce_csce_t1_absvyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:18] [exp-csce_csce_t1_absvc]
+============== start ==============
+[04/02/2022, 13:51:19] [masking_exp-csce_csce_t1_absvc]
+get scores for 4436 papers
+[04/02/2022, 13:51:20] [masking_exp-csce_csce_t1_absvc]
+task end within 1.429503 sec
+[04/02/2022, 13:51:20] [exp-csce_csce_t1_absvc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:20] [exp-csce_csce_t1_absau]
+============== start ==============
+[04/02/2022, 13:51:20] [masking_exp-csce_csce_t1_absau]
+get scores for 4436 papers
+[04/02/2022, 13:51:21] [masking_exp-csce_csce_t1_absau]
+task end within 0.977159 sec
+[04/02/2022, 13:51:21] [exp-csce_csce_t1_absau]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:21] [exp-csce_csce_t1_absauy]
+============== start ==============
+[04/02/2022, 13:51:21] [masking_exp-csce_csce_t1_absauy]
+get scores for 4436 papers
+[04/02/2022, 13:51:22] [masking_exp-csce_csce_t1_absauy]
+task end within 1.00181 sec
+[04/02/2022, 13:51:22] [exp-csce_csce_t1_absauy]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:22] [exp-csce_csce_t1_absauyc]
+============== start ==============
+[04/02/2022, 13:51:22] [masking_exp-csce_csce_t1_absauyc]
+get scores for 4436 papers
+[04/02/2022, 13:51:23] [masking_exp-csce_csce_t1_absauyc]
+task end within 0.964831 sec
+[04/02/2022, 13:51:23] [exp-csce_csce_t1_absauyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:23] [exp-csce_csce_t1_absauc]
+============== start ==============
+[04/02/2022, 13:51:23] [masking_exp-csce_csce_t1_absauc]
+get scores for 4436 papers
+[04/02/2022, 13:51:24] [masking_exp-csce_csce_t1_absauc]
+task end within 0.967778 sec
+[04/02/2022, 13:51:24] [exp-csce_csce_t1_absauc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:24] [exp-csce_csce_t1_absy]
+============== start ==============
+[04/02/2022, 13:51:25] [masking_exp-csce_csce_t1_absy]
+get scores for 4436 papers
+[04/02/2022, 13:51:26] [masking_exp-csce_csce_t1_absy]
+task end within 1.498163 sec
+[04/02/2022, 13:51:26] [exp-csce_csce_t1_absy]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:26] [exp-csce_csce_t1_absyc]
+============== start ==============
+[04/02/2022, 13:51:26] [masking_exp-csce_csce_t1_absyc]
+get scores for 4436 papers
+[04/02/2022, 13:51:28] [masking_exp-csce_csce_t1_absyc]
+task end within 1.492496 sec
+[04/02/2022, 13:51:28] [exp-csce_csce_t1_absyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:28] [exp-csce_csce_t1_absc]
+============== start ==============
+[04/02/2022, 13:51:28] [masking_exp-csce_csce_t1_absc]
+get scores for 4436 papers
+[04/02/2022, 13:51:29] [masking_exp-csce_csce_t1_absc]
+task end within 1.552382 sec
+[04/02/2022, 13:51:29] [exp-csce_csce_t1_absc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:29] [exp-csce_csce_t1_vau]
+============== start ==============
+[04/02/2022, 13:51:29] [masking_exp-csce_csce_t1_vau]
+get scores for 4436 papers
+[04/02/2022, 13:51:32] [masking_exp-csce_csce_t1_vau]
+task end within 2.385433 sec
+[04/02/2022, 13:51:32] [exp-csce_csce_t1_vau]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:32] [exp-csce_csce_t1_vauy]
+============== start ==============
+[04/02/2022, 13:51:32] [masking_exp-csce_csce_t1_vauy]
+get scores for 4436 papers
+[04/02/2022, 13:51:34] [masking_exp-csce_csce_t1_vauy]
+task end within 2.374553 sec
+[04/02/2022, 13:51:34] [exp-csce_csce_t1_vauy]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:34] [exp-csce_csce_t1_vauyc]
+============== start ==============
+[04/02/2022, 13:51:34] [masking_exp-csce_csce_t1_vauyc]
+get scores for 4436 papers
+[04/02/2022, 13:51:37] [masking_exp-csce_csce_t1_vauyc]
+task end within 2.355331 sec
+[04/02/2022, 13:51:37] [exp-csce_csce_t1_vauyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:37] [exp-csce_csce_t1_vauc]
+============== start ==============
+[04/02/2022, 13:51:37] [masking_exp-csce_csce_t1_vauc]
+get scores for 4436 papers
+[04/02/2022, 13:51:39] [masking_exp-csce_csce_t1_vauc]
+task end within 2.395902 sec
+[04/02/2022, 13:51:39] [exp-csce_csce_t1_vauc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:39] [exp-csce_csce_t1_vy]
+============== start ==============
+[04/02/2022, 13:51:39] [masking_exp-csce_csce_t1_vy]
+get scores for 4436 papers
+[04/02/2022, 13:51:42] [masking_exp-csce_csce_t1_vy]
+task end within 2.928099 sec
+[04/02/2022, 13:51:42] [exp-csce_csce_t1_vy]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:42] [exp-csce_csce_t1_vyc]
+============== start ==============
+[04/02/2022, 13:51:43] [masking_exp-csce_csce_t1_vyc]
+get scores for 4436 papers
+[04/02/2022, 13:51:45] [masking_exp-csce_csce_t1_vyc]
+task end within 2.943491 sec
+[04/02/2022, 13:51:45] [exp-csce_csce_t1_vyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:46] [exp-csce_csce_t1_vc]
+============== start ==============
+[04/02/2022, 13:51:46] [masking_exp-csce_csce_t1_vc]
+get scores for 4436 papers
+[04/02/2022, 13:51:49] [masking_exp-csce_csce_t1_vc]
+task end within 2.994598 sec
+[04/02/2022, 13:51:49] [exp-csce_csce_t1_vc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:49] [exp-csce_csce_t1_auy]
+============== start ==============
+[04/02/2022, 13:51:49] [masking_exp-csce_csce_t1_auy]
+get scores for 4436 papers
+[04/02/2022, 13:51:51] [masking_exp-csce_csce_t1_auy]
+task end within 2.469108 sec
+[04/02/2022, 13:51:51] [exp-csce_csce_t1_auy]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:51] [exp-csce_csce_t1_auyc]
+============== start ==============
+[04/02/2022, 13:51:51] [masking_exp-csce_csce_t1_auyc]
+get scores for 4436 papers
+[04/02/2022, 13:51:54] [masking_exp-csce_csce_t1_auyc]
+task end within 2.469687 sec
+[04/02/2022, 13:51:54] [exp-csce_csce_t1_auyc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:54] [exp-csce_csce_t1_auc]
+============== start ==============
+[04/02/2022, 13:51:54] [masking_exp-csce_csce_t1_auc]
+get scores for 4436 papers
+[04/02/2022, 13:51:56] [masking_exp-csce_csce_t1_auc]
+task end within 2.544902 sec
+[04/02/2022, 13:51:56] [exp-csce_csce_t1_auc]
+============== end 4436 ==============
+
+
+[04/02/2022, 13:51:56] [exp-csce_csce_t1_yc]
+============== start ==============
+[04/02/2022, 13:51:57] [masking_exp-csce_csce_t1_yc]
+get scores for 4436 papers
+[04/02/2022, 13:52:00] [masking_exp-csce_csce_t1_yc]
+task end within 3.101439 sec
+[04/02/2022, 13:52:00] [exp-csce_csce_t1_yc]
+============== end 4436 ==============

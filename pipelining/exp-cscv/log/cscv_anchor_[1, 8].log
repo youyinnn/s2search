@@ -1,9 +1,4 @@
 
-Child #[0, 1]: psutil.Process(pid=3316, name='python', status='running', started='19:00:59'), affinity [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-Child #[0, 1]: Set my affinity to [0, 1], affinity now [0, 1]
-
-[03/27/2022, 15:01:02] start anchor metrics
-
 Child #[0, 1]: psutil.Process(pid=3457, name='python', status='running', started='19:03:39'), affinity [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 Child #[0, 1]: Set my affinity to [0, 1], affinity now [0, 1]
 
@@ -21,12 +16,6 @@ estimate time left: 3:45:04.624800
 estimate time left: 3:37:29.270900
 [03/27/2022, 15:08:02] (59 / 8066) title: 41, abstract: 54, venue: 55, authors: 13, year: 43, n_citations: 25 within (95.594205 total / 1.5932 average)
 estimate time left: 3:32:36.752400
-
-Child #[0, 1]: psutil.Process(pid=3629, name='python', status='running', started='19:08:37'), affinity [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-Child #[0, 1]: Set my affinity to [0, 1], affinity now [0, 1]
-
-[03/27/2022, 15:08:39] start anchor metrics
-[03/27/2022, 15:10:31] start computing anchor from index: 60 to 8066 with config: 0.9999 0.6
 [03/27/2022, 15:10:51] (69 / 8066) title: 47, abstract: 63, venue: 65, authors: 17, year: 49, n_citations: 32 within (20.187145 total / 2.0187 average)
 estimate time left: 4:29:03.543900
 [03/27/2022, 15:11:09] (79 / 8066) title: 57, abstract: 72, venue: 74, authors: 19, year: 57, n_citations: 36 within (38.159595 total / 1.908 average)

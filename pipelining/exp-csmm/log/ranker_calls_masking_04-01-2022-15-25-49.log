@@ -1,0 +1,641 @@
+
+
+[04/01/2022, 15:25:49] [exp-csmm_csmm_t1_origin]
+============== start ==============
+[04/01/2022, 15:25:49] [masking_exp-csmm_csmm_t1_origin]
+get scores for 3580 papers
+[04/01/2022, 15:25:51] [masking_exp-csmm_csmm_t1_origin]
+task end within 2.324547 sec
+[04/01/2022, 15:25:51] [exp-csmm_csmm_t1_origin]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:25:51] [exp-csmm_csmm_t1_t]
+============== start ==============
+[04/01/2022, 15:25:51] [masking_exp-csmm_csmm_t1_t]
+get scores for 3580 papers
+[04/01/2022, 15:25:53] [masking_exp-csmm_csmm_t1_t]
+task end within 2.195581 sec
+[04/01/2022, 15:25:53] [exp-csmm_csmm_t1_t]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:25:53] [exp-csmm_csmm_t1_abs]
+============== start ==============
+[04/01/2022, 15:25:53] [masking_exp-csmm_csmm_t1_abs]
+get scores for 3580 papers
+[04/01/2022, 15:25:55] [masking_exp-csmm_csmm_t1_abs]
+task end within 1.830915 sec
+[04/01/2022, 15:25:55] [exp-csmm_csmm_t1_abs]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:25:55] [exp-csmm_csmm_t1_v]
+============== start ==============
+[04/01/2022, 15:25:55] [masking_exp-csmm_csmm_t1_v]
+get scores for 3580 papers
+[04/01/2022, 15:25:57] [masking_exp-csmm_csmm_t1_v]
+task end within 2.149083 sec
+[04/01/2022, 15:25:57] [exp-csmm_csmm_t1_v]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:25:57] [exp-csmm_csmm_t1_au]
+============== start ==============
+[04/01/2022, 15:25:58] [masking_exp-csmm_csmm_t1_au]
+get scores for 3580 papers
+[04/01/2022, 15:25:59] [masking_exp-csmm_csmm_t1_au]
+task end within 1.864223 sec
+[04/01/2022, 15:25:59] [exp-csmm_csmm_t1_au]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:25:59] [exp-csmm_csmm_t1_y]
+============== start ==============
+[04/01/2022, 15:25:59] [masking_exp-csmm_csmm_t1_y]
+get scores for 3580 papers
+[04/01/2022, 15:26:02] [masking_exp-csmm_csmm_t1_y]
+task end within 2.235572 sec
+[04/01/2022, 15:26:02] [exp-csmm_csmm_t1_y]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:02] [exp-csmm_csmm_t1_c]
+============== start ==============
+[04/01/2022, 15:26:02] [masking_exp-csmm_csmm_t1_c]
+get scores for 3580 papers
+[04/01/2022, 15:26:04] [masking_exp-csmm_csmm_t1_c]
+task end within 2.331295 sec
+[04/01/2022, 15:26:04] [exp-csmm_csmm_t1_c]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:04] [exp-csmm_csmm_t1_tabs]
+============== start ==============
+[04/01/2022, 15:26:04] [masking_exp-csmm_csmm_t1_tabs]
+get scores for 3580 papers
+[04/01/2022, 15:26:06] [masking_exp-csmm_csmm_t1_tabs]
+task end within 1.538122 sec
+[04/01/2022, 15:26:06] [exp-csmm_csmm_t1_tabs]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:06] [exp-csmm_csmm_t1_tabsv]
+============== start ==============
+[04/01/2022, 15:26:06] [masking_exp-csmm_csmm_t1_tabsv]
+get scores for 3580 papers
+[04/01/2022, 15:26:07] [masking_exp-csmm_csmm_t1_tabsv]
+task end within 1.434237 sec
+[04/01/2022, 15:26:07] [exp-csmm_csmm_t1_tabsv]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:07] [exp-csmm_csmm_t1_tabsvau]
+============== start ==============
+[04/01/2022, 15:26:07] [masking_exp-csmm_csmm_t1_tabsvau]
+get scores for 3580 papers
+[04/01/2022, 15:26:08] [masking_exp-csmm_csmm_t1_tabsvau]
+task end within 1.109082 sec
+[04/01/2022, 15:26:08] [exp-csmm_csmm_t1_tabsvau]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:08] [exp-csmm_csmm_t1_tabsvauy]
+============== start ==============
+[04/01/2022, 15:26:09] [masking_exp-csmm_csmm_t1_tabsvauy]
+get scores for 3580 papers
+[04/01/2022, 15:26:10] [masking_exp-csmm_csmm_t1_tabsvauy]
+task end within 1.131546 sec
+[04/01/2022, 15:26:10] [exp-csmm_csmm_t1_tabsvauy]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:10] [exp-csmm_csmm_t1_tabsvauyc]
+============== start ==============
+[04/01/2022, 15:26:10] [masking_exp-csmm_csmm_t1_tabsvauyc]
+get scores for 3580 papers
+[04/01/2022, 15:26:11] [masking_exp-csmm_csmm_t1_tabsvauyc]
+task end within 1.141258 sec
+[04/01/2022, 15:26:11] [exp-csmm_csmm_t1_tabsvauyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:11] [exp-csmm_csmm_t1_tabsvauc]
+============== start ==============
+[04/01/2022, 15:26:11] [masking_exp-csmm_csmm_t1_tabsvauc]
+get scores for 3580 papers
+[04/01/2022, 15:26:12] [masking_exp-csmm_csmm_t1_tabsvauc]
+task end within 1.124301 sec
+[04/01/2022, 15:26:12] [exp-csmm_csmm_t1_tabsvauc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:12] [exp-csmm_csmm_t1_tabsvy]
+============== start ==============
+[04/01/2022, 15:26:12] [masking_exp-csmm_csmm_t1_tabsvy]
+get scores for 3580 papers
+[04/01/2022, 15:26:14] [masking_exp-csmm_csmm_t1_tabsvy]
+task end within 1.542769 sec
+[04/01/2022, 15:26:14] [exp-csmm_csmm_t1_tabsvy]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:14] [exp-csmm_csmm_t1_tabsvyc]
+============== start ==============
+[04/01/2022, 15:26:14] [masking_exp-csmm_csmm_t1_tabsvyc]
+get scores for 3580 papers
+[04/01/2022, 15:26:15] [masking_exp-csmm_csmm_t1_tabsvyc]
+task end within 1.405856 sec
+[04/01/2022, 15:26:15] [exp-csmm_csmm_t1_tabsvyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:15] [exp-csmm_csmm_t1_tabsvc]
+============== start ==============
+[04/01/2022, 15:26:15] [masking_exp-csmm_csmm_t1_tabsvc]
+get scores for 3580 papers
+[04/01/2022, 15:26:17] [masking_exp-csmm_csmm_t1_tabsvc]
+task end within 1.505292 sec
+[04/01/2022, 15:26:17] [exp-csmm_csmm_t1_tabsvc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:17] [exp-csmm_csmm_t1_tabsau]
+============== start ==============
+[04/01/2022, 15:26:17] [masking_exp-csmm_csmm_t1_tabsau]
+get scores for 3580 papers
+[04/01/2022, 15:26:18] [masking_exp-csmm_csmm_t1_tabsau]
+task end within 1.19014 sec
+[04/01/2022, 15:26:18] [exp-csmm_csmm_t1_tabsau]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:18] [exp-csmm_csmm_t1_tabsauy]
+============== start ==============
+[04/01/2022, 15:26:18] [masking_exp-csmm_csmm_t1_tabsauy]
+get scores for 3580 papers
+[04/01/2022, 15:26:19] [masking_exp-csmm_csmm_t1_tabsauy]
+task end within 1.217173 sec
+[04/01/2022, 15:26:19] [exp-csmm_csmm_t1_tabsauy]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:19] [exp-csmm_csmm_t1_tabsauyc]
+============== start ==============
+[04/01/2022, 15:26:19] [masking_exp-csmm_csmm_t1_tabsauyc]
+get scores for 3580 papers
+[04/01/2022, 15:26:21] [masking_exp-csmm_csmm_t1_tabsauyc]
+task end within 1.250686 sec
+[04/01/2022, 15:26:21] [exp-csmm_csmm_t1_tabsauyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:21] [exp-csmm_csmm_t1_tabsauc]
+============== start ==============
+[04/01/2022, 15:26:21] [masking_exp-csmm_csmm_t1_tabsauc]
+get scores for 3580 papers
+[04/01/2022, 15:26:22] [masking_exp-csmm_csmm_t1_tabsauc]
+task end within 1.261218 sec
+[04/01/2022, 15:26:22] [exp-csmm_csmm_t1_tabsauc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:22] [exp-csmm_csmm_t1_tabsy]
+============== start ==============
+[04/01/2022, 15:26:22] [masking_exp-csmm_csmm_t1_tabsy]
+get scores for 3580 papers
+[04/01/2022, 15:26:24] [masking_exp-csmm_csmm_t1_tabsy]
+task end within 1.525673 sec
+[04/01/2022, 15:26:24] [exp-csmm_csmm_t1_tabsy]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:24] [exp-csmm_csmm_t1_tabsyc]
+============== start ==============
+[04/01/2022, 15:26:24] [masking_exp-csmm_csmm_t1_tabsyc]
+get scores for 3580 papers
+[04/01/2022, 15:26:25] [masking_exp-csmm_csmm_t1_tabsyc]
+task end within 1.635729 sec
+[04/01/2022, 15:26:25] [exp-csmm_csmm_t1_tabsyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:25] [exp-csmm_csmm_t1_tabsc]
+============== start ==============
+[04/01/2022, 15:26:25] [masking_exp-csmm_csmm_t1_tabsc]
+get scores for 3580 papers
+[04/01/2022, 15:26:27] [masking_exp-csmm_csmm_t1_tabsc]
+task end within 1.512972 sec
+[04/01/2022, 15:26:27] [exp-csmm_csmm_t1_tabsc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:27] [exp-csmm_csmm_t1_tv]
+============== start ==============
+[04/01/2022, 15:26:27] [masking_exp-csmm_csmm_t1_tv]
+get scores for 3580 papers
+[04/01/2022, 15:26:29] [masking_exp-csmm_csmm_t1_tv]
+task end within 1.983461 sec
+[04/01/2022, 15:26:29] [exp-csmm_csmm_t1_tv]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:29] [exp-csmm_csmm_t1_tvau]
+============== start ==============
+[04/01/2022, 15:26:29] [masking_exp-csmm_csmm_t1_tvau]
+get scores for 3580 papers
+[04/01/2022, 15:26:31] [masking_exp-csmm_csmm_t1_tvau]
+task end within 1.764894 sec
+[04/01/2022, 15:26:31] [exp-csmm_csmm_t1_tvau]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:31] [exp-csmm_csmm_t1_tvauy]
+============== start ==============
+[04/01/2022, 15:26:31] [masking_exp-csmm_csmm_t1_tvauy]
+get scores for 3580 papers
+[04/01/2022, 15:26:33] [masking_exp-csmm_csmm_t1_tvauy]
+task end within 1.852012 sec
+[04/01/2022, 15:26:33] [exp-csmm_csmm_t1_tvauy]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:33] [exp-csmm_csmm_t1_tvauyc]
+============== start ==============
+[04/01/2022, 15:26:33] [masking_exp-csmm_csmm_t1_tvauyc]
+get scores for 3580 papers
+[04/01/2022, 15:26:35] [masking_exp-csmm_csmm_t1_tvauyc]
+task end within 1.741182 sec
+[04/01/2022, 15:26:35] [exp-csmm_csmm_t1_tvauyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:35] [exp-csmm_csmm_t1_tvauc]
+============== start ==============
+[04/01/2022, 15:26:35] [masking_exp-csmm_csmm_t1_tvauc]
+get scores for 3580 papers
+[04/01/2022, 15:26:36] [masking_exp-csmm_csmm_t1_tvauc]
+task end within 1.783688 sec
+[04/01/2022, 15:26:36] [exp-csmm_csmm_t1_tvauc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:36] [exp-csmm_csmm_t1_tvy]
+============== start ==============
+[04/01/2022, 15:26:37] [masking_exp-csmm_csmm_t1_tvy]
+get scores for 3580 papers
+[04/01/2022, 15:26:39] [masking_exp-csmm_csmm_t1_tvy]
+task end within 2.125997 sec
+[04/01/2022, 15:26:39] [exp-csmm_csmm_t1_tvy]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:39] [exp-csmm_csmm_t1_tvyc]
+============== start ==============
+[04/01/2022, 15:26:39] [masking_exp-csmm_csmm_t1_tvyc]
+get scores for 3580 papers
+[04/01/2022, 15:26:41] [masking_exp-csmm_csmm_t1_tvyc]
+task end within 2.091387 sec
+[04/01/2022, 15:26:41] [exp-csmm_csmm_t1_tvyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:41] [exp-csmm_csmm_t1_tvc]
+============== start ==============
+[04/01/2022, 15:26:41] [masking_exp-csmm_csmm_t1_tvc]
+get scores for 3580 papers
+[04/01/2022, 15:26:43] [masking_exp-csmm_csmm_t1_tvc]
+task end within 2.085882 sec
+[04/01/2022, 15:26:43] [exp-csmm_csmm_t1_tvc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:43] [exp-csmm_csmm_t1_tau]
+============== start ==============
+[04/01/2022, 15:26:43] [masking_exp-csmm_csmm_t1_tau]
+get scores for 3580 papers
+[04/01/2022, 15:26:45] [masking_exp-csmm_csmm_t1_tau]
+task end within 1.744563 sec
+[04/01/2022, 15:26:45] [exp-csmm_csmm_t1_tau]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:45] [exp-csmm_csmm_t1_tauy]
+============== start ==============
+[04/01/2022, 15:26:45] [masking_exp-csmm_csmm_t1_tauy]
+get scores for 3580 papers
+[04/01/2022, 15:26:47] [masking_exp-csmm_csmm_t1_tauy]
+task end within 1.753169 sec
+[04/01/2022, 15:26:47] [exp-csmm_csmm_t1_tauy]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:47] [exp-csmm_csmm_t1_tauyc]
+============== start ==============
+[04/01/2022, 15:26:47] [masking_exp-csmm_csmm_t1_tauyc]
+get scores for 3580 papers
+[04/01/2022, 15:26:49] [masking_exp-csmm_csmm_t1_tauyc]
+task end within 1.938837 sec
+[04/01/2022, 15:26:49] [exp-csmm_csmm_t1_tauyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:49] [exp-csmm_csmm_t1_tauc]
+============== start ==============
+[04/01/2022, 15:26:49] [masking_exp-csmm_csmm_t1_tauc]
+get scores for 3580 papers
+[04/01/2022, 15:26:51] [masking_exp-csmm_csmm_t1_tauc]
+task end within 1.78779 sec
+[04/01/2022, 15:26:51] [exp-csmm_csmm_t1_tauc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:51] [exp-csmm_csmm_t1_ty]
+============== start ==============
+[04/01/2022, 15:26:51] [masking_exp-csmm_csmm_t1_ty]
+get scores for 3580 papers
+[04/01/2022, 15:26:53] [masking_exp-csmm_csmm_t1_ty]
+task end within 2.082747 sec
+[04/01/2022, 15:26:53] [exp-csmm_csmm_t1_ty]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:53] [exp-csmm_csmm_t1_tyc]
+============== start ==============
+[04/01/2022, 15:26:53] [masking_exp-csmm_csmm_t1_tyc]
+get scores for 3580 papers
+[04/01/2022, 15:26:55] [masking_exp-csmm_csmm_t1_tyc]
+task end within 2.128884 sec
+[04/01/2022, 15:26:55] [exp-csmm_csmm_t1_tyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:55] [exp-csmm_csmm_t1_tc]
+============== start ==============
+[04/01/2022, 15:26:55] [masking_exp-csmm_csmm_t1_tc]
+get scores for 3580 papers
+[04/01/2022, 15:26:57] [masking_exp-csmm_csmm_t1_tc]
+task end within 2.112633 sec
+[04/01/2022, 15:26:57] [exp-csmm_csmm_t1_tc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:57] [exp-csmm_csmm_t1_absv]
+============== start ==============
+[04/01/2022, 15:26:57] [masking_exp-csmm_csmm_t1_absv]
+get scores for 3580 papers
+[04/01/2022, 15:26:59] [masking_exp-csmm_csmm_t1_absv]
+task end within 1.546292 sec
+[04/01/2022, 15:26:59] [exp-csmm_csmm_t1_absv]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:26:59] [exp-csmm_csmm_t1_absvau]
+============== start ==============
+[04/01/2022, 15:26:59] [masking_exp-csmm_csmm_t1_absvau]
+get scores for 3580 papers
+[04/01/2022, 15:27:00] [masking_exp-csmm_csmm_t1_absvau]
+task end within 1.248832 sec
+[04/01/2022, 15:27:00] [exp-csmm_csmm_t1_absvau]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:00] [exp-csmm_csmm_t1_absvauy]
+============== start ==============
+[04/01/2022, 15:27:00] [masking_exp-csmm_csmm_t1_absvauy]
+get scores for 3580 papers
+[04/01/2022, 15:27:01] [masking_exp-csmm_csmm_t1_absvauy]
+task end within 1.306141 sec
+[04/01/2022, 15:27:01] [exp-csmm_csmm_t1_absvauy]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:01] [exp-csmm_csmm_t1_absvauyc]
+============== start ==============
+[04/01/2022, 15:27:02] [masking_exp-csmm_csmm_t1_absvauyc]
+get scores for 3580 papers
+[04/01/2022, 15:27:03] [masking_exp-csmm_csmm_t1_absvauyc]
+task end within 1.361121 sec
+[04/01/2022, 15:27:03] [exp-csmm_csmm_t1_absvauyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:03] [exp-csmm_csmm_t1_absvauc]
+============== start ==============
+[04/01/2022, 15:27:03] [masking_exp-csmm_csmm_t1_absvauc]
+get scores for 3580 papers
+[04/01/2022, 15:27:04] [masking_exp-csmm_csmm_t1_absvauc]
+task end within 1.224861 sec
+[04/01/2022, 15:27:04] [exp-csmm_csmm_t1_absvauc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:04] [exp-csmm_csmm_t1_absvy]
+============== start ==============
+[04/01/2022, 15:27:04] [masking_exp-csmm_csmm_t1_absvy]
+get scores for 3580 papers
+[04/01/2022, 15:27:06] [masking_exp-csmm_csmm_t1_absvy]
+task end within 1.633146 sec
+[04/01/2022, 15:27:06] [exp-csmm_csmm_t1_absvy]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:06] [exp-csmm_csmm_t1_absvyc]
+============== start ==============
+[04/01/2022, 15:27:06] [masking_exp-csmm_csmm_t1_absvyc]
+get scores for 3580 papers
+[04/01/2022, 15:27:08] [masking_exp-csmm_csmm_t1_absvyc]
+task end within 1.594562 sec
+[04/01/2022, 15:27:08] [exp-csmm_csmm_t1_absvyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:08] [exp-csmm_csmm_t1_absvc]
+============== start ==============
+[04/01/2022, 15:27:08] [masking_exp-csmm_csmm_t1_absvc]
+get scores for 3580 papers
+[04/01/2022, 15:27:09] [masking_exp-csmm_csmm_t1_absvc]
+task end within 1.555782 sec
+[04/01/2022, 15:27:09] [exp-csmm_csmm_t1_absvc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:09] [exp-csmm_csmm_t1_absau]
+============== start ==============
+[04/01/2022, 15:27:09] [masking_exp-csmm_csmm_t1_absau]
+get scores for 3580 papers
+[04/01/2022, 15:27:11] [masking_exp-csmm_csmm_t1_absau]
+task end within 1.282893 sec
+[04/01/2022, 15:27:11] [exp-csmm_csmm_t1_absau]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:11] [exp-csmm_csmm_t1_absauy]
+============== start ==============
+[04/01/2022, 15:27:11] [masking_exp-csmm_csmm_t1_absauy]
+get scores for 3580 papers
+[04/01/2022, 15:27:12] [masking_exp-csmm_csmm_t1_absauy]
+task end within 1.539087 sec
+[04/01/2022, 15:27:12] [exp-csmm_csmm_t1_absauy]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:12] [exp-csmm_csmm_t1_absauyc]
+============== start ==============
+[04/01/2022, 15:27:12] [masking_exp-csmm_csmm_t1_absauyc]
+get scores for 3580 papers
+[04/01/2022, 15:27:14] [masking_exp-csmm_csmm_t1_absauyc]
+task end within 1.329916 sec
+[04/01/2022, 15:27:14] [exp-csmm_csmm_t1_absauyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:14] [exp-csmm_csmm_t1_absauc]
+============== start ==============
+[04/01/2022, 15:27:14] [masking_exp-csmm_csmm_t1_absauc]
+get scores for 3580 papers
+[04/01/2022, 15:27:15] [masking_exp-csmm_csmm_t1_absauc]
+task end within 1.368609 sec
+[04/01/2022, 15:27:15] [exp-csmm_csmm_t1_absauc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:15] [exp-csmm_csmm_t1_absy]
+============== start ==============
+[04/01/2022, 15:27:15] [masking_exp-csmm_csmm_t1_absy]
+get scores for 3580 papers
+[04/01/2022, 15:27:17] [masking_exp-csmm_csmm_t1_absy]
+task end within 1.721966 sec
+[04/01/2022, 15:27:17] [exp-csmm_csmm_t1_absy]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:17] [exp-csmm_csmm_t1_absyc]
+============== start ==============
+[04/01/2022, 15:27:17] [masking_exp-csmm_csmm_t1_absyc]
+get scores for 3580 papers
+[04/01/2022, 15:27:19] [masking_exp-csmm_csmm_t1_absyc]
+task end within 1.712918 sec
+[04/01/2022, 15:27:19] [exp-csmm_csmm_t1_absyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:19] [exp-csmm_csmm_t1_absc]
+============== start ==============
+[04/01/2022, 15:27:19] [masking_exp-csmm_csmm_t1_absc]
+get scores for 3580 papers
+[04/01/2022, 15:27:20] [masking_exp-csmm_csmm_t1_absc]
+task end within 1.639414 sec
+[04/01/2022, 15:27:20] [exp-csmm_csmm_t1_absc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:20] [exp-csmm_csmm_t1_vau]
+============== start ==============
+[04/01/2022, 15:27:20] [masking_exp-csmm_csmm_t1_vau]
+get scores for 3580 papers
+[04/01/2022, 15:27:22] [masking_exp-csmm_csmm_t1_vau]
+task end within 1.889611 sec
+[04/01/2022, 15:27:22] [exp-csmm_csmm_t1_vau]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:22] [exp-csmm_csmm_t1_vauy]
+============== start ==============
+[04/01/2022, 15:27:22] [masking_exp-csmm_csmm_t1_vauy]
+get scores for 3580 papers
+[04/01/2022, 15:27:24] [masking_exp-csmm_csmm_t1_vauy]
+task end within 1.864465 sec
+[04/01/2022, 15:27:24] [exp-csmm_csmm_t1_vauy]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:24] [exp-csmm_csmm_t1_vauyc]
+============== start ==============
+[04/01/2022, 15:27:24] [masking_exp-csmm_csmm_t1_vauyc]
+get scores for 3580 papers
+[04/01/2022, 15:27:26] [masking_exp-csmm_csmm_t1_vauyc]
+task end within 1.811211 sec
+[04/01/2022, 15:27:26] [exp-csmm_csmm_t1_vauyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:26] [exp-csmm_csmm_t1_vauc]
+============== start ==============
+[04/01/2022, 15:27:26] [masking_exp-csmm_csmm_t1_vauc]
+get scores for 3580 papers
+[04/01/2022, 15:27:28] [masking_exp-csmm_csmm_t1_vauc]
+task end within 1.775571 sec
+[04/01/2022, 15:27:28] [exp-csmm_csmm_t1_vauc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:28] [exp-csmm_csmm_t1_vy]
+============== start ==============
+[04/01/2022, 15:27:28] [masking_exp-csmm_csmm_t1_vy]
+get scores for 3580 papers
+[04/01/2022, 15:27:30] [masking_exp-csmm_csmm_t1_vy]
+task end within 2.135147 sec
+[04/01/2022, 15:27:30] [exp-csmm_csmm_t1_vy]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:30] [exp-csmm_csmm_t1_vyc]
+============== start ==============
+[04/01/2022, 15:27:30] [masking_exp-csmm_csmm_t1_vyc]
+get scores for 3580 papers
+[04/01/2022, 15:27:32] [masking_exp-csmm_csmm_t1_vyc]
+task end within 2.057673 sec
+[04/01/2022, 15:27:32] [exp-csmm_csmm_t1_vyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:32] [exp-csmm_csmm_t1_vc]
+============== start ==============
+[04/01/2022, 15:27:32] [masking_exp-csmm_csmm_t1_vc]
+get scores for 3580 papers
+[04/01/2022, 15:27:35] [masking_exp-csmm_csmm_t1_vc]
+task end within 2.37941 sec
+[04/01/2022, 15:27:35] [exp-csmm_csmm_t1_vc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:35] [exp-csmm_csmm_t1_auy]
+============== start ==============
+[04/01/2022, 15:27:35] [masking_exp-csmm_csmm_t1_auy]
+get scores for 3580 papers
+[04/01/2022, 15:27:37] [masking_exp-csmm_csmm_t1_auy]
+task end within 2.021378 sec
+[04/01/2022, 15:27:37] [exp-csmm_csmm_t1_auy]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:37] [exp-csmm_csmm_t1_auyc]
+============== start ==============
+[04/01/2022, 15:27:37] [masking_exp-csmm_csmm_t1_auyc]
+get scores for 3580 papers
+[04/01/2022, 15:27:39] [masking_exp-csmm_csmm_t1_auyc]
+task end within 1.846596 sec
+[04/01/2022, 15:27:39] [exp-csmm_csmm_t1_auyc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:39] [exp-csmm_csmm_t1_auc]
+============== start ==============
+[04/01/2022, 15:27:39] [masking_exp-csmm_csmm_t1_auc]
+get scores for 3580 papers
+[04/01/2022, 15:27:41] [masking_exp-csmm_csmm_t1_auc]
+task end within 1.96876 sec
+[04/01/2022, 15:27:41] [exp-csmm_csmm_t1_auc]
+============== end 3580 ==============
+
+
+[04/01/2022, 15:27:41] [exp-csmm_csmm_t1_yc]
+============== start ==============
+[04/01/2022, 15:27:41] [masking_exp-csmm_csmm_t1_yc]
+get scores for 3580 papers
+[04/01/2022, 15:27:43] [masking_exp-csmm_csmm_t1_yc]
+task end within 2.198551 sec
+[04/01/2022, 15:27:43] [exp-csmm_csmm_t1_yc]
+============== end 3580 ==============
+

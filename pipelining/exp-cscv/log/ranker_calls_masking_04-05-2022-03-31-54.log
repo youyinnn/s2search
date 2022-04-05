@@ -1,0 +1,640 @@
+
+
+[04/05/2022, 03:31:54] [exp-cscv_cscv_t1_origin]
+============== start ==============
+[04/05/2022, 03:31:55] [masking_exp-cscv_cscv_t1_origin]
+get scores for 64531 papers
+[04/05/2022, 03:32:57] [masking_exp-cscv_cscv_t1_origin]
+task end within 61.859919 sec
+[04/05/2022, 03:32:58] [exp-cscv_cscv_t1_origin]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:32:58] [exp-cscv_cscv_t1_t]
+============== start ==============
+[04/05/2022, 03:32:59] [masking_exp-cscv_cscv_t1_t]
+get scores for 64531 papers
+[04/05/2022, 03:33:48] [masking_exp-cscv_cscv_t1_t]
+task end within 48.391763 sec
+[04/05/2022, 03:33:48] [exp-cscv_cscv_t1_t]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:33:49] [exp-cscv_cscv_t1_abs]
+============== start ==============
+[04/05/2022, 03:33:50] [masking_exp-cscv_cscv_t1_abs]
+get scores for 64531 papers
+[04/05/2022, 03:34:18] [masking_exp-cscv_cscv_t1_abs]
+task end within 28.240659 sec
+[04/05/2022, 03:34:19] [exp-cscv_cscv_t1_abs]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:34:19] [exp-cscv_cscv_t1_v]
+============== start ==============
+[04/05/2022, 03:34:20] [masking_exp-cscv_cscv_t1_v]
+get scores for 64531 papers
+[04/05/2022, 03:35:03] [masking_exp-cscv_cscv_t1_v]
+task end within 42.722726 sec
+[04/05/2022, 03:35:04] [exp-cscv_cscv_t1_v]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:35:04] [exp-cscv_cscv_t1_au]
+============== start ==============
+[04/05/2022, 03:35:06] [masking_exp-cscv_cscv_t1_au]
+get scores for 64531 papers
+[04/05/2022, 03:35:46] [masking_exp-cscv_cscv_t1_au]
+task end within 40.845799 sec
+[04/05/2022, 03:35:47] [exp-cscv_cscv_t1_au]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:35:47] [exp-cscv_cscv_t1_y]
+============== start ==============
+[04/05/2022, 03:35:49] [masking_exp-cscv_cscv_t1_y]
+get scores for 64531 papers
+[04/05/2022, 03:36:39] [masking_exp-cscv_cscv_t1_y]
+task end within 50.584443 sec
+[04/05/2022, 03:36:40] [exp-cscv_cscv_t1_y]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:36:40] [exp-cscv_cscv_t1_c]
+============== start ==============
+[04/05/2022, 03:36:42] [masking_exp-cscv_cscv_t1_c]
+get scores for 64531 papers
+[04/05/2022, 03:37:33] [masking_exp-cscv_cscv_t1_c]
+task end within 50.769724 sec
+[04/05/2022, 03:37:33] [exp-cscv_cscv_t1_c]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:37:34] [exp-cscv_cscv_t1_tabs]
+============== start ==============
+[04/05/2022, 03:37:35] [masking_exp-cscv_cscv_t1_tabs]
+get scores for 64531 papers
+[04/05/2022, 03:38:00] [masking_exp-cscv_cscv_t1_tabs]
+task end within 25.386627 sec
+[04/05/2022, 03:38:01] [exp-cscv_cscv_t1_tabs]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:38:01] [exp-cscv_cscv_t1_tabsv]
+============== start ==============
+[04/05/2022, 03:38:03] [masking_exp-cscv_cscv_t1_tabsv]
+get scores for 64531 papers
+[04/05/2022, 03:38:22] [masking_exp-cscv_cscv_t1_tabsv]
+task end within 18.986659 sec
+[04/05/2022, 03:38:22] [exp-cscv_cscv_t1_tabsv]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:38:23] [exp-cscv_cscv_t1_tabsvau]
+============== start ==============
+[04/05/2022, 03:38:24] [masking_exp-cscv_cscv_t1_tabsvau]
+get scores for 64531 papers
+[04/05/2022, 03:38:33] [masking_exp-cscv_cscv_t1_tabsvau]
+task end within 9.186576 sec
+[04/05/2022, 03:38:34] [exp-cscv_cscv_t1_tabsvau]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:38:34] [exp-cscv_cscv_t1_tabsvauy]
+============== start ==============
+[04/05/2022, 03:38:36] [masking_exp-cscv_cscv_t1_tabsvauy]
+get scores for 64531 papers
+[04/05/2022, 03:38:45] [masking_exp-cscv_cscv_t1_tabsvauy]
+task end within 9.061189 sec
+[04/05/2022, 03:38:45] [exp-cscv_cscv_t1_tabsvauy]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:38:46] [exp-cscv_cscv_t1_tabsvauyc]
+============== start ==============
+[04/05/2022, 03:38:47] [masking_exp-cscv_cscv_t1_tabsvauyc]
+get scores for 64531 papers
+[04/05/2022, 03:38:56] [masking_exp-cscv_cscv_t1_tabsvauyc]
+task end within 9.060614 sec
+[04/05/2022, 03:38:57] [exp-cscv_cscv_t1_tabsvauyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:38:57] [exp-cscv_cscv_t1_tabsvauc]
+============== start ==============
+[04/05/2022, 03:38:58] [masking_exp-cscv_cscv_t1_tabsvauc]
+get scores for 64531 papers
+[04/05/2022, 03:39:07] [masking_exp-cscv_cscv_t1_tabsvauc]
+task end within 9.158036 sec
+[04/05/2022, 03:39:08] [exp-cscv_cscv_t1_tabsvauc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:39:08] [exp-cscv_cscv_t1_tabsvy]
+============== start ==============
+[04/05/2022, 03:39:10] [masking_exp-cscv_cscv_t1_tabsvy]
+get scores for 64531 papers
+[04/05/2022, 03:39:28] [masking_exp-cscv_cscv_t1_tabsvy]
+task end within 18.645262 sec
+[04/05/2022, 03:39:29] [exp-cscv_cscv_t1_tabsvy]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:39:29] [exp-cscv_cscv_t1_tabsvyc]
+============== start ==============
+[04/05/2022, 03:39:31] [masking_exp-cscv_cscv_t1_tabsvyc]
+get scores for 64531 papers
+[04/05/2022, 03:39:49] [masking_exp-cscv_cscv_t1_tabsvyc]
+task end within 18.606734 sec
+[04/05/2022, 03:39:50] [exp-cscv_cscv_t1_tabsvyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:39:50] [exp-cscv_cscv_t1_tabsvc]
+============== start ==============
+[04/05/2022, 03:39:52] [masking_exp-cscv_cscv_t1_tabsvc]
+get scores for 64531 papers
+[04/05/2022, 03:40:11] [masking_exp-cscv_cscv_t1_tabsvc]
+task end within 18.865656 sec
+[04/05/2022, 03:40:12] [exp-cscv_cscv_t1_tabsvc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:40:12] [exp-cscv_cscv_t1_tabsau]
+============== start ==============
+[04/05/2022, 03:40:13] [masking_exp-cscv_cscv_t1_tabsau]
+get scores for 64531 papers
+[04/05/2022, 03:40:29] [masking_exp-cscv_cscv_t1_tabsau]
+task end within 15.64022 sec
+[04/05/2022, 03:40:29] [exp-cscv_cscv_t1_tabsau]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:40:30] [exp-cscv_cscv_t1_tabsauy]
+============== start ==============
+[04/05/2022, 03:40:31] [masking_exp-cscv_cscv_t1_tabsauy]
+get scores for 64531 papers
+[04/05/2022, 03:40:46] [masking_exp-cscv_cscv_t1_tabsauy]
+task end within 15.349438 sec
+[04/05/2022, 03:40:47] [exp-cscv_cscv_t1_tabsauy]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:40:47] [exp-cscv_cscv_t1_tabsauyc]
+============== start ==============
+[04/05/2022, 03:40:49] [masking_exp-cscv_cscv_t1_tabsauyc]
+get scores for 64531 papers
+[04/05/2022, 03:41:04] [masking_exp-cscv_cscv_t1_tabsauyc]
+task end within 15.284519 sec
+[04/05/2022, 03:41:05] [exp-cscv_cscv_t1_tabsauyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:41:05] [exp-cscv_cscv_t1_tabsauc]
+============== start ==============
+[04/05/2022, 03:41:06] [masking_exp-cscv_cscv_t1_tabsauc]
+get scores for 64531 papers
+[04/05/2022, 03:41:22] [masking_exp-cscv_cscv_t1_tabsauc]
+task end within 15.473407 sec
+[04/05/2022, 03:41:22] [exp-cscv_cscv_t1_tabsauc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:41:23] [exp-cscv_cscv_t1_tabsy]
+============== start ==============
+[04/05/2022, 03:41:24] [masking_exp-cscv_cscv_t1_tabsy]
+get scores for 64531 papers
+[04/05/2022, 03:41:49] [masking_exp-cscv_cscv_t1_tabsy]
+task end within 25.191165 sec
+[04/05/2022, 03:41:50] [exp-cscv_cscv_t1_tabsy]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:41:50] [exp-cscv_cscv_t1_tabsyc]
+============== start ==============
+[04/05/2022, 03:41:51] [masking_exp-cscv_cscv_t1_tabsyc]
+get scores for 64531 papers
+[04/05/2022, 03:42:17] [masking_exp-cscv_cscv_t1_tabsyc]
+task end within 25.158145 sec
+[04/05/2022, 03:42:17] [exp-cscv_cscv_t1_tabsyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:42:18] [exp-cscv_cscv_t1_tabsc]
+============== start ==============
+[04/05/2022, 03:42:19] [masking_exp-cscv_cscv_t1_tabsc]
+get scores for 64531 papers
+[04/05/2022, 03:42:44] [masking_exp-cscv_cscv_t1_tabsc]
+task end within 25.349462 sec
+[04/05/2022, 03:42:45] [exp-cscv_cscv_t1_tabsc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:42:45] [exp-cscv_cscv_t1_tv]
+============== start ==============
+[04/05/2022, 03:42:47] [masking_exp-cscv_cscv_t1_tv]
+get scores for 64531 papers
+[04/05/2022, 03:43:27] [masking_exp-cscv_cscv_t1_tv]
+task end within 40.252181 sec
+[04/05/2022, 03:43:28] [exp-cscv_cscv_t1_tv]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:43:28] [exp-cscv_cscv_t1_tvau]
+============== start ==============
+[04/05/2022, 03:43:29] [masking_exp-cscv_cscv_t1_tvau]
+get scores for 64531 papers
+[04/05/2022, 03:44:00] [masking_exp-cscv_cscv_t1_tvau]
+task end within 30.623199 sec
+[04/05/2022, 03:44:01] [exp-cscv_cscv_t1_tvau]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:44:01] [exp-cscv_cscv_t1_tvauy]
+============== start ==============
+[04/05/2022, 03:44:02] [masking_exp-cscv_cscv_t1_tvauy]
+get scores for 64531 papers
+[04/05/2022, 03:44:33] [masking_exp-cscv_cscv_t1_tvauy]
+task end within 30.406268 sec
+[04/05/2022, 03:44:33] [exp-cscv_cscv_t1_tvauy]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:44:34] [exp-cscv_cscv_t1_tvauyc]
+============== start ==============
+[04/05/2022, 03:44:35] [masking_exp-cscv_cscv_t1_tvauyc]
+get scores for 64531 papers
+[04/05/2022, 03:45:06] [masking_exp-cscv_cscv_t1_tvauyc]
+task end within 30.544747 sec
+[04/05/2022, 03:45:06] [exp-cscv_cscv_t1_tvauyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:45:07] [exp-cscv_cscv_t1_tvauc]
+============== start ==============
+[04/05/2022, 03:45:08] [masking_exp-cscv_cscv_t1_tvauc]
+get scores for 64531 papers
+[04/05/2022, 03:45:39] [masking_exp-cscv_cscv_t1_tvauc]
+task end within 30.6342 sec
+[04/05/2022, 03:45:39] [exp-cscv_cscv_t1_tvauc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:45:40] [exp-cscv_cscv_t1_tvy]
+============== start ==============
+[04/05/2022, 03:45:41] [masking_exp-cscv_cscv_t1_tvy]
+get scores for 64531 papers
+[04/05/2022, 03:46:21] [masking_exp-cscv_cscv_t1_tvy]
+task end within 39.955843 sec
+[04/05/2022, 03:46:22] [exp-cscv_cscv_t1_tvy]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:46:22] [exp-cscv_cscv_t1_tvyc]
+============== start ==============
+[04/05/2022, 03:46:23] [masking_exp-cscv_cscv_t1_tvyc]
+get scores for 64531 papers
+[04/05/2022, 03:47:03] [masking_exp-cscv_cscv_t1_tvyc]
+task end within 40.07035 sec
+[04/05/2022, 03:47:04] [exp-cscv_cscv_t1_tvyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:47:04] [exp-cscv_cscv_t1_tvc]
+============== start ==============
+[04/05/2022, 03:47:06] [masking_exp-cscv_cscv_t1_tvc]
+get scores for 64531 papers
+[04/05/2022, 03:47:46] [masking_exp-cscv_cscv_t1_tvc]
+task end within 40.211174 sec
+[04/05/2022, 03:47:47] [exp-cscv_cscv_t1_tvc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:47:47] [exp-cscv_cscv_t1_tau]
+============== start ==============
+[04/05/2022, 03:47:48] [masking_exp-cscv_cscv_t1_tau]
+get scores for 64531 papers
+[04/05/2022, 03:48:27] [masking_exp-cscv_cscv_t1_tau]
+task end within 38.322298 sec
+[04/05/2022, 03:48:27] [exp-cscv_cscv_t1_tau]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:48:28] [exp-cscv_cscv_t1_tauy]
+============== start ==============
+[04/05/2022, 03:48:29] [masking_exp-cscv_cscv_t1_tauy]
+get scores for 64531 papers
+[04/05/2022, 03:49:07] [masking_exp-cscv_cscv_t1_tauy]
+task end within 38.138896 sec
+[04/05/2022, 03:49:08] [exp-cscv_cscv_t1_tauy]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:49:08] [exp-cscv_cscv_t1_tauyc]
+============== start ==============
+[04/05/2022, 03:49:09] [masking_exp-cscv_cscv_t1_tauyc]
+get scores for 64531 papers
+[04/05/2022, 03:49:48] [masking_exp-cscv_cscv_t1_tauyc]
+task end within 38.14174 sec
+[04/05/2022, 03:49:48] [exp-cscv_cscv_t1_tauyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:49:49] [exp-cscv_cscv_t1_tauc]
+============== start ==============
+[04/05/2022, 03:49:50] [masking_exp-cscv_cscv_t1_tauc]
+get scores for 64531 papers
+[04/05/2022, 03:50:28] [masking_exp-cscv_cscv_t1_tauc]
+task end within 38.405918 sec
+[04/05/2022, 03:50:29] [exp-cscv_cscv_t1_tauc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:50:29] [exp-cscv_cscv_t1_ty]
+============== start ==============
+[04/05/2022, 03:50:31] [masking_exp-cscv_cscv_t1_ty]
+get scores for 64531 papers
+[04/05/2022, 03:51:19] [masking_exp-cscv_cscv_t1_ty]
+task end within 48.143709 sec
+[04/05/2022, 03:51:20] [exp-cscv_cscv_t1_ty]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:51:20] [exp-cscv_cscv_t1_tyc]
+============== start ==============
+[04/05/2022, 03:51:21] [masking_exp-cscv_cscv_t1_tyc]
+get scores for 64531 papers
+[04/05/2022, 03:52:10] [masking_exp-cscv_cscv_t1_tyc]
+task end within 48.844663 sec
+[04/05/2022, 03:52:11] [exp-cscv_cscv_t1_tyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:52:11] [exp-cscv_cscv_t1_tc]
+============== start ==============
+[04/05/2022, 03:52:12] [masking_exp-cscv_cscv_t1_tc]
+get scores for 64531 papers
+[04/05/2022, 03:53:01] [masking_exp-cscv_cscv_t1_tc]
+task end within 48.336702 sec
+[04/05/2022, 03:53:02] [exp-cscv_cscv_t1_tc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:53:02] [exp-cscv_cscv_t1_absv]
+============== start ==============
+[04/05/2022, 03:53:03] [masking_exp-cscv_cscv_t1_absv]
+get scores for 64531 papers
+[04/05/2022, 03:53:25] [masking_exp-cscv_cscv_t1_absv]
+task end within 21.504699 sec
+[04/05/2022, 03:53:26] [exp-cscv_cscv_t1_absv]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:53:26] [exp-cscv_cscv_t1_absvau]
+============== start ==============
+[04/05/2022, 03:53:27] [masking_exp-cscv_cscv_t1_absvau]
+get scores for 64531 papers
+[04/05/2022, 03:53:39] [masking_exp-cscv_cscv_t1_absvau]
+task end within 11.998438 sec
+[04/05/2022, 03:53:40] [exp-cscv_cscv_t1_absvau]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:53:40] [exp-cscv_cscv_t1_absvauy]
+============== start ==============
+[04/05/2022, 03:53:41] [masking_exp-cscv_cscv_t1_absvauy]
+get scores for 64531 papers
+[04/05/2022, 03:53:53] [masking_exp-cscv_cscv_t1_absvauy]
+task end within 11.776788 sec
+[04/05/2022, 03:53:54] [exp-cscv_cscv_t1_absvauy]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:53:54] [exp-cscv_cscv_t1_absvauyc]
+============== start ==============
+[04/05/2022, 03:53:56] [masking_exp-cscv_cscv_t1_absvauyc]
+get scores for 64531 papers
+[04/05/2022, 03:54:07] [masking_exp-cscv_cscv_t1_absvauyc]
+task end within 11.767465 sec
+[04/05/2022, 03:54:08] [exp-cscv_cscv_t1_absvauyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:54:08] [exp-cscv_cscv_t1_absvauc]
+============== start ==============
+[04/05/2022, 03:54:10] [masking_exp-cscv_cscv_t1_absvauc]
+get scores for 64531 papers
+[04/05/2022, 03:54:22] [masking_exp-cscv_cscv_t1_absvauc]
+task end within 11.867547 sec
+[04/05/2022, 03:54:22] [exp-cscv_cscv_t1_absvauc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:54:23] [exp-cscv_cscv_t1_absvy]
+============== start ==============
+[04/05/2022, 03:54:24] [masking_exp-cscv_cscv_t1_absvy]
+get scores for 64531 papers
+[04/05/2022, 03:54:45] [masking_exp-cscv_cscv_t1_absvy]
+task end within 21.303955 sec
+[04/05/2022, 03:54:46] [exp-cscv_cscv_t1_absvy]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:54:46] [exp-cscv_cscv_t1_absvyc]
+============== start ==============
+[04/05/2022, 03:54:48] [masking_exp-cscv_cscv_t1_absvyc]
+get scores for 64531 papers
+[04/05/2022, 03:55:09] [masking_exp-cscv_cscv_t1_absvyc]
+task end within 21.315649 sec
+[04/05/2022, 03:55:10] [exp-cscv_cscv_t1_absvyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:55:10] [exp-cscv_cscv_t1_absvc]
+============== start ==============
+[04/05/2022, 03:55:11] [masking_exp-cscv_cscv_t1_absvc]
+get scores for 64531 papers
+[04/05/2022, 03:55:33] [masking_exp-cscv_cscv_t1_absvc]
+task end within 21.515631 sec
+[04/05/2022, 03:55:34] [exp-cscv_cscv_t1_absvc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:55:34] [exp-cscv_cscv_t1_absau]
+============== start ==============
+[04/05/2022, 03:55:35] [masking_exp-cscv_cscv_t1_absau]
+get scores for 64531 papers
+[04/05/2022, 03:55:53] [masking_exp-cscv_cscv_t1_absau]
+task end within 18.328666 sec
+[04/05/2022, 03:55:54] [exp-cscv_cscv_t1_absau]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:55:54] [exp-cscv_cscv_t1_absauy]
+============== start ==============
+[04/05/2022, 03:55:56] [masking_exp-cscv_cscv_t1_absauy]
+get scores for 64531 papers
+[04/05/2022, 03:56:14] [masking_exp-cscv_cscv_t1_absauy]
+task end within 18.03288 sec
+[04/05/2022, 03:56:15] [exp-cscv_cscv_t1_absauy]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:56:15] [exp-cscv_cscv_t1_absauyc]
+============== start ==============
+[04/05/2022, 03:56:16] [masking_exp-cscv_cscv_t1_absauyc]
+get scores for 64531 papers
+[04/05/2022, 03:56:34] [masking_exp-cscv_cscv_t1_absauyc]
+task end within 18.04419 sec
+[04/05/2022, 03:56:35] [exp-cscv_cscv_t1_absauyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:56:35] [exp-cscv_cscv_t1_absauc]
+============== start ==============
+[04/05/2022, 03:56:37] [masking_exp-cscv_cscv_t1_absauc]
+get scores for 64531 papers
+[04/05/2022, 03:56:55] [masking_exp-cscv_cscv_t1_absauc]
+task end within 18.27557 sec
+[04/05/2022, 03:56:56] [exp-cscv_cscv_t1_absauc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:56:56] [exp-cscv_cscv_t1_absy]
+============== start ==============
+[04/05/2022, 03:56:57] [masking_exp-cscv_cscv_t1_absy]
+get scores for 64531 papers
+[04/05/2022, 03:57:25] [masking_exp-cscv_cscv_t1_absy]
+task end within 27.943467 sec
+[04/05/2022, 03:57:26] [exp-cscv_cscv_t1_absy]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:57:26] [exp-cscv_cscv_t1_absyc]
+============== start ==============
+[04/05/2022, 03:57:28] [masking_exp-cscv_cscv_t1_absyc]
+get scores for 64531 papers
+[04/05/2022, 03:57:55] [masking_exp-cscv_cscv_t1_absyc]
+task end within 27.858627 sec
+[04/05/2022, 03:57:56] [exp-cscv_cscv_t1_absyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:57:56] [exp-cscv_cscv_t1_absc]
+============== start ==============
+[04/05/2022, 03:57:58] [masking_exp-cscv_cscv_t1_absc]
+get scores for 64531 papers
+[04/05/2022, 03:58:27] [masking_exp-cscv_cscv_t1_absc]
+task end within 28.78205 sec
+[04/05/2022, 03:58:27] [exp-cscv_cscv_t1_absc]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:58:28] [exp-cscv_cscv_t1_vau]
+============== start ==============
+[04/05/2022, 03:58:29] [masking_exp-cscv_cscv_t1_vau]
+get scores for 64531 papers
+[04/05/2022, 03:59:02] [masking_exp-cscv_cscv_t1_vau]
+task end within 33.194742 sec
+[04/05/2022, 03:59:03] [exp-cscv_cscv_t1_vau]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:59:03] [exp-cscv_cscv_t1_vauy]
+============== start ==============
+[04/05/2022, 03:59:04] [masking_exp-cscv_cscv_t1_vauy]
+get scores for 64531 papers
+[04/05/2022, 03:59:37] [masking_exp-cscv_cscv_t1_vauy]
+task end within 32.917385 sec
+[04/05/2022, 03:59:38] [exp-cscv_cscv_t1_vauy]
+============== end 64531 ==============
+
+
+[04/05/2022, 03:59:38] [exp-cscv_cscv_t1_vauyc]
+============== start ==============
+[04/05/2022, 03:59:40] [masking_exp-cscv_cscv_t1_vauyc]
+get scores for 64531 papers
+[04/05/2022, 04:00:13] [masking_exp-cscv_cscv_t1_vauyc]
+task end within 32.865544 sec
+[04/05/2022, 04:00:13] [exp-cscv_cscv_t1_vauyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 04:00:14] [exp-cscv_cscv_t1_vauc]
+============== start ==============
+[04/05/2022, 04:00:15] [masking_exp-cscv_cscv_t1_vauc]
+get scores for 64531 papers
+[04/05/2022, 04:00:48] [masking_exp-cscv_cscv_t1_vauc]
+task end within 32.977589 sec
+[04/05/2022, 04:00:49] [exp-cscv_cscv_t1_vauc]
+============== end 64531 ==============
+
+
+[04/05/2022, 04:00:49] [exp-cscv_cscv_t1_vy]
+============== start ==============
+[04/05/2022, 04:00:50] [masking_exp-cscv_cscv_t1_vy]
+get scores for 64531 papers
+[04/05/2022, 04:01:33] [masking_exp-cscv_cscv_t1_vy]
+task end within 42.488456 sec
+[04/05/2022, 04:01:34] [exp-cscv_cscv_t1_vy]
+============== end 64531 ==============
+
+
+[04/05/2022, 04:01:34] [exp-cscv_cscv_t1_vyc]
+============== start ==============
+[04/05/2022, 04:01:35] [masking_exp-cscv_cscv_t1_vyc]
+get scores for 64531 papers
+[04/05/2022, 04:02:18] [masking_exp-cscv_cscv_t1_vyc]
+task end within 42.57105 sec
+[04/05/2022, 04:02:18] [exp-cscv_cscv_t1_vyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 04:02:19] [exp-cscv_cscv_t1_vc]
+============== start ==============
+[04/05/2022, 04:02:20] [masking_exp-cscv_cscv_t1_vc]
+get scores for 64531 papers
+[04/05/2022, 04:03:03] [masking_exp-cscv_cscv_t1_vc]
+task end within 42.571824 sec
+[04/05/2022, 04:03:03] [exp-cscv_cscv_t1_vc]
+============== end 64531 ==============
+
+
+[04/05/2022, 04:03:04] [exp-cscv_cscv_t1_auy]
+============== start ==============
+[04/05/2022, 04:03:05] [masking_exp-cscv_cscv_t1_auy]
+get scores for 64531 papers
+[04/05/2022, 04:03:46] [masking_exp-cscv_cscv_t1_auy]
+task end within 40.819456 sec
+[04/05/2022, 04:03:47] [exp-cscv_cscv_t1_auy]
+============== end 64531 ==============
+
+
+[04/05/2022, 04:03:47] [exp-cscv_cscv_t1_auyc]
+============== start ==============
+[04/05/2022, 04:03:48] [masking_exp-cscv_cscv_t1_auyc]
+get scores for 64531 papers
+[04/05/2022, 04:04:29] [masking_exp-cscv_cscv_t1_auyc]
+task end within 40.659735 sec
+[04/05/2022, 04:04:30] [exp-cscv_cscv_t1_auyc]
+============== end 64531 ==============
+
+
+[04/05/2022, 04:04:30] [exp-cscv_cscv_t1_auc]
+============== start ==============
+[04/05/2022, 04:04:31] [masking_exp-cscv_cscv_t1_auc]
+get scores for 64531 papers
+[04/05/2022, 04:05:12] [masking_exp-cscv_cscv_t1_auc]
+task end within 40.841382 sec
+[04/05/2022, 04:05:13] [exp-cscv_cscv_t1_auc]
+============== end 64531 ==============
+
+
+[04/05/2022, 04:05:13] [exp-cscv_cscv_t1_yc]
+============== start ==============
+[04/05/2022, 04:05:14] [masking_exp-cscv_cscv_t1_yc]
+get scores for 64531 papers
+[04/05/2022, 04:06:05] [masking_exp-cscv_cscv_t1_yc]
+task end within 50.704271 sec
+[04/05/2022, 04:06:06] [exp-cscv_cscv_t1_yc]
+============== end 64531 ==============

@@ -1,0 +1,640 @@
+
+
+[04/05/2022, 12:22:52] [exp-csai_csai_t1_origin]
+============== start ==============
+[04/05/2022, 12:22:52] [masking_exp-csai_csai_t1_origin]
+get scores for 39344 papers
+[04/05/2022, 12:23:31] [masking_exp-csai_csai_t1_origin]
+task end within 38.780121 sec
+[04/05/2022, 12:23:31] [exp-csai_csai_t1_origin]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:23:32] [exp-csai_csai_t1_t]
+============== start ==============
+[04/05/2022, 12:23:32] [masking_exp-csai_csai_t1_t]
+get scores for 39344 papers
+[04/05/2022, 12:23:58] [masking_exp-csai_csai_t1_t]
+task end within 25.150657 sec
+[04/05/2022, 12:23:58] [exp-csai_csai_t1_t]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:23:58] [exp-csai_csai_t1_abs]
+============== start ==============
+[04/05/2022, 12:23:59] [masking_exp-csai_csai_t1_abs]
+get scores for 39344 papers
+[04/05/2022, 12:24:13] [masking_exp-csai_csai_t1_abs]
+task end within 13.762836 sec
+[04/05/2022, 12:24:13] [exp-csai_csai_t1_abs]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:24:13] [exp-csai_csai_t1_v]
+============== start ==============
+[04/05/2022, 12:24:14] [masking_exp-csai_csai_t1_v]
+get scores for 39344 papers
+[04/05/2022, 12:24:40] [masking_exp-csai_csai_t1_v]
+task end within 26.358684 sec
+[04/05/2022, 12:24:41] [exp-csai_csai_t1_v]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:24:41] [exp-csai_csai_t1_au]
+============== start ==============
+[04/05/2022, 12:24:42] [masking_exp-csai_csai_t1_au]
+get scores for 39344 papers
+[04/05/2022, 12:25:04] [masking_exp-csai_csai_t1_au]
+task end within 22.085407 sec
+[04/05/2022, 12:25:04] [exp-csai_csai_t1_au]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:25:04] [exp-csai_csai_t1_y]
+============== start ==============
+[04/05/2022, 12:25:05] [masking_exp-csai_csai_t1_y]
+get scores for 39344 papers
+[04/05/2022, 12:25:32] [masking_exp-csai_csai_t1_y]
+task end within 26.892081 sec
+[04/05/2022, 12:25:32] [exp-csai_csai_t1_y]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:25:32] [exp-csai_csai_t1_c]
+============== start ==============
+[04/05/2022, 12:25:33] [masking_exp-csai_csai_t1_c]
+get scores for 39344 papers
+[04/05/2022, 12:26:00] [masking_exp-csai_csai_t1_c]
+task end within 26.933732 sec
+[04/05/2022, 12:26:01] [exp-csai_csai_t1_c]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:26:01] [exp-csai_csai_t1_tabs]
+============== start ==============
+[04/05/2022, 12:26:01] [masking_exp-csai_csai_t1_tabs]
+get scores for 39344 papers
+[04/05/2022, 12:26:13] [masking_exp-csai_csai_t1_tabs]
+task end within 11.781956 sec
+[04/05/2022, 12:26:14] [exp-csai_csai_t1_tabs]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:26:14] [exp-csai_csai_t1_tabsv]
+============== start ==============
+[04/05/2022, 12:26:15] [masking_exp-csai_csai_t1_tabsv]
+get scores for 39344 papers
+[04/05/2022, 12:26:25] [masking_exp-csai_csai_t1_tabsv]
+task end within 10.933777 sec
+[04/05/2022, 12:26:26] [exp-csai_csai_t1_tabsv]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:26:26] [exp-csai_csai_t1_tabsvau]
+============== start ==============
+[04/05/2022, 12:26:27] [masking_exp-csai_csai_t1_tabsvau]
+get scores for 39344 papers
+[04/05/2022, 12:26:32] [masking_exp-csai_csai_t1_tabsvau]
+task end within 5.655892 sec
+[04/05/2022, 12:26:33] [exp-csai_csai_t1_tabsvau]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:26:33] [exp-csai_csai_t1_tabsvauy]
+============== start ==============
+[04/05/2022, 12:26:34] [masking_exp-csai_csai_t1_tabsvauy]
+get scores for 39344 papers
+[04/05/2022, 12:26:39] [masking_exp-csai_csai_t1_tabsvauy]
+task end within 5.566069 sec
+[04/05/2022, 12:26:40] [exp-csai_csai_t1_tabsvauy]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:26:40] [exp-csai_csai_t1_tabsvauyc]
+============== start ==============
+[04/05/2022, 12:26:41] [masking_exp-csai_csai_t1_tabsvauyc]
+get scores for 39344 papers
+[04/05/2022, 12:26:46] [masking_exp-csai_csai_t1_tabsvauyc]
+task end within 5.532858 sec
+[04/05/2022, 12:26:47] [exp-csai_csai_t1_tabsvauyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:26:47] [exp-csai_csai_t1_tabsvauc]
+============== start ==============
+[04/05/2022, 12:26:47] [masking_exp-csai_csai_t1_tabsvauc]
+get scores for 39344 papers
+[04/05/2022, 12:26:53] [masking_exp-csai_csai_t1_tabsvauc]
+task end within 5.670113 sec
+[04/05/2022, 12:26:53] [exp-csai_csai_t1_tabsvauc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:26:54] [exp-csai_csai_t1_tabsvy]
+============== start ==============
+[04/05/2022, 12:26:54] [masking_exp-csai_csai_t1_tabsvy]
+get scores for 39344 papers
+[04/05/2022, 12:27:05] [masking_exp-csai_csai_t1_tabsvy]
+task end within 10.8955 sec
+[04/05/2022, 12:27:06] [exp-csai_csai_t1_tabsvy]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:27:06] [exp-csai_csai_t1_tabsvyc]
+============== start ==============
+[04/05/2022, 12:27:06] [masking_exp-csai_csai_t1_tabsvyc]
+get scores for 39344 papers
+[04/05/2022, 12:27:17] [masking_exp-csai_csai_t1_tabsvyc]
+task end within 10.905165 sec
+[04/05/2022, 12:27:18] [exp-csai_csai_t1_tabsvyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:27:18] [exp-csai_csai_t1_tabsvc]
+============== start ==============
+[04/05/2022, 12:27:19] [masking_exp-csai_csai_t1_tabsvc]
+get scores for 39344 papers
+[04/05/2022, 12:27:30] [masking_exp-csai_csai_t1_tabsvc]
+task end within 10.965803 sec
+[04/05/2022, 12:27:30] [exp-csai_csai_t1_tabsvc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:27:30] [exp-csai_csai_t1_tabsau]
+============== start ==============
+[04/05/2022, 12:27:31] [masking_exp-csai_csai_t1_tabsau]
+get scores for 39344 papers
+[04/05/2022, 12:27:38] [masking_exp-csai_csai_t1_tabsau]
+task end within 6.729885 sec
+[04/05/2022, 12:27:38] [exp-csai_csai_t1_tabsau]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:27:38] [exp-csai_csai_t1_tabsauy]
+============== start ==============
+[04/05/2022, 12:27:39] [masking_exp-csai_csai_t1_tabsauy]
+get scores for 39344 papers
+[04/05/2022, 12:27:45] [masking_exp-csai_csai_t1_tabsauy]
+task end within 6.647369 sec
+[04/05/2022, 12:27:46] [exp-csai_csai_t1_tabsauy]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:27:46] [exp-csai_csai_t1_tabsauyc]
+============== start ==============
+[04/05/2022, 12:27:47] [masking_exp-csai_csai_t1_tabsauyc]
+get scores for 39344 papers
+[04/05/2022, 12:27:53] [masking_exp-csai_csai_t1_tabsauyc]
+task end within 6.540771 sec
+[04/05/2022, 12:27:54] [exp-csai_csai_t1_tabsauyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:27:54] [exp-csai_csai_t1_tabsauc]
+============== start ==============
+[04/05/2022, 12:27:54] [masking_exp-csai_csai_t1_tabsauc]
+get scores for 39344 papers
+[04/05/2022, 12:28:01] [masking_exp-csai_csai_t1_tabsauc]
+task end within 6.703419 sec
+[04/05/2022, 12:28:02] [exp-csai_csai_t1_tabsauc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:28:02] [exp-csai_csai_t1_tabsy]
+============== start ==============
+[04/05/2022, 12:28:02] [masking_exp-csai_csai_t1_tabsy]
+get scores for 39344 papers
+[04/05/2022, 12:28:14] [masking_exp-csai_csai_t1_tabsy]
+task end within 11.701352 sec
+[04/05/2022, 12:28:15] [exp-csai_csai_t1_tabsy]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:28:15] [exp-csai_csai_t1_tabsyc]
+============== start ==============
+[04/05/2022, 12:28:15] [masking_exp-csai_csai_t1_tabsyc]
+get scores for 39344 papers
+[04/05/2022, 12:28:27] [masking_exp-csai_csai_t1_tabsyc]
+task end within 11.704141 sec
+[04/05/2022, 12:28:27] [exp-csai_csai_t1_tabsyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:28:28] [exp-csai_csai_t1_tabsc]
+============== start ==============
+[04/05/2022, 12:28:28] [masking_exp-csai_csai_t1_tabsc]
+get scores for 39344 papers
+[04/05/2022, 12:28:40] [masking_exp-csai_csai_t1_tabsc]
+task end within 11.830915 sec
+[04/05/2022, 12:28:40] [exp-csai_csai_t1_tabsc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:28:41] [exp-csai_csai_t1_tv]
+============== start ==============
+[04/05/2022, 12:28:41] [masking_exp-csai_csai_t1_tv]
+get scores for 39344 papers
+[04/05/2022, 12:29:06] [masking_exp-csai_csai_t1_tv]
+task end within 24.463504 sec
+[04/05/2022, 12:29:06] [exp-csai_csai_t1_tv]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:29:06] [exp-csai_csai_t1_tvau]
+============== start ==============
+[04/05/2022, 12:29:07] [masking_exp-csai_csai_t1_tvau]
+get scores for 39344 papers
+[04/05/2022, 12:29:26] [masking_exp-csai_csai_t1_tvau]
+task end within 19.153868 sec
+[04/05/2022, 12:29:27] [exp-csai_csai_t1_tvau]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:29:27] [exp-csai_csai_t1_tvauy]
+============== start ==============
+[04/05/2022, 12:29:28] [masking_exp-csai_csai_t1_tvauy]
+get scores for 39344 papers
+[04/05/2022, 12:29:47] [masking_exp-csai_csai_t1_tvauy]
+task end within 18.965552 sec
+[04/05/2022, 12:29:47] [exp-csai_csai_t1_tvauy]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:29:47] [exp-csai_csai_t1_tvauyc]
+============== start ==============
+[04/05/2022, 12:29:48] [masking_exp-csai_csai_t1_tvauyc]
+get scores for 39344 papers
+[04/05/2022, 12:30:07] [masking_exp-csai_csai_t1_tvauyc]
+task end within 19.015026 sec
+[04/05/2022, 12:30:07] [exp-csai_csai_t1_tvauyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:30:07] [exp-csai_csai_t1_tvauc]
+============== start ==============
+[04/05/2022, 12:30:08] [masking_exp-csai_csai_t1_tvauc]
+get scores for 39344 papers
+[04/05/2022, 12:30:27] [masking_exp-csai_csai_t1_tvauc]
+task end within 19.18415 sec
+[04/05/2022, 12:30:28] [exp-csai_csai_t1_tvauc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:30:28] [exp-csai_csai_t1_tvy]
+============== start ==============
+[04/05/2022, 12:30:29] [masking_exp-csai_csai_t1_tvy]
+get scores for 39344 papers
+[04/05/2022, 12:30:53] [masking_exp-csai_csai_t1_tvy]
+task end within 24.306519 sec
+[04/05/2022, 12:30:53] [exp-csai_csai_t1_tvy]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:30:53] [exp-csai_csai_t1_tvyc]
+============== start ==============
+[04/05/2022, 12:30:54] [masking_exp-csai_csai_t1_tvyc]
+get scores for 39344 papers
+[04/05/2022, 12:31:19] [masking_exp-csai_csai_t1_tvyc]
+task end within 24.275331 sec
+[04/05/2022, 12:31:19] [exp-csai_csai_t1_tvyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:31:19] [exp-csai_csai_t1_tvc]
+============== start ==============
+[04/05/2022, 12:31:20] [masking_exp-csai_csai_t1_tvc]
+get scores for 39344 papers
+[04/05/2022, 12:31:44] [masking_exp-csai_csai_t1_tvc]
+task end within 24.421637 sec
+[04/05/2022, 12:31:45] [exp-csai_csai_t1_tvc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:31:45] [exp-csai_csai_t1_tau]
+============== start ==============
+[04/05/2022, 12:31:46] [masking_exp-csai_csai_t1_tau]
+get scores for 39344 papers
+[04/05/2022, 12:32:06] [masking_exp-csai_csai_t1_tau]
+task end within 19.966242 sec
+[04/05/2022, 12:32:06] [exp-csai_csai_t1_tau]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:32:06] [exp-csai_csai_t1_tauy]
+============== start ==============
+[04/05/2022, 12:32:07] [masking_exp-csai_csai_t1_tauy]
+get scores for 39344 papers
+[04/05/2022, 12:32:27] [masking_exp-csai_csai_t1_tauy]
+task end within 19.903437 sec
+[04/05/2022, 12:32:27] [exp-csai_csai_t1_tauy]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:32:27] [exp-csai_csai_t1_tauyc]
+============== start ==============
+[04/05/2022, 12:32:28] [masking_exp-csai_csai_t1_tauyc]
+get scores for 39344 papers
+[04/05/2022, 12:32:48] [masking_exp-csai_csai_t1_tauyc]
+task end within 19.907629 sec
+[04/05/2022, 12:32:48] [exp-csai_csai_t1_tauyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:32:48] [exp-csai_csai_t1_tauc]
+============== start ==============
+[04/05/2022, 12:32:49] [masking_exp-csai_csai_t1_tauc]
+get scores for 39344 papers
+[04/05/2022, 12:33:09] [masking_exp-csai_csai_t1_tauc]
+task end within 20.070304 sec
+[04/05/2022, 12:33:10] [exp-csai_csai_t1_tauc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:33:10] [exp-csai_csai_t1_ty]
+============== start ==============
+[04/05/2022, 12:33:11] [masking_exp-csai_csai_t1_ty]
+get scores for 39344 papers
+[04/05/2022, 12:33:36] [masking_exp-csai_csai_t1_ty]
+task end within 25.00023 sec
+[04/05/2022, 12:33:36] [exp-csai_csai_t1_ty]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:33:36] [exp-csai_csai_t1_tyc]
+============== start ==============
+[04/05/2022, 12:33:37] [masking_exp-csai_csai_t1_tyc]
+get scores for 39344 papers
+[04/05/2022, 12:34:02] [masking_exp-csai_csai_t1_tyc]
+task end within 25.012044 sec
+[04/05/2022, 12:34:02] [exp-csai_csai_t1_tyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:34:02] [exp-csai_csai_t1_tc]
+============== start ==============
+[04/05/2022, 12:34:03] [masking_exp-csai_csai_t1_tc]
+get scores for 39344 papers
+[04/05/2022, 12:34:28] [masking_exp-csai_csai_t1_tc]
+task end within 25.162735 sec
+[04/05/2022, 12:34:29] [exp-csai_csai_t1_tc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:34:29] [exp-csai_csai_t1_absv]
+============== start ==============
+[04/05/2022, 12:34:30] [masking_exp-csai_csai_t1_absv]
+get scores for 39344 papers
+[04/05/2022, 12:34:43] [masking_exp-csai_csai_t1_absv]
+task end within 13.033096 sec
+[04/05/2022, 12:34:43] [exp-csai_csai_t1_absv]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:34:43] [exp-csai_csai_t1_absvau]
+============== start ==============
+[04/05/2022, 12:34:44] [masking_exp-csai_csai_t1_absvau]
+get scores for 39344 papers
+[04/05/2022, 12:34:52] [masking_exp-csai_csai_t1_absvau]
+task end within 8.017393 sec
+[04/05/2022, 12:34:52] [exp-csai_csai_t1_absvau]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:34:52] [exp-csai_csai_t1_absvauy]
+============== start ==============
+[04/05/2022, 12:34:53] [masking_exp-csai_csai_t1_absvauy]
+get scores for 39344 papers
+[04/05/2022, 12:35:01] [masking_exp-csai_csai_t1_absvauy]
+task end within 7.846204 sec
+[04/05/2022, 12:35:01] [exp-csai_csai_t1_absvauy]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:35:01] [exp-csai_csai_t1_absvauyc]
+============== start ==============
+[04/05/2022, 12:35:02] [masking_exp-csai_csai_t1_absvauyc]
+get scores for 39344 papers
+[04/05/2022, 12:35:10] [masking_exp-csai_csai_t1_absvauyc]
+task end within 7.860916 sec
+[04/05/2022, 12:35:11] [exp-csai_csai_t1_absvauyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:35:11] [exp-csai_csai_t1_absvauc]
+============== start ==============
+[04/05/2022, 12:35:11] [masking_exp-csai_csai_t1_absvauc]
+get scores for 39344 papers
+[04/05/2022, 12:35:19] [masking_exp-csai_csai_t1_absvauc]
+task end within 8.022389 sec
+[04/05/2022, 12:35:20] [exp-csai_csai_t1_absvauc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:35:20] [exp-csai_csai_t1_absvy]
+============== start ==============
+[04/05/2022, 12:35:21] [masking_exp-csai_csai_t1_absvy]
+get scores for 39344 papers
+[04/05/2022, 12:35:34] [masking_exp-csai_csai_t1_absvy]
+task end within 12.958437 sec
+[04/05/2022, 12:35:34] [exp-csai_csai_t1_absvy]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:35:34] [exp-csai_csai_t1_absvyc]
+============== start ==============
+[04/05/2022, 12:35:35] [masking_exp-csai_csai_t1_absvyc]
+get scores for 39344 papers
+[04/05/2022, 12:35:48] [masking_exp-csai_csai_t1_absvyc]
+task end within 12.866447 sec
+[04/05/2022, 12:35:48] [exp-csai_csai_t1_absvyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:35:48] [exp-csai_csai_t1_absvc]
+============== start ==============
+[04/05/2022, 12:35:49] [masking_exp-csai_csai_t1_absvc]
+get scores for 39344 papers
+[04/05/2022, 12:36:02] [masking_exp-csai_csai_t1_absvc]
+task end within 13.030768 sec
+[04/05/2022, 12:36:03] [exp-csai_csai_t1_absvc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:36:03] [exp-csai_csai_t1_absau]
+============== start ==============
+[04/05/2022, 12:36:04] [masking_exp-csai_csai_t1_absau]
+get scores for 39344 papers
+[04/05/2022, 12:36:12] [masking_exp-csai_csai_t1_absau]
+task end within 8.774018 sec
+[04/05/2022, 12:36:13] [exp-csai_csai_t1_absau]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:36:13] [exp-csai_csai_t1_absauy]
+============== start ==============
+[04/05/2022, 12:36:14] [masking_exp-csai_csai_t1_absauy]
+get scores for 39344 papers
+[04/05/2022, 12:36:22] [masking_exp-csai_csai_t1_absauy]
+task end within 8.728057 sec
+[04/05/2022, 12:36:23] [exp-csai_csai_t1_absauy]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:36:23] [exp-csai_csai_t1_absauyc]
+============== start ==============
+[04/05/2022, 12:36:24] [masking_exp-csai_csai_t1_absauyc]
+get scores for 39344 papers
+[04/05/2022, 12:36:32] [masking_exp-csai_csai_t1_absauyc]
+task end within 8.651642 sec
+[04/05/2022, 12:36:33] [exp-csai_csai_t1_absauyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:36:33] [exp-csai_csai_t1_absauc]
+============== start ==============
+[04/05/2022, 12:36:34] [masking_exp-csai_csai_t1_absauc]
+get scores for 39344 papers
+[04/05/2022, 12:36:42] [masking_exp-csai_csai_t1_absauc]
+task end within 8.801032 sec
+[04/05/2022, 12:36:43] [exp-csai_csai_t1_absauc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:36:43] [exp-csai_csai_t1_absy]
+============== start ==============
+[04/05/2022, 12:36:44] [masking_exp-csai_csai_t1_absy]
+get scores for 39344 papers
+[04/05/2022, 12:36:57] [masking_exp-csai_csai_t1_absy]
+task end within 13.474883 sec
+[04/05/2022, 12:36:58] [exp-csai_csai_t1_absy]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:36:58] [exp-csai_csai_t1_absyc]
+============== start ==============
+[04/05/2022, 12:36:58] [masking_exp-csai_csai_t1_absyc]
+get scores for 39344 papers
+[04/05/2022, 12:37:12] [masking_exp-csai_csai_t1_absyc]
+task end within 13.526209 sec
+[04/05/2022, 12:37:12] [exp-csai_csai_t1_absyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:37:12] [exp-csai_csai_t1_absc]
+============== start ==============
+[04/05/2022, 12:37:13] [masking_exp-csai_csai_t1_absc]
+get scores for 39344 papers
+[04/05/2022, 12:37:27] [masking_exp-csai_csai_t1_absc]
+task end within 13.6176 sec
+[04/05/2022, 12:37:27] [exp-csai_csai_t1_absc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:37:27] [exp-csai_csai_t1_vau]
+============== start ==============
+[04/05/2022, 12:37:28] [masking_exp-csai_csai_t1_vau]
+get scores for 39344 papers
+[04/05/2022, 12:37:49] [masking_exp-csai_csai_t1_vau]
+task end within 21.285851 sec
+[04/05/2022, 12:37:50] [exp-csai_csai_t1_vau]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:37:50] [exp-csai_csai_t1_vauy]
+============== start ==============
+[04/05/2022, 12:37:51] [masking_exp-csai_csai_t1_vauy]
+get scores for 39344 papers
+[04/05/2022, 12:38:12] [masking_exp-csai_csai_t1_vauy]
+task end within 21.130644 sec
+[04/05/2022, 12:38:12] [exp-csai_csai_t1_vauy]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:38:12] [exp-csai_csai_t1_vauyc]
+============== start ==============
+[04/05/2022, 12:38:13] [masking_exp-csai_csai_t1_vauyc]
+get scores for 39344 papers
+[04/05/2022, 12:38:34] [masking_exp-csai_csai_t1_vauyc]
+task end within 21.048993 sec
+[04/05/2022, 12:38:35] [exp-csai_csai_t1_vauyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:38:35] [exp-csai_csai_t1_vauc]
+============== start ==============
+[04/05/2022, 12:38:36] [masking_exp-csai_csai_t1_vauc]
+get scores for 39344 papers
+[04/05/2022, 12:38:57] [masking_exp-csai_csai_t1_vauc]
+task end within 21.263856 sec
+[04/05/2022, 12:38:57] [exp-csai_csai_t1_vauc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:38:57] [exp-csai_csai_t1_vy]
+============== start ==============
+[04/05/2022, 12:38:58] [masking_exp-csai_csai_t1_vy]
+get scores for 39344 papers
+[04/05/2022, 12:39:24] [masking_exp-csai_csai_t1_vy]
+task end within 26.265101 sec
+[04/05/2022, 12:39:25] [exp-csai_csai_t1_vy]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:39:25] [exp-csai_csai_t1_vyc]
+============== start ==============
+[04/05/2022, 12:39:26] [masking_exp-csai_csai_t1_vyc]
+get scores for 39344 papers
+[04/05/2022, 12:39:52] [masking_exp-csai_csai_t1_vyc]
+task end within 26.235134 sec
+[04/05/2022, 12:39:52] [exp-csai_csai_t1_vyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:39:52] [exp-csai_csai_t1_vc]
+============== start ==============
+[04/05/2022, 12:39:53] [masking_exp-csai_csai_t1_vc]
+get scores for 39344 papers
+[04/05/2022, 12:40:20] [masking_exp-csai_csai_t1_vc]
+task end within 26.409819 sec
+[04/05/2022, 12:40:20] [exp-csai_csai_t1_vc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:40:20] [exp-csai_csai_t1_auy]
+============== start ==============
+[04/05/2022, 12:40:21] [masking_exp-csai_csai_t1_auy]
+get scores for 39344 papers
+[04/05/2022, 12:40:43] [masking_exp-csai_csai_t1_auy]
+task end within 21.802753 sec
+[04/05/2022, 12:40:43] [exp-csai_csai_t1_auy]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:40:43] [exp-csai_csai_t1_auyc]
+============== start ==============
+[04/05/2022, 12:40:44] [masking_exp-csai_csai_t1_auyc]
+get scores for 39344 papers
+[04/05/2022, 12:41:06] [masking_exp-csai_csai_t1_auyc]
+task end within 21.802627 sec
+[04/05/2022, 12:41:06] [exp-csai_csai_t1_auyc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:41:06] [exp-csai_csai_t1_auc]
+============== start ==============
+[04/05/2022, 12:41:07] [masking_exp-csai_csai_t1_auc]
+get scores for 39344 papers
+[04/05/2022, 12:41:29] [masking_exp-csai_csai_t1_auc]
+task end within 21.990615 sec
+[04/05/2022, 12:41:29] [exp-csai_csai_t1_auc]
+============== end 39344 ==============
+
+
+[04/05/2022, 12:41:30] [exp-csai_csai_t1_yc]
+============== start ==============
+[04/05/2022, 12:41:30] [masking_exp-csai_csai_t1_yc]
+get scores for 39344 papers
+[04/05/2022, 12:41:57] [masking_exp-csai_csai_t1_yc]
+task end within 26.808817 sec
+[04/05/2022, 12:41:58] [exp-csai_csai_t1_yc]
+============== end 39344 ==============

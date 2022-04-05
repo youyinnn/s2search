@@ -1,0 +1,76 @@
+
+
+[03/29/2022, 22:22:10] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_title]
+============== start ==============
+[03/29/2022, 22:22:10] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_title_sorting]
+get scores for 8030 papers
+[03/29/2022, 22:22:21] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_title_sorting]
+task end within 11.429662 sec
+[03/29/2022, 22:22:22] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_title]
+get scores for 16060 papers
+[03/29/2022, 22:22:33] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_title]
+task end within 10.749997 sec
+[03/29/2022, 22:22:33] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_title]
+============== end 24090 ==============
+
+
+[03/29/2022, 22:22:33] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_abstract]
+============== start ==============
+[03/29/2022, 22:22:33] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_abstract_sorting]
+get scores for 8030 papers
+[03/29/2022, 22:22:37] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_abstract_sorting]
+task end within 4.09734 sec
+[03/29/2022, 22:22:38] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_abstract]
+get scores for 16060 papers
+[03/29/2022, 22:22:50] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_abstract]
+task end within 12.510039 sec
+[03/29/2022, 22:22:50] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_abstract]
+============== end 24090 ==============
+
+
+[03/29/2022, 22:22:50] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_venue]
+============== start ==============
+[03/29/2022, 22:22:50] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_venue_sorting]
+get scores for 8030 papers
+[03/29/2022, 22:22:52] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_venue_sorting]
+task end within 1.351635 sec
+[03/29/2022, 22:22:52] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_venue]
+get scores for 16060 papers
+[03/29/2022, 22:23:03] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_venue]
+task end within 10.945055 sec
+[03/29/2022, 22:23:03] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_venue]
+============== end 24090 ==============
+
+
+[03/29/2022, 22:23:03] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_authors]
+============== start ==============
+[03/29/2022, 22:23:04] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_authors_sorting]
+get scores for 8030 papers
+[03/29/2022, 22:23:06] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_authors_sorting]
+task end within 1.967736 sec
+[03/29/2022, 22:23:06] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_authors]
+get scores for 16060 papers
+[03/29/2022, 22:23:17] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_authors]
+task end within 11.022573 sec
+[03/29/2022, 22:23:17] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_authors]
+============== end 24090 ==============
+
+
+[03/29/2022, 22:23:17] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_year]
+============== start ==============
+[03/29/2022, 22:23:18] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_year]
+get scores for 16060 papers
+[03/29/2022, 22:23:29] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_year]
+task end within 10.836839 sec
+[03/29/2022, 22:23:29] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_year]
+============== end 16060 ==============
+
+
+[03/29/2022, 22:23:29] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_n_citations]
+============== start ==============
+[03/29/2022, 22:23:30] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_n_citations]
+get scores for 16060 papers
+[03/29/2022, 22:23:40] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_n_citations]
+task end within 10.891199 sec
+[03/29/2022, 22:23:41] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csgt_csgt_n_citations]
+============== end 16060 ==============

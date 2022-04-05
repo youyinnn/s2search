@@ -1,0 +1,640 @@
+
+
+[03/27/2022, 22:09:12] [exp-csgt_csgt_t1_origin]
+============== start ==============
+[03/27/2022, 22:09:12] [masking_exp-csgt_csgt_t1_origin]
+get scores for 8030 papers
+[03/27/2022, 22:09:17] [masking_exp-csgt_csgt_t1_origin]
+task end within 4.278928 sec
+[03/27/2022, 22:09:17] [exp-csgt_csgt_t1_origin]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:17] [exp-csgt_csgt_t1_t]
+============== start ==============
+[03/27/2022, 22:09:17] [masking_exp-csgt_csgt_t1_t]
+get scores for 8030 papers
+[03/27/2022, 22:09:21] [masking_exp-csgt_csgt_t1_t]
+task end within 3.948497 sec
+[03/27/2022, 22:09:21] [exp-csgt_csgt_t1_t]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:21] [exp-csgt_csgt_t1_abs]
+============== start ==============
+[03/27/2022, 22:09:21] [masking_exp-csgt_csgt_t1_abs]
+get scores for 8030 papers
+[03/27/2022, 22:09:24] [masking_exp-csgt_csgt_t1_abs]
+task end within 2.725207 sec
+[03/27/2022, 22:09:24] [exp-csgt_csgt_t1_abs]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:24] [exp-csgt_csgt_t1_v]
+============== start ==============
+[03/27/2022, 22:09:24] [masking_exp-csgt_csgt_t1_v]
+get scores for 8030 papers
+[03/27/2022, 22:09:28] [masking_exp-csgt_csgt_t1_v]
+task end within 4.075649 sec
+[03/27/2022, 22:09:28] [exp-csgt_csgt_t1_v]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:28] [exp-csgt_csgt_t1_au]
+============== start ==============
+[03/27/2022, 22:09:28] [masking_exp-csgt_csgt_t1_au]
+get scores for 8030 papers
+[03/27/2022, 22:09:32] [masking_exp-csgt_csgt_t1_au]
+task end within 3.611736 sec
+[03/27/2022, 22:09:32] [exp-csgt_csgt_t1_au]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:32] [exp-csgt_csgt_t1_y]
+============== start ==============
+[03/27/2022, 22:09:32] [masking_exp-csgt_csgt_t1_y]
+get scores for 8030 papers
+[03/27/2022, 22:09:36] [masking_exp-csgt_csgt_t1_y]
+task end within 4.375523 sec
+[03/27/2022, 22:09:36] [exp-csgt_csgt_t1_y]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:36] [exp-csgt_csgt_t1_c]
+============== start ==============
+[03/27/2022, 22:09:36] [masking_exp-csgt_csgt_t1_c]
+get scores for 8030 papers
+[03/27/2022, 22:09:41] [masking_exp-csgt_csgt_t1_c]
+task end within 4.245851 sec
+[03/27/2022, 22:09:41] [exp-csgt_csgt_t1_c]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:41] [exp-csgt_csgt_t1_tabs]
+============== start ==============
+[03/27/2022, 22:09:41] [masking_exp-csgt_csgt_t1_tabs]
+get scores for 8030 papers
+[03/27/2022, 22:09:43] [masking_exp-csgt_csgt_t1_tabs]
+task end within 2.383846 sec
+[03/27/2022, 22:09:43] [exp-csgt_csgt_t1_tabs]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:43] [exp-csgt_csgt_t1_tabsv]
+============== start ==============
+[03/27/2022, 22:09:43] [masking_exp-csgt_csgt_t1_tabsv]
+get scores for 8030 papers
+[03/27/2022, 22:09:46] [masking_exp-csgt_csgt_t1_tabsv]
+task end within 2.339975 sec
+[03/27/2022, 22:09:46] [exp-csgt_csgt_t1_tabsv]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:46] [exp-csgt_csgt_t1_tabsvau]
+============== start ==============
+[03/27/2022, 22:09:46] [masking_exp-csgt_csgt_t1_tabsvau]
+get scores for 8030 papers
+[03/27/2022, 22:09:48] [masking_exp-csgt_csgt_t1_tabsvau]
+task end within 1.577953 sec
+[03/27/2022, 22:09:48] [exp-csgt_csgt_t1_tabsvau]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:48] [exp-csgt_csgt_t1_tabsvauy]
+============== start ==============
+[03/27/2022, 22:09:48] [masking_exp-csgt_csgt_t1_tabsvauy]
+get scores for 8030 papers
+[03/27/2022, 22:09:49] [masking_exp-csgt_csgt_t1_tabsvauy]
+task end within 1.62216 sec
+[03/27/2022, 22:09:49] [exp-csgt_csgt_t1_tabsvauy]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:49] [exp-csgt_csgt_t1_tabsvauyc]
+============== start ==============
+[03/27/2022, 22:09:50] [masking_exp-csgt_csgt_t1_tabsvauyc]
+get scores for 8030 papers
+[03/27/2022, 22:09:51] [masking_exp-csgt_csgt_t1_tabsvauyc]
+task end within 1.686436 sec
+[03/27/2022, 22:09:51] [exp-csgt_csgt_t1_tabsvauyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:51] [exp-csgt_csgt_t1_tabsvauc]
+============== start ==============
+[03/27/2022, 22:09:51] [masking_exp-csgt_csgt_t1_tabsvauc]
+get scores for 8030 papers
+[03/27/2022, 22:09:53] [masking_exp-csgt_csgt_t1_tabsvauc]
+task end within 1.649875 sec
+[03/27/2022, 22:09:53] [exp-csgt_csgt_t1_tabsvauc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:53] [exp-csgt_csgt_t1_tabsvy]
+============== start ==============
+[03/27/2022, 22:09:53] [masking_exp-csgt_csgt_t1_tabsvy]
+get scores for 8030 papers
+[03/27/2022, 22:09:56] [masking_exp-csgt_csgt_t1_tabsvy]
+task end within 2.365696 sec
+[03/27/2022, 22:09:56] [exp-csgt_csgt_t1_tabsvy]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:56] [exp-csgt_csgt_t1_tabsvyc]
+============== start ==============
+[03/27/2022, 22:09:56] [masking_exp-csgt_csgt_t1_tabsvyc]
+get scores for 8030 papers
+[03/27/2022, 22:09:58] [masking_exp-csgt_csgt_t1_tabsvyc]
+task end within 2.296889 sec
+[03/27/2022, 22:09:58] [exp-csgt_csgt_t1_tabsvyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:09:58] [exp-csgt_csgt_t1_tabsvc]
+============== start ==============
+[03/27/2022, 22:09:58] [masking_exp-csgt_csgt_t1_tabsvc]
+get scores for 8030 papers
+[03/27/2022, 22:10:00] [masking_exp-csgt_csgt_t1_tabsvc]
+task end within 2.238247 sec
+[03/27/2022, 22:10:00] [exp-csgt_csgt_t1_tabsvc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:00] [exp-csgt_csgt_t1_tabsau]
+============== start ==============
+[03/27/2022, 22:10:01] [masking_exp-csgt_csgt_t1_tabsau]
+get scores for 8030 papers
+[03/27/2022, 22:10:02] [masking_exp-csgt_csgt_t1_tabsau]
+task end within 1.808843 sec
+[03/27/2022, 22:10:02] [exp-csgt_csgt_t1_tabsau]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:03] [exp-csgt_csgt_t1_tabsauy]
+============== start ==============
+[03/27/2022, 22:10:03] [masking_exp-csgt_csgt_t1_tabsauy]
+get scores for 8030 papers
+[03/27/2022, 22:10:05] [masking_exp-csgt_csgt_t1_tabsauy]
+task end within 2.009411 sec
+[03/27/2022, 22:10:05] [exp-csgt_csgt_t1_tabsauy]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:05] [exp-csgt_csgt_t1_tabsauyc]
+============== start ==============
+[03/27/2022, 22:10:05] [masking_exp-csgt_csgt_t1_tabsauyc]
+get scores for 8030 papers
+[03/27/2022, 22:10:07] [masking_exp-csgt_csgt_t1_tabsauyc]
+task end within 1.939801 sec
+[03/27/2022, 22:10:07] [exp-csgt_csgt_t1_tabsauyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:07] [exp-csgt_csgt_t1_tabsauc]
+============== start ==============
+[03/27/2022, 22:10:07] [masking_exp-csgt_csgt_t1_tabsauc]
+get scores for 8030 papers
+[03/27/2022, 22:10:09] [masking_exp-csgt_csgt_t1_tabsauc]
+task end within 1.924096 sec
+[03/27/2022, 22:10:09] [exp-csgt_csgt_t1_tabsauc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:09] [exp-csgt_csgt_t1_tabsy]
+============== start ==============
+[03/27/2022, 22:10:09] [masking_exp-csgt_csgt_t1_tabsy]
+get scores for 8030 papers
+[03/27/2022, 22:10:12] [masking_exp-csgt_csgt_t1_tabsy]
+task end within 2.422789 sec
+[03/27/2022, 22:10:12] [exp-csgt_csgt_t1_tabsy]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:12] [exp-csgt_csgt_t1_tabsyc]
+============== start ==============
+[03/27/2022, 22:10:12] [masking_exp-csgt_csgt_t1_tabsyc]
+get scores for 8030 papers
+[03/27/2022, 22:10:14] [masking_exp-csgt_csgt_t1_tabsyc]
+task end within 2.530353 sec
+[03/27/2022, 22:10:14] [exp-csgt_csgt_t1_tabsyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:14] [exp-csgt_csgt_t1_tabsc]
+============== start ==============
+[03/27/2022, 22:10:15] [masking_exp-csgt_csgt_t1_tabsc]
+get scores for 8030 papers
+[03/27/2022, 22:10:17] [masking_exp-csgt_csgt_t1_tabsc]
+task end within 2.451611 sec
+[03/27/2022, 22:10:17] [exp-csgt_csgt_t1_tabsc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:17] [exp-csgt_csgt_t1_tv]
+============== start ==============
+[03/27/2022, 22:10:17] [masking_exp-csgt_csgt_t1_tv]
+get scores for 8030 papers
+[03/27/2022, 22:10:21] [masking_exp-csgt_csgt_t1_tv]
+task end within 3.960267 sec
+[03/27/2022, 22:10:21] [exp-csgt_csgt_t1_tv]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:21] [exp-csgt_csgt_t1_tvau]
+============== start ==============
+[03/27/2022, 22:10:21] [masking_exp-csgt_csgt_t1_tvau]
+get scores for 8030 papers
+[03/27/2022, 22:10:25] [masking_exp-csgt_csgt_t1_tvau]
+task end within 3.261053 sec
+[03/27/2022, 22:10:25] [exp-csgt_csgt_t1_tvau]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:25] [exp-csgt_csgt_t1_tvauy]
+============== start ==============
+[03/27/2022, 22:10:25] [masking_exp-csgt_csgt_t1_tvauy]
+get scores for 8030 papers
+[03/27/2022, 22:10:28] [masking_exp-csgt_csgt_t1_tvauy]
+task end within 3.330675 sec
+[03/27/2022, 22:10:28] [exp-csgt_csgt_t1_tvauy]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:28] [exp-csgt_csgt_t1_tvauyc]
+============== start ==============
+[03/27/2022, 22:10:28] [masking_exp-csgt_csgt_t1_tvauyc]
+get scores for 8030 papers
+[03/27/2022, 22:10:32] [masking_exp-csgt_csgt_t1_tvauyc]
+task end within 3.347161 sec
+[03/27/2022, 22:10:32] [exp-csgt_csgt_t1_tvauyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:32] [exp-csgt_csgt_t1_tvauc]
+============== start ==============
+[03/27/2022, 22:10:32] [masking_exp-csgt_csgt_t1_tvauc]
+get scores for 8030 papers
+[03/27/2022, 22:10:35] [masking_exp-csgt_csgt_t1_tvauc]
+task end within 3.324954 sec
+[03/27/2022, 22:10:35] [exp-csgt_csgt_t1_tvauc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:35] [exp-csgt_csgt_t1_tvy]
+============== start ==============
+[03/27/2022, 22:10:35] [masking_exp-csgt_csgt_t1_tvy]
+get scores for 8030 papers
+[03/27/2022, 22:10:40] [masking_exp-csgt_csgt_t1_tvy]
+task end within 4.761847 sec
+[03/27/2022, 22:10:40] [exp-csgt_csgt_t1_tvy]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:40] [exp-csgt_csgt_t1_tvyc]
+============== start ==============
+[03/27/2022, 22:10:41] [masking_exp-csgt_csgt_t1_tvyc]
+get scores for 8030 papers
+[03/27/2022, 22:10:46] [masking_exp-csgt_csgt_t1_tvyc]
+task end within 5.263341 sec
+[03/27/2022, 22:10:46] [exp-csgt_csgt_t1_tvyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:46] [exp-csgt_csgt_t1_tvc]
+============== start ==============
+[03/27/2022, 22:10:46] [masking_exp-csgt_csgt_t1_tvc]
+get scores for 8030 papers
+[03/27/2022, 22:10:50] [masking_exp-csgt_csgt_t1_tvc]
+task end within 3.991154 sec
+[03/27/2022, 22:10:50] [exp-csgt_csgt_t1_tvc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:50] [exp-csgt_csgt_t1_tau]
+============== start ==============
+[03/27/2022, 22:10:50] [masking_exp-csgt_csgt_t1_tau]
+get scores for 8030 papers
+[03/27/2022, 22:10:54] [masking_exp-csgt_csgt_t1_tau]
+task end within 3.53362 sec
+[03/27/2022, 22:10:54] [exp-csgt_csgt_t1_tau]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:54] [exp-csgt_csgt_t1_tauy]
+============== start ==============
+[03/27/2022, 22:10:54] [masking_exp-csgt_csgt_t1_tauy]
+get scores for 8030 papers
+[03/27/2022, 22:10:58] [masking_exp-csgt_csgt_t1_tauy]
+task end within 3.385542 sec
+[03/27/2022, 22:10:58] [exp-csgt_csgt_t1_tauy]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:10:58] [exp-csgt_csgt_t1_tauyc]
+============== start ==============
+[03/27/2022, 22:10:58] [masking_exp-csgt_csgt_t1_tauyc]
+get scores for 8030 papers
+[03/27/2022, 22:11:01] [masking_exp-csgt_csgt_t1_tauyc]
+task end within 3.377248 sec
+[03/27/2022, 22:11:01] [exp-csgt_csgt_t1_tauyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:01] [exp-csgt_csgt_t1_tauc]
+============== start ==============
+[03/27/2022, 22:11:01] [masking_exp-csgt_csgt_t1_tauc]
+get scores for 8030 papers
+[03/27/2022, 22:11:05] [masking_exp-csgt_csgt_t1_tauc]
+task end within 3.459358 sec
+[03/27/2022, 22:11:05] [exp-csgt_csgt_t1_tauc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:05] [exp-csgt_csgt_t1_ty]
+============== start ==============
+[03/27/2022, 22:11:05] [masking_exp-csgt_csgt_t1_ty]
+get scores for 8030 papers
+[03/27/2022, 22:11:09] [masking_exp-csgt_csgt_t1_ty]
+task end within 4.056083 sec
+[03/27/2022, 22:11:09] [exp-csgt_csgt_t1_ty]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:09] [exp-csgt_csgt_t1_tyc]
+============== start ==============
+[03/27/2022, 22:11:09] [masking_exp-csgt_csgt_t1_tyc]
+get scores for 8030 papers
+[03/27/2022, 22:11:13] [masking_exp-csgt_csgt_t1_tyc]
+task end within 4.041602 sec
+[03/27/2022, 22:11:13] [exp-csgt_csgt_t1_tyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:13] [exp-csgt_csgt_t1_tc]
+============== start ==============
+[03/27/2022, 22:11:13] [masking_exp-csgt_csgt_t1_tc]
+get scores for 8030 papers
+[03/27/2022, 22:11:17] [masking_exp-csgt_csgt_t1_tc]
+task end within 3.937055 sec
+[03/27/2022, 22:11:17] [exp-csgt_csgt_t1_tc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:17] [exp-csgt_csgt_t1_absv]
+============== start ==============
+[03/27/2022, 22:11:17] [masking_exp-csgt_csgt_t1_absv]
+get scores for 8030 papers
+[03/27/2022, 22:11:20] [masking_exp-csgt_csgt_t1_absv]
+task end within 2.561867 sec
+[03/27/2022, 22:11:20] [exp-csgt_csgt_t1_absv]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:20] [exp-csgt_csgt_t1_absvau]
+============== start ==============
+[03/27/2022, 22:11:20] [masking_exp-csgt_csgt_t1_absvau]
+get scores for 8030 papers
+[03/27/2022, 22:11:22] [masking_exp-csgt_csgt_t1_absvau]
+task end within 1.965851 sec
+[03/27/2022, 22:11:22] [exp-csgt_csgt_t1_absvau]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:22] [exp-csgt_csgt_t1_absvauy]
+============== start ==============
+[03/27/2022, 22:11:22] [masking_exp-csgt_csgt_t1_absvauy]
+get scores for 8030 papers
+[03/27/2022, 22:11:24] [masking_exp-csgt_csgt_t1_absvauy]
+task end within 1.882089 sec
+[03/27/2022, 22:11:24] [exp-csgt_csgt_t1_absvauy]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:24] [exp-csgt_csgt_t1_absvauyc]
+============== start ==============
+[03/27/2022, 22:11:24] [masking_exp-csgt_csgt_t1_absvauyc]
+get scores for 8030 papers
+[03/27/2022, 22:11:26] [masking_exp-csgt_csgt_t1_absvauyc]
+task end within 1.924315 sec
+[03/27/2022, 22:11:26] [exp-csgt_csgt_t1_absvauyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:26] [exp-csgt_csgt_t1_absvauc]
+============== start ==============
+[03/27/2022, 22:11:27] [masking_exp-csgt_csgt_t1_absvauc]
+get scores for 8030 papers
+[03/27/2022, 22:11:28] [masking_exp-csgt_csgt_t1_absvauc]
+task end within 1.9715 sec
+[03/27/2022, 22:11:28] [exp-csgt_csgt_t1_absvauc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:28] [exp-csgt_csgt_t1_absvy]
+============== start ==============
+[03/27/2022, 22:11:29] [masking_exp-csgt_csgt_t1_absvy]
+get scores for 8030 papers
+[03/27/2022, 22:11:31] [masking_exp-csgt_csgt_t1_absvy]
+task end within 2.575488 sec
+[03/27/2022, 22:11:31] [exp-csgt_csgt_t1_absvy]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:31] [exp-csgt_csgt_t1_absvyc]
+============== start ==============
+[03/27/2022, 22:11:31] [masking_exp-csgt_csgt_t1_absvyc]
+get scores for 8030 papers
+[03/27/2022, 22:11:34] [masking_exp-csgt_csgt_t1_absvyc]
+task end within 2.757946 sec
+[03/27/2022, 22:11:34] [exp-csgt_csgt_t1_absvyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:34] [exp-csgt_csgt_t1_absvc]
+============== start ==============
+[03/27/2022, 22:11:34] [masking_exp-csgt_csgt_t1_absvc]
+get scores for 8030 papers
+[03/27/2022, 22:11:37] [masking_exp-csgt_csgt_t1_absvc]
+task end within 2.641424 sec
+[03/27/2022, 22:11:37] [exp-csgt_csgt_t1_absvc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:37] [exp-csgt_csgt_t1_absau]
+============== start ==============
+[03/27/2022, 22:11:37] [masking_exp-csgt_csgt_t1_absau]
+get scores for 8030 papers
+[03/27/2022, 22:11:39] [masking_exp-csgt_csgt_t1_absau]
+task end within 2.01462 sec
+[03/27/2022, 22:11:39] [exp-csgt_csgt_t1_absau]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:39] [exp-csgt_csgt_t1_absauy]
+============== start ==============
+[03/27/2022, 22:11:39] [masking_exp-csgt_csgt_t1_absauy]
+get scores for 8030 papers
+[03/27/2022, 22:11:41] [masking_exp-csgt_csgt_t1_absauy]
+task end within 2.108402 sec
+[03/27/2022, 22:11:41] [exp-csgt_csgt_t1_absauy]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:42] [exp-csgt_csgt_t1_absauyc]
+============== start ==============
+[03/27/2022, 22:11:42] [masking_exp-csgt_csgt_t1_absauyc]
+get scores for 8030 papers
+[03/27/2022, 22:11:44] [masking_exp-csgt_csgt_t1_absauyc]
+task end within 2.076048 sec
+[03/27/2022, 22:11:44] [exp-csgt_csgt_t1_absauyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:44] [exp-csgt_csgt_t1_absauc]
+============== start ==============
+[03/27/2022, 22:11:44] [masking_exp-csgt_csgt_t1_absauc]
+get scores for 8030 papers
+[03/27/2022, 22:11:46] [masking_exp-csgt_csgt_t1_absauc]
+task end within 2.111304 sec
+[03/27/2022, 22:11:46] [exp-csgt_csgt_t1_absauc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:46] [exp-csgt_csgt_t1_absy]
+============== start ==============
+[03/27/2022, 22:11:46] [masking_exp-csgt_csgt_t1_absy]
+get scores for 8030 papers
+[03/27/2022, 22:11:49] [masking_exp-csgt_csgt_t1_absy]
+task end within 2.792707 sec
+[03/27/2022, 22:11:49] [exp-csgt_csgt_t1_absy]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:49] [exp-csgt_csgt_t1_absyc]
+============== start ==============
+[03/27/2022, 22:11:49] [masking_exp-csgt_csgt_t1_absyc]
+get scores for 8030 papers
+[03/27/2022, 22:11:52] [masking_exp-csgt_csgt_t1_absyc]
+task end within 2.743882 sec
+[03/27/2022, 22:11:52] [exp-csgt_csgt_t1_absyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:52] [exp-csgt_csgt_t1_absc]
+============== start ==============
+[03/27/2022, 22:11:52] [masking_exp-csgt_csgt_t1_absc]
+get scores for 8030 papers
+[03/27/2022, 22:11:55] [masking_exp-csgt_csgt_t1_absc]
+task end within 2.763664 sec
+[03/27/2022, 22:11:55] [exp-csgt_csgt_t1_absc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:55] [exp-csgt_csgt_t1_vau]
+============== start ==============
+[03/27/2022, 22:11:55] [masking_exp-csgt_csgt_t1_vau]
+get scores for 8030 papers
+[03/27/2022, 22:11:58] [masking_exp-csgt_csgt_t1_vau]
+task end within 3.450898 sec
+[03/27/2022, 22:11:59] [exp-csgt_csgt_t1_vau]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:11:59] [exp-csgt_csgt_t1_vauy]
+============== start ==============
+[03/27/2022, 22:11:59] [masking_exp-csgt_csgt_t1_vauy]
+get scores for 8030 papers
+[03/27/2022, 22:12:02] [masking_exp-csgt_csgt_t1_vauy]
+task end within 3.544357 sec
+[03/27/2022, 22:12:02] [exp-csgt_csgt_t1_vauy]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:12:02] [exp-csgt_csgt_t1_vauyc]
+============== start ==============
+[03/27/2022, 22:12:02] [masking_exp-csgt_csgt_t1_vauyc]
+get scores for 8030 papers
+[03/27/2022, 22:12:06] [masking_exp-csgt_csgt_t1_vauyc]
+task end within 3.701627 sec
+[03/27/2022, 22:12:06] [exp-csgt_csgt_t1_vauyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:12:06] [exp-csgt_csgt_t1_vauc]
+============== start ==============
+[03/27/2022, 22:12:06] [masking_exp-csgt_csgt_t1_vauc]
+get scores for 8030 papers
+[03/27/2022, 22:12:10] [masking_exp-csgt_csgt_t1_vauc]
+task end within 3.449937 sec
+[03/27/2022, 22:12:10] [exp-csgt_csgt_t1_vauc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:12:10] [exp-csgt_csgt_t1_vy]
+============== start ==============
+[03/27/2022, 22:12:10] [masking_exp-csgt_csgt_t1_vy]
+get scores for 8030 papers
+[03/27/2022, 22:12:14] [masking_exp-csgt_csgt_t1_vy]
+task end within 4.178863 sec
+[03/27/2022, 22:12:14] [exp-csgt_csgt_t1_vy]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:12:14] [exp-csgt_csgt_t1_vyc]
+============== start ==============
+[03/27/2022, 22:12:14] [masking_exp-csgt_csgt_t1_vyc]
+get scores for 8030 papers
+[03/27/2022, 22:12:18] [masking_exp-csgt_csgt_t1_vyc]
+task end within 4.110979 sec
+[03/27/2022, 22:12:18] [exp-csgt_csgt_t1_vyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:12:18] [exp-csgt_csgt_t1_vc]
+============== start ==============
+[03/27/2022, 22:12:19] [masking_exp-csgt_csgt_t1_vc]
+get scores for 8030 papers
+[03/27/2022, 22:12:23] [masking_exp-csgt_csgt_t1_vc]
+task end within 4.058094 sec
+[03/27/2022, 22:12:23] [exp-csgt_csgt_t1_vc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:12:23] [exp-csgt_csgt_t1_auy]
+============== start ==============
+[03/27/2022, 22:12:23] [masking_exp-csgt_csgt_t1_auy]
+get scores for 8030 papers
+[03/27/2022, 22:12:27] [masking_exp-csgt_csgt_t1_auy]
+task end within 3.737142 sec
+[03/27/2022, 22:12:27] [exp-csgt_csgt_t1_auy]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:12:27] [exp-csgt_csgt_t1_auyc]
+============== start ==============
+[03/27/2022, 22:12:27] [masking_exp-csgt_csgt_t1_auyc]
+get scores for 8030 papers
+[03/27/2022, 22:12:30] [masking_exp-csgt_csgt_t1_auyc]
+task end within 3.537442 sec
+[03/27/2022, 22:12:30] [exp-csgt_csgt_t1_auyc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:12:30] [exp-csgt_csgt_t1_auc]
+============== start ==============
+[03/27/2022, 22:12:30] [masking_exp-csgt_csgt_t1_auc]
+get scores for 8030 papers
+[03/27/2022, 22:12:34] [masking_exp-csgt_csgt_t1_auc]
+task end within 3.667022 sec
+[03/27/2022, 22:12:34] [exp-csgt_csgt_t1_auc]
+============== end 8030 ==============
+
+
+[03/27/2022, 22:12:34] [exp-csgt_csgt_t1_yc]
+============== start ==============
+[03/27/2022, 22:12:34] [masking_exp-csgt_csgt_t1_yc]
+get scores for 8030 papers
+[03/27/2022, 22:12:39] [masking_exp-csgt_csgt_t1_yc]
+task end within 4.271344 sec
+[03/27/2022, 22:12:39] [exp-csgt_csgt_t1_yc]
+============== end 8030 ==============
