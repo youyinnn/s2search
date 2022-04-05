@@ -165,6 +165,7 @@ def get_smp_shap_data(exp_name, sample_name_list=None):
     check_list = sample_configs.keys() if sample_name_list == None else sample_name_list
     for sample_name in check_list:
         sample_smshap_config = sample_configs[sample_name]['smpshap']
+        # data from this exp dir
         if sample_smshap_config.get('task') != None:
             shap_sv = []
             shap_bv = []
@@ -186,12 +187,93 @@ def get_smp_shap_data(exp_name, sample_name_list=None):
                 shap_bv=shap_bv,
             )
         else:
+            # data from other exp dir
             src_exp_name, src_sample_name = sample_smshap_config = sample_configs[
                 sample_name]['smpshap']['data_from']
             src_shap_data = get_smp_shap_data(src_exp_name, [src_sample_name])
             shap_data[sample_name] = src_shap_data[src_sample_name]
 
     return shap_data
+
+
+def get_smp_shap_paper_count_from_log(exp_name, sample_name_list=None):
+    work_dir = os.path.dirname(os.path.abspath(__file__))
+    exp_dir_path = os.path.join(work_dir, 'pipelining', exp_name)
+    log_dir_path = os.path.join(exp_dir_path, 'log')
+
+    log_files_name = os.listdir(log_dir_path)
+
+    description, sample_configs, samples_from_other_exp_configs = getting_data.read_conf(
+        exp_dir_path)
+
+    check_list = sample_configs.keys() if sample_name_list == None else sample_name_list
+    data = {}
+    for sample_name in check_list:
+        sample_smshap_config = sample_configs[sample_name]['smpshap']
+        # data from this exp dir
+        if data.get(sample_name) == None:
+            data[sample_name] = 0
+        if sample_smshap_config.get('task') != None:
+            shap_calls_log_files = [
+                lf for lf in log_files_name if 'ranker_calls_smpshap' in lf]
+            for shap_calls_file in shap_calls_log_files:
+                with open(os.path.join(log_dir_path, shap_calls_file))as f:
+                    lines = [l.strip()
+                             for l in f.readlines() if l.strip() != '']
+                    for i in range(len(lines)):
+                        if i > 0:
+                            pre_line = lines[i - 1].strip()
+                            curr_line = lines[i].strip()
+                            if f'{exp_name} {sample_name}' in pre_line and '=== end' in curr_line:
+                                data[sample_name] += int(curr_line.replace(
+                                    '=', '').replace('end', '').replace(' ', ''))
+        else:
+            # data from other exp dir
+            src_exp_name, src_sample_name = sample_smshap_config = sample_configs[
+                sample_name]['smpshap']['data_from']
+            src_shap_data = get_smp_shap_paper_count_from_log(
+                src_exp_name, [src_sample_name])
+            data[sample_name] = src_shap_data[src_sample_name]
+
+    return data
+
+
+def get_smp_shap_time_from_log(exp_name, sample_name_list=None):
+    work_dir = os.path.dirname(os.path.abspath(__file__))
+    exp_dir_path = os.path.join(work_dir, 'pipelining', exp_name)
+    log_dir_path = os.path.join(exp_dir_path, 'log')
+
+    log_files_name = os.listdir(log_dir_path)
+
+    description, sample_configs, samples_from_other_exp_configs = getting_data.read_conf(
+        exp_dir_path)
+
+    check_list = sample_configs.keys() if sample_name_list == None else sample_name_list
+    data = {}
+    for sample_name in check_list:
+        sample_smshap_config = sample_configs[sample_name]['smpshap']
+        # data from this exp dir
+        if data.get(sample_name) == None:
+            data[sample_name] = 0
+        if sample_smshap_config.get('task') != None:
+            shap_log_files = [
+                lf for lf in log_files_name if f'{sample_name}_shap' in lf]
+
+            for shap_log_file in shap_log_files:
+                with open(os.path.join(log_dir_path, shap_log_file))as f:
+                    lines = [l.strip()
+                             for l in f.readlines() if l.strip() != '']
+                    data[sample_name] += float(lines[-1].strip().split(
+                        'within')[1].replace(' sec', ''))
+        else:
+            # data from other exp dir
+            src_exp_name, src_sample_name = sample_smshap_config = sample_configs[
+                sample_name]['smpshap']['data_from']
+            src_shap_data = get_smp_shap_time_from_log(
+                src_exp_name, [src_sample_name])
+            data[sample_name] = src_shap_data[src_sample_name]
+
+    return data
 
 
 if __name__ == '__main__':
