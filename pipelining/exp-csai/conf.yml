@@ -10,13 +10,13 @@ samples:
       - query: "Machine Learning"
     ale_1w:
       - query: "Machine Learning"
-        intervals:
-          year: 1000
-          n_citations: 1000
-          title: 1000
-          abstract: 1000
-          authors: 1000
-          venue: 1000
+        quantiles:
+          year: 5
+          n_citations: 5
+          title: 5
+          abstract: 5
+          authors: 5
+          venue: 5
     smpshap:
       query: "Machine Learning"
       task:
