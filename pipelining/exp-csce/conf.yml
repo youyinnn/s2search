@@ -13,12 +13,12 @@ samples:
     ale_1w:
       - query: "Computational Engineering"
         quantiles:
-          year: 5
-          n_citations: 5
-          title: 5
-          abstract: 5
-          authors: 5
-          venue: 5
+          year: 10
+          n_citations: 10
+          title: 10
+          abstract: 10
+          authors: 10
+          venue: 10
     smpshap:
       query: "Computational Engineering"
       task:

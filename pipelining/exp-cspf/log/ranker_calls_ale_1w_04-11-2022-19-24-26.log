@@ -1,0 +1,76 @@
+
+
+[04/11/2022, 19:24:26] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_title]
+============== start ==============
+[04/11/2022, 19:24:26] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_title_sorting]
+get scores for 2795 papers
+[04/11/2022, 19:24:26] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_title_sorting]
+task end within 0.509776 sec
+[04/11/2022, 19:24:26] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_title]
+get scores for 5590 papers
+[04/11/2022, 19:24:30] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_title]
+task end within 3.720853 sec
+[04/11/2022, 19:24:30] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_title]
+============== end 8385 ==============
+
+
+[04/11/2022, 19:24:30] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_abstract]
+============== start ==============
+[04/11/2022, 19:24:30] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_abstract_sorting]
+get scores for 2795 papers
+[04/11/2022, 19:24:32] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_abstract_sorting]
+task end within 1.359629 sec
+[04/11/2022, 19:24:32] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_abstract]
+get scores for 5590 papers
+[04/11/2022, 19:24:36] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_abstract]
+task end within 3.867144 sec
+[04/11/2022, 19:24:36] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_abstract]
+============== end 8385 ==============
+
+
+[04/11/2022, 19:24:36] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_venue]
+============== start ==============
+[04/11/2022, 19:24:36] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_venue_sorting]
+get scores for 2795 papers
+[04/11/2022, 19:24:36] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_venue_sorting]
+task end within 0.428129 sec
+[04/11/2022, 19:24:36] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_venue]
+get scores for 5590 papers
+[04/11/2022, 19:24:40] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_venue]
+task end within 3.685484 sec
+[04/11/2022, 19:24:40] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_venue]
+============== end 8385 ==============
+
+
+[04/11/2022, 19:24:40] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_authors]
+============== start ==============
+[04/11/2022, 19:24:40] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_authors_sorting]
+get scores for 2795 papers
+[04/11/2022, 19:24:41] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_authors_sorting]
+task end within 0.684846 sec
+[04/11/2022, 19:24:41] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_authors]
+get scores for 5590 papers
+[04/11/2022, 19:24:45] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_authors]
+task end within 3.528995 sec
+[04/11/2022, 19:24:45] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_authors]
+============== end 8385 ==============
+
+
+[04/11/2022, 19:24:45] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_year]
+============== start ==============
+[04/11/2022, 19:24:45] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_year]
+get scores for 5590 papers
+[04/11/2022, 19:24:49] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_year]
+task end within 3.692149 sec
+[04/11/2022, 19:24:49] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_year]
+============== end 5590 ==============
+
+
+[04/11/2022, 19:24:49] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_n_citations]
+============== start ==============
+[04/11/2022, 19:24:49] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_n_citations]
+get scores for 5590 papers
+[04/11/2022, 19:24:53] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_n_citations]
+task end within 3.699755 sec
+[04/11/2022, 19:24:53] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cspf_cspf_n_citations]
+============== end 5590 ==============
