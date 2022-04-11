@@ -12,12 +12,12 @@ samples:
     ale_1w:
       - query: "communication networks"
         quantiles:
-          year: 7
-          n_citations: 7
-          title: 7
-          abstract: 7
-          authors: 7
-          venue: 7
+          year: 5
+          n_citations: 5
+          title: 5
+          abstract: 5
+          authors: 5
+          venue: 5
     smpshap:
       query: "communication networks"
       task:

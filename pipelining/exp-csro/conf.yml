@@ -12,12 +12,12 @@ samples:
     ale_1w:
       - query: "Robotics"
         quantiles:
-          year: 1
-          n_citations: 1
-          title: 1
-          abstract: 1
-          authors: 1
-          venue: 1
+          year: 5
+          n_citations: 5
+          title: 5
+          abstract: 5
+          authors: 5
+          venue: 5
     smpshap:
       query: "Robotics"
       task:

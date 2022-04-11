@@ -9,12 +9,12 @@ samples:
     ale_1w:
       - query: "Information Theory"
         quantiles:
-          year: 1
-          n_citations: 1
-          title: 1
-          abstract: 1
-          authors: 1
-          venue: 1
+          year: 2
+          n_citations: 2
+          title: 2
+          abstract: 2
+          authors: 2
+          venue: 2
     smpshap:
       query: "Information Theory"
       task:

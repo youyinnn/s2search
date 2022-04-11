@@ -1,0 +1,76 @@
+
+
+[04/11/2022, 17:30:30] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_title]
+============== start ==============
+[04/11/2022, 17:30:30] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_title_sorting]
+get scores for 17812 papers
+[04/11/2022, 17:30:34] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_title_sorting]
+task end within 3.787741 sec
+[04/11/2022, 17:30:35] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_title]
+get scores for 35624 papers
+[04/11/2022, 17:31:01] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_title]
+task end within 25.433576 sec
+[04/11/2022, 17:31:01] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_title]
+============== end 53436 ==============
+
+
+[04/11/2022, 17:31:01] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_abstract]
+============== start ==============
+[04/11/2022, 17:31:02] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_abstract_sorting]
+get scores for 17812 papers
+[04/11/2022, 17:31:11] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_abstract_sorting]
+task end within 8.915915 sec
+[04/11/2022, 17:31:12] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_abstract]
+get scores for 35624 papers
+[04/11/2022, 17:31:39] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_abstract]
+task end within 26.985374 sec
+[04/11/2022, 17:31:39] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_abstract]
+============== end 53436 ==============
+
+
+[04/11/2022, 17:31:39] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_venue]
+============== start ==============
+[04/11/2022, 17:31:40] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_venue_sorting]
+get scores for 17812 papers
+[04/11/2022, 17:31:43] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_venue_sorting]
+task end within 3.584243 sec
+[04/11/2022, 17:31:44] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_venue]
+get scores for 35624 papers
+[04/11/2022, 17:32:12] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_venue]
+task end within 27.201739 sec
+[04/11/2022, 17:32:12] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_venue]
+============== end 53436 ==============
+
+
+[04/11/2022, 17:32:12] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_authors]
+============== start ==============
+[04/11/2022, 17:32:12] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_authors_sorting]
+get scores for 17812 papers
+[04/11/2022, 17:32:17] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_authors_sorting]
+task end within 4.766879 sec
+[04/11/2022, 17:32:18] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_authors]
+get scores for 35624 papers
+[04/11/2022, 17:32:44] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_authors]
+task end within 26.117249 sec
+[04/11/2022, 17:32:45] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_authors]
+============== end 53436 ==============
+
+
+[04/11/2022, 17:32:45] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_year]
+============== start ==============
+[04/11/2022, 17:32:46] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_year]
+get scores for 35624 papers
+[04/11/2022, 17:33:12] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_year]
+task end within 25.567152 sec
+[04/11/2022, 17:33:12] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_year]
+============== end 35624 ==============
+
+
+[04/11/2022, 17:33:12] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_n_citations]
+============== start ==============
+[04/11/2022, 17:33:13] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_n_citations]
+get scores for 35624 papers
+[04/11/2022, 17:33:39] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_n_citations]
+task end within 25.568474 sec
+[04/11/2022, 17:33:39] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-cssy_cssy_n_citations]
+============== end 35624 ==============

@@ -1,0 +1,76 @@
+
+
+[04/11/2022, 18:04:20] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_title]
+============== start ==============
+[04/11/2022, 18:04:20] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_title_sorting]
+get scores for 10273 papers
+[04/11/2022, 18:04:35] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_title_sorting]
+task end within 15.055431 sec
+[04/11/2022, 18:04:36] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_title]
+get scores for 20546 papers
+[04/11/2022, 18:04:49] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_title]
+task end within 13.648022 sec
+[04/11/2022, 18:04:50] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_title]
+============== end 30819 ==============
+
+
+[04/11/2022, 18:04:50] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_abstract]
+============== start ==============
+[04/11/2022, 18:04:50] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_abstract_sorting]
+get scores for 10273 papers
+[04/11/2022, 18:04:55] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_abstract_sorting]
+task end within 4.979595 sec
+[04/11/2022, 18:04:56] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_abstract]
+get scores for 20546 papers
+[04/11/2022, 18:05:09] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_abstract]
+task end within 13.142278 sec
+[04/11/2022, 18:05:09] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_abstract]
+============== end 30819 ==============
+
+
+[04/11/2022, 18:05:09] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_venue]
+============== start ==============
+[04/11/2022, 18:05:09] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_venue_sorting]
+get scores for 10273 papers
+[04/11/2022, 18:05:11] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_venue_sorting]
+task end within 1.644375 sec
+[04/11/2022, 18:05:12] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_venue]
+get scores for 20546 papers
+[04/11/2022, 18:05:26] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_venue]
+task end within 14.047903 sec
+[04/11/2022, 18:05:26] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_venue]
+============== end 30819 ==============
+
+
+[04/11/2022, 18:05:26] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_authors]
+============== start ==============
+[04/11/2022, 18:05:26] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_authors_sorting]
+get scores for 10273 papers
+[04/11/2022, 18:05:29] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_authors_sorting]
+task end within 2.73393 sec
+[04/11/2022, 18:05:29] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_authors]
+get scores for 20546 papers
+[04/11/2022, 18:05:43] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_authors]
+task end within 13.671237 sec
+[04/11/2022, 18:05:43] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_authors]
+============== end 30819 ==============
+
+
+[04/11/2022, 18:05:43] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_year]
+============== start ==============
+[04/11/2022, 18:05:44] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_year]
+get scores for 20546 papers
+[04/11/2022, 18:05:58] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_year]
+task end within 13.911906 sec
+[04/11/2022, 18:05:58] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_year]
+============== end 20546 ==============
+
+
+[04/11/2022, 18:05:58] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_n_citations]
+============== start ==============
+[04/11/2022, 18:05:59] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_n_citations]
+get scores for 20546 papers
+[04/11/2022, 18:06:13] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_n_citations]
+task end within 13.834282 sec
+[04/11/2022, 18:06:13] [ale_1w_/Users/yinnnyou/workspace/s2search/pipelining/exp-csir_csir_n_citations]
+============== end 20546 ==============
