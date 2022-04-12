@@ -11,12 +11,12 @@ samples:
     ale_1w:
       - query: "natural-language"
         quantiles:
-          year: 5
-          n_citations: 5
-          title: 5
-          abstract: 5
-          authors: 5
-          venue: 5
+          year: 2
+          n_citations: 2
+          title: 2
+          abstract: 2
+          authors: 2
+          venue: 2
     smpshap:
       query: "natural-language"
       task:
