@@ -13,3 +13,6 @@ gunicorn
 twilio==6.8.4
 regex==2021.11.1
 psutil
+shap
+anchor-exp
+nbformat

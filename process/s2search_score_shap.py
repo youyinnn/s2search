@@ -19,6 +19,19 @@ def get_time_str():
     return datetime.datetime.now(tz=utc_tz).strftime("%m/%d/%Y, %H:%M:%S")
 
 
+def masker(mask, x):
+    rs = []
+    for i in range(len(mask)):
+        if mask[i]:
+            rs.append(x[i])
+        else:
+            rs.append(-1)
+
+    rs = np.array(rs).reshape(1, len(x))
+
+    return rs
+
+
 def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_exp_name, data_sample_name, logger):
 
     task_name = f'get categorical paper data for {output_exp_dir} {output_data_sample_name}'
@@ -34,12 +47,19 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
         ]
         return get_scores(query, paper_data, ptf=False)
 
-    X_train, X_test = train_test_split(
-        paper_data, test_size=0.2, random_state=0)
+    # X_train, X_test = train_test_split(
+    #     paper_data, test_size=1, random_state=0)
+    X_test = paper_data
 
     task_name = f'sampling shap explainer training for {output_exp_dir} {output_data_sample_name}'
     start_record_paper_count(task_name)
-    explainer = shap.SamplingExplainer(pred, X_train)
+    # explainer = shap.SamplingExplainer(pred, X_train)
+
+    explainer = shap.KernelExplainer(
+        pred,
+        np.array([[-1, -1, -1, -1, -1, -1]]),
+        masker=masker
+    )
     end_record_paper_count(task_name)
 
     task_name = f'sampling shap sv computing for {output_exp_dir} {output_data_sample_name}'
@@ -61,27 +81,28 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
     st = time.time()
     logger.info(
         f'\n[{get_time_str()}] start computing sampling shap for range: {rg}')
-    rate = 10
+    rate = 1000
     curr_start = start
     curr_end = start + rate
     shap_values = []
     base_values = set([])
     count = 0
-    print(len(X_train), len(X_test), curr_end, end)
+    # print(len(X_train), len(X_test), curr_end, end)
+    print(curr_start, curr_end)
 
-    while curr_end < end:
+    while curr_start < end:
         stt = time.time()
-        shap_v = explainer(X_test[curr_start: curr_end])
+        shap_v = explainer.shap_values(X_test[curr_start: curr_end])
         count += rate
-        shap_values.extend(list(shap_v.values))
-        base_values.add(shap_v.base_values)
+        shap_values.extend(list(shap_v))
+        # base_values.add(shap_v.base_values)
         avgt = round((time.time() - st) / (count), 4)
         logger.info(
             f'[{get_time_str()}] computing sampling shap {curr_start}:{curr_end} within {round(time.time() - stt, 4)} sec, {avgt} on average')
         logger.info(f'[{get_time_str()}] instances left: {end-start-count}')
         logger.info(
             f'[{get_time_str()}] estimating time left: {datetime.timedelta(seconds=((end-start-count) * avgt))}')
-        logger.info(f'\n{shap_v.values}')
+        logger.info(f'\n{shap_v}')
         processing_log(f'instances left: {end-start-count}')
         processing_log(
             f'estimating time left: {datetime.timedelta(seconds=((end-start-count) * avgt))}')
@@ -89,11 +110,11 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
 
         save_pdp_to_npz('.', metrics_npz_file,
                         shap_values=shap_values,
-                        base_values=list(base_values),
+                        # base_values=list(base_values),
                         )
 
         curr_start = curr_end
-        curr_end += rate
+        curr_end = curr_end + rate if curr_end + rate <= end else end
 
     end_record_paper_count(task_name)
     logger.info(

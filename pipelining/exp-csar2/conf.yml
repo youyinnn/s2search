@@ -1,0 +1,24 @@
+description: ""
+samples:
+  csar:
+    check_query: [
+        "Hardware Architecture", #  A: 321(12.52%),     B: 1096(42.76%), C: 1146(44.71%)
+        "Hardware", # A: 975(38.04%),     B: 0(0.0%), C: 1588(61.96%)
+        "material",
+      ]
+    masking:
+      - query: "Hardware"
+    ale_1w:
+      - query: "Hardware"
+        quantiles:
+          year: 10
+          n_citations: 10
+          title: 10
+          abstract: 10
+          authors: 10
+          venue: 10
+    smpshap:
+      query: "Hardware"
+      task:
+        - range: [1, 1]
+          cpu: [0]
