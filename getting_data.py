@@ -238,15 +238,30 @@ def get_categorical_encoded_data(data_exp_name, data_sample_name, query, paper_d
 
 
 def decode_paper(categorical_name, encoded_p):
-    return dict(
-        title=categorical_name[0][int(
-            encoded_p[0])] if encoded_p[0] != -1 else '',
-        abstract=categorical_name[1][int(
-            encoded_p[1])] if encoded_p[1] != -1 else '',
-        venue=categorical_name[2][int(
-            encoded_p[2])] if encoded_p[2] != -1 else '',
-        authors=json.loads(categorical_name[3][int(
-            encoded_p[3])]) if encoded_p[3] != -1 else [],
-        year=encoded_p[4] if encoded_p[4] != -1 else '',
-        n_citations=encoded_p[5] if encoded_p[5] != -1 else 0,
-    )
+    # return dict(
+    #     title=categorical_name[0][int(
+    #         encoded_p[0])] if encoded_p[0] != -1 else ' ',
+    #     abstract=categorical_name[1][int(
+    #         encoded_p[1])] if encoded_p[1] != -1 else ' ',
+    #     venue=categorical_name[2][int(
+    #         encoded_p[2])] if encoded_p[2] != -1 else ' ',
+    #     authors=json.loads(categorical_name[3][int(
+    #         encoded_p[3])]) if encoded_p[3] != -1 else [],
+    #     year=encoded_p[4] if encoded_p[4] != -1 else ' ',
+    #     n_citations=encoded_p[5] if encoded_p[5] != -1 else 0,
+    # )
+    rs = {}
+    if encoded_p[0] != -1:
+        rs['title'] = categorical_name[0][int(encoded_p[0])]
+    if encoded_p[1] != -1:
+        rs['abstract'] = categorical_name[1][int(encoded_p[1])]
+    if encoded_p[2] != -1:
+        rs['venue'] = categorical_name[2][int(encoded_p[2])]
+    if encoded_p[3] != -1:
+        rs['authors'] = json.loads(categorical_name[3][int(encoded_p[3])])
+    if encoded_p[4] != -1:
+        rs['year'] = encoded_p[4]
+    if encoded_p[5] != -1:
+        rs['n_citations'] = encoded_p[5]
+
+    return rs

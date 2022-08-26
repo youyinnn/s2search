@@ -1,0 +1,27 @@
+
+
+[08/26/2022, 00:00:13] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-cspf cspf]
+============== start ==============
+[08/26/2022, 00:00:16] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-cspf cspf]
+============== end 11180 ==============
+
+
+[08/26/2022, 00:00:16] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-cspf cspf]
+============== start ==============
+[08/26/2022, 00:00:16] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-cspf cspf]
+============== end 1 ==============
+
+
+[08/26/2022, 00:00:16] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-cspf cspf]
+============== start ==============
+instances left: 1796
+estimating time left: 0:00:51.365600
+---- 1000:63000
+instances left: 796
+estimating time left: 0:00:23.004400
+---- 2000:126000
+instances left: -204
+estimating time left: -1 day, 23:59:54.165600
+---- 3000:176085
+[08/26/2022, 00:01:42] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-cspf cspf]
+============== end 176085 ==============

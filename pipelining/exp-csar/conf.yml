@@ -20,22 +20,8 @@ samples:
     smpshap:
       query: "Hardware"
       task:
-        - range: [1, 8]
-          cpu: [0, 1]
-        - range: [2, 8]
-          cpu: [2, 3]
-        - range: [3, 8]
-          cpu: [4, 5]
-        - range: [4, 8]
-          cpu: [6, 7]
-        - range: [5, 8]
-          cpu: [8, 9]
-        - range: [6, 8]
-          cpu: [10, 11]
-        - range: [7, 8]
-          cpu: [12, 13]
-        - range: [8, 8]
-          cpu: [14, 15]
+        - range: [1, 1]
+          cpu: [0]
     anchor:
       query: "Hardware"
       explainer_configs:

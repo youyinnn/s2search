@@ -1,0 +1,69 @@
+
+
+[08/26/2022, 00:11:17] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-csro csro]
+============== start ==============
+[08/26/2022, 00:11:37] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-csro csro]
+============== end 64352 ==============
+
+
+[08/26/2022, 00:11:37] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-csro csro]
+============== start ==============
+[08/26/2022, 00:11:37] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-csro csro]
+============== end 1 ==============
+
+
+[08/26/2022, 00:11:37] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-csro csro]
+============== start ==============
+instances left: 15089
+estimating time left: 0:07:07.018700
+---- 1000:63000
+instances left: 14089
+estimating time left: 0:06:37.309800
+---- 2000:126000
+instances left: 13089
+estimating time left: 0:06:11.727600
+---- 3000:189000
+instances left: 12089
+estimating time left: 0:05:43.327600
+---- 4000:252000
+instances left: 11089
+estimating time left: 0:05:14.927600
+---- 5000:315000
+instances left: 10089
+estimating time left: 0:04:46.527600
+---- 6000:378000
+instances left: 9089
+estimating time left: 0:04:18.127600
+---- 7000:441000
+instances left: 8089
+estimating time left: 0:03:49.727600
+---- 8000:504000
+instances left: 7089
+estimating time left: 0:03:21.327600
+---- 9000:567000
+instances left: 6089
+estimating time left: 0:02:52.927600
+---- 10000:630000
+instances left: 5089
+estimating time left: 0:02:24.527600
+---- 11000:693000
+instances left: 4089
+estimating time left: 0:01:56.127600
+---- 12000:756000
+instances left: 3089
+estimating time left: 0:01:27.727600
+---- 13000:819000
+instances left: 2089
+estimating time left: 0:00:59.536500
+---- 14000:882000
+instances left: 1089
+estimating time left: 0:00:31.145400
+---- 15000:945000
+instances left: 89
+estimating time left: 0:00:02.554300
+---- 16000:1008000
+instances left: -911
+estimating time left: -1 day, 23:59:35.220800
+---- 17000:1013544
+[08/26/2022, 00:19:19] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-csro csro]
+============== end 1013544 ==============

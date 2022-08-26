@@ -1,0 +1,30 @@
+
+
+[08/25/2022, 22:00:17] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-csgr csgr]
+============== start ==============
+[08/25/2022, 22:00:30] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-csgr csgr]
+============== end 12932 ==============
+
+
+[08/25/2022, 22:00:30] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-csgr csgr]
+============== start ==============
+[08/25/2022, 22:00:30] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-csgr csgr]
+============== end 1 ==============
+
+
+[08/25/2022, 22:00:30] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-csgr csgr]
+============== start ==============
+instances left: 2234
+estimating time left: 0:01:03.892400
+---- 1000:63000
+instances left: 1234
+estimating time left: 0:00:34.798800
+---- 2000:126000
+instances left: 234
+estimating time left: 0:00:06.552000
+---- 3000:189000
+instances left: -766
+estimating time left: -1 day, 23:59:42.688400
+---- 4000:203679
+[08/25/2022, 22:02:00] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-csgr csgr]
+============== end 203679 ==============

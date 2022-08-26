@@ -58,7 +58,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
     explainer = shap.KernelExplainer(
         pred,
         np.array([[-1, -1, -1, -1, -1, -1]]),
-        masker=masker
+        # masker=masker
     )
     end_record_paper_count(task_name)
 
@@ -88,7 +88,7 @@ def compute_and_save(output_exp_dir, output_data_sample_name, query, rg, data_ex
     base_values = set([])
     count = 0
     # print(len(X_train), len(X_test), curr_end, end)
-    print(curr_start, curr_end)
+    # print(curr_start, curr_end)
 
     while curr_start < end:
         stt = time.time()

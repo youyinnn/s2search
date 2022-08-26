@@ -1,0 +1,213 @@
+
+
+[08/25/2022, 20:12:13] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-cscv cscv]
+============== start ==============
+[08/25/2022, 20:13:57] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-cscv cscv]
+============== end 258124 ==============
+
+
+[08/25/2022, 20:13:57] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-cscv cscv]
+============== start ==============
+[08/25/2022, 20:13:57] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-cscv cscv]
+============== end 1 ==============
+
+
+[08/25/2022, 20:13:57] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-cscv cscv]
+============== start ==============
+instances left: 63532
+estimating time left: 0:34:50.202800
+---- 1000:63000
+instances left: 62532
+estimating time left: 0:33:58.543200
+---- 2000:126000
+instances left: 61532
+estimating time left: 0:33:32.096400
+---- 3000:189000
+instances left: 60532
+estimating time left: 0:32:59.396400
+---- 4000:252000
+instances left: 59532
+estimating time left: 0:32:38.602800
+---- 5000:315000
+instances left: 58532
+estimating time left: 0:31:59.849600
+---- 6000:378000
+instances left: 57532
+estimating time left: 0:31:21.296400
+---- 7000:441000
+instances left: 56532
+estimating time left: 0:30:42.943200
+---- 8000:504000
+instances left: 55532
+estimating time left: 0:30:10.343200
+---- 9000:567000
+instances left: 54532
+estimating time left: 0:29:32.290000
+---- 10000:630000
+instances left: 53532
+estimating time left: 0:28:59.790000
+---- 11000:693000
+instances left: 52532
+estimating time left: 0:28:22.036800
+---- 12000:756000
+instances left: 51532
+estimating time left: 0:27:49.636800
+---- 13000:819000
+instances left: 50532
+estimating time left: 0:27:12.183600
+---- 14000:882000
+instances left: 49532
+estimating time left: 0:26:39.883600
+---- 15000:945000
+instances left: 48532
+estimating time left: 0:26:02.730400
+---- 16000:1008000
+instances left: 47532
+estimating time left: 0:25:30.530400
+---- 17000:1071000
+instances left: 46532
+estimating time left: 0:24:58.330400
+---- 18000:1134000
+instances left: 45532
+estimating time left: 0:24:26.130400
+---- 19000:1197000
+instances left: 44532
+estimating time left: 0:23:53.930400
+---- 20000:1260000
+instances left: 43532
+estimating time left: 0:23:21.730400
+---- 21000:1323000
+instances left: 42532
+estimating time left: 0:22:49.530400
+---- 22000:1386000
+instances left: 41532
+estimating time left: 0:22:17.330400
+---- 23000:1449000
+instances left: 40532
+estimating time left: 0:21:45.130400
+---- 24000:1512000
+instances left: 39532
+estimating time left: 0:21:12.930400
+---- 25000:1575000
+instances left: 38532
+estimating time left: 0:20:40.730400
+---- 26000:1638000
+instances left: 37532
+estimating time left: 0:20:08.530400
+---- 27000:1701000
+instances left: 36532
+estimating time left: 0:19:36.330400
+---- 28000:1764000
+instances left: 35532
+estimating time left: 0:19:04.130400
+---- 29000:1827000
+instances left: 34532
+estimating time left: 0:18:31.930400
+---- 30000:1890000
+instances left: 33532
+estimating time left: 0:17:59.730400
+---- 31000:1953000
+instances left: 32532
+estimating time left: 0:17:27.530400
+---- 32000:2016000
+instances left: 31532
+estimating time left: 0:16:55.330400
+---- 33000:2079000
+instances left: 30532
+estimating time left: 0:16:23.130400
+---- 34000:2142000
+instances left: 29532
+estimating time left: 0:15:50.930400
+---- 35000:2205000
+instances left: 28532
+estimating time left: 0:15:18.730400
+---- 36000:2268000
+instances left: 27532
+estimating time left: 0:14:46.530400
+---- 37000:2331000
+instances left: 26532
+estimating time left: 0:14:14.330400
+---- 38000:2394000
+instances left: 25532
+estimating time left: 0:13:39.577200
+---- 39000:2457000
+instances left: 24532
+estimating time left: 0:13:07.477200
+---- 40000:2520000
+instances left: 23532
+estimating time left: 0:12:35.377200
+---- 41000:2583000
+instances left: 22532
+estimating time left: 0:12:03.277200
+---- 42000:2646000
+instances left: 21532
+estimating time left: 0:11:31.177200
+---- 43000:2709000
+instances left: 20532
+estimating time left: 0:10:59.077200
+---- 44000:2772000
+instances left: 19532
+estimating time left: 0:10:26.977200
+---- 45000:2835000
+instances left: 18532
+estimating time left: 0:09:54.877200
+---- 46000:2898000
+instances left: 17532
+estimating time left: 0:09:22.777200
+---- 47000:2961000
+instances left: 16532
+estimating time left: 0:08:50.677200
+---- 48000:3024000
+instances left: 15532
+estimating time left: 0:08:18.577200
+---- 49000:3087000
+instances left: 14532
+estimating time left: 0:07:46.477200
+---- 50000:3150000
+instances left: 13532
+estimating time left: 0:07:14.377200
+---- 51000:3213000
+instances left: 12532
+estimating time left: 0:06:42.277200
+---- 52000:3276000
+instances left: 11532
+estimating time left: 0:06:10.177200
+---- 53000:3339000
+instances left: 10532
+estimating time left: 0:05:38.077200
+---- 54000:3402000
+instances left: 9532
+estimating time left: 0:05:05.977200
+---- 55000:3465000
+instances left: 8532
+estimating time left: 0:04:33.877200
+---- 56000:3528000
+instances left: 7532
+estimating time left: 0:04:02.530400
+---- 57000:3591000
+instances left: 6532
+estimating time left: 0:03:29.677200
+---- 58000:3654000
+instances left: 5532
+estimating time left: 0:02:57.577200
+---- 59000:3717000
+instances left: 4532
+estimating time left: 0:02:25.477200
+---- 60000:3780000
+instances left: 3532
+estimating time left: 0:01:53.377200
+---- 61000:3843000
+instances left: 2532
+estimating time left: 0:01:21.277200
+---- 62000:3906000
+instances left: 1532
+estimating time left: 0:00:49.330400
+---- 63000:3969000
+instances left: 532
+estimating time left: 0:00:17.077200
+---- 64000:4032000
+instances left: -468
+estimating time left: -1 day, 23:59:45.070800
+---- 65000:4065453
+[08/25/2022, 20:48:31] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-cscv cscv]
+============== end 4065453 ==============

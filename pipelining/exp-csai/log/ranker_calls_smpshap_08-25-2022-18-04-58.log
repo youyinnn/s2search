@@ -1,0 +1,138 @@
+
+
+[08/25/2022, 18:04:58] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-csai csai]
+============== start ==============
+[08/25/2022, 18:06:02] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-csai csai]
+============== end 157376 ==============
+
+
+[08/25/2022, 18:06:02] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-csai csai]
+============== start ==============
+[08/25/2022, 18:06:02] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-csai csai]
+============== end 1 ==============
+
+
+[08/25/2022, 18:06:02] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-csai csai]
+============== start ==============
+instances left: 38345
+estimating time left: 0:19:14.184500
+---- 1000:63000
+instances left: 37345
+estimating time left: 0:19:02.757000
+---- 2000:126000
+instances left: 36345
+estimating time left: 0:18:32.157000
+---- 3000:189000
+instances left: 35345
+estimating time left: 0:17:54.488000
+---- 4000:252000
+instances left: 34345
+estimating time left: 0:17:20.653500
+---- 5000:315000
+instances left: 33345
+estimating time left: 0:16:53.688000
+---- 6000:378000
+instances left: 32345
+estimating time left: 0:16:32.991500
+---- 7000:441000
+instances left: 31345
+estimating time left: 0:15:59.157000
+---- 8000:504000
+instances left: 30345
+estimating time left: 0:15:25.522500
+---- 9000:567000
+instances left: 29345
+estimating time left: 0:14:55.022500
+---- 10000:630000
+instances left: 28345
+estimating time left: 0:14:24.522500
+---- 11000:693000
+instances left: 27345
+estimating time left: 0:13:54.022500
+---- 12000:756000
+instances left: 26345
+estimating time left: 0:13:23.522500
+---- 13000:819000
+instances left: 25345
+estimating time left: 0:12:53.022500
+---- 14000:882000
+instances left: 24345
+estimating time left: 0:12:22.522500
+---- 15000:945000
+instances left: 23345
+estimating time left: 0:11:52.022500
+---- 16000:1008000
+instances left: 22345
+estimating time left: 0:11:23.757000
+---- 17000:1071000
+instances left: 21345
+estimating time left: 0:10:53.157000
+---- 18000:1134000
+instances left: 20345
+estimating time left: 0:10:20.522500
+---- 19000:1197000
+instances left: 19345
+estimating time left: 0:09:50.022500
+---- 20000:1260000
+instances left: 18345
+estimating time left: 0:09:21.357000
+---- 21000:1323000
+instances left: 17345
+estimating time left: 0:08:50.757000
+---- 22000:1386000
+instances left: 16345
+estimating time left: 0:08:20.157000
+---- 23000:1449000
+instances left: 15345
+estimating time left: 0:07:48.022500
+---- 24000:1512000
+instances left: 14345
+estimating time left: 0:07:17.522500
+---- 25000:1575000
+instances left: 13345
+estimating time left: 0:06:47.022500
+---- 26000:1638000
+instances left: 12345
+estimating time left: 0:06:16.522500
+---- 27000:1701000
+instances left: 11345
+estimating time left: 0:05:46.022500
+---- 28000:1764000
+instances left: 10345
+estimating time left: 0:05:15.522500
+---- 29000:1827000
+instances left: 9345
+estimating time left: 0:04:45.022500
+---- 30000:1890000
+instances left: 8345
+estimating time left: 0:04:14.522500
+---- 31000:1953000
+instances left: 7345
+estimating time left: 0:03:44.022500
+---- 32000:2016000
+instances left: 6345
+estimating time left: 0:03:13.522500
+---- 33000:2079000
+instances left: 5345
+estimating time left: 0:02:42.488000
+---- 34000:2142000
+instances left: 4345
+estimating time left: 0:02:12.088000
+---- 35000:2205000
+instances left: 3345
+estimating time left: 0:01:41.688000
+---- 36000:2268000
+instances left: 2345
+estimating time left: 0:01:11.288000
+---- 37000:2331000
+instances left: 1345
+estimating time left: 0:00:40.888000
+---- 38000:2394000
+instances left: 345
+estimating time left: 0:00:10.488000
+---- 39000:2457000
+instances left: -655
+estimating time left: -1 day, 23:59:40.415500
+---- 40000:2478672
+[08/25/2022, 18:25:59] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-csai csai]
+============== end 2478672 ==============

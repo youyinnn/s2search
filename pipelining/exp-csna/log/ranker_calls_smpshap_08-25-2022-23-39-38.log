@@ -1,0 +1,54 @@
+
+
+[08/25/2022, 23:39:38] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-csna csna]
+============== start ==============
+[08/25/2022, 23:39:52] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-csna csna]
+============== end 46324 ==============
+
+
+[08/25/2022, 23:39:52] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-csna csna]
+============== start ==============
+[08/25/2022, 23:39:52] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-csna csna]
+============== end 1 ==============
+
+
+[08/25/2022, 23:39:52] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-csna csna]
+============== start ==============
+instances left: 10582
+estimating time left: 0:05:03.703400
+---- 1000:63000
+instances left: 9582
+estimating time left: 0:04:36.919800
+---- 2000:126000
+instances left: 8582
+estimating time left: 0:04:06.303400
+---- 3000:189000
+instances left: 7582
+estimating time left: 0:03:37.603400
+---- 4000:252000
+instances left: 6582
+estimating time left: 0:03:10.219800
+---- 5000:315000
+instances left: 5582
+estimating time left: 0:02:41.319800
+---- 6000:378000
+instances left: 4582
+estimating time left: 0:02:12.419800
+---- 7000:441000
+instances left: 3582
+estimating time left: 0:01:43.519800
+---- 8000:504000
+instances left: 2582
+estimating time left: 0:01:14.619800
+---- 9000:567000
+instances left: 1582
+estimating time left: 0:00:45.719800
+---- 10000:630000
+instances left: 582
+estimating time left: 0:00:16.819800
+---- 11000:693000
+instances left: -418
+estimating time left: -1 day, 23:59:48.337800
+---- 12000:729603
+[08/25/2022, 23:45:27] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-csna csna]
+============== end 729603 ==============

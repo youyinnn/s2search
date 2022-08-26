@@ -1,0 +1,126 @@
+
+
+[08/25/2022, 22:19:18] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-csit csit]
+============== start ==============
+[08/25/2022, 22:20:09] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-csit csit]
+============== end 143744 ==============
+
+
+[08/25/2022, 22:20:09] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-csit csit]
+============== start ==============
+[08/25/2022, 22:20:09] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-csit csit]
+============== end 1 ==============
+
+
+[08/25/2022, 22:20:09] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-csit csit]
+============== start ==============
+instances left: 34937
+estimating time left: 0:19:02.439900
+---- 1000:63000
+instances left: 33937
+estimating time left: 0:18:36.527300
+---- 2000:126000
+instances left: 32937
+estimating time left: 0:18:06.921000
+---- 3000:189000
+instances left: 31937
+estimating time left: 0:17:33.921000
+---- 4000:252000
+instances left: 30937
+estimating time left: 0:17:00.921000
+---- 5000:315000
+instances left: 29937
+estimating time left: 0:16:27.921000
+---- 6000:378000
+instances left: 28937
+estimating time left: 0:15:52.027300
+---- 7000:441000
+instances left: 27937
+estimating time left: 0:15:16.333600
+---- 8000:504000
+instances left: 26937
+estimating time left: 0:14:46.227300
+---- 9000:567000
+instances left: 25937
+estimating time left: 0:14:13.327300
+---- 10000:630000
+instances left: 24937
+estimating time left: 0:13:37.933600
+---- 11000:693000
+instances left: 23937
+estimating time left: 0:13:07.527300
+---- 12000:756000
+instances left: 22937
+estimating time left: 0:12:34.627300
+---- 13000:819000
+instances left: 21937
+estimating time left: 0:12:03.921000
+---- 14000:882000
+instances left: 20937
+estimating time left: 0:11:30.921000
+---- 15000:945000
+instances left: 19937
+estimating time left: 0:10:55.927300
+---- 16000:1008000
+instances left: 18937
+estimating time left: 0:10:23.027300
+---- 17000:1071000
+instances left: 17937
+estimating time left: 0:09:50.127300
+---- 18000:1134000
+instances left: 16937
+estimating time left: 0:09:18.921000
+---- 19000:1197000
+instances left: 15937
+estimating time left: 0:08:45.921000
+---- 20000:1260000
+instances left: 14937
+estimating time left: 0:08:12.921000
+---- 21000:1323000
+instances left: 13937
+estimating time left: 0:07:38.527300
+---- 22000:1386000
+instances left: 12937
+estimating time left: 0:07:05.627300
+---- 23000:1449000
+instances left: 11937
+estimating time left: 0:06:32.727300
+---- 24000:1512000
+instances left: 10937
+estimating time left: 0:05:59.827300
+---- 25000:1575000
+instances left: 9937
+estimating time left: 0:05:26.927300
+---- 26000:1638000
+instances left: 8937
+estimating time left: 0:04:54.027300
+---- 27000:1701000
+instances left: 7937
+estimating time left: 0:04:20.333600
+---- 28000:1764000
+instances left: 6937
+estimating time left: 0:03:47.533600
+---- 29000:1827000
+instances left: 5937
+estimating time left: 0:03:14.733600
+---- 30000:1890000
+instances left: 4937
+estimating time left: 0:02:41.933600
+---- 31000:1953000
+instances left: 3937
+estimating time left: 0:02:09.133600
+---- 32000:2016000
+instances left: 2937
+estimating time left: 0:01:36.333600
+---- 33000:2079000
+instances left: 1937
+estimating time left: 0:01:03.339900
+---- 34000:2142000
+instances left: 937
+estimating time left: 0:00:30.639900
+---- 35000:2205000
+instances left: -63
+estimating time left: -1 day, 23:59:57.939900
+---- 36000:2263968
+[08/25/2022, 22:39:45] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-csit csit]
+============== end 2263968 ==============

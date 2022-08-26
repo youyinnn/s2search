@@ -1,0 +1,63 @@
+
+
+[08/26/2022, 00:28:50] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-cssi cssi]
+============== start ==============
+[08/26/2022, 00:29:10] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-cssi cssi]
+============== end 57116 ==============
+
+
+[08/26/2022, 00:29:10] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-cssi cssi]
+============== start ==============
+[08/26/2022, 00:29:10] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-cssi cssi]
+============== end 1 ==============
+
+
+[08/26/2022, 00:29:10] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-cssi cssi]
+============== start ==============
+instances left: 13280
+estimating time left: 0:06:53.008000
+---- 1000:63000
+instances left: 12280
+estimating time left: 0:06:23.136000
+---- 2000:126000
+instances left: 11280
+estimating time left: 0:05:50.808000
+---- 3000:189000
+instances left: 10280
+estimating time left: 0:05:19.708000
+---- 4000:252000
+instances left: 9280
+estimating time left: 0:04:50.464000
+---- 5000:315000
+instances left: 8280
+estimating time left: 0:04:19.164000
+---- 6000:378000
+instances left: 7280
+estimating time left: 0:03:47.864000
+---- 7000:441000
+instances left: 6280
+estimating time left: 0:03:17.192000
+---- 8000:504000
+instances left: 5280
+estimating time left: 0:02:45.792000
+---- 9000:567000
+instances left: 4280
+estimating time left: 0:02:14.392000
+---- 10000:630000
+instances left: 3280
+estimating time left: 0:01:43.320000
+---- 11000:693000
+instances left: 2280
+estimating time left: 0:01:11.820000
+---- 12000:756000
+instances left: 1280
+estimating time left: 0:00:40.448000
+---- 13000:819000
+instances left: 280
+estimating time left: 0:00:08.820000
+---- 14000:882000
+instances left: -720
+estimating time left: -1 day, 23:59:38.400000
+---- 15000:899577
+[08/26/2022, 00:36:40] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-cssi cssi]
+============== end 899577 ==============

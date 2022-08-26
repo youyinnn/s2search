@@ -1,0 +1,111 @@
+
+
+[08/25/2022, 17:35:54] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-cscl cscl]
+============== start ==============
+[08/25/2022, 17:36:45] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-cscl cscl]
+============== end 123000 ==============
+
+
+[08/25/2022, 17:36:45] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-cscl cscl]
+============== start ==============
+[08/25/2022, 17:36:45] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-cscl cscl]
+============== end 1 ==============
+
+
+[08/25/2022, 17:36:45] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-cscl cscl]
+============== start ==============
+instances left: 29751
+estimating time left: 0:14:37.654500
+---- 1000:63000
+instances left: 28751
+estimating time left: 0:14:16.779800
+---- 2000:126000
+instances left: 27751
+estimating time left: 0:13:46.979800
+---- 3000:189000
+instances left: 26751
+estimating time left: 0:13:14.504700
+---- 4000:252000
+instances left: 25751
+estimating time left: 0:12:44.804700
+---- 5000:315000
+instances left: 24751
+estimating time left: 0:12:15.104700
+---- 6000:378000
+instances left: 23751
+estimating time left: 0:11:43.029600
+---- 7000:441000
+instances left: 22751
+estimating time left: 0:11:13.429600
+---- 8000:504000
+instances left: 21751
+estimating time left: 0:10:43.829600
+---- 9000:567000
+instances left: 20751
+estimating time left: 0:10:14.229600
+---- 10000:630000
+instances left: 19751
+estimating time left: 0:09:44.629600
+---- 11000:693000
+instances left: 18751
+estimating time left: 0:09:15.029600
+---- 12000:756000
+instances left: 17751
+estimating time left: 0:08:48.979800
+---- 13000:819000
+instances left: 16751
+estimating time left: 0:08:19.179800
+---- 14000:882000
+instances left: 15751
+estimating time left: 0:07:49.379800
+---- 15000:945000
+instances left: 14751
+estimating time left: 0:07:19.579800
+---- 16000:1008000
+instances left: 13751
+estimating time left: 0:06:51.154900
+---- 17000:1071000
+instances left: 12751
+estimating time left: 0:06:21.254900
+---- 18000:1134000
+instances left: 11751
+estimating time left: 0:05:51.354900
+---- 19000:1197000
+instances left: 10751
+estimating time left: 0:05:21.454900
+---- 20000:1260000
+instances left: 9751
+estimating time left: 0:04:51.554900
+---- 21000:1323000
+instances left: 8751
+estimating time left: 0:04:21.654900
+---- 22000:1386000
+instances left: 7751
+estimating time left: 0:03:51.754900
+---- 23000:1449000
+instances left: 6751
+estimating time left: 0:03:22.530000
+---- 24000:1512000
+instances left: 5751
+estimating time left: 0:02:52.530000
+---- 25000:1575000
+instances left: 4751
+estimating time left: 0:02:22.530000
+---- 26000:1638000
+instances left: 3751
+estimating time left: 0:01:52.154900
+---- 27000:1701000
+instances left: 2751
+estimating time left: 0:01:22.254900
+---- 28000:1764000
+instances left: 1751
+estimating time left: 0:00:52.354900
+---- 29000:1827000
+instances left: 751
+estimating time left: 0:00:22.454900
+---- 30000:1890000
+instances left: -249
+estimating time left: -1 day, 23:59:52.604700
+---- 31000:1937250
+[08/25/2022, 17:52:05] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-cscl cscl]
+============== end 1937250 ==============

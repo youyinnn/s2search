@@ -177,14 +177,14 @@ def get_smp_shap_data(exp_name, sample_name_list=None):
                     ld = np.load(m_file)
 
                     shap_values = ld['shap_values']
-                    base_values = ld['base_values']
+                    # base_values = ld['base_values']
 
                     shap_sv.extend(shap_values)
-                    shap_bv.extend(base_values)
+                    # shap_bv.extend(base_values)
 
             shap_data[sample_name] = dict(
                 shap_sv=shap_sv,
-                shap_bv=shap_bv,
+                # shap_bv=shap_bv,
             )
         else:
             # data from other exp dir
@@ -215,7 +215,7 @@ def get_smp_shap_paper_count_from_log(exp_name, sample_name_list=None):
             data[sample_name] = 0
         if sample_smshap_config.get('task') != None:
             shap_calls_log_files = [
-                lf for lf in log_files_name if 'ranker_calls_smpshap' in lf]
+                lf for lf in log_files_name if ('ranker_calls_smpshap' in lf and lf.endswith('.log'))]
             for shap_calls_file in shap_calls_log_files:
                 with open(os.path.join(log_dir_path, shap_calls_file))as f:
                     lines = [l.strip()
@@ -257,7 +257,7 @@ def get_smp_shap_time_from_log(exp_name, sample_name_list=None):
             data[sample_name] = 0
         if sample_smshap_config.get('task') != None:
             shap_log_files = [
-                lf for lf in log_files_name if f'{sample_name}_shap' in lf]
+                lf for lf in log_files_name if f'{sample_name}_shap_[1, 1]' in lf]
 
             for shap_log_file in shap_log_files:
                 with open(os.path.join(log_dir_path, shap_log_file))as f:

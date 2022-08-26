@@ -1,0 +1,24 @@
+
+
+[08/25/2022, 23:38:49] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-csms csms]
+============== start ==============
+[08/25/2022, 23:38:51] [get categorical paper data for /Users/yinnnyou/workspace/s2search/pipelining/exp-csms csms]
+============== end 6680 ==============
+
+
+[08/25/2022, 23:38:51] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-csms csms]
+============== start ==============
+[08/25/2022, 23:38:51] [sampling shap explainer training for /Users/yinnnyou/workspace/s2search/pipelining/exp-csms csms]
+============== end 1 ==============
+
+
+[08/25/2022, 23:38:51] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-csms csms]
+============== start ==============
+instances left: 671
+estimating time left: 0:00:18.586700
+---- 1000:63000
+instances left: -329
+estimating time left: -1 day, 23:59:52.334300
+---- 2000:105210
+[08/25/2022, 23:39:38] [sampling shap sv computing for /Users/yinnnyou/workspace/s2search/pipelining/exp-csms csms]
+============== end 105210 ==============
