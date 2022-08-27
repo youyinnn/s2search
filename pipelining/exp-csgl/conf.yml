@@ -1,0 +1,10 @@
+description: ""
+samples:
+  csgl:
+    smpshap:
+      query: "General Literature"
+      task:
+        - range: [1, 1]
+          cpu: [0]
+    masking:
+      - query: "General Literature"
