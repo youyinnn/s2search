@@ -1,3 +1,4 @@
+import pandas as pd
 import getting_data
 import os
 import sys
@@ -9,6 +10,7 @@ from process import s2search_score_anchor
 import plotting_nb_gen
 import ranker_helper
 import shapley_value
+from tqdm.notebook import tqdm
 
 method_key = [
     # 'pdp_1w',
@@ -68,9 +70,16 @@ class XaiProcess:
             }
 
     def ale(self, is_2w=False):
+        print("--------", self.sample_configs)
         for sample_name in self.sample_configs.keys():
-            sample_config = self.get_sample_config_for_this_method(sample_name,
-                                                                   'ale_2w' if is_2w else 'ale_1w')
+            sample_config = self.get_sample_config_for_this_method(
+                sample_name,
+                'ale_2w' if is_2w else 'ale_1w'
+            )
+            print("=================")
+            print(self.exp_dir_path)
+            print(self.get_data_info(sample_name))
+            print("=================")
             s2search_score_ale.get_ale_and_save_score(
                 self.exp_dir_path, is_2w, sample_config, self.get_data_info(sample_name))
             plotting_nb_gen.gen_for_ale(
@@ -85,12 +94,80 @@ class XaiProcess:
             s2search_score_pipelining.masking_score(os.path.join(
                 self.work_dir, 'pipelining'), self.exp_name, self.get_data_info(sample_name), sample_config)
 
-    def shapley_value(self):
+    def shapley_value(self, directly=True):
         self.masking()
+        sv_rs = {}
         for sample_name in self.sample_configs.keys():
-            plotting_nb_gen.gen_for_shapley_value(
-                self.exp_name, self.description, [sample_name])
-            shapley_value.compute_shapley_value(self.exp_name, sample_name)
+            if not directly:
+                plotting_nb_gen.gen_for_shapley_value(
+                    self.exp_name, self.description, [sample_name])
+                shapley_value.compute_shapley_value(self.exp_name, sample_name)
+            else:
+                sv_rs[sample_name] = shapley_value.compute_shapley_value(
+                    self.exp_name, sample_name)
+        return sv_rs
+
+    def ale_scores(self):
+        ale_rs = {
+        }
+
+        def salient_rank(*larg, **kwarg):
+            return ranker_helper.get_scores(*larg, ptf=False, **kwarg)
+        with tqdm(
+            total=len(self.sample_configs.keys()),
+            desc=f"",
+            position=0,
+        ) as pbar1:
+            for sample_name in self.sample_configs.keys():
+                pbar1.set_description(
+                    f"Calculating ALE Scores for {sample_name}")
+                # print(sample_name)
+                ale_rs_for_sample = {
+                    'title': 0,
+                    'abstract': 0,
+                    'venue': 0,
+                    'authors': 0,
+                    'year': 0,
+                    'n_citations': 0,
+                }
+                sample_config = self.sample_configs[sample_name]
+                ale_config = sample_config['ale_1w'][0]
+                with tqdm(
+                    total=len(ale_rs_for_sample.keys()),
+                    position=1,
+                    leave=True
+                ) as pbar2:
+                    for cate_key in ale_rs_for_sample.keys():
+                        pbar2.set_description(f"Feature: {cate_key}")
+                        task_name = f"ale_scores_{sample_name}_{cate_key}"
+                        df = getting_data.load_sample(
+                            self.exp_name,
+                            sample_name,
+                            sort=cate_key,
+                            rank_f=salient_rank,
+                            query=ale_config['query'],
+                            task_name=task_name + "_load_sample"
+                        )
+
+                        # display(df)
+                        ale_rs_for_sample[cate_key] = s2search_score_ale.get_ale_from_config_directly(
+                            df, cate_key, query=ale_config['query'],
+                            quantile_config=ale_config['quantiles'],
+                            task_name=task_name + "_get_ale"
+                        )
+                        pbar2.update(1)
+                ale_rs[sample_name] = ale_rs_for_sample
+                pbar1.update(1)
+        return pd.DataFrame(ale_rs)
+
+    def ale_exp_sum(self, ale_rs):
+        ale_exp_sum = {}
+        for ds_name, ale_scores_map in ale_rs.items():
+            ds_exp_sum = {}
+            for feature in ale_scores_map.keys():
+                ds_exp_sum[feature] = ale_scores_map[feature].mean().item()
+            ale_exp_sum[ds_name] = ds_exp_sum
+        return pd.DataFrame(ale_exp_sum)
 
     def check_query(self):
         def _percentage(count, total):
@@ -286,6 +363,10 @@ if __name__ == '__main__':
 
         method = [md.replace('--', '')
                   for md in sys.argv if md.startswith('--')][0]
+
+        print(exp_list)
+        print(task_number_from_arg)
+        print(method)
 
         for exp_name in exp_list:
             if method not in method_key:

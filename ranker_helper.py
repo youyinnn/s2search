@@ -19,6 +19,7 @@ utc_tz = pytz.timezone('America/Montreal')
 mem = psutil.virtual_memory()
 zj = float(mem.total) / 1024 / 1024 / 1024
 work_load = 1 if math.ceil(zj / 16) == 1 else math.ceil(zj / 16)
+# work_load = 1
 if os.environ.get('S2_MODEL_WORKLOAD') != None:
     print('using env workload')
     work_load = int(os.environ.get('S2_MODEL_WORKLOAD'))

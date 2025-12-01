@@ -1,3 +1,4 @@
+from io import StringIO
 import json
 import os
 import numpy as np
@@ -160,7 +161,7 @@ def load_sample(exp_name, sample_name, sort=None, del_f=['id', 's2_id'],
         else:
             # masking
             df = pd.read_json(
-                f"[{','.join(list(map(lambda x: json.dumps(x), data)))}]")
+                StringIO(f"[{','.join(list(map(lambda x: json.dumps(x), data)))}]"))
             dfd = df.drop([x for x in feature_key_list if x != sort], axis=1)
             masked_paper = json.loads(dfd.to_json(orient='records'))
             # ranking
@@ -173,7 +174,9 @@ def load_sample(exp_name, sample_name, sort=None, del_f=['id', 's2_id'],
                 'authors': 'category' if author_as_str else 'object',
             })
 
-    return pd.read_json(f"[{','.join(list(map(lambda x: json.dumps(x), data)))}]").astype({
+    return pd.read_json(
+        StringIO(f"[{','.join(list(map(lambda x: json.dumps(x), data)))}]")
+    ).astype({
         'title': 'category',
         'abstract': 'category',
         'venue': 'category',

@@ -1,3 +1,4 @@
+from tqdm.auto import tqdm
 from s2search.rank import S2Ranker
 import time
 import os
@@ -65,8 +66,8 @@ def txt_to_npy(exp_dir, exp_name, sample_name, task_name, masking_option_key, et
         exp_dir, 'scores', f'{exp_name}_{sample_name}_{task_name}_{masking_option_key}')
     np.savez_compressed(complete_file, arr)
     os.remove(incomplete_file)
-    print(
-        f'Score computing for {exp_name}_{sample_name}_{task_name}_{masking_option_key} is done within {et} sec.')
+    # print(
+    #     f'Score computing for {exp_name}_{sample_name}_{task_name}_{masking_option_key} is done within {et} sec.')
 
 
 def masking_score(pipelining_dir, exp_name, data_info, sample_config):
@@ -76,7 +77,6 @@ def masking_score(pipelining_dir, exp_name, data_info, sample_config):
     sample_src_exp_name = data_info['sample_src_exp_name']
 
     exp_dir_path_str = str(os.path.join(pipelining_dir, exp_name))
-
     t_count = 0
     for task in sample_config:
         t_count += 1
@@ -152,37 +152,64 @@ def masking_score(pipelining_dir, exp_name, data_info, sample_config):
                     f'Scores of {exp_name}_{current_sample_name}_t{t_count}_origin.npz exist, should pass')
 
         # computing for masking
-        for key in sample_masking_option_keys:
-            paper_data = []
-            feature_masked_npy_file = path.join(
-                exp_dir_path_str, 'scores', f'{exp_name}_{current_sample_name}_t{t_count}_{key}.npz')
-            if not os.path.exists(feature_masked_npy_file):
-                incomplete_original_npy_file = path.join(
-                    exp_dir_path_str, 'scores', f'{exp_name}_{current_sample_name}_t{t_count}_{key}#incomplete.txt')
-                if path.exists(incomplete_original_npy_file):
-                    with open(incomplete_original_npy_file) as f:
-                        previous_progress = len(f.readlines())
-                        print(
-                            f'continue computing: {feature_masked_npy_file}')
-                else:
-                    previous_progress = 0
-                    print(
-                        f'start computing: {feature_masked_npy_file}')
+        with tqdm(total=len(sample_masking_option_keys), leave=True) as pb:
+            for key in sample_masking_option_keys:
+                key_list = ["x", "x", "x", "x", "x", "x"]
+                if 't' in key:
+                    key_list[0] = "title"
+                if 'abs' in key:
+                    key_list[1] = "abstract"
+                if 'v' in key:
+                    key_list[2] = "venue"
+                if 'au' in key:
+                    key_list[3] = "authors"
+                if 'y' in key:
+                    key_list[4] = "year"
+                if 'c' in key:
+                    key_list[5] = "n_citations"
 
-                with open(str(data_file_path)) as f:
-                    start_record_paper_count(
-                        f'{exp_name}_{current_sample_name}_t{t_count}_{key}')
-                    line_count = 0
-                    idx = 0
-                    st = time.time()
-                    for line in f:
-                        idx += 1
-                        if (idx <= previous_progress):
-                            continue
-                        paper_data.append(json.loads(
-                            line.strip(), strict=False))
-                        line_count += 1
-                        if (line_count == data_loading_line_limit):
+                paper_data = []
+                feature_masked_npy_file = path.join(
+                    exp_dir_path_str, 'scores', f'{exp_name}_{current_sample_name}_t{t_count}_{key}.npz')
+                if not os.path.exists(feature_masked_npy_file):
+                    incomplete_original_npy_file = path.join(
+                        exp_dir_path_str, 'scores', f'{exp_name}_{current_sample_name}_t{t_count}_{key}#incomplete.txt')
+                    if path.exists(incomplete_original_npy_file):
+                        with open(incomplete_original_npy_file) as f:
+                            previous_progress = len(f.readlines())
+                            pb.set_description_str(
+                                f'continue computing: {key_list}')
+                    else:
+                        previous_progress = 0
+                        pb.set_description_str(
+                            f'start computing: {key_list}')
+
+                    with open(str(data_file_path)) as f:
+                        start_record_paper_count(
+                            f'{exp_name}_{current_sample_name}_t{t_count}_{key}')
+                        line_count = 0
+                        idx = 0
+                        st = time.time()
+                        for line in f:
+                            idx += 1
+                            if (idx <= previous_progress):
+                                continue
+                            paper_data.append(json.loads(
+                                line.strip(), strict=False))
+                            line_count += 1
+                            if (line_count == data_loading_line_limit):
+                                paper_data = fm.masking_with_option(
+                                    paper_data, fm.masking_options[key])
+                                get_scores_and_save([
+                                    sample_query,
+                                    paper_data,
+                                    exp_dir_path_str,
+                                    f'{exp_name}_{current_sample_name}_t{t_count}_{key}',
+                                    key,
+                                ])
+                                paper_data = []
+                                line_count = 0
+                        if len(paper_data) > 0:
                             paper_data = fm.masking_with_option(
                                 paper_data, fm.masking_options[key])
                             get_scores_and_save([
@@ -192,25 +219,16 @@ def masking_score(pipelining_dir, exp_name, data_info, sample_config):
                                 f'{exp_name}_{current_sample_name}_t{t_count}_{key}',
                                 key,
                             ])
-                            paper_data = []
-                            line_count = 0
-                    if len(paper_data) > 0:
-                        paper_data = fm.masking_with_option(
-                            paper_data, fm.masking_options[key])
-                        get_scores_and_save([
-                            sample_query,
-                            paper_data,
-                            exp_dir_path_str,
-                            f'{exp_name}_{current_sample_name}_t{t_count}_{key}',
-                            key,
-                        ])
-                    end_record_paper_count(
-                        f'{exp_name}_{current_sample_name}_t{t_count}_{key}')
-                    txt_to_npy(exp_dir_path_str, exp_name,
-                               current_sample_name, f't{t_count}', key, round(time.time() - st, 6))
-            else:
-                print(
-                    f'Scores of {exp_name}_{current_sample_name}_t{t_count}_{key}.npz exist, should pass')
+                        end_record_paper_count(
+                            f'{exp_name}_{current_sample_name}_t{t_count}_{key}')
+                        txt_to_npy(exp_dir_path_str, exp_name,
+                                   current_sample_name, f't{t_count}', key, round(time.time() - st, 6))
+                else:
+                    # print(
+                    #     f'Scores of {exp_name}_{current_sample_name}_t{t_count}_{key}.npz exist')
+                    pb.set_description_str(f'Masked scores {key_list} exists')
+                pb.update(1)
+
     print(f'Done with {exp_name} {current_sample_name}')
 
 

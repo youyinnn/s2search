@@ -6,6 +6,7 @@ from math import factorial, ceil
 import pandas as pd
 import multiprocessing
 from multiprocessing import Pool
+from feature_masking import mp
 
 feature_key_list = ['t', 'abs', 'v', 'au', 'y', 'c']
 all_ = 'tabsvauyc'
@@ -170,7 +171,8 @@ def compute_shapley_value(exp_name, sample_name):
                 data.append(o)
 
         df = pd.DataFrame(
-            columns=[f'{f}_sv' for f in feature_key_list], data=data)
+            # columns=[f'{f}_sv' for f in feature_key_list], data=data)
+            columns=[mp[f] for f in feature_key_list], data=data)
         df.to_csv(csv_path, index_label=False)
 
     return df
